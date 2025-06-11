@@ -7,9 +7,16 @@
   <link rel="icon" href="favicon.ico" type="image/x-icon">
   <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" />
   <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script>
   <style>
+    /* Tighten footer link spacing */
+    .site-footer nav a,
+    .site-footer nav .link-text {
+      margin-right: 0;
+      padding-right: 0;
+    }
     .work-summary {
       flex: 1 1 340px;
       max-width: 340px;
@@ -312,7 +319,7 @@
       <div class="main-content other-designs">
         <section class="work-summary">
           <h2>Other Designs</h2>
-          <p>A collection of pressbook materials created with Canva through explorations into graphic design and film reviews.</p>
+          <p>A collection of pressbook materials created with Affinity Photo and Canva through explorations into graphic design and film reviews.</p>
         </section>
         <section class="projects-section">
           <div class="project">
@@ -374,13 +381,7 @@
         </section>
       </div>
     <footer class="site-footer" style="width: 100%; margin-top: auto; text-align: center; padding: 2rem 0 1rem;">
-      <nav>
-        <a href="https://github.com/RhythmD22" target="_blank">GitHub</a>
-        <span>/</span>
-        <a href="https://www.linkedin.com/in/rhythm-desai-965b5b152" target="_blank">LinkedIn</a>
-        <span>/</span>
-        <a href="mailto:rhythmdesai22@gmail.com">Email</a>
-      </nav>
+      <nav><a href="https://github.com/RhythmD22" target="_blank"><i class="fab fa-github" aria-hidden="true"></i><span class="link-text">GitHub</span></a><span>/</span> <a href="https://www.linkedin.com/in/rhythm-desai" target="_blank"><i class="fab fa-linkedin" aria-hidden="true"></i><span class="link-text">LinkedIn</span></a><span>/</span> <a href="mailto:rhythmdesai22@gmail.com"><i class="fas fa-envelope" aria-hidden="true"></i><span class="link-text">Email</span></a></nav>
       <p>© 2024 Rhythm Desai</p>
     </footer>
   </div>
