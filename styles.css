@@ -1,0 +1,168 @@
+/*——————————————————————————
+  Base styles for all pages
+——————————————————————————*/
+
+/* load your Inter font */
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100..900;1,100..900&display=swap');
+
+html {
+  font-family: 'Inter', sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-weight: 300;
+  background: #faefd8;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  box-sizing: border-box;
+}
+
+/*——————————————————————————
+  Header
+——————————————————————————*/
+.site-header {
+  width: 100%;
+  padding: 1.5rem 0 0;
+  margin: 0;
+  position: relative; /* if you use absolute/relative children */
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 0 2rem;
+  box-sizing: border-box;
+}
+
+
+.header-nav {
+  display: flex;
+  gap: 2.5rem;
+}
+.header-nav a {
+  font-weight: 300;
+  color: black;
+  text-transform: uppercase;
+  text-decoration: none;
+  letter-spacing: 0.10em;
+  font-size: 0.875rem;
+}
+
+.header-nav a:hover {
+  text-decoration: underline;
+  text-decoration-color: rgb(255, 111, 0);
+  color: black;
+}
+
+.header-left a {
+  text-decoration: none;
+  color: black;
+}
+
+.header-left {
+  margin: 0;
+}
+.header-name.fw-medium {
+  font-size: 1.4rem;
+  margin: 0;
+  letter-spacing: 0em;
+}
+
+.header-left a:hover {
+  text-decoration: underline;
+  text-decoration-color: black;
+}
+
+/* Intro/Description section */
+.description-container {
+  flex: 1;
+  padding-top: 15vh;
+}
+
+.intro {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  gap: 3rem;
+}
+
+.intro-text {
+  background-color: #faefd8;
+  padding: 2rem;
+  margin: 4rem 2rem 0 6rem;
+  max-width: 480px;
+  border-radius: 4px;
+  font-weight: 300;
+}
+
+/* Work page main content layout */
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  max-width: 1200px;
+  box-sizing: border-box;
+  margin: 0 auto;
+  padding: 3.5rem 2rem 2rem 2rem;
+  gap: 4rem;
+  align-items: flex-start;
+}
+
+/*——————————————————————————
+  Footer
+——————————————————————————*/
+.site-footer {
+  margin-top: auto;
+  padding: 2rem 0 1rem;
+  width: 100%;
+  text-align: center;
+}
+
+.site-footer nav a {
+  color: black;
+  text-decoration: none;
+}
+
+.site-footer nav a:hover {
+  text-decoration: underline;
+  text-decoration-color: rgb(255, 111, 0);
+  color: black;
+}
+
+.site-footer nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.site-footer nav span {
+  margin: 0 0.4rem;
+  color: black;
+}
+
+.site-footer p {
+  margin-top: 0.5rem;
+  font-size: 0.875rem;
+  color: #232323;
+}
+
+/*——————————————————————————
+  Font-weight utility classes
+——————————————————————————*/
+.fw-light    { font-weight: 300; }
+.fw-regular  { font-weight: 400; }
+.fw-medium   { font-weight: 500; }
+.fw-semibold { font-weight: 600; }
+.fw-bold     { font-weight: 700; }
