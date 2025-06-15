@@ -2,6 +2,14 @@
 
 This repository contains Rhythm Desai's personal portfolio website. It showcases design and front-end projects along with interactive fiction built in Twine.
 
+## Getting Started
+
+1. Clone this repository.
+2. Launch a local web server from the project directory:
+   `python3 -m http.server`
+   Then open <http://localhost:8000/index.html> in your browser. You can also open `index.html` directly without a server.
+3. You can also view the portfolio online at <https://rhythmd22.github.io/Portfolio/>.
+
 ## Directory Overview
 
 - **Images/** – Screenshots, mockups and other graphics used throughout the site.
@@ -17,8 +25,3 @@ This repository contains Rhythm Desai's personal portfolio website. It showcases
 - **styles.css** – Shared styling for all pages.
 - **templates.js** – Injects the shared header and footer into each page.
 - **favicon.ico** – Browser tab icon.
-
-## Running the Site Locally
-
-1. Clone or download the repository.
-2. Open `index.html` in your browser. You can also run a simple server (for example `python3 -m http.server`) and navigate to `http://localhost:8000` for a local preview.
