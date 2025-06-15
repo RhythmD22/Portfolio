@@ -166,3 +166,56 @@ body {
 .fw-medium   { font-weight: 500; }
 .fw-semibold { font-weight: 600; }
 .fw-bold     { font-weight: 700; }
+
+/* Utility classes extracted from repeated inline styles */
+.center-flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.scroll-top-btn {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+.section-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.page-title {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.info-meta {
+  font-size: 0.9rem;
+  text-align: left;
+  line-height: 1.8;
+}
+
+.caption {
+  font-size: 0.85rem;
+  color: #555;
+  text-align: center;
+  margin: 0.5rem 0 1rem;
+}
+
+.full-image {
+  width: 100%;
+  height: auto;
+}
+
+.screenshot-img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  border: 1px solid rgba(0,0,0,0.1);
+}
