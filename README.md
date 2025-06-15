@@ -6,6 +6,8 @@ This repository contains Rhythm Desai's personal portfolio website. It showcases
 
 - **Images/** – Screenshots, mockups and other graphics used throughout the site.
 - **Twine/** – Published Twine HTML stories.
+- **header.html** – Shared header snippet included on each page.
+- **footer.html** – Shared footer snippet included on each page.
 - **Financier.html** – Project page for a college budgeting web app.
 - **SmartShuttle.html** – Project page for a campus shuttle tracking concept.
 - **Twine.html** – Landing page introducing the Twine interactive fiction projects.
@@ -13,6 +15,8 @@ This repository contains Rhythm Desai's personal portfolio website. It showcases
 - **index.html** – Home page with a short bio and site navigation.
 - **Resume.pdf** – Printable résumé.
 - **styles.css** – Shared styling for all pages.
+- **templates.js** – Injects the shared header and footer into each page.
+- **favicon.ico** – Browser tab icon.
 
 ## Running the Site Locally
 
