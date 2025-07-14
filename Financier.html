@@ -8,12 +8,38 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css" />
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
   <style>
     /* Tighten footer link spacing */
     .site-footer nav a,
     .site-footer nav .link-text {
       margin-right: 0;
       padding-right: 0;
+    }
+
+    /* Limit Fancybox clickable area to image only */
+    .image-link {
+      display: inline-block !important;
+      width: fit-content !important;
+      height: fit-content !important;
+      line-height: 0 !important;
+      padding: 0 !important;
+      margin: 0 !important;
+      font-size: 0 !important;
+      overflow: hidden !important;
+      position: relative !important;
+      box-sizing: content-box !important;
+    }
+
+    .image-link img {
+      display: block !important;
+      width: 100% !important; /* Make image fill the container exactly */
+      height: auto !important;
+      margin: 0 !important;
+      padding: 0 !important;
+      box-sizing: border-box !important;
+      border: none !important;
     }
   </style>
 </head>
@@ -39,8 +65,10 @@
       <div style="font-size: 1.15rem;">
         <p>College students often face the challenge of budgeting without a steady income, especially during the school year. Many budgeting apps assume regular income streams, making it difficult for students who rely on savings or sporadic transfers. A common desire is a simple, low-cost tool that tracks spending while accommodating student-specific needs like meal planning and flexible financial goals. Without tools that reflect their unique situations, students struggle to stay on budget and miss out on opportunities like goal-based saving.</p>
       </div>
-      <div style="margin: 2rem 0 2rem;">
-        <img loading="lazy" src="Images/iGrad.png" alt="iGrad Budgeting Tool Screenshot" class="full-image" style="border: 1px solid #ccc;" />
+      <div style="margin: 4rem 0 2rem;">
+        <a href="Images/iGrad.png" class="image-link" style="width: 100% !important;" data-fancybox="iGrad" data-caption="iGrad website">
+          <img loading="lazy" src="Images/iGrad.png" alt="iGrad Budgeting Tool Screenshot" style="border: 1px solid #ccc;" />
+        </a>
         <p class="caption">iGrad: Budget Tool</p>
       </div>
     </main>
@@ -52,17 +80,23 @@
         <p>This was a solo project completed as part of an independent study capstone. I conducted all user research, designed the interface in Figma, and developed the web application using HTML, CSS, and JavaScript. Responsibilities included designing and executing interviews, analyzing student budgeting needs, designing and prototyping a mockup, and building a responsive and fully functional web app from the ground up.</p>
       </div>
     </main>
-    <div style="display: flex; justify-content: center; align-items: flex-start; gap: 2rem; margin: 2rem auto; max-width: 1200px;">
+    <div style="display: flex; justify-content: center; align-items: flex-start; gap: 2rem; margin: 6rem auto; max-width: 1200px;">
       <div style="width: 33%;">
-        <img loading="lazy" src="Images/Outline 1.png" alt="Outline Page 1" class="full-image" />
+        <a href="Images/Outline 1.png" class="image-link" style="width: 100% !important;" data-fancybox="financier-outline" data-caption="Project Description, Learning Objectives, Learning Outcomes">
+          <img loading="lazy" src="Images/Outline 1.png" class="image-link" style="height: auto;" alt="Outline Page 1"/>
+        </a>
         <p class="caption">Outline Page 1: Project Description, Learning Objectives, Learning Outcomes</p>
       </div>
       <div style="width: 33%;">
-        <img loading="lazy" src="Images/Outline 2.png" alt="Outline Page 2" class="full-image" />
+        <a href="Images/Outline 2.png" class="image-link" style="width: 100% !important;" data-fancybox="financier-outline" data-caption="Learning Outcomes cont., Deliverables">
+          <img loading="lazy" src="Images/Outline 2.png" class="image-link" style="height: auto;" alt="Outline Page 2"/>
+        </a>
         <p class="caption">Outline Page 2: Learning Outcomes cont., Deliverables</p>
       </div>
       <div style="width: 33%;">
-        <img loading="lazy" src="Images/Outline 3.png" alt="Outline Page 3" class="full-image" />
+        <a href="Images/Outline 3.png" class="image-link" style="width: 100% !important;" data-fancybox="financier-outline" data-caption="Deliverables Timeline, Research Plan">
+          <img loading="lazy" src="Images/Outline 3.png" class="image-link" style="height: auto;" alt="Outline Page 3"/>
+        </a>
         <p class="caption">Outline Page 3: Deliverables Timeline, Research Plan</p>
       </div>
     </div>
@@ -121,46 +155,48 @@
     <!-- Outlines and mockup moved below white card -->
     <div style="display: flex; justify-content: center; align-items: flex-start; gap: 2rem; margin: 4rem auto 0; max-width: 1200px; position: relative;">
       <div style="width: 40%; display: flex; flex-direction: column; align-items: center;">
-        <div style="position: relative; top: 0px; width: 100%;">
+        <div style="position: relative; top: 0px; width: 100%; z-index: 2;">
           <div style="background: #fff; border-radius: 8px; padding: 1rem 1.5rem; margin-bottom: 0; box-shadow: 0 0 8px rgba(0,0,0,0.1); width: 100%; text-align: center;">Landing Page</div>
           <p style="font-size: 1rem; text-align: center; margin: 1rem 0;">
             This landing page welcomes users with an overview of Financier's core features. Nearly all icons in this application are taken from the SF Symbols library to ensure stylistic consistency and a clean, native Apple-inspired aesthetic.
           </p>
         </div>
-        <div style="position: relative; top: 34px; width: 100%;">
+        <div style="position: relative; top: 34px; width: 100%; z-index: 2;">
           <div style="background: #fff; border-radius: 8px; padding: 1rem 1.5rem; margin-bottom: 0; box-shadow: 0 0 8px rgba(0,0,0,0.1); width: 100%; text-align: center;">Goals & Categories</div>
           <p style="font-size: 1rem; text-align: center; margin: 1rem 0;">
             On this page, users create and track financial goals and explore organized categories of their choice.
           </p>
         </div>
-        <div style="position: relative; top: 359px; width: 100%;">
+        <div style="position: relative; top: 359px; width: 100%; z-index: 2;">
           <div style="background: #fff; border-radius: 8px; padding: 1rem 1.5rem; margin-bottom: 0; box-shadow: 0 0 8px rgba(0,0,0,0.1); width: 100%; text-align: center;">Track Transactions</div>
           <p style="font-size: 1rem; text-align: center; margin: 1rem 0;">
             Here, users log income and expenses, assign categories, and plan out their meals.
           </p>
         </div>
-        <div style="position: relative; top: 1073px; width: 100%;">
+        <div style="position: relative; top: 1073px; width: 100%; z-index: 2;">
           <div style="background: #fff; border-radius: 8px; padding: 1rem 1.5rem; margin-bottom: 0; box-shadow: 0 0 8px rgba(0,0,0,0.1); width: 100%; text-align: center;">Analytics</div>
           <p style="font-size: 1rem; text-align: center; margin: 1rem 0;">
             This section visualizes financial data with dynamic bar and pie charts. Green segments indicate healthy savings or income, and red segments flag overspending or budget breaches. Users can toggle between weekly and monthly views to track trends and spot areas for improvement. A CSV export button in the top right lets users download their data for external analysis.
           </p>
         </div>
-        <div style="position: relative; top: 1169px; width: 100%;">
+        <div style="position: relative; top: 1169px; width: 100%; z-index: 2;">
           <div style="background: #fff; border-radius: 8px; padding: 1rem 1.5rem; margin-bottom: 0; box-shadow: 0 0 8px rgba(0,0,0,0.1); width: 100%; text-align: center;">Calculator</div>
           <p style="font-size: 1rem; text-align: center; margin: 1rem 0;">
             A built-in calculator helps perform quick financial calculations and keeps a history log. The SF Mono typeface ensures aligned, easy-to-read digits and complements the SF Symbols icon set used throughout for a consistent, clean visual language.
           </p>
         </div>
-        <div style="position: relative; top: 1182px; width: 100%;">
+        <div style="position: relative; top: 1182px; width: 100%; z-index: 2;">
           <div style="background: #fff; border-radius: 8px; padding: 1rem 1.5rem; margin-bottom: 0; box-shadow: 0 0 8px rgba(0,0,0,0.1); width: 100%; text-align: center;">Money Tips</div>
           <p style="font-size: 1rem; text-align: center; margin: 1rem 0;">
             Curated money-saving tips by category—Textbook (light navy for trust and learning), Food & Dining (orange for energy and appetite), Shopping Smart (green for growth), Finance (gold for value), Transportation (teal for clarity), Housing & Utilities (reddish-orange for warmth), Health & Wellness (pink for care), Entertainment (purple for creativity)—each color symbolizes its theme and guides students to the right advice.
           </p>
         </div>
       </div>
-      <div style="width: 60%;">
+      <div style="width: 60%; position: relative; z-index: 1;">
         <div style="margin-bottom: 2rem;">
-          <img loading="lazy" src="Images/Financier Mockup.png" alt="Financier App Mockup" class="full-image" />
+        <a href="Images/Financier Mockup.png" class="image-link" style="width: 100% !important;" data-fancybox="financier-mockup" data-caption="Interactive Budgeting App Mockup in Figma">
+          <img loading="lazy" src="Images/Financier Mockup.png" class="image-link" style="height: auto;" alt="Financier App Mockup"/>
+        </a>
           <p class="caption">Financier: Interactive Budgeting App Mockup in Figma</p>
         </div>
       </div>
@@ -229,4 +265,19 @@
   });
 </script>
 </body>
+<script>
+  Fancybox.bind('[data-fancybox]', {
+    Toolbar: {
+      display: [
+        { id: "counter", position: "center" },
+        "zoom",
+        "fullscreen",
+        "close"
+      ]
+    },
+    caption: function(fancybox, carousel, slide) {
+      return slide.$trigger.dataset.caption;
+    }
+  });
+</script>
 </html>

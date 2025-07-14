@@ -8,12 +8,38 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css" />
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
   <style>
     /* Tighten footer link spacing */
     .site-footer nav a,
     .site-footer nav .link-text {
       margin-right: 0;
       padding-right: 0;
+    }
+
+    /* Limit Fancybox clickable area to image only */
+    .image-link {
+      display: inline-block !important;
+      width: fit-content !important;
+      height: fit-content !important;
+      line-height: 0 !important;
+      padding: 0 !important;
+      margin: 0 !important;
+      font-size: 0 !important;
+      overflow: hidden !important;
+      position: relative !important;
+      box-sizing: content-box !important;
+    }
+
+    .image-link img {
+      display: block !important;
+      width: 100% !important; /* Make image fill the container exactly */
+      height: auto !important;
+      margin: 0 !important;
+      padding: 0 !important;
+      box-sizing: border-box !important;
+      border: none !important;
     }
   </style>
 </head>
@@ -32,7 +58,7 @@
         <p><strong>TIMELINE</strong><br>3 weeks in Fall 2024</p>
       </div>
     </main>
-      <main class="main-content center-flex" style="gap: 6rem; padding: 2rem; margin-top: 4rem; margin-bottom: 6rem;">
+      <main class="main-content center-flex" style="gap: 6rem; padding: 2rem; margin-top: 8rem; margin-bottom: 6rem;">
       <div style="max-width: 60%;">
         <h1 class="section-title">Inspiration</h1>
       </div>
@@ -45,9 +71,13 @@
         <h1 class="section-title">Phase 1</h1>
       </div>
       <div style="display: flex; gap: 6rem; align-items: flex-end;">
-        <img src="Images/Phase 1.png" alt="Phase 1 diagram" style="max-width: 33.333%; height: auto;">
-        <img src="Images/Phase 1-2.png" alt="Phase 1-2 diagram" style="max-width: 33.333%; height: auto;">
-      </div>
+        <a href="Images/Phase 1.png" class="image-link" style="width: 40% !important;" data-fancybox="smartshuttle-outline-1" data-caption="Phase 1 Outline">
+          <img src="Images/Phase 1.png" alt="Phase 1 diagram" style="height: auto;">
+        </a>
+        <a href="Images/Phase 1-2.png" class="image-link" style="width: 40% !important;" data-fancybox="smartshuttle-outline-1" data-caption="Phase 1 Outline cont.">
+          <img src="Images/Phase 1-2.png" alt="Phase 1-2 diagram" style="height: auto;">
+        </a>
+        </div>
     </main>
       <main class="main-content center-flex" style="padding: 2rem; margin-top: -8rem; margin-bottom: 6rem;">
       <div style="max-width: 60%; text-align: center;">
@@ -59,9 +89,13 @@
         <h1 class="section-title">Phase 2</h1>
       </div>
       <div style="display: flex; gap: 6rem; align-items: flex-end;">
-        <img src="Images/Phase 2.png" alt="Phase 2 diagram" style="max-width: 33.333%; height: auto;">
-        <img src="Images/Phase 2-2.png" alt="Phase 2-2 diagram" style="max-width: 33.333%; height: auto;">
-      </div>
+        <a href="Images/Phase 2.png" class="image-link" style="width: 40% !important;" data-fancybox="smartshuttle-outline-2" data-caption="Phase 2 Outline">
+          <img src="Images/Phase 2.png" alt="Phase 1 diagram" style="height: auto;">
+        </a>
+        <a href="Images/Phase 2-2.png" class="image-link" style="width: 40% !important;" data-fancybox="smartshuttle-outline-2" data-caption="Phase 2 Outline cont.">
+          <img src="Images/Phase 2-2.png" alt="Phase 1-2 diagram" style="height: auto;">
+        </a>
+        </div>
     </main>
       <main class="main-content center-flex" style="padding: 2rem; margin-top: -8rem; margin-bottom: 6rem;">
       <div style="max-width: 60%; text-align: center;">
@@ -73,9 +107,13 @@
         <h1 class="section-title">Phase 3</h1>
       </div>
       <div style="display: flex; gap: 6rem; align-items: flex-end;">
-        <img src="Images/Phase 3.png" alt="Phase 3 diagram" style="max-width: 33.333%; height: auto;">
-        <img src="Images/Phase 3-2.png" alt="Phase 3-2 diagram" style="max-width: 33.333%; height: auto;">
-      </div>
+        <a href="Images/Phase 3.png" class="image-link" style="width: 40% !important;" data-fancybox="smartshuttle-outline-3" data-caption="Phase 3 Outline">
+          <img src="Images/Phase 3.png" alt="Phase 1 diagram" style="height: auto;">
+        </a>
+        <a href="Images/Phase 3-2.png" class="image-link" style="width: 40% !important;" data-fancybox="smartshuttle-outline-3" data-caption="Phase 3 Outline cont.">
+          <img src="Images/Phase 3-2.png" alt="Phase 1-2 diagram" style="height: auto;">
+        </a>
+        </div>
     </main>
     <main class="main-content center-flex" style="padding: 2rem; margin-top: -8rem; margin-bottom: 6rem;">
       <div style="max-width: 60%; text-align: center;">
@@ -120,4 +158,19 @@
   });
 </script>
 </body>
+<script>
+  Fancybox.bind('[data-fancybox]', {
+    Toolbar: {
+      display: [
+        { id: "counter", position: "center" },
+        "zoom",
+        "fullscreen",
+        "close"
+      ]
+    },
+    caption: function(fancybox, carousel, slide) {
+      return slide.$trigger.dataset.caption;
+    }
+  });
+</script>
 </html>
