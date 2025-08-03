@@ -76,14 +76,20 @@
     }
     .main-content:not(.other-designs) .projects-section .project:nth-child(1) a:hover .project-thumbnail,
     .main-content:not(.other-designs) .projects-section .project:nth-child(2) a:hover .project-thumbnail,
-    .main-content:not(.other-designs) .projects-section .project:nth-child(3) a:hover .project-thumbnail {
-      filter: brightness(1.1);
+    .main-content:not(.other-designs) .projects-section .project:nth-child(3) a:hover .project-thumbnail,
+    .main-content:not(.other-designs) .projects-section .project:nth-child(4) a:hover .project-thumbnail {
+      animation: brightnessEffect 2s infinite;
       transform: scale(1.05);
       box-shadow: 0 4px 15px rgba(0,0,0,0.1);
     }
     .main-content:not(.other-designs) .projects-section .project:nth-child(2) a:hover .project-thumbnail {
       transform: translateX(-4%) scale(1.9);
     }
+
+    @keyframes brightnessEffect {
+      0%, 100% { filter: brightness(1); }
+      50% { filter: brightness(1.1); }
+}
 
     .project-thumbnail {
       background: #faefd8;
@@ -92,7 +98,7 @@
       box-shadow: 0 2px 10px rgba(0,0,0,0.05);
       margin-bottom: 1.2rem;
       display: block;
-      transition: transform 0.3s ease, filter 0.3s ease, box-shadow 0.3s ease;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
       cursor: pointer;
     }
 
