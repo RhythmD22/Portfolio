@@ -40,18 +40,15 @@
       flex-direction: column;
       gap: 2rem;
     }
-    /* Shift Selected Work thumbnails and titles to the right */
     .main-content:not(.other-designs) .projects-section .project {
       margin-left: 10rem !important;
     }
-    /* Move Selected Work section down */
     .main-content:not(.other-designs) {
       margin-top: 2rem !important;
     }
     .project {
       margin-bottom: 1.5rem;
     }
-    /* Generic wrapper for all project thumbnails (except Other Designs) */
     .main-content:not(.other-designs) .projects-section .project .project-thumbnail-wrapper {
       width: 100% !important;
       max-width: 670px !important;
@@ -62,7 +59,6 @@
       margin-bottom: 1rem;
       position: relative;
     }
-    /* Make thumbnails fill their wrapper (except Other Designs) */
     .main-content:not(.other-designs) .projects-section .project .project-thumbnail-wrapper .project-thumbnail {
       position: absolute;
       inset: 0;
@@ -73,15 +69,11 @@
       transform: none;
     }
 
-
-    /* SmartShuttle image */
+    /* SmartShuttle */
     .main-content:not(.other-designs) .projects-section .project:nth-child(2) .project-thumbnail {
-      /* Move left 4% then scale */
       transform: translateX(-4%) scale(1.8);
       transform-origin: center center;
     }
-
-    /* Hover effect: brighten, zoom, and shadow thumbnails */
     .main-content:not(.other-designs) .projects-section .project:nth-child(1) a:hover .project-thumbnail,
     .main-content:not(.other-designs) .projects-section .project:nth-child(2) a:hover .project-thumbnail,
     .main-content:not(.other-designs) .projects-section .project:nth-child(3) a:hover .project-thumbnail {
@@ -89,8 +81,6 @@
       transform: scale(1.05);
       box-shadow: 0 4px 15px rgba(0,0,0,0.1);
     }
-
-    /* SmartShuttle specific: adjust hover zoom */
     .main-content:not(.other-designs) .projects-section .project:nth-child(2) a:hover .project-thumbnail {
       transform: translateX(-4%) scale(1.9);
     }
@@ -105,18 +95,16 @@
       transition: transform 0.3s ease, filter 0.3s ease, box-shadow 0.3s ease;
       cursor: pointer;
     }
-    /* Override cursor for Other Designs thumbnails */
+
     .main-content.other-designs .projects-section .project-thumbnail {
       cursor: zoom-in !important;
     }
 
-    /* Remove extra bottom margins so row-gap applies uniformly */
     .main-content.other-designs .projects-section .project-thumbnail-wrapper,
     .main-content.other-designs .projects-section .project-thumbnail {
       margin-bottom: 0 !important;
     }
 
-    /* Shrink Other Designs thumbnails layout size */
     .main-content.other-designs .projects-section .project-thumbnail-wrapper .project-thumbnail {
       width: 75% !important;
       height: auto !important;
@@ -179,26 +167,21 @@
       grid-row-gap: 0 !important;
       grid-column-gap: 0.25rem !important;
     }
-    /* Restore full image frames for Other Designs */
     .main-content.other-designs .projects-section .project-thumbnail-wrapper {
       aspect-ratio: auto !important;
       height: auto !important;
       overflow: visible !important;
     }
-    /* Shrink-wrap project wrapper and anchor for Other Designs */
     .main-content.other-designs .projects-section .project .project-thumbnail-wrapper {
       display: inline-block !important;
       width: auto !important;
     }
-    /* Nudge left column items right without affecting right column */
     .main-content.other-designs .projects-section .project:nth-child(odd) .project-thumbnail-wrapper {
       transform: translateX(11rem) !important;
     }
-    /* Nudge right column items left without affecting left column */
     .main-content.other-designs .projects-section .project:nth-child(even) .project-thumbnail-wrapper {
       transform: translateX(6rem) !important;
     }
-    /* Only image link is clickable in Other Designs */
     .main-content.other-designs .projects-section .project-thumbnail-wrapper {
       pointer-events: none !important;
     }
@@ -211,32 +194,25 @@
       object-fit: contain !important;
     }
 
-
-    /* Move entire Other Designs section down */
     .main-content.other-designs {
       margin-top: 16rem !important;
     }
-    /* Shift Selected Work and Other Designs summaries left */
     .main-content .work-summary {
       margin-left: -2rem !important;
     }
-    /* Outer shadow on thumbnail wrapper only when hovered */
     .project-thumbnail-wrapper:hover {
       box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1) !important;
     }
-    /* Disable wrapper hover shadow for Other Designs to prevent frame spanning */
     .main-content.other-designs .project-thumbnail-wrapper:hover {
       box-shadow: none !important;
     }
 
-    /* Remove focus outline and box shadow when clicking Other Designs links */
     .main-content.other-designs .project-thumbnail-wrapper a:focus,
     .main-content.other-designs .project-thumbnail-wrapper a:active {
       outline: none !important;
       box-shadow: none !important;
     }
 
-      /* Reset Selected Work shift on narrower screens */
   @media (max-width: 1200px) {
     .main-content:not(.other-designs) .projects-section .project {
       margin-left: 0 !important;
@@ -245,14 +221,12 @@
       margin-left: 0 !important;
     }
   }
-  /* Collapse Other Designs to single column on tablets and smaller */
   @media (max-width: 900px) {
     .main-content.other-designs .projects-section {
       grid-template-columns: 1fr !important;
       gap: 1rem !important;
     }
   }
-  /* Adjust container padding on small screens */
   @media (max-width: 600px) {
     .container {
       padding: 0.5rem !important;
@@ -272,21 +246,21 @@
         </p>
       </section>
       <section class="projects-section">
-        <!-- Project 1: Website -->
+        <!-- Project 1: Financier -->
         <div class="project">
           <a href="Financier.html">
             <div class="project-thumbnail-wrapper">
-              <img src="Images/Financier Homepage.png" alt="Financier App Mockup" class="project-thumbnail">
+              <img src="Images/Financier Homepage.png" alt="Financier Project" class="project-thumbnail">
             </div>
           </a>
           <div class="project-title">Financier - College Budgeting Web App</div>
           <div class="project-meta">Web Design & Development</div>
         </div>
-        <!-- Project 2: App Mockup -->
+        <!-- Project 2: SmartShuttle -->
         <div class="project">
           <a href="SmartShuttle.html">
             <div class="project-thumbnail-wrapper">
-              <img src="Images/SmartShuttle Preview 1.png" alt="SmartShuttle App Mockup" class="project-thumbnail">
+              <img src="Images/SmartShuttle Preview 1.png" alt="SmartShuttle Project" class="project-thumbnail">
             </div>
           </a>
           <div class="project-title">SmartShuttle - Live Tracker</div>
@@ -302,6 +276,16 @@
           <div class="project-title">Twine Interactive Fiction</div>
           <div class="project-meta">Narrative Game Design</div>
         </div>
+        <!-- Project 4: Clash Royale Wireframe & Prototype Redesign -->
+        <div class="project">
+          <a href="Clash Royale Wireframe.html">
+            <div class="project-thumbnail-wrapper">
+              <img src="Images/Clash Royale.png" alt="Clash Royale Wireframe & Prototype Redesign" class="project-thumbnail">
+            </div>
+          </a>
+          <div class="project-title">Clash Royale Wireframe & Prototype Redesign</div>
+          <div class="project-meta">UX Redesign, Wireframe</div>
+        </div>
       </section>
     </main>
       <div class="main-content other-designs">
@@ -313,28 +297,28 @@
           <div class="project">
             <div class="project-thumbnail-wrapper">
               <a href="Images/BoP 1.png" data-fancybox="other-designs" data-caption="Character collage poster featuring the Birds of Prey ensemble">
-                <img src="Images/BoP 1.png" loading="lazy" alt="Other Design 1" class="project-thumbnail">
+                <img src="Images/BoP 1.png" loading="lazy" alt="BoP 1" class="project-thumbnail">
               </a>
             </div>
           </div>
           <div class="project">
             <div class="project-thumbnail-wrapper">
               <a href="Images/BoP 2.png" data-fancybox="other-designs" data-caption="'Freedom Looks Good On Me' promotional poster highlighting Harley Quinn">
-                <img src="Images/BoP 2.png" loading="lazy" alt="Other Design 2" class="project-thumbnail">
+                <img src="Images/BoP 2.png" loading="lazy" alt="BoP 2" class="project-thumbnail">
               </a>
             </div>
           </div>
           <div class="project">
             <div class="project-thumbnail-wrapper">
               <a href="Images/BoP 3.png" data-fancybox="other-designs" data-caption="Synopsis card displaying a detailed synopsis of Birds of Prey with review quotes">
-                <img src="Images/BoP 3.png" loading="lazy" alt="Other Design 3" class="project-thumbnail">
+                <img src="Images/BoP 3.png" loading="lazy" alt="BoP 3" class="project-thumbnail">
               </a>
             </div>
           </div>
           <div class="project">
             <div class="project-thumbnail-wrapper">
               <a href="Images/BoP 4.png" data-fancybox="other-designs" data-caption="Newspaper-style press reactions layout for Birds of Prey">
-                <img src="Images/BoP 4.png" loading="lazy" alt="Other Design 4" class="project-thumbnail">
+                <img src="Images/BoP 4.png" loading="lazy" alt="BoP 4" class="project-thumbnail">
               </a>
             </div>
           </div>
