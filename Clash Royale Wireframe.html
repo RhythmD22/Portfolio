@@ -49,14 +49,16 @@
 
     /* Responsive styles for mobile */
     @media screen and (max-width: 768px) {
-      /* Ensure container doesn't cause overflow */
-      .container {
-        max-width: 100vw !important;
-        overflow-x: hidden !important;
-      }
+    /* Ensure container doesn't cause overflow and reaches screen edges */
+    .container {
+      max-width: 100vw !important;
+      overflow-x: hidden !important;
+      padding: 0 !important;
+    }
       
-      /* Scale down all text proportionally */
+      /* Remove body margins to allow content to reach screen edges */
       body {
+        margin: 0 !important;
         font-size: 14px;
       }
       
@@ -192,31 +194,37 @@
     }
     
     #iframe-container {
-      width: 70vw !important;
-      max-width: 70vw !important;
+      width: 100% !important;
+      max-width: 100% !important;
+      margin: 0 !important;
+    }
+    
+    /* Remove centering margins from iframe container's parent */
+    .project-showcase > div[style*="margin: 0 auto"] {
+      margin: 0 !important;
     }
     
     .project-showcase div[style*="background: #ffffff"] {
-      width: 70vw !important;
-      max-width: 70vw !important;
+      width: 100% !important;
+      max-width: 100% !important;
       padding: 1rem !important;
-      margin: 0.25rem auto 0 !important;
+      margin: 2rem auto !important;
     }
     
     /* Correct User Flow image positioning */
-    main.main-content.center-flex:nth-of-type(5) {
+    main.main-content.center-flex:nth-of-type(6) > div[style*="display: flex"] {
       flex-direction: column !important;
       align-items: center !important;
     }
     
-    main.main-content.center-flex:nth-of-type(5) > div:first-child {
-      order: 1 !important;
+    main.main-content.center-flex:nth-of-type(6) > div[style*="display: flex"] > div:first-child {
+      order: 2 !important;
       width: 100% !important;
       text-align: center !important;
     }
     
-    main.main-content.center-flex:nth-of-type(5) > div:last-child {
-      order: 2 !important;
+    main.main-content.center-flex:nth-of-type(6) > div[style*="display: flex"] > div:last-child {
+      order: 1 !important;
       width: 100% !important;
       margin-top: 2rem !important;
     }
