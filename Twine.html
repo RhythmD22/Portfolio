@@ -19,6 +19,85 @@
       margin-right: 0;
       padding-right: 0;
     }
+
+    /* Responsive styles for mobile */
+    @media screen and (max-width: 768px) {
+      /* Scale down all text proportionally */
+      body {
+        font-size: 14px;
+      }
+      
+      .page-title {
+        font-size: 1.5rem;
+      }
+      
+      .section-title {
+        font-size: 1.4rem;
+      }
+      
+      /* Scale down padding and margins */
+      .main-content {
+        padding: 1rem !important;
+        gap: 2rem !important;
+      }
+      
+      /* Scale down container widths */
+      div[style*="max-width: 60%"] {
+        max-width: 100% !important;
+        width: 100% !important;
+      }
+      
+      /* Scale down flex layouts */
+      div[style*="display: flex"] {
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 1rem !important;
+      }
+      
+      /* Scale down image containers */
+      .screenshot-img {
+        width: 100% !important;
+        height: auto !important;
+      }
+      
+      /* Scale down margins */
+      div[style*="margin-top: 6rem"],
+      div[style*="margin-top: 4rem"],
+      div[style*="margin-bottom: 4rem"] {
+        margin-top: 2rem !important;
+        margin-bottom: 2rem !important;
+      }
+      
+      /* Ensure images scale properly */
+      img {
+        max-width: 100% !important;
+        height: auto !important;
+      }
+      
+      /* Scale down padding in containers */
+      div[style*="padding: 2rem"] {
+        padding: 1rem !important;
+      }
+    }
+
+    /* Additional responsive for very small screens */
+    @media screen and (max-width: 480px) {
+      body {
+        font-size: 12px;
+      }
+      
+      .page-title {
+        font-size: 1.3rem;
+      }
+      
+      .section-title {
+        font-size: 1.2rem;
+      }
+      
+      p {
+        font-size: 0.85rem !important;
+      }
+    }
   </style>
 </head>
 <body>
