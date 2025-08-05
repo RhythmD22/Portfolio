@@ -83,7 +83,7 @@
       }
       
       /* Scale down flex layouts */
-      div[style*="display: flex"] {
+      div[style*="display: flex"]:not([style*="align-items: flex-end"]) {
         flex-direction: column !important;
         align-items: center !important;
         gap: 1rem !important;
@@ -95,6 +95,16 @@
       div[style*="width: 70vw"],
       div[style*="width: 100vw"] {
         width: 100% !important;
+      }
+      
+      /* Keep phase images side by side on mobile */
+      div[style*="display: flex"][style*="align-items: flex-end"] {
+        flex-direction: row !important;
+        gap: 2rem !important;
+      }
+      
+      div[style*="display: flex"][style*="align-items: flex-end"] .image-link {
+        width: 45% !important;
       }
       
       /* Scale down image containers */
@@ -173,6 +183,16 @@
       
       ul, ol, p {
         font-size: 0.85rem !important;
+      }
+      
+      /* Adjust phase images for very small screens */
+      div[style*="display: flex"][style*="align-items: flex-end"] {
+        flex-direction: column !important;
+        gap: 1rem !important;
+      }
+      
+      div[style*="display: flex"][style*="align-items: flex-end"] .image-link {
+        width: 100% !important;
       }
     }
   </style>
