@@ -194,6 +194,23 @@
         width: 48% !important;
       }
     }
+    
+    /* Specific optimization for iPhone 13 */
+    @media screen and (max-width: 414px) {
+      /* Further adjust phase images for iPhone 13 */
+      div[style*="display: flex"][style*="align-items: flex-end"] {
+        gap: 0.75rem !important;
+      }
+      
+      div[style*="display: flex"][style*="align-items: flex-end"] .image-link {
+        width: 47% !important;
+      }
+      
+      /* Reduce container padding for better fit */
+      .main-content {
+        padding: 0.75rem !important;
+      }
+    }
   </style>
 </head>
 <body>
