@@ -143,6 +143,11 @@
         margin: 2rem 0 !important;
       }
       
+      /* Reduce margin-top on project showcase for mobile */
+      main.project-showcase {
+        margin-top: 2rem !important;
+      }
+      
       /* Ensure images scale properly */
       img {
         max-width: 100% !important;
@@ -197,6 +202,7 @@
       width: 100% !important;
       max-width: 100% !important;
       margin: 0 !important;
+      padding: 0 !important;
     }
     
     /* Remove centering margins from iframe container's parent */
@@ -209,6 +215,43 @@
       max-width: 100% !important;
       padding: 1rem !important;
       margin: 2rem auto !important;
+      box-sizing: border-box !important;
+    }
+    
+    /* Ensure the white card beneath the iframe matches the iframe width and has proper spacing */
+    .project-showcase div[style*="background: #ffffff"][style*="padding: 2rem"] {
+      width: 100% !important;
+      max-width: 100% !important;
+      padding: 1rem !important;
+      margin: 0 auto !important;
+      box-sizing: border-box !important;
+    }
+    
+    /* Reduce spacing between iframe and white card */
+    #iframe-container div[style*="margin-top: 0.25rem"] {
+      margin-top: 0 !important;
+    }
+    
+    /* More specific targeting for the white card beneath iframe */
+    #iframe-container > div[style*="background: #ffffff"] {
+      margin-top: -1.8rem !important;
+      padding: 1rem !important;
+    }
+    
+    /* Target the parent container to remove any additional spacing */
+    .project-showcase > div[style*="width: 100%"][style*="max-width: 1200px"] {
+      margin-top: 0 !important;
+      padding-top: 0 !important;
+    }
+    
+    /* Remove any default spacing between iframe and white card */
+    #iframe-container div {
+      margin-top: 0 !important;
+    }
+    
+    /* Additional adjustment to move white card closer to iframe */
+    .project-showcase div[style*="background: #ffffff"][style*="padding: 2rem"] {
+      margin-top: -1rem !important;
     }
     
     /* Correct User Flow image positioning */
