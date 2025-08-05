@@ -42,11 +42,32 @@
       border: none !important;
     }
 
+    /* Prevent horizontal overflow */
+    body {
+      overflow-x: hidden;
+      box-sizing: border-box;
+    }
+    
+    .container {
+      max-width: 100%;
+      overflow-x: hidden;
+    }
+
     /* Responsive styles for mobile */
     @media screen and (max-width: 768px) {
       /* Scale down all text proportionally */
       body {
         font-size: 14px;
+      }
+      
+      /* Ensure all elements respect box-sizing */
+      *, *:before, *:after {
+        box-sizing: border-box;
+      }
+      
+      /* Ensure all divs respect viewport width */
+      div {
+        max-width: 100%;
       }
       
       .page-title {
@@ -84,6 +105,11 @@
         width: 100% !important;
       }
       
+      /* Ensure all elements with specific widths respect viewport */
+      div[style*="width:"] {
+        max-width: 100% !important;
+      }
+      
       /* Scale down image containers */
       .image-link {
         width: 100% !important;
@@ -99,6 +125,16 @@
         position: relative !important;
         top: auto !important;
         width: 100% !important;
+        max-width: 100% !important;
+      }
+      
+      /* Fix positioned elements in Design Process section */
+      div[style*="position: relative; top:"] {
+        position: static !important;
+        top: auto !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 1rem 0 !important;
       }
       
       /* Scale down font sizes in lists and paragraphs */
@@ -110,6 +146,7 @@
       /* Scale down iframe */
       iframe {
         height: 400px !important;
+        max-width: 100% !important;
       }
       
       /* Scale down margins */
@@ -117,6 +154,11 @@
       div[style*="margin: 8rem"],
       div[style*="margin: 4rem"] {
         margin: 2rem 0 !important;
+      }
+      
+      /* Ensure elements with specific margins don't cause overflow */
+      div[style*="margin-left: auto; margin-right: auto;"] {
+        max-width: 100% !important;
       }
       
       /* Ensure images scale properly */
