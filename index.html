@@ -9,6 +9,12 @@
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
+    /* Prevent horizontal overflow */
+    html, body {
+      max-width: 100%;
+      overflow-x: hidden;
+    }
+
     .profile-image {
       display: block;
       max-width: 260px;
@@ -25,10 +31,45 @@
         flex-direction: column;
         align-items: flex-start;
         gap: 2rem;
+        width: 100%;
+      }
+      .intro-text {
+        max-width: 100%;
+        overflow-wrap: anywhere;
+        word-break: break-word;
       }
       .profile-image {
         margin: 0 auto;
         max-width: 180px;
+      }
+    }
+
+    /* Portrait-specific centering for mobile */
+    @media (max-width: 900px) and (orientation: portrait) {
+      .intro {
+        align-items: center;
+        text-align: center;
+        width: 100%;
+      }
+      .intro-text {
+        text-align: center;
+        margin: 0 auto;
+        width: 100%;
+        max-width: min(28rem, 100vw); /* never exceed viewport width */
+        padding-left: max(16px, env(safe-area-inset-left));   /* account for notches/safe areas */
+        padding-right: max(16px, env(safe-area-inset-right));
+        overflow-wrap: anywhere;  /* better at breaking long tokens */
+        word-break: break-word;
+        white-space: normal;
+      }
+      /* ensure headings and paragraphs wrap safely */
+      .intro-text h2,
+      .intro-text p {
+        max-width: 100%;
+        overflow-wrap: anywhere;
+        word-break: break-word;
+        margin-left: auto;
+        margin-right: auto;
       }
     }
     /* Tighten footer link spacing */
