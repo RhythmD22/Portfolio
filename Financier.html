@@ -11,6 +11,15 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css" />
   <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
   <style>
+    :root {
+      /* Landscape-only adjustable offsets for Design Process cards */
+      --dp-landing-top-landscape: 0px;
+      --dp-goals-top-landscape: 34px;
+      --dp-transactions-top-landscape: 105px;
+      --dp-analytics-top-landscape: 570px;
+      --dp-calculator-top-landscape: 595px;
+      --dp-tips-top-landscape: 625px;
+    }
     /* Tighten footer link spacing */
     .site-footer nav a,
     .site-footer nav .link-text {
@@ -53,8 +62,8 @@
       overflow-x: hidden;
     }
 
-    /* Responsive styles for mobile */
-    @media screen and (max-width: 768px) {
+    /* Responsive styles for mobile PORTRAIT ONLY (keep normalization here) */
+    @media screen and (max-width: 768px) and (orientation: portrait) {
       /* Scale down all text proportionally */
       body {
         font-size: 14px;
@@ -128,7 +137,7 @@
         max-width: 100% !important;
       }
       
-      /* Fix positioned elements in Design Process section */
+      /* Fix positioned elements in Design Process section (portrait only) */
       div[style*="position: relative; top:"] {
         position: static !important;
         top: auto !important;
@@ -136,47 +145,39 @@
         max-width: 100% !important;
         margin: 1rem 0 !important;
       }
-      
-      /* Scale down font sizes in lists and paragraphs */
-      ul, ol, p {
-        font-size: 0.9rem !important;
-        line-height: 1.6 !important;
+    }
+
+    /* Landscape MOBILE: enable adjustable offsets for the six DP blocks only
+       Adjusted to support devices like 852x393 (landscape width 852px) */
+    @media screen and (max-width: 900px) and (orientation: landscape) {
+      /* Allow our six blocks to remain relatively positioned and adjustable */
+      .dp-landing,
+      .dp-goals,
+      .dp-transactions,
+      .dp-analytics,
+      .dp-calculator,
+      .dp-tips {
+        position: relative !important;
+        /* ensure they participate in layout for top offsets */
+        display: block !important;
       }
-      
-      /* Scale down iframe */
-      iframe {
-        height: 400px !important;
+
+      .dp-landing      { top: var(--dp-landing-top-landscape) !important; }
+      .dp-goals        { top: var(--dp-goals-top-landscape) !important; }
+      .dp-transactions { top: var(--dp-transactions-top-landscape) !important; }
+      .dp-analytics    { top: var(--dp-analytics-top-landscape) !important; }
+      .dp-calculator   { top: var(--dp-calculator-top-landscape) !important; }
+      .dp-tips         { top: var(--dp-tips-top-landscape) !important; }
+
+      /* Importantly: do NOT neutralize our six blocks, but keep normalization for others.
+         We also must not globally reset all position:relative elements above in portrait rules.
+         This selector ensures others remain static in landscape while our six stay adjustable. */
+      div[style*="position: relative; top:"]:not(.dp-landing):not(.dp-goals):not(.dp-transactions):not(.dp-analytics):not(.dp-calculator):not(.dp-tips) {
+        position: static !important;
+        top: auto !important;
+        width: 100% !important;
         max-width: 100% !important;
-      }
-      
-      /* Scale down margins */
-      div[style*="margin: 6rem"],
-      div[style*="margin: 8rem"],
-      div[style*="margin: 4rem"] {
-        margin: 2rem 0 !important;
-      }
-      
-      /* Ensure elements with specific margins don't cause overflow */
-      div[style*="margin-left: auto; margin-right: auto;"] {
-        max-width: 100% !important;
-      }
-      
-      /* Ensure images scale properly */
-      img {
-        max-width: 100% !important;
-        height: auto !important;
-      }
-      
-      /* Scale down box shadows and borders */
-      div[style*="box-shadow"],
-      div[style*="border-radius"] {
-        box-shadow: 0 0 4px rgba(0, 0, 0, 0.1) !important;
-        border-radius: 4px !important;
-      }
-      
-      /* Scale down padding in white boxes */
-      div[style*="padding: 2rem"] {
-        padding: 1rem !important;
+        margin: 1rem 0 !important;
       }
     }
 
@@ -310,37 +311,37 @@
     <h1 class="section-title" style="text-align: center; margin: 6rem auto 2rem; max-width: 1200px;">Design Process</h1>
     <div style="display: flex; justify-content: center; align-items: flex-start; gap: 2rem; margin: 4rem auto 0; max-width: 1200px; position: relative;">
       <div style="width: 40%; display: flex; flex-direction: column; align-items: center;">
-        <div style="position: relative; top: 0px; width: 100%; z-index: 2;">
+        <div class="dp-landing" style="position: relative; top: 0px; width: 100%; z-index: 2;">
           <div style="background: #fff; border-radius: 8px; padding: 1rem 1.5rem; margin-bottom: 0; box-shadow: 0 0 8px rgba(0,0,0,0.1); width: 100%; text-align: center;">Landing Page</div>
           <p style="font-size: 1rem; text-align: center; margin: 1rem 0;">
             This landing page welcomes users with an overview of Financier's core features. Nearly all icons in this application are taken from the SF Symbols library to ensure stylistic consistency and a clean, native Apple-inspired aesthetic.
           </p>
         </div>
-        <div style="position: relative; top: 34px; width: 100%; z-index: 2;">
+        <div class="dp-goals" style="position: relative; top: 34px; width: 100%; z-index: 2;">
           <div style="background: #fff; border-radius: 8px; padding: 1rem 1.5rem; margin-bottom: 0; box-shadow: 0 0 8px rgba(0,0,0,0.1); width: 100%; text-align: center;">Goals & Categories</div>
           <p style="font-size: 1rem; text-align: center; margin: 1rem 0;">
             On this page, users create and track financial goals and explore organized categories of their choice.
           </p>
         </div>
-        <div style="position: relative; top: 359px; width: 100%; z-index: 2;">
+        <div class="dp-transactions" style="position: relative; top: 359px; width: 100%; z-index: 2;">
           <div style="background: #fff; border-radius: 8px; padding: 1rem 1.5rem; margin-bottom: 0; box-shadow: 0 0 8px rgba(0,0,0,0.1); width: 100%; text-align: center;">Track Transactions</div>
           <p style="font-size: 1rem; text-align: center; margin: 1rem 0;">
             Here, users log income and expenses, assign categories, and plan out their meals.
           </p>
         </div>
-        <div style="position: relative; top: 1073px; width: 100%; z-index: 2;">
+        <div class="dp-analytics" style="position: relative; top: 1073px; width: 100%; z-index: 2;">
           <div style="background: #fff; border-radius: 8px; padding: 1rem 1.5rem; margin-bottom: 0; box-shadow: 0 0 8px rgba(0,0,0,0.1); width: 100%; text-align: center;">Analytics</div>
           <p style="font-size: 1rem; text-align: center; margin: 1rem 0;">
             This section visualizes financial data with dynamic bar and pie charts. Green segments indicate healthy savings or income, and red segments flag overspending or budget breaches. Users can toggle between weekly and monthly views to track trends and spot areas for improvement. A CSV export button in the top right lets users download their data for external analysis.
           </p>
         </div>
-        <div style="position: relative; top: 1169px; width: 100%; z-index: 2;">
+        <div class="dp-calculator" style="position: relative; top: 1169px; width: 100%; z-index: 2;">
           <div style="background: #fff; border-radius: 8px; padding: 1rem 1.5rem; margin-bottom: 0; box-shadow: 0 0 8px rgba(0,0,0,0.1); width: 100%; text-align: center;">Calculator</div>
           <p style="font-size: 1rem; text-align: center; margin: 1rem 0;">
             A built-in calculator helps perform quick financial calculations and keeps a history log. The SF Mono typeface ensures aligned, easy-to-read digits and complements the SF Symbols icon set used throughout for a consistent, clean visual language.
           </p>
         </div>
-        <div style="position: relative; top: 1182px; width: 100%; z-index: 2;">
+        <div class="dp-tips" style="position: relative; top: 1182px; width: 100%; z-index: 2;">
           <div style="background: #fff; border-radius: 8px; padding: 1rem 1.5rem; margin-bottom: 0; box-shadow: 0 0 8px rgba(0,0,0,0.1); width: 100%; text-align: center;">Money Tips</div>
           <p style="font-size: 1rem; text-align: center; margin: 1rem 0;">
             Curated money-saving tips by category—Textbook (light navy for trust and learning), Food & Dining (orange for energy and appetite), Shopping Smart (green for growth), Finance (gold for value), Transportation (teal for clarity), Housing & Utilities (reddish-orange for warmth), Health & Wellness (pink for care), Entertainment (purple for creativity)—each color symbolizes its theme and guides students to the right advice.
@@ -352,7 +353,7 @@
         <a href="Images/Financier Mockup.png" class="image-link" style="width: 100% !important;" data-fancybox="financier-mockup" data-caption="Interactive Budgeting App Mockup in Figma">
           <img loading="lazy" src="Images/Financier Mockup.png" class="image-link" style="height: auto;" alt="Financier App Mockup"/>
         </a>
-          <p class="caption">Financier: Interactive Budgeting App Mockup in Figma</p>
+          <p class="caption" style="color: #000000;">Financier: Interactive Budgeting App Mockup in Figma</p>
         </div>
       </div>
     </div>
