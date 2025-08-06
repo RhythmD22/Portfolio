@@ -74,6 +74,8 @@
         width: 100%;
         padding: 0 1rem;
         box-sizing: border-box;
+        justify-content: center;
+        min-height: 70vh;
       }
       .intro-text {
         text-align: center;
@@ -85,6 +87,9 @@
         overflow-wrap: break-word;
         word-break: break-word;
         white-space: normal;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
       }
       .intro-text h2,
       .intro-text p {
@@ -93,12 +98,34 @@
         margin-right: auto;
         width: 100%;
         box-sizing: border-box;
+        text-align: center;
       }
       /* Remove any left margin that could induce horizontal scroll on narrow portrait */
       .profile-image {
         margin-left: auto;
         margin-right: auto;
         max-width: 180px;
+      }
+      
+      /* iPhone 390x844 portrait specific adjustments */
+      @media (max-width: 390px) and (orientation: portrait) {
+        .description-container {
+          padding-top: 10vh;
+        }
+        .intro {
+          padding: 0 0.5rem;
+          gap: 1.5rem;
+        }
+        .intro-text {
+          padding: 0 0.5rem;
+        }
+        .intro-text h2 {
+          font-size: 1.75rem;
+        }
+        .intro-text p {
+          font-size: 1rem;
+          line-height: 1.6;
+        }
       }
     }
 
