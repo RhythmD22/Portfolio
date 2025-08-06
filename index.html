@@ -74,8 +74,10 @@
         width: 100%;
         padding: 0 1rem;
         box-sizing: border-box;
-        justify-content: center;
-        min-height: 70vh;
+        justify-content: flex-start;
+        min-height: auto;
+        padding-top: 15vh;
+        padding-bottom: 15vh;
       }
       .intro-text {
         text-align: center;
@@ -110,11 +112,12 @@
       /* iPhone 390x844 portrait specific adjustments */
       @media (max-width: 390px) and (orientation: portrait) {
         .description-container {
-          padding-top: 10vh;
+          padding-top: 0;
         }
         .intro {
-          padding: 0 0.5rem;
+          padding: 15vh 0.5rem;
           gap: 1.5rem;
+          min-height: auto;
         }
         .intro-text {
           padding: 0 0.5rem;
@@ -127,6 +130,17 @@
           line-height: 1.6;
         }
       }
+    }
+
+    /* Ensure smooth scrolling on all devices */
+    html {
+      scroll-behavior: smooth;
+      overflow-y: scroll;
+    }
+
+    /* Prevent scroll chaining issues */
+    body {
+      overscroll-behavior-y: contain;
     }
 
     /* Tighten footer link spacing */
