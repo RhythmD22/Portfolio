@@ -126,7 +126,7 @@
       /* Scale down iframe */
       iframe {
         width: 100% !important;
-        height: 600px !important;
+        height: 400px !important;
         margin: 2rem auto !important;
       }
       
@@ -184,6 +184,28 @@
       ul, ol, p {
         font-size: 0.85rem !important;
       }
+
+    /* Mobile footer sizing fix */
+    @media screen and (max-width: 768px) {
+      .site-footer {
+        padding: 1.5rem 0 1rem !important;
+        font-size: 0.875rem !important;
+      }
+      
+      .site-footer nav {
+        font-size: 0.875rem !important;
+      }
+      
+      .site-footer nav a,
+      .site-footer nav .link-text {
+        font-size: 0.875rem !important;
+      }
+      
+      .site-footer p {
+        font-size: 0.75rem !important;
+        margin-top: 0.5rem !important;
+      }
+    }
       
       /* Adjust phase images for very small screens */
       div[style*="display: flex"][style*="align-items: flex-end"] {
