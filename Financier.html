@@ -237,6 +237,20 @@
       }
     }
 
+    /* Desktop scroll up arrow - positioning only, display controlled by JavaScript */
+    @media (min-width: 601px) {
+      button[onclick*="scrollTo"] {
+        position: fixed !important;
+        bottom: 1.5rem !important;
+        right: 1.5rem !important;
+        background: none !important;
+        border: none !important;
+        cursor: pointer !important;
+        z-index: 9999 !important;
+        pointer-events: auto !important;
+      }
+    }
+
     /* Mobile scroll up arrow positioning */
     @media (max-width: 600px) {
       button[onclick*="scrollTo"] {
@@ -447,22 +461,38 @@
         <div id="footer-placeholder"></div>
   </div>
   <script src="templates.js"></script>
-  <button onclick="window.scrollTo({top: 0, behavior: 'smooth'});" class="scroll-top-btn">
+  <button onclick="window.scrollTo({top: 0, behavior: 'smooth'});" style="position: fixed; bottom: 1.5rem; right: 1.5rem; background: none; border: none; cursor: pointer; z-index: 1000;">
     <svg width="96" height="72" viewBox="0 0 24 24" fill="none" stroke="#df3f41" stroke-width="0.6" stroke-linecap="round" stroke-linejoin="round">
       <polyline points="18 15 12 9 6 15"></polyline>
     </svg>
   </button>
 <script>
-  const topButton = document.querySelector('button[onclick*="scrollTo"]');
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 100) {
-      topButton.style.display = 'block';
-    } else {
+  // Ensure the script runs after DOM is loaded
+  document.addEventListener('DOMContentLoaded', function() {
+    const topButton = document.querySelector('button[onclick*="scrollTo"]');
+    
+    if (topButton) {
+      // Initially hide the button
       topButton.style.display = 'none';
+      
+      // Show/hide button based on scroll position
+      window.addEventListener('scroll', function() {
+        if (window.pageYOffset > 100) {
+          topButton.style.display = 'block';
+        } else {
+          topButton.style.display = 'none';
+        }
+      });
+      
+      // Add click event listener as backup
+      topButton.addEventListener('click', function(e) {
+        e.preventDefault();
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      });
     }
-  });
-  window.addEventListener('DOMContentLoaded', () => {
-    topButton.style.display = 'none';
   });
 </script>
 <script>
