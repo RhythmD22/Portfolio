@@ -210,21 +210,6 @@
       .main-content {
         padding: 0.75rem !important;
       }
-      
-      /* Optimize iframe for iPhone 13 */
-      iframe {
-        width: 95vw !important;
-        height: 300px !important;
-        margin: 1rem auto !important;
-      }
-    }
-    
-    /* Additional optimization for iPhone 13 Pro Max and similar large phones */
-    @media screen and (min-width: 415px) and (max-width: 430px) {
-      iframe {
-        width: 90vw !important;
-        height: 350px !important;
-      }
     }
   </style>
 </head>
@@ -316,7 +301,7 @@
   <main style="position: relative; left: 50%; transform: translateX(-50%); width: 100vw; margin-top: 4rem; margin-bottom: 6rem; padding: 0;">
     <img loading="lazy" src="Images/SmartShuttle Preview 2.png" alt="SmartShuttle Preview" style="width: 100vw; height: auto; display: block;">
     <iframe loading="lazy"
-      style="border: 1px solid rgba(0, 0, 0, 0.1); border-radius: 8px; width: 90vw; height: 500px; display: block; margin: 2rem auto 5rem;"
+      style="border: 1px solid rgba(0, 0, 0, 0.1); border-radius: 8px; width: 70vw; height: 600px; display: block; margin: 18rem auto 5rem;"
       src="https://embed.figma.com/proto/6fDBBVI6y7vGPex2yUrzPO/INFSCI-0410---Smart-Shuttle-Mockup?page-id=0%3A1&node-id=26-358&viewport=161%2C12%2C0.33&scaling=scale-down&content-scaling=fixed&starting-point-node-id=26%3A358&embed-host=share"
       allowfullscreen>
     </iframe>
@@ -357,5 +342,47 @@
       return slide.$trigger.dataset.caption;
     }
   });
+</script>
+<script>
+  // Mobile scroll chaining fix
+  (function() {
+    // Check if mobile device
+    const isMobile = window.innerWidth <= 900;
+    
+    if (isMobile) {
+      // Add mobile-specific class for additional styling
+      document.body.classList.add('mobile-scroll-fix');
+      
+      // Prevent scroll chaining on touch devices
+      let touchStartY = 0;
+      
+      document.addEventListener('touchstart', function(e) {
+        touchStartY = e.touches[0].clientY;
+      }, { passive: true });
+      
+      document.addEventListener('touchmove', function(e) {
+        const touchY = e.touches[0].clientY;
+        const deltaY = touchStartY - touchY;
+        
+        // Check if we're at scroll boundaries
+        const isAtTop = window.pageYOffset <= 0 && deltaY < 0;
+        const isAtBottom = (window.innerHeight + window.pageYOffset) >= document.body.offsetHeight && deltaY > 0;
+        
+        if (isAtTop || isAtBottom) {
+          e.preventDefault();
+        }
+      }, { passive: false });
+      
+      // Handle viewport height changes (mobile browser UI)
+      function setViewportHeight() {
+        const vh = window.innerHeight * 0.01;
+        document.documentElement.style.setProperty('--vh', `${vh}px`);
+      }
+      
+      setViewportHeight();
+      window.addEventListener('resize', setViewportHeight);
+      window.addEventListener('orientationchange', setViewportHeight);
+    }
+  })();
 </script>
 </html>
