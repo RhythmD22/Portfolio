@@ -20,6 +20,15 @@
       --dp-calculator-top-landscape: 136px;
       --dp-tips-top-landscape: 170px;
     }
+    /* Ensure consistent footer sizing */
+    .container {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      max-width: 100%;
+      overflow-x: hidden;
+    }
+    
     /* Tighten footer link spacing */
     .site-footer nav a,
     .site-footer nav .link-text {
@@ -55,11 +64,6 @@
     body {
       overflow-x: hidden;
       box-sizing: border-box;
-    }
-    
-    .container {
-      max-width: 100%;
-      overflow-x: hidden;
     }
 
     /* Responsive styles for mobile PORTRAIT ONLY (keep normalization here) */
