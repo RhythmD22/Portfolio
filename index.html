@@ -13,9 +13,16 @@
     html, body {
       max-width: 100%;
       overflow-x: hidden;
-      height: 100%;
       margin: 0;
       padding: 0;
+    }
+
+    /* Mobile-specific height handling */
+    @media (max-width: 900px) {
+      html, body {
+        height: auto;
+        min-height: 100vh;
+      }
     }
 
     /* Main container flex layout */
@@ -185,6 +192,7 @@
       body {
         overflow-y: auto;
         overscroll-behavior-y: contain;
+        -webkit-overflow-scrolling: touch;
       }
       
       /* Prevent scroll chaining at boundaries */
