@@ -159,13 +159,11 @@
     }
 
     /* Mobile scroll chaining fix */
-    @media (max-width: 900px) {
+    @media (max-width: 1440px) {
       /* Remove fixed viewport height constraint on mobile */
       .container {
         height: auto;
         min-height: 100vh;
-        display: flex;
-        flex-direction: column;
       }
       
       /* Allow natural document scrolling */
@@ -182,28 +180,10 @@
       
       /* Ensure content can scroll naturally */
       .description-container {
-        flex: 1;
+        flex: none;
         min-height: auto;
         padding-top: 2rem;
         padding-bottom: 2rem;
-      }
-    }
-    
-    /* Ensure footer stays at bottom on all screen sizes */
-    @media (min-width: 901px) {
-      .container {
-        display: flex;
-        flex-direction: column;
-        height: 100vh;
-      }
-    }
-    
-    /* Ensure footer stays at bottom in portrait mode on all devices */
-    @media (orientation: portrait) {
-      .container {
-        display: flex;
-        flex-direction: column;
-        height: 100vh;
       }
     }
   </style>

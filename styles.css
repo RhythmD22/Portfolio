@@ -159,18 +159,9 @@ body {
 }
 
 /*——————————————————————————
-  Scroll up arrow button visibility
-——————————————————————————*/
-@media (max-width: 1440px) {
-  .scroll-top-btn {
-    display: block;
-  }
-}
-
-/*——————————————————————————
   Mobile scroll chaining fix
 ——————————————————————————*/
-@media (max-width: 900px) {
+@media (max-width: 1440px) {
   /* Remove fixed viewport height constraint on mobile */
   .container {
     height: auto;
