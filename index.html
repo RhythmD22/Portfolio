@@ -13,6 +13,21 @@
     html, body {
       max-width: 100%;
       overflow-x: hidden;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Main container flex layout */
+    .container {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    /* Content area takes remaining space */
+    .description-container {
+      flex: 1 0 auto;
     }
 
     /* Ensure intro is a flex container and doesn't cause overflow */
