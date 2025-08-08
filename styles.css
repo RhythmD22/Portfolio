@@ -159,12 +159,13 @@ body {
 }
 
 /*——————————————————————————
-  Mobile scroll chaining fix
+  Scroll chaining fix with footer positioning preservation
 ——————————————————————————*/
 @media (max-width: 1440px) {
-  /* Remove fixed viewport height constraint on mobile */
+  /* Keep container as flex column for proper footer positioning */
   .container {
-    height: auto;
+    display: flex;
+    flex-direction: column;
     min-height: 100vh;
   }
   
@@ -180,10 +181,10 @@ body {
     overscroll-behavior: contain;
   }
   
-  /* Ensure content can scroll naturally */
+  /* Ensure content can scroll naturally while maintaining layout */
   .main-content,
   .description-container {
-    flex: none;
+    flex: 1;
     min-height: auto;
   }
 }
