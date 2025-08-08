@@ -13,6 +13,28 @@
     html, body {
       max-width: 100%;
       overflow-x: hidden;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Mobile-specific height handling */
+    @media (max-width: 900px) {
+      html, body {
+        height: auto;
+        min-height: 100vh;
+      }
+    }
+
+    /* Main container flex layout */
+    .container {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    /* Content area takes remaining space */
+    .description-container {
+      flex: 1 0 auto;
     }
 
     /* Ensure intro is a flex container and doesn't cause overflow */
@@ -164,14 +186,13 @@
       .container {
         height: auto;
         min-height: 100vh;
-        display: flex;
-        flex-direction: column;
       }
       
       /* Allow natural document scrolling */
       body {
         overflow-y: auto;
         overscroll-behavior-y: contain;
+        -webkit-overflow-scrolling: touch;
       }
       
       /* Prevent scroll chaining at boundaries */
@@ -182,28 +203,10 @@
       
       /* Ensure content can scroll naturally */
       .description-container {
-        flex: 1;
+        flex: none;
         min-height: auto;
         padding-top: 2rem;
         padding-bottom: 2rem;
-      }
-    }
-    
-    /* Ensure footer stays at bottom on all screen sizes */
-    @media (min-width: 901px) {
-      .container {
-        display: flex;
-        flex-direction: column;
-        height: 100vh;
-      }
-    }
-    
-    /* Ensure footer stays at bottom in portrait mode on all devices */
-    @media (orientation: portrait) {
-      .container {
-        display: flex;
-        flex-direction: column;
-        height: 100vh;
       }
     }
   </style>
