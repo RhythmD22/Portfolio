@@ -11,6 +11,15 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css" />
   <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
   <style>
+    :root {
+      /* Landscape-only adjustable offsets for Design Process cards */
+      --dp-landing-top-landscape: 0px;
+      --dp-goals-top-landscape: 34px;
+      --dp-transactions-top-landscape: 68px;
+      --dp-analytics-top-landscape: 102px;
+      --dp-calculator-top-landscape: 136px;
+      --dp-tips-top-landscape: 170px;
+    }
     /* Tighten footer link spacing */
     .site-footer nav a,
     .site-footer nav .link-text {
@@ -40,6 +49,200 @@
       padding: 0 !important;
       box-sizing: border-box !important;
       border: none !important;
+    }
+
+    /* Prevent horizontal overflow */
+    body {
+      overflow-x: hidden;
+      box-sizing: border-box;
+    }
+    
+    .container {
+      max-width: 100%;
+      overflow-x: hidden;
+    }
+
+    /* Responsive styles for mobile PORTRAIT ONLY (keep normalization here) */
+    @media screen and (max-width: 768px) and (orientation: portrait) {
+      /* Scale down all text proportionally */
+      body {
+        font-size: 14px;
+      }
+      
+      /* Ensure all elements respect box-sizing */
+      *, *:before, *:after {
+        box-sizing: border-box;
+      }
+      
+      /* Ensure all divs respect viewport width */
+      div {
+        max-width: 100%;
+      }
+      
+      .page-title {
+        font-size: 1.5rem;
+      }
+      
+      .section-title {
+        font-size: 1.4rem;
+      }
+      
+      /* Scale down padding and margins */
+      .main-content {
+        padding: 1rem !important;
+        gap: 2rem !important;
+      }
+      
+      /* Scale down container widths */
+      div[style*="max-width: 60%"],
+      div[style*="max-width: 1200px"],
+      div[style*="max-width: 1135px"] {
+        max-width: 100% !important;
+        width: 100% !important;
+      }
+      
+      /* Scale down flex layouts */
+      div[style*="display: flex"] {
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 1rem !important;
+      }
+      
+      div[style*="width: 33%"],
+      div[style*="width: 40%"],
+      div[style*="width: 60%"] {
+        width: 100% !important;
+      }
+      
+      /* Ensure all elements with specific widths respect viewport */
+      div[style*="width:"] {
+        max-width: 100% !important;
+      }
+      
+      /* Scale down image containers */
+      .image-link {
+        width: 100% !important;
+      }
+      
+      .image-link img {
+        width: 100% !important;
+        height: auto !important;
+      }
+      
+      /* Scale down text positioning relative to mockup */
+      div[style*="position: relative"] {
+        position: relative !important;
+        top: auto !important;
+        width: 100% !important;
+        max-width: 100% !important;
+      }
+      
+      /* Fix positioned elements in Design Process section (portrait only) */
+      div[style*="position: relative; top:"] {
+        position: static !important;
+        top: auto !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 1rem 0 !important;
+      }
+    }
+
+    /* Landscape MOBILE: enable adjustable offsets for the six DP blocks only
+       Adjusted to support devices like 852x393 (landscape width 852px) */
+    @media screen and (max-width: 900px) and (orientation: landscape) {
+      /* Allow our six blocks to remain relatively positioned and adjustable */
+      .dp-landing,
+      .dp-goals,
+      .dp-transactions,
+      .dp-analytics,
+      .dp-calculator,
+      .dp-tips {
+        position: relative !important;
+        /* ensure they participate in layout for top offsets */
+        display: block !important;
+      }
+
+      .dp-landing      { top: var(--dp-landing-top-landscape) !important; }
+      .dp-goals        { top: var(--dp-goals-top-landscape) !important; }
+      .dp-transactions { top: var(--dp-transactions-top-landscape) !important; }
+      .dp-analytics    { top: var(--dp-analytics-top-landscape) !important; }
+      .dp-calculator   { top: var(--dp-calculator-top-landscape) !important; }
+      .dp-tips         { top: var(--dp-tips-top-landscape) !important; }
+
+      /* Importantly: do NOT neutralize our six blocks, but keep normalization for others.
+         We also must not globally reset all position:relative elements above in portrait rules.
+         This selector ensures others remain static in landscape while our six stay adjustable. */
+      div[style*="position: relative; top:"]:not(.dp-landing):not(.dp-goals):not(.dp-transactions):not(.dp-analytics):not(.dp-calculator):not(.dp-tips) {
+        position: static !important;
+        top: auto !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 1rem 0 !important;
+      }
+    }
+
+    /* Additional responsive for very small screens */
+    @media screen and (max-width: 480px) {
+      body {
+        font-size: 12px;
+      }
+      
+      .page-title {
+        font-size: 1.3rem;
+      }
+      
+      .section-title {
+        font-size: 1.2rem;
+      }
+      
+      ul, ol, p {
+        font-size: 0.85rem !important;
+      }
+    }
+
+    /* Mobile footer sizing fix */
+    @media screen and (max-width: 768px) {
+      .site-footer {
+        padding: 1.5rem 0 1rem !important;
+        font-size: 0.875rem !important;
+      }
+      
+      .site-footer nav {
+        font-size: 0.875rem !important;
+      }
+      
+      .site-footer nav a,
+      .site-footer nav .link-text {
+        font-size: 0.875rem !important;
+      }
+      
+      .site-footer p {
+        font-size: 0.75rem !important;
+        margin-top: 0.5rem !important;
+      }
+    }
+
+    @media screen and (max-width: 480px) {
+      .site-footer {
+        padding: 1rem 0 0.75rem !important;
+      }
+      
+      .site-footer nav {
+        flex-wrap: wrap;
+        gap: 0.5rem;
+      }
+      
+      .site-footer nav span {
+        margin: 0 0.25rem;
+      }
+    }
+
+    /* Mobile scroll up arrow positioning */
+    @media (max-width: 600px) {
+      button[onclick*="scrollTo"] {
+        right: 0rem !important;
+        bottom: 1rem !important;
+      }
     }
   </style>
 </head>
@@ -153,37 +356,37 @@
     <h1 class="section-title" style="text-align: center; margin: 6rem auto 2rem; max-width: 1200px;">Design Process</h1>
     <div style="display: flex; justify-content: center; align-items: flex-start; gap: 2rem; margin: 4rem auto 0; max-width: 1200px; position: relative;">
       <div style="width: 40%; display: flex; flex-direction: column; align-items: center;">
-        <div style="position: relative; top: 0px; width: 100%; z-index: 2;">
+        <div class="dp-landing" style="position: relative; top: 0px; width: 100%; z-index: 2;">
           <div style="background: #fff; border-radius: 8px; padding: 1rem 1.5rem; margin-bottom: 0; box-shadow: 0 0 8px rgba(0,0,0,0.1); width: 100%; text-align: center;">Landing Page</div>
           <p style="font-size: 1rem; text-align: center; margin: 1rem 0;">
             This landing page welcomes users with an overview of Financier's core features. Nearly all icons in this application are taken from the SF Symbols library to ensure stylistic consistency and a clean, native Apple-inspired aesthetic.
           </p>
         </div>
-        <div style="position: relative; top: 34px; width: 100%; z-index: 2;">
+        <div class="dp-goals" style="position: relative; top: 34px; width: 100%; z-index: 2;">
           <div style="background: #fff; border-radius: 8px; padding: 1rem 1.5rem; margin-bottom: 0; box-shadow: 0 0 8px rgba(0,0,0,0.1); width: 100%; text-align: center;">Goals & Categories</div>
           <p style="font-size: 1rem; text-align: center; margin: 1rem 0;">
             On this page, users create and track financial goals and explore organized categories of their choice.
           </p>
         </div>
-        <div style="position: relative; top: 359px; width: 100%; z-index: 2;">
+        <div class="dp-transactions" style="position: relative; top: 359px; width: 100%; z-index: 2;">
           <div style="background: #fff; border-radius: 8px; padding: 1rem 1.5rem; margin-bottom: 0; box-shadow: 0 0 8px rgba(0,0,0,0.1); width: 100%; text-align: center;">Track Transactions</div>
           <p style="font-size: 1rem; text-align: center; margin: 1rem 0;">
             Here, users log income and expenses, assign categories, and plan out their meals.
           </p>
         </div>
-        <div style="position: relative; top: 1073px; width: 100%; z-index: 2;">
+        <div class="dp-analytics" style="position: relative; top: 1073px; width: 100%; z-index: 2;">
           <div style="background: #fff; border-radius: 8px; padding: 1rem 1.5rem; margin-bottom: 0; box-shadow: 0 0 8px rgba(0,0,0,0.1); width: 100%; text-align: center;">Analytics</div>
           <p style="font-size: 1rem; text-align: center; margin: 1rem 0;">
             This section visualizes financial data with dynamic bar and pie charts. Green segments indicate healthy savings or income, and red segments flag overspending or budget breaches. Users can toggle between weekly and monthly views to track trends and spot areas for improvement. A CSV export button in the top right lets users download their data for external analysis.
           </p>
         </div>
-        <div style="position: relative; top: 1169px; width: 100%; z-index: 2;">
+        <div class="dp-calculator" style="position: relative; top: 1169px; width: 100%; z-index: 2;">
           <div style="background: #fff; border-radius: 8px; padding: 1rem 1.5rem; margin-bottom: 0; box-shadow: 0 0 8px rgba(0,0,0,0.1); width: 100%; text-align: center;">Calculator</div>
           <p style="font-size: 1rem; text-align: center; margin: 1rem 0;">
             A built-in calculator helps perform quick financial calculations and keeps a history log. The SF Mono typeface ensures aligned, easy-to-read digits and complements the SF Symbols icon set used throughout for a consistent, clean visual language.
           </p>
         </div>
-        <div style="position: relative; top: 1182px; width: 100%; z-index: 2;">
+        <div class="dp-tips" style="position: relative; top: 1182px; width: 100%; z-index: 2;">
           <div style="background: #fff; border-radius: 8px; padding: 1rem 1.5rem; margin-bottom: 0; box-shadow: 0 0 8px rgba(0,0,0,0.1); width: 100%; text-align: center;">Money Tips</div>
           <p style="font-size: 1rem; text-align: center; margin: 1rem 0;">
             Curated money-saving tips by category—Textbook (light navy for trust and learning), Food & Dining (orange for energy and appetite), Shopping Smart (green for growth), Finance (gold for value), Transportation (teal for clarity), Housing & Utilities (reddish-orange for warmth), Health & Wellness (pink for care), Entertainment (purple for creativity)—each color symbolizes its theme and guides students to the right advice.
@@ -195,7 +398,7 @@
         <a href="Images/Financier Mockup.png" class="image-link" style="width: 100% !important;" data-fancybox="financier-mockup" data-caption="Interactive Budgeting App Mockup in Figma">
           <img loading="lazy" src="Images/Financier Mockup.png" class="image-link" style="height: auto;" alt="Financier App Mockup"/>
         </a>
-          <p class="caption">Financier: Interactive Budgeting App Mockup in Figma</p>
+          <p class="caption" style="color: #000000;">Financier: Interactive Budgeting App Mockup in Figma</p>
         </div>
       </div>
     </div>
@@ -244,7 +447,7 @@
         <div id="footer-placeholder"></div>
   </div>
   <script src="templates.js"></script>
-  <button onclick="window.scrollTo({top: 0, behavior: 'smooth'});" class="scroll-top-btn">
+  <button onclick="window.scrollTo({top: 0, behavior: 'smooth'});" class="scroll-top-btn" style="display: block !important;">
     <svg width="96" height="72" viewBox="0 0 24 24" fill="none" stroke="#df3f41" stroke-width="0.6" stroke-linecap="round" stroke-linejoin="round">
       <polyline points="18 15 12 9 6 15"></polyline>
     </svg>
@@ -262,7 +465,6 @@
     topButton.style.display = 'none';
   });
 </script>
-</body>
 <script>
   Fancybox.bind('[data-fancybox]', {
     Toolbar: {
@@ -278,4 +480,5 @@
     }
   });
 </script>
+</body>
 </html>

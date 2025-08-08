@@ -9,6 +9,20 @@
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
+    /* Prevent horizontal overflow */
+    html, body {
+      max-width: 100%;
+      overflow-x: hidden;
+    }
+
+    /* Ensure intro is a flex container and doesn't cause overflow */
+    .intro {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      width: 100%;
+    }
+
     .profile-image {
       display: block;
       max-width: 260px;
@@ -20,22 +34,177 @@
       box-shadow: 0 4px 24px 0 rgba(0,0,0,0.06);
       background: #faefd8;
     }
+
     @media (max-width: 900px) {
       .intro {
         flex-direction: column;
-        align-items: flex-start;
-        gap: 2rem;
+        align-items: center; /* center by default on small screens */
+        text-align: center;
+        gap: 1.5rem;
+        width: 100%;
+      }
+      .intro-text {
+        width: 100%;
+        max-width: min(28rem, 100vw);
+        margin: 0 auto;
+        padding-left: clamp(16px, 4vw, 24px);
+        padding-right: clamp(16px, 4vw, 24px);
+        overflow-wrap: anywhere;
+        word-break: break-word;
+        white-space: normal;
+        text-align: center;
+      }
+      .intro-text h2,
+      .intro-text p {
+        max-width: 100%;
+        margin-left: auto;
+        margin-right: auto;
       }
       .profile-image {
         margin: 0 auto;
         max-width: 180px;
       }
     }
+
+    /* Portrait-specific centering for mobile (reinforce and handle safe areas) */
+    @media (max-width: 900px) and (orientation: portrait) {
+      .description-container {
+        flex: 1;
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: calc(100vh - 200px); /* Account for header/footer */
+      }
+      .intro {
+        align-items: center;
+        text-align: center;
+        width: 100%;
+        padding: 0 1rem;
+        box-sizing: border-box;
+        justify-content: center;
+        min-height: auto;
+        gap: 1.5rem;
+      }
+      .intro-text {
+        text-align: center;
+        margin: 0 !important;
+        width: 100%;
+        max-width: 100%;
+        padding: 0 1rem;
+        box-sizing: border-box;
+        overflow-wrap: break-word;
+        word-break: break-word;
+        white-space: normal;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .intro-text h2,
+      .intro-text p {
+        max-width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+        width: 100%;
+        box-sizing: border-box;
+        text-align: center;
+      }
+      /* Remove any left margin that could induce horizontal scroll on narrow portrait */
+      .profile-image {
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 180px;
+      }
+      
+      /* iPhone 390x844 portrait specific adjustments */
+      @media (max-width: 390px) and (orientation: portrait) {
+        .description-container {
+          padding-top: 1rem;
+          padding-bottom: 1rem;
+          min-height: calc(100vh - 180px);
+        }
+        .intro {
+          padding: 0 0.5rem;
+          gap: 1.5rem;
+        }
+        .intro-text {
+          padding: 0 0.5rem;
+        }
+        .intro-text h2 {
+          font-size: 1.75rem;
+        }
+        .intro-text p {
+          font-size: 1rem;
+          line-height: 1.6;
+        }
+      }
+    }
+
+    /* Ensure smooth scrolling on all devices */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Remove overscroll behavior that might interfere */
+    body {
+      overscroll-behavior-y: auto;
+    }
+
     /* Tighten footer link spacing */
     .site-footer nav a,
     .site-footer nav .link-text {
       margin-right: 0;
       padding-right: 0;
+    }
+
+    /* Mobile scroll chaining fix */
+    @media (max-width: 900px) {
+      /* Remove fixed viewport height constraint on mobile */
+      .container {
+        height: auto;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
+      
+      /* Allow natural document scrolling */
+      body {
+        overflow-y: auto;
+        overscroll-behavior-y: contain;
+      }
+      
+      /* Prevent scroll chaining at boundaries */
+      .site-header,
+      .site-footer {
+        overscroll-behavior: contain;
+      }
+      
+      /* Ensure content can scroll naturally */
+      .description-container {
+        flex: 1;
+        min-height: auto;
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+      }
+    }
+    
+    /* Ensure footer stays at bottom on all screen sizes */
+    @media (min-width: 901px) {
+      .container {
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+      }
+    }
+    
+    /* Ensure footer stays at bottom in portrait mode on all devices */
+    @media (orientation: portrait) {
+      .container {
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+      }
     }
   </style>
 </head>
@@ -55,5 +224,47 @@
         <div id="footer-placeholder"></div>
   </div>
   <script src="templates.js"></script>
+  <script>
+    // Mobile scroll chaining fix
+    (function() {
+      // Check if mobile device
+      const isMobile = window.innerWidth <= 900;
+      
+      if (isMobile) {
+        // Add mobile-specific class for additional styling
+        document.body.classList.add('mobile-scroll-fix');
+        
+        // Prevent scroll chaining on touch devices
+        let touchStartY = 0;
+        
+        document.addEventListener('touchstart', function(e) {
+          touchStartY = e.touches[0].clientY;
+        }, { passive: true });
+        
+        document.addEventListener('touchmove', function(e) {
+          const touchY = e.touches[0].clientY;
+          const deltaY = touchStartY - touchY;
+          
+          // Check if we're at scroll boundaries
+          const isAtTop = window.pageYOffset <= 0 && deltaY < 0;
+          const isAtBottom = (window.innerHeight + window.pageYOffset) >= document.body.offsetHeight && deltaY > 0;
+          
+          if (isAtTop || isAtBottom) {
+            e.preventDefault();
+          }
+        }, { passive: false });
+        
+        // Handle viewport height changes (mobile browser UI)
+        function setViewportHeight() {
+          const vh = window.innerHeight * 0.01;
+          document.documentElement.style.setProperty('--vh', `${vh}px`);
+        }
+        
+        setViewportHeight();
+        window.addEventListener('resize', setViewportHeight);
+        window.addEventListener('orientationchange', setViewportHeight);
+      }
+    })();
+  </script>
 </body>
 </html>

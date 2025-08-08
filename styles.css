@@ -159,6 +159,45 @@ body {
 }
 
 /*——————————————————————————
+  Scroll up arrow button visibility
+——————————————————————————*/
+@media (max-width: 1440px) {
+  .scroll-top-btn {
+    display: block;
+  }
+}
+
+/*——————————————————————————
+  Mobile scroll chaining fix
+——————————————————————————*/
+@media (max-width: 900px) {
+  /* Remove fixed viewport height constraint on mobile */
+  .container {
+    height: auto;
+    min-height: 100vh;
+  }
+  
+  /* Allow natural document scrolling */
+  body {
+    overflow-y: auto;
+    overscroll-behavior-y: contain;
+  }
+  
+  /* Prevent scroll chaining at boundaries */
+  .site-header,
+  .site-footer {
+    overscroll-behavior: contain;
+  }
+  
+  /* Ensure content can scroll naturally */
+  .main-content,
+  .description-container {
+    flex: none;
+    min-height: auto;
+  }
+}
+
+/*——————————————————————————
   Font-weight utility classes
 ——————————————————————————*/
 .fw-light    { font-weight: 300; }

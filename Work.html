@@ -52,7 +52,7 @@
     .main-content:not(.other-designs) .projects-section .project .project-thumbnail-wrapper {
       width: 100% !important;
       max-width: 670px !important;
-      min-width: 500px !important;
+      min-width: 0 !important;
       aspect-ratio: 670 / 377 !important;
       border-radius: 12px;
       overflow: hidden;
@@ -232,10 +232,103 @@
       grid-template-columns: 1fr !important;
       gap: 1rem !important;
     }
+    .main-content.other-designs .projects-section .project:nth-child(odd) .project-thumbnail-wrapper,
+    .main-content.other-designs .projects-section .project:nth-child(even) .project-thumbnail-wrapper {
+      transform: none !important;
+    }
+    .main-content.other-designs .projects-section .project .project-thumbnail-wrapper {
+      width: 100% !important;
+    }
+    .main-content.other-designs .projects-section .project-thumbnail-wrapper .project-thumbnail {
+      width: 100% !important;
+    }
   }
   @media (max-width: 600px) {
     .container {
       padding: 0.5rem !important;
+      overflow-x: hidden;
+    }
+  }
+  @media (max-width: 480px) {
+    .main-content {
+      padding: 1rem 0.5rem !important;
+      overflow-x: hidden;
+    }
+    .work-summary h2 {
+      font-size: 1.5rem !important;
+    }
+    .work-summary p {
+      font-size: 1rem !important;
+    }
+    .project-title {
+      font-size: 1.2rem !important;
+    }
+    .project-meta {
+      font-size: 0.75rem !important;
+    }
+  }
+  @media (max-width: 768px) {
+    .container {
+      height: auto !important;
+      overflow-y: auto !important;
+    }
+    .main-content {
+      flex: none !important;
+      overflow: visible !important;
+    }
+    .main-content.other-designs {
+      margin-top: 2rem !important;
+    }
+    /* Make other-designs section flow naturally with the rest of the content */
+    .main-content.other-designs .projects-section {
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 1rem !important;
+    }
+    /* Remove transforms that create separate scrollable areas */
+    .main-content.other-designs .projects-section .project:nth-child(odd) .project-thumbnail-wrapper,
+    .main-content.other-designs .projects-section .project:nth-child(even) .project-thumbnail-wrapper {
+      transform: none !important;
+    }
+    /* Reset positioning to normal flow */
+    .main-content.other-designs .projects-section .project .project-thumbnail-wrapper {
+      width: 100% !important;
+      display: block !important;
+    }
+    .main-content.other-designs .projects-section .project-thumbnail-wrapper .project-thumbnail {
+      width: 100% !important;
+      height: auto !important;
+      position: static !important;
+    }
+  }
+  @media (max-width: 390px) {
+    /* iPhone 13 specific - ensure single scroll area */
+    .container {
+      padding: 0 !important;
+      overflow-x: hidden;
+    }
+    .main-content {
+      padding: 1rem 0.75rem !important;
+      margin-bottom: 0 !important;
+    }
+    .main-content.other-designs {
+      margin-top: 0 !important;
+      padding-top: 0 !important;
+    }
+    .main-content.other-designs .work-summary {
+      margin-top: 2rem !important;
+    }
+    /* Ensure natural flow between sections */
+    .main-content + .main-content.other-designs {
+      margin-top: 0 !important;
+    }
+  }
+
+  /* Mobile scroll up arrow positioning */
+  @media (max-width: 600px) {
+    button[onclick*="scrollTo"] {
+      right: 0rem !important;
+      bottom: 1rem !important;
     }
   }
 </style>
@@ -379,7 +472,6 @@
     topButton.style.display = 'none';
   });
 </script>
-</body>
 <script>
   Fancybox.bind('[data-fancybox="other-designs"]', {
     Toolbar: {
@@ -395,4 +487,5 @@
     }
   });
 </script>
+</body>
 </html>
