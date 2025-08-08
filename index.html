@@ -186,6 +186,24 @@
         padding-bottom: 2rem;
       }
     }
+    
+    /* Ensure footer stays at bottom on all screen sizes */
+    @media (min-width: 901px) {
+      .container {
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+      }
+    }
+    
+    /* Ensure footer stays at bottom in portrait mode on all devices */
+    @media (orientation: portrait) {
+      .container {
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+      }
+    }
   </style>
 </head>
 <body>
