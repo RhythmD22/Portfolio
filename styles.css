@@ -215,6 +215,20 @@ body {
   font-weight: 700;
 }
 
+/*——————————————————————————
+  FancyApps UI CSS custom properties
+——————————————————————————*/
+:root {
+  --f-button-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  --f-carousel-gap: 0;
+  --f-toolbar-shadow: none;
+  --f-thumb-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  --f-thumb-hover-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  --f-thumb-focus-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+  --f-thumb-active-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  --f-thumb-selected-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
 /* Utility classes extracted from repeated inline styles */
 .center-flex {
   display: flex;
