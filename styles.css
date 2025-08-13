@@ -31,7 +31,8 @@ body {
   width: 100%;
   padding: 1.5rem 0 0;
   margin: 0;
-  position: relative; /* if you use absolute/relative children */
+  position: relative;
+  /* if you use absolute/relative children */
 }
 
 .header-content {
@@ -48,6 +49,7 @@ body {
   display: flex;
   gap: 2.5rem;
 }
+
 .header-nav a {
   font-weight: 300;
   color: black;
@@ -71,6 +73,7 @@ body {
 .header-left {
   margin: 0;
 }
+
 .header-name.fw-medium {
   font-size: 1.4rem;
   margin: 0;
@@ -162,24 +165,25 @@ body {
   Mobile scroll chaining fix
 ——————————————————————————*/
 @media (max-width: 1440px) {
+
   /* Remove fixed viewport height constraint on mobile */
   .container {
     height: auto;
     min-height: 100vh;
   }
-  
+
   /* Allow natural document scrolling */
   body {
     overflow-y: auto;
     overscroll-behavior-y: contain;
   }
-  
+
   /* Prevent scroll chaining at boundaries */
   .site-header,
   .site-footer {
     overscroll-behavior: contain;
   }
-  
+
   /* Ensure content can scroll naturally */
   .main-content,
   .description-container {
@@ -191,11 +195,25 @@ body {
 /*——————————————————————————
   Font-weight utility classes
 ——————————————————————————*/
-.fw-light    { font-weight: 300; }
-.fw-regular  { font-weight: 400; }
-.fw-medium   { font-weight: 500; }
-.fw-semibold { font-weight: 600; }
-.fw-bold     { font-weight: 700; }
+.fw-light {
+  font-weight: 300;
+}
+
+.fw-regular {
+  font-weight: 400;
+}
+
+.fw-medium {
+  font-weight: 500;
+}
+
+.fw-semibold {
+  font-weight: 600;
+}
+
+.fw-bold {
+  font-weight: 700;
+}
 
 /* Utility classes extracted from repeated inline styles */
 .center-flex {
@@ -247,5 +265,5 @@ body {
   width: 100%;
   height: auto;
   border-radius: 8px;
-  border: 1px solid rgba(0,0,0,0.1);
+  border: 1px solid rgba(0, 0, 0, 0.1);
 }
