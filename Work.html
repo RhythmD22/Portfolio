@@ -8,8 +8,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css">
-  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@6.0.22/dist/fancybox/fancybox.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@6.0.22/dist/fancybox/fancybox.umd.min.js"></script>
   <style>
     /* Tighten footer link spacing */
     .site-footer nav a,
@@ -474,17 +474,14 @@
 </script>
 <script>
   Fancybox.bind('[data-fancybox="other-designs"]', {
-    Toolbar: {
-      display: [
-        { id: "counter", position: "center" },
-        "zoom",
-        "fullscreen",
-        "close"
-      ]
+    Carousel: {
+      Toolbar: {
+        display: {
+          left: ["counter"],
+          right: ["zoomIn", "zoomOut", "autoplay", "thumbs", "close"],
+        },
+      },
     },
-    caption: function (fancybox, carousel, slide) {
-      return slide.$trigger.dataset.caption;
-    }
   });
 </script>
 </body>
