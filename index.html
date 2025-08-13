@@ -1,16 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Home - Rhythm Desai</title>
   <link rel="icon" href="favicon.ico" type="image/x-icon">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css">
   <style>
     /* Prevent horizontal overflow */
-    html, body {
+    html,
+    body {
       max-width: 100%;
       overflow-x: hidden;
       margin: 0;
@@ -19,7 +22,9 @@
 
     /* Mobile-specific height handling */
     @media (max-width: 900px) {
-      html, body {
+
+      html,
+      body {
         height: auto;
         min-height: 100vh;
       }
@@ -53,35 +58,39 @@
       margin-right: auto;
       margin-left: 7rem;
       border-radius: 50%;
-      box-shadow: 0 4px 24px 0 rgba(0,0,0,0.06);
+      box-shadow: 0 4px 24px 0 rgba(0, 0, 0, 0.06);
       background: #faefd8;
     }
 
     @media (max-width: 900px) {
       .intro {
         flex-direction: column;
-        align-items: center; /* center by default on small screens */
+        align-items: center;
+        /* center by default on small screens */
         text-align: center;
         gap: 1.5rem;
         width: 100%;
       }
+
       .intro-text {
         width: 100%;
         max-width: min(28rem, 100vw);
         margin: 0 auto;
         padding-left: clamp(16px, 4vw, 24px);
         padding-right: clamp(16px, 4vw, 24px);
-        overflow-wrap: anywhere;
-        word-break: break-word;
+        overflow-wrap: break-word;
+        word-break: normal;
         white-space: normal;
         text-align: center;
       }
+
       .intro-text h2,
       .intro-text p {
         max-width: 100%;
         margin-left: auto;
         margin-right: auto;
       }
+
       .profile-image {
         margin: 0 auto;
         max-width: 180px;
@@ -97,8 +106,10 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        min-height: calc(100vh - 200px); /* Account for header/footer */
+        min-height: calc(100vh - 200px);
+        /* Account for header/footer */
       }
+
       .intro {
         align-items: center;
         text-align: center;
@@ -109,6 +120,7 @@
         min-height: auto;
         gap: 1.5rem;
       }
+
       .intro-text {
         text-align: center;
         margin: 0 !important;
@@ -117,12 +129,13 @@
         padding: 0 1rem;
         box-sizing: border-box;
         overflow-wrap: break-word;
-        word-break: break-word;
+        word-break: normal;
         white-space: normal;
         display: flex;
         flex-direction: column;
         align-items: center;
       }
+
       .intro-text h2,
       .intro-text p {
         max-width: 100%;
@@ -132,13 +145,14 @@
         box-sizing: border-box;
         text-align: center;
       }
+
       /* Remove any left margin that could induce horizontal scroll on narrow portrait */
       .profile-image {
         margin-left: auto;
         margin-right: auto;
         max-width: 180px;
       }
-      
+
       /* iPhone 390x844 portrait specific adjustments */
       @media (max-width: 390px) and (orientation: portrait) {
         .description-container {
@@ -146,16 +160,20 @@
           padding-bottom: 1rem;
           min-height: calc(100vh - 180px);
         }
+
         .intro {
           padding: 0 0.5rem;
           gap: 1.5rem;
         }
+
         .intro-text {
           padding: 0 0.5rem;
         }
+
         .intro-text h2 {
           font-size: 1.75rem;
         }
+
         .intro-text p {
           font-size: 1rem;
           line-height: 1.6;
@@ -182,25 +200,26 @@
 
     /* Mobile scroll chaining fix */
     @media (max-width: 900px) {
+
       /* Remove fixed viewport height constraint on mobile */
       .container {
         height: auto;
         min-height: 100vh;
       }
-      
+
       /* Allow natural document scrolling */
       body {
         overflow-y: auto;
         overscroll-behavior-y: contain;
         -webkit-overflow-scrolling: touch;
       }
-      
+
       /* Prevent scroll chaining at boundaries */
       .site-header,
       .site-footer {
         overscroll-behavior: contain;
       }
-      
+
       /* Ensure content can scroll naturally */
       .description-container {
         flex: none;
@@ -211,58 +230,61 @@
     }
   </style>
 </head>
+
 <body>
   <div class="container">
-        <div id="header-placeholder"></div>
+    <div id="header-placeholder"></div>
     <div class="description-container">
       <section class="intro">
         <div class="intro-text">
-            <h2 style="font-size: 2rem; margin: 0 0 1rem; font-weight: 600;">Hey, I'm Rhythm!</h2>
-          <p style="line-height: 1.5;">I'm a recent University of Pittsburgh graduate and an aspiring UI/UX Designer. I design clean interfaces and immersive experiences that bring together form and function.</p>
-          <p style="line-height: 1.5;">I combine design tools and frontend development to craft meaningful, intuitive digital products.</p>
+          <h2 style="font-size: 2rem; margin: 0 0 1rem; font-weight: 600;">Hey, I'm Rhythm!</h2>
+          <p style="line-height: 1.5;">I'm a recent University of Pittsburgh graduate and an aspiring UI/UX Designer. I
+            design clean interfaces and immersive experiences that bring together form and function.</p>
+          <p style="line-height: 1.5;">I combine design tools and frontend development to craft meaningful, intuitive
+            digital products.</p>
         </div>
         <img src="Images/Profile.png" alt="Profile image" class="profile-image">
       </section>
     </div>
-        <div id="footer-placeholder"></div>
+    <div id="footer-placeholder"></div>
   </div>
   <script src="templates.js"></script>
   <script>
     // Mobile scroll chaining fix
-    (function() {
+    (function () {
       // Check if mobile device
       const isMobile = window.innerWidth <= 900;
-      
+
       if (isMobile) {
         // Add mobile-specific class for additional styling
         document.body.classList.add('mobile-scroll-fix');
-        
+
         // Prevent scroll chaining on touch devices
         let touchStartY = 0;
-        
-        document.addEventListener('touchstart', function(e) {
+
+        document.addEventListener('touchstart', function (e) {
           touchStartY = e.touches[0].clientY;
         }, { passive: true });
-        
-        document.addEventListener('touchmove', function(e) {
+
+        document.addEventListener('touchmove', function (e) {
           const touchY = e.touches[0].clientY;
           const deltaY = touchStartY - touchY;
-          
+
           // Check if we're at scroll boundaries
           const isAtTop = window.pageYOffset <= 0 && deltaY < 0;
           const isAtBottom = (window.innerHeight + window.pageYOffset) >= document.body.offsetHeight && deltaY > 0;
-          
+
           if (isAtTop || isAtBottom) {
             e.preventDefault();
           }
         }, { passive: false });
-        
+
         // Handle viewport height changes (mobile browser UI)
         function setViewportHeight() {
           const vh = window.innerHeight * 0.01;
           document.documentElement.style.setProperty('--vh', `${vh}px`);
         }
-        
+
         setViewportHeight();
         window.addEventListener('resize', setViewportHeight);
         window.addEventListener('orientationchange', setViewportHeight);
@@ -270,4 +292,5 @@
     })();
   </script>
 </body>
+
 </html>

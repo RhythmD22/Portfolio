@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Financier</title>
   <link rel="icon" href="favicon.ico" type="image/x-icon">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css" />
-  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@6.0.22/dist/fancybox/fancybox.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@6.0.22/dist/fancybox/fancybox.umd.min.js"></script>
   <style>
     :root {
       /* Landscape-only adjustable offsets for Design Process cards */
@@ -20,6 +22,7 @@
       --dp-calculator-top-landscape: 136px;
       --dp-tips-top-landscape: 170px;
     }
+
     /* Tighten footer link spacing */
     .site-footer nav a,
     .site-footer nav .link-text {
@@ -56,7 +59,7 @@
       overflow-x: hidden;
       box-sizing: border-box;
     }
-    
+
     .container {
       max-width: 100%;
       overflow-x: hidden;
@@ -64,35 +67,38 @@
 
     /* Responsive styles for mobile PORTRAIT ONLY (keep normalization here) */
     @media screen and (max-width: 768px) and (orientation: portrait) {
+
       /* Scale down all text proportionally */
       body {
         font-size: 14px;
       }
-      
+
       /* Ensure all elements respect box-sizing */
-      *, *:before, *:after {
+      *,
+      *:before,
+      *:after {
         box-sizing: border-box;
       }
-      
+
       /* Ensure all divs respect viewport width */
       div {
         max-width: 100%;
       }
-      
+
       .page-title {
         font-size: 1.5rem;
       }
-      
+
       .section-title {
         font-size: 1.4rem;
       }
-      
+
       /* Scale down padding and margins */
       .main-content {
         padding: 1rem !important;
         gap: 2rem !important;
       }
-      
+
       /* Scale down container widths */
       div[style*="max-width: 60%"],
       div[style*="max-width: 1200px"],
@@ -100,35 +106,35 @@
         max-width: 100% !important;
         width: 100% !important;
       }
-      
+
       /* Scale down flex layouts */
       div[style*="display: flex"] {
         flex-direction: column !important;
         align-items: center !important;
         gap: 1rem !important;
       }
-      
+
       div[style*="width: 33%"],
       div[style*="width: 40%"],
       div[style*="width: 60%"] {
         width: 100% !important;
       }
-      
+
       /* Ensure all elements with specific widths respect viewport */
       div[style*="width:"] {
         max-width: 100% !important;
       }
-      
+
       /* Scale down image containers */
       .image-link {
         width: 100% !important;
       }
-      
+
       .image-link img {
         width: 100% !important;
         height: auto !important;
       }
-      
+
       /* Scale down text positioning relative to mockup */
       div[style*="position: relative"] {
         position: relative !important;
@@ -136,7 +142,7 @@
         width: 100% !important;
         max-width: 100% !important;
       }
-      
+
       /* Fix positioned elements in Design Process section (portrait only) */
       div[style*="position: relative; top:"] {
         position: static !important;
@@ -150,6 +156,7 @@
     /* Landscape MOBILE: enable adjustable offsets for the six DP blocks only
        Adjusted to support devices like 852x393 (landscape width 852px) */
     @media screen and (max-width: 900px) and (orientation: landscape) {
+
       /* Allow our six blocks to remain relatively positioned and adjustable */
       .dp-landing,
       .dp-goals,
@@ -162,12 +169,29 @@
         display: block !important;
       }
 
-      .dp-landing      { top: var(--dp-landing-top-landscape) !important; }
-      .dp-goals        { top: var(--dp-goals-top-landscape) !important; }
-      .dp-transactions { top: var(--dp-transactions-top-landscape) !important; }
-      .dp-analytics    { top: var(--dp-analytics-top-landscape) !important; }
-      .dp-calculator   { top: var(--dp-calculator-top-landscape) !important; }
-      .dp-tips         { top: var(--dp-tips-top-landscape) !important; }
+      .dp-landing {
+        top: var(--dp-landing-top-landscape) !important;
+      }
+
+      .dp-goals {
+        top: var(--dp-goals-top-landscape) !important;
+      }
+
+      .dp-transactions {
+        top: var(--dp-transactions-top-landscape) !important;
+      }
+
+      .dp-analytics {
+        top: var(--dp-analytics-top-landscape) !important;
+      }
+
+      .dp-calculator {
+        top: var(--dp-calculator-top-landscape) !important;
+      }
+
+      .dp-tips {
+        top: var(--dp-tips-top-landscape) !important;
+      }
 
       /* Importantly: do NOT neutralize our six blocks, but keep normalization for others.
          We also must not globally reset all position:relative elements above in portrait rules.
@@ -186,16 +210,18 @@
       body {
         font-size: 12px;
       }
-      
+
       .page-title {
         font-size: 1.3rem;
       }
-      
+
       .section-title {
         font-size: 1.2rem;
       }
-      
-      ul, ol, p {
+
+      ul,
+      ol,
+      p {
         font-size: 0.85rem !important;
       }
     }
@@ -206,16 +232,16 @@
         padding: 1.5rem 0 1rem !important;
         font-size: 0.875rem !important;
       }
-      
+
       .site-footer nav {
         font-size: 0.875rem !important;
       }
-      
+
       .site-footer nav a,
       .site-footer nav .link-text {
         font-size: 0.875rem !important;
       }
-      
+
       .site-footer p {
         font-size: 0.75rem !important;
         margin-top: 0.5rem !important;
@@ -226,12 +252,12 @@
       .site-footer {
         padding: 1rem 0 0.75rem !important;
       }
-      
+
       .site-footer nav {
         flex-wrap: wrap;
         gap: 0.5rem;
       }
-      
+
       .site-footer nav span {
         margin: 0 0.25rem;
       }
@@ -246,239 +272,299 @@
     }
   </style>
 </head>
+
 <body>
   <div class="container">
-        <div id="header-placeholder"></div>
+    <div id="header-placeholder"></div>
     <main class="main-content center-flex" style="gap: 2rem; padding: 2rem; min-height: calc(100vh - 160px);">
       <div style="max-width: 60%;">
         <h1 class="page-title">Financier Project</h1>
-        <p style="font-size: 1.15rem;">The Financier budgeting app was designed to help college students manage expenses, set goals, and track income with tailored features based on user research. It includes goal setting, transaction tracking, analytics, a built-in calculator, and categorized money-saving tips—all built with a responsive and intuitive UI.</p>
+        <p style="font-size: 1.15rem;">The Financier budgeting app was designed to help college students manage
+          expenses, set goals, and track income with tailored features based on user research. It includes goal setting,
+          transaction tracking, analytics, a built-in calculator, and categorized money-saving tips—all built with a
+          responsive and intuitive UI.</p>
       </div>
-        <div class="info-meta">
+      <div class="info-meta">
         <p><strong>CLIENT</strong><br>Independent Study with Dr. Dmitriy Babichenko</p>
         <p><strong>MY ROLE</strong><br>UI/UX Designer & Developer</p>
         <p><strong>TEAM</strong><br>Individual Contribution</p>
         <p><strong>TIMELINE</strong><br>Spring semester 2025</p>
       </div>
     </main>
-    <main class="main-content center-flex" style="gap: 6rem; padding: 2rem; margin-top: 4rem;">
+  </div>
+  <div class="main-content center-flex" style="gap: 6rem; padding: 2rem; margin-top: 4rem;">
+    <div style="max-width: 60%;">
+      <h1 class="section-title">Problem Statement</h1>
+    </div>
+    <div style="font-size: 1.15rem;">
+      <p>College students often face the challenge of budgeting without a steady income, especially during the school
+        year. Many budgeting apps assume regular income streams, making it difficult for students who rely on savings or
+        sporadic transfers. A common desire is a simple, low-cost tool that tracks spending while accommodating
+        student-specific needs like meal planning and flexible financial goals. Without tools that reflect their unique
+        situations, students struggle to stay on budget and miss out on opportunities like goal-based saving.</p>
+    </div>
+    <div style="margin: 4rem 0 2rem;">
+      <a href="Images/iGrad.png" class="image-link" style="width: 100% !important;" data-fancybox="iGrad"
+        data-caption="iGrad website">
+        <img loading="lazy" src="Images/iGrad.png" alt="iGrad Budgeting Tool Screenshot"
+          style="border: 1px solid #ccc;">
+      </a>
+      <p class="caption" style="color: #000000;">iGrad: Budget Tool</p>
+    </div>
+  </div>
+  <div class="main-content center-flex" style="gap: 6rem; padding: 2rem; margin-bottom: 6rem;">
+    <div style="max-width: 60%;">
+      <h1 class="section-title">Role & Responsibilities</h1>
+    </div>
+    <div style="font-size: 1.15rem;">
+      <p>This was a solo project completed as part of an independent study capstone. I conducted all user research,
+        designed the interface in Figma, and developed the web application using HTML, CSS, and JavaScript.
+        Responsibilities included designing and executing interviews, analyzing student budgeting needs, designing and
+        prototyping a mockup, and building a responsive and fully functional web app from the ground up.</p>
+    </div>
+  </div>
+  <div
+    style="display: flex; justify-content: center; align-items: flex-start; gap: 2rem; margin: 6rem auto; max-width: 1200px;">
+    <div style="width: 33%;">
+      <a href="Images/Outline%201.png" class="image-link" style="width: 100% !important;"
+        data-fancybox="financier-outline" data-caption="Project Description, Learning Objectives, Learning Outcomes">
+        <img loading="lazy" src="Images/Outline%201.png" class="image-link" style="height: auto;" alt="Outline Page 1">
+      </a>
+      <p class="caption" style="color: #000000;">Outline Page 1: Project Description, Learning Objectives, Learning
+        Outcomes</p>
+    </div>
+    <div style="width: 33%;">
+      <a href="Images/Outline%202.png" class="image-link" style="width: 100% !important;"
+        data-fancybox="financier-outline" data-caption="Learning Outcomes cont., Deliverables">
+        <img loading="lazy" src="Images/Outline%202.png" class="image-link" style="height: auto;" alt="Outline Page 2">
+      </a>
+      <p class="caption" style="color: #000000;">Outline Page 2: Learning Outcomes cont., Deliverables</p>
+    </div>
+    <div style="width: 33%;">
+      <a href="Images/Outline%203.png" class="image-link" style="width: 100% !important;"
+        data-fancybox="financier-outline" data-caption="Deliverables Timeline, Research Plan">
+        <img loading="lazy" src="Images/Outline%203.png" class="image-link" style="height: auto;" alt="Outline Page 3">
+      </a>
+      <p class="caption" style="color: #000000;">Outline Page 3: Deliverables Timeline, Research Plan</p>
+    </div>
+  </div>
+  <div
+    style="background: #ffffff; padding: 2rem; box-shadow: 0 0 8px rgba(0, 0, 0, 0.1); border-radius: 8px; margin: 8rem auto 2rem; max-width: 1200px;">
+    <div class="main-content"
+      style="display: flex; justify-content: center; align-items: flex-start; gap: 5rem; padding: 2rem; margin-top: 4rem;">
       <div style="max-width: 60%;">
-        <h1 class="section-title">Problem Statement</h1>
+        <h1 class="section-title">Research Plan</h1>
+        <ul style="font-size: 1.15rem; line-height: 1.8;">
+          <li>Interviewed 10 college students to gather insights on budgeting habits.</li>
+          <li>Extracted themes such as spending priorities, income sources, and financial confidence.</li>
+          <li>Used findings to guide features like expense tracking, meal budgeting, and savings goals.</li>
+        </ul>
+        <div style="width: 100%;">
+          <h1 class="section-title">Participant Information</h1>
+          <ul style="font-size: 1.15rem; line-height: 1.8;">
+            <li><strong>Total Participants:</strong> 10</li>
+            <li><strong>Age Range:</strong> 20–22 years old</li>
+            <li><strong>Academic Level:</strong> All undergraduate students</li>
+            <li><strong>Schools Represented:</strong> University of Pittsburgh, Union College, Rensselaer Polytechnic
+              Institute, Widener University, NJIT, Cornell University</li>
+          </ul>
+        </div>
+        <p style="font-size: 1.15rem; margin-top: 1rem;"><strong>General Focus:</strong> Identifying key student
+          expenses, how meal plans and job status shape budgeting, and common discretionary spending patterns.</p>
       </div>
       <div style="font-size: 1.15rem;">
-        <p>College students often face the challenge of budgeting without a steady income, especially during the school year. Many budgeting apps assume regular income streams, making it difficult for students who rely on savings or sporadic transfers. A common desire is a simple, low-cost tool that tracks spending while accommodating student-specific needs like meal planning and flexible financial goals. Without tools that reflect their unique situations, students struggle to stay on budget and miss out on opportunities like goal-based saving.</p>
-      </div>
-      <div style="margin: 4rem 0 2rem;">
-        <a href="Images/iGrad.png" class="image-link" style="width: 100% !important;" data-fancybox="iGrad" data-caption="iGrad website">
-          <img loading="lazy" src="Images/iGrad.png" alt="iGrad Budgeting Tool Screenshot" style="border: 1px solid #ccc;" />
-        </a>
-        <p class="caption" style="color: #000000;">iGrad: Budget Tool</p>
-      </div>
-    </main>
-    <main class="main-content center-flex" style="gap: 6rem; padding: 2rem; margin-bottom: 6rem;">
-      <div style="max-width: 60%;">
-        <h1 class="section-title">Role & Responsibilities</h1>
-      </div>
-      <div style="font-size: 1.15rem;">
-        <p>This was a solo project completed as part of an independent study capstone. I conducted all user research, designed the interface in Figma, and developed the web application using HTML, CSS, and JavaScript. Responsibilities included designing and executing interviews, analyzing student budgeting needs, designing and prototyping a mockup, and building a responsive and fully functional web app from the ground up.</p>
-      </div>
-    </main>
-    <div style="display: flex; justify-content: center; align-items: flex-start; gap: 2rem; margin: 6rem auto; max-width: 1200px;">
-      <div style="width: 33%;">
-        <a href="Images/Outline 1.png" class="image-link" style="width: 100% !important;" data-fancybox="financier-outline" data-caption="Project Description, Learning Objectives, Learning Outcomes">
-          <img loading="lazy" src="Images/Outline 1.png" class="image-link" style="height: auto;" alt="Outline Page 1"/>
-        </a>
-        <p class="caption" style="color: #000000;">Outline Page 1: Project Description, Learning Objectives, Learning Outcomes</p>
-      </div>
-      <div style="width: 33%;">
-        <a href="Images/Outline 2.png" class="image-link" style="width: 100% !important;" data-fancybox="financier-outline" data-caption="Learning Outcomes cont., Deliverables">
-          <img loading="lazy" src="Images/Outline 2.png" class="image-link" style="height: auto;" alt="Outline Page 2"/>
-        </a>
-        <p class="caption" style="color: #000000;">Outline Page 2: Learning Outcomes cont., Deliverables</p>
-      </div>
-      <div style="width: 33%;">
-        <a href="Images/Outline 3.png" class="image-link" style="width: 100% !important;" data-fancybox="financier-outline" data-caption="Deliverables Timeline, Research Plan">
-          <img loading="lazy" src="Images/Outline 3.png" class="image-link" style="height: auto;" alt="Outline Page 3"/>
-        </a>
-        <p class="caption" style="color: #000000;">Outline Page 3: Deliverables Timeline, Research Plan</p>
+        <h1 class="section-title">Interview Questions</h1>
+        <ol style="line-height: 1.8;">
+          <li>How do you typically allocate your money each month?</li>
+          <li>What are your most common expenses as a college student?</li>
+          <li>Do you have a meal plan, and if so, how does it impact your budgeting?</li>
+          <li>Do you have a job? If yes, how does your income influence your spending habits?</li>
+        </ol>
+        <p style="margin-top: 1rem;"><strong>Other potential questions:</strong></p>
+        <ul style="line-height: 1.8;">
+          <li>How do you keep track of your spending right now?</li>
+          <li>What kind of budgeting tools or apps have you used in the past?</li>
+          <li>What financial goals do you currently have?</li>
+          <li>Do you ever share expenses with friends or roommates?</li>
+        </ul>
       </div>
     </div>
-    <div style="background: #ffffff; padding: 2rem; box-shadow: 0 0 8px rgba(0, 0, 0, 0.1); border-radius: 8px; margin: 8rem auto 2rem; max-width: 1200px;">
-      <main class="main-content" style="display: flex; justify-content: center; align-items: flex-start; gap: 5rem; padding: 2rem; margin-top: 4rem;">
-        <div style="max-width: 60%;">
-          <h1 class="section-title">Research Plan</h1>
-          <ul style="font-size: 1.15rem; line-height: 1.8;">
-            <li>Interviewed 10 college students to gather insights on budgeting habits.</li>
-            <li>Extracted themes such as spending priorities, income sources, and financial confidence.</li>
-            <li>Used findings to guide features like expense tracking, meal budgeting, and savings goals.</li>
-          </ul>
-          <div style="width: 100%;">
-            <h1 class="section-title">Participant Information</h1>
-            <ul style="font-size: 1.15rem; line-height: 1.8;">
-              <li><strong>Total Participants:</strong> 10</li>
-              <li><strong>Age Range:</strong> 20–22 years old</li>
-              <li><strong>Academic Level:</strong> All undergraduate students</li>
-              <li><strong>Schools Represented:</strong> University of Pittsburgh, Union College, Rensselaer Polytechnic Institute, Widener University, NJIT, Cornell University</li>
-            </ul>
-          </div>
-          <p style="font-size: 1.15rem; margin-top: 1rem;"><strong>General Focus:</strong> Identifying key student expenses, how meal plans and job status shape budgeting, and common discretionary spending patterns.</p>
-        </div>
-        <div style="font-size: 1.15rem;">
-          <h1 class="section-title">Interview Questions</h1>
-          <ol style="line-height: 1.8;">
-            <li>How do you typically allocate your money each month?</li>
-            <li>What are your most common expenses as a college student?</li>
-            <li>Do you have a meal plan, and if so, how does it impact your budgeting?</li>
-            <li>Do you have a job? If yes, how does your income influence your spending habits?</li>
-          </ol>
-          <p style="margin-top: 1rem;"><strong>Other potential questions:</strong></p>
-          <ul style="line-height: 1.8;">
-            <li>How do you keep track of your spending right now?</li>
-            <li>What kind of budgeting tools or apps have you used in the past?</li>
-            <li>What financial goals do you currently have?</li>
-            <li>Do you ever share expenses with friends or roommates?</li>
-          </ul>
-        </div>
-      </main>
     <div style="margin-top: 4rem;">
       <h1 class="section-title">Key Interview Findings</h1>
       <ul style="font-size: 1.15rem; line-height: 1.8; padding-left: 1.2rem;">
-        <li>Students with meal plans mostly spend on snacks, drinks, and entertainment, while those without must budget more carefully for groceries and meals.</li>
-        <li>Video games, dining out, and social outings are common discretionary expenses, especially among students living on campus.</li>
-        <li>Having a job or other income source gives students greater flexibility and confidence in spending; those without are more cautious and savings-oriented.</li>
-        <li>Academic and tech-related purchases are a notable part of student budgets, especially for those focused on coursework or projects.</li>
-        <li>Living arrangements (on-campus vs. off-campus) significantly influence how students manage transportation, food, and personal expenses.</li>
-        <li>Most students haven’t used budgeting apps and haven't had much experience actively keeping track of their spending.</li>
+        <li>Students with meal plans mostly spend on snacks, drinks, and entertainment, while those without must budget
+          more carefully for groceries and meals.</li>
+        <li>Video games, dining out, and social outings are common discretionary expenses, especially among students
+          living on campus.</li>
+        <li>Having a job or other income source gives students greater flexibility and confidence in spending; those
+          without are more cautious and savings-oriented.</li>
+        <li>Academic and tech-related purchases are a notable part of student budgets, especially for those focused on
+          coursework or projects.</li>
+        <li>Living arrangements (on-campus vs. off-campus) significantly influence how students manage transportation,
+          food, and personal expenses.</li>
+        <li>Most students haven’t used budgeting apps and haven't had much experience actively keeping track of their
+          spending.</li>
       </ul>
     </div>
-    </div>
-    <p class="caption" style="color: #000000;">User Research Overview – Spring 2025</p>
-    <h1 class="section-title" style="text-align: center; margin: 6rem auto 2rem; max-width: 1200px;">Design Process</h1>
-    <div style="display: flex; justify-content: center; align-items: flex-start; gap: 2rem; margin: 4rem auto 0; max-width: 1200px; position: relative;">
-      <div style="width: 40%; display: flex; flex-direction: column; align-items: center;">
-        <div class="dp-landing" style="position: relative; top: 0px; width: 100%; z-index: 2;">
-          <div style="background: #fff; border-radius: 8px; padding: 1rem 1.5rem; margin-bottom: 0; box-shadow: 0 0 8px rgba(0,0,0,0.1); width: 100%; text-align: center;">Landing Page</div>
-          <p style="font-size: 1rem; text-align: center; margin: 1rem 0;">
-            This landing page welcomes users with an overview of Financier's core features. Nearly all icons in this application are taken from the SF Symbols library to ensure stylistic consistency and a clean, native Apple-inspired aesthetic.
-          </p>
-        </div>
-        <div class="dp-goals" style="position: relative; top: 34px; width: 100%; z-index: 2;">
-          <div style="background: #fff; border-radius: 8px; padding: 1rem 1.5rem; margin-bottom: 0; box-shadow: 0 0 8px rgba(0,0,0,0.1); width: 100%; text-align: center;">Goals & Categories</div>
-          <p style="font-size: 1rem; text-align: center; margin: 1rem 0;">
-            On this page, users create and track financial goals and explore organized categories of their choice.
-          </p>
-        </div>
-        <div class="dp-transactions" style="position: relative; top: 359px; width: 100%; z-index: 2;">
-          <div style="background: #fff; border-radius: 8px; padding: 1rem 1.5rem; margin-bottom: 0; box-shadow: 0 0 8px rgba(0,0,0,0.1); width: 100%; text-align: center;">Track Transactions</div>
-          <p style="font-size: 1rem; text-align: center; margin: 1rem 0;">
-            Here, users log income and expenses, assign categories, and plan out their meals.
-          </p>
-        </div>
-        <div class="dp-analytics" style="position: relative; top: 1072px; width: 100%; z-index: 2;">
-          <div style="background: #fff; border-radius: 8px; padding: 1rem 1.5rem; margin-bottom: 0; box-shadow: 0 0 8px rgba(0,0,0,0.1); width: 100%; text-align: center;">Analytics</div>
-          <p style="font-size: 1rem; text-align: center; margin: 1rem 0;">
-            This section visualizes financial data with dynamic bar and pie charts. Green segments indicate healthy savings or income, and red segments flag overspending or budget breaches. Users can toggle between weekly and monthly views to track trends and spot areas for improvement. A CSV export button in the top right lets users download their data for external analysis, and a CSV import option lets users restore or load data back into the app.
-          </p>
-        </div>
-        <div class="dp-calculator" style="position: relative; top: 1148px; width: 100%; z-index: 2;">
-          <div style="background: #fff; border-radius: 8px; padding: 1rem 1.5rem; margin-bottom: 0; box-shadow: 0 0 8px rgba(0,0,0,0.1); width: 100%; text-align: center;">Calculator</div>
-          <p style="font-size: 1rem; text-align: center; margin: 1rem 0;">
-            A built-in calculator helps perform quick financial calculations and keeps a history log. The SF Mono typeface ensures aligned, easy-to-read digits and complements the SF Symbols icon set used throughout for a consistent, clean visual language.
-          </p>
-        </div>
-        <div class="dp-tips" style="position: relative; top: 1162px; width: 100%; z-index: 2;">
-          <div style="background: #fff; border-radius: 8px; padding: 1rem 1.5rem; margin-bottom: 0; box-shadow: 0 0 8px rgba(0,0,0,0.1); width: 100%; text-align: center;">Money Tips</div>
-          <p style="font-size: 1rem; text-align: center; margin: 1rem 0;">
-            Curated money-saving tips by category—Textbook (light navy for trust and learning), Food & Dining (orange for energy and appetite), Shopping Smart (green for growth), Finance (gold for value), Transportation (teal for clarity), Housing & Utilities (reddish-orange for warmth), Health & Wellness (pink for care), Entertainment (purple for creativity)—each color symbolizes its theme and guides students to the right advice.
-          </p>
-        </div>
-      </div>
-      <div style="width: 60%; position: relative; z-index: 1;">
-        <div style="margin-bottom: 2rem;">
-        <a href="Images/Financier Mockup.png" class="image-link" style="width: 100% !important;" data-fancybox="financier-mockup" data-caption="Interactive Budgeting App Mockup in Figma">
-          <img loading="lazy" src="Images/Financier Mockup.png" class="image-link" style="height: auto;" alt="Financier App Mockup"/>
-        </a>
-          <p class="caption" style="color: #000000;">Financier: Interactive Budgeting App Mockup in Figma</p>
-        </div>
-      </div>
-    </div>
-    <div style="margin: 0 auto; width: 100%; max-width: 1200px; margin-top: 14rem;">
-      <h1 class="section-title" style="text-align: left;">Financier Figma Prototype</h1>
-    </div>
-    <div style="margin-top: 0rem; width: 100%; max-width: 1200px; margin-left: auto; margin-right: auto;">
-      <iframe loading="lazy"
-        style="border: 1px solid rgba(0, 0, 0, 0.1); border-radius: 8px; width: 100%; height: 600px;"
-        src="https://www.figma.com/embed?embed_host=share&url=https://www.figma.com/proto/ngZPJ9PQnHfDZCcsMkfjSx/Independent-Study-Project?node-id=0-1&t=IxECJTnhOBDckBcQ-1"
-        allowfullscreen>
-      </iframe>
-    </div>
-    <div style="background: #ffffff; padding: 2rem; margin: 0 auto; width: 100%; max-width: 1135px; box-shadow: 0 0 8px rgba(0, 0, 0, 0.05); border-top-left-radius: 8px; border-top-right-radius: 8px; border-bottom-left-radius: 8px; border-bottom-right-radius: 8px;">
-      <p style="font-size: 1.15rem; line-height: 1.8; margin: 0;">
-        Creating the prototype allowed me to translate user research into a tangible, interactive experience. It helped validate design decisions, demonstrate the flow of key features like goal setting and transaction tracking, and ensure the interface was intuitive for college students. The prototype served as a proof of concept that guided development and clarified the user journey.
-      </p>
-    </div>
-    <div style="margin: 6rem auto 2rem; width: 100%; max-width: 1200px;">
-      <h1 class="section-title" style="text-align: left;">Live Website</h1>
-      <a href="https://rhythmd22.github.io/Financier/" target="_blank">
-        <img loading="lazy" src="Images/Financier Site.png" alt="Financier App Screenshot" class="screenshot-img" />
-      </a>
-      <div style="background: #ffffff; padding: 2rem; margin: 0rem auto 0; width: 100%; max-width: 1135px; box-shadow: 0 0 8px rgba(0, 0, 0, 0.05); border-radius: 8px;">
-        <div style="margin-top: 0;">
-          <h2 style="font-size: 1.5rem; font-weight: 700;">Overall Outcomes</h2>
-          <ul style="font-size: 1.15rem; line-height: 1.8;">
-            <li>Customizable financial goal setting</li>
-            <li>Weekly and monthly transaction tracking</li>
-            <li>Budget and expense overview with graphs and category breakdowns</li>
-            <li>Built-in calculator with a history log</li>
-            <li>Organized money-saving tips by category</li>
-            <li>CSV export and import of user financial data</li>
-            <li>Adapted to scope limitations to deliver a polished product</li>
-            <li>Developed hands-on skills in UX research, UI design, coding, and project management</li>
-          </ul>
-        </div>
-        <div style="margin-top: 3rem;">
-          <h2 style="font-size: 1.5rem; font-weight: 700;">Reflection</h2>
-          <p style="font-size: 1.15rem; line-height: 1.8;">
-            Building Financier taught me how to go from idea to execution—from user research and interface design to front-end development. I conducted interviews, identified key insights, prototyped in Figma, and brought it all together into a responsive budgeting app. This hands-on process helped me understand how to turn user needs into practical features and deepen my skills across the entire UX pipeline.
-          </p>
-        </div>
-      </div>
-    </div>
-        <div id="footer-placeholder"></div>
   </div>
+  <p class="caption" style="color: #000000;">User Research Overview – Spring 2025</p>
+  <h1 class="section-title" style="text-align: center; margin: 6rem auto 2rem; max-width: 1200px;">Design Process</h1>
+  <div
+    style="display: flex; justify-content: center; align-items: flex-start; gap: 2rem; margin: 4rem auto 0; max-width: 1200px; position: relative;">
+    <div style="width: 40%; display: flex; flex-direction: column; align-items: center;">
+      <div class="dp-landing" style="position: relative; top: 0px; width: 100%; z-index: 2;">
+        <div
+          style="background: #fff; border-radius: 8px; padding: 1rem 1.5rem; margin-bottom: 0; box-shadow: 0 0 8px rgba(0,0,0,0.1); width: 100%; text-align: center;">
+          Landing Page</div>
+        <p style="font-size: 1rem; text-align: center; margin: 1rem 0;">
+          This landing page welcomes users with an overview of Financier's core features. Nearly all icons in this
+          application are taken from the SF Symbols library to ensure stylistic consistency and a clean, native
+          Apple-inspired aesthetic.
+        </p>
+      </div>
+      <div class="dp-goals" style="position: relative; top: 34px; width: 100%; z-index: 2;">
+        <div
+          style="background: #fff; border-radius: 8px; padding: 1rem 1.5rem; margin-bottom: 0; box-shadow: 0 0 8px rgba(0,0,0,0.1); width: 100%; text-align: center;">
+          Goals & Categories</div>
+        <p style="font-size: 1rem; text-align: center; margin: 1rem 0;">
+          On this page, users create and track financial goals and explore organized categories of their choice.
+        </p>
+      </div>
+      <div class="dp-transactions" style="position: relative; top: 359px; width: 100%; z-index: 2;">
+        <div
+          style="background: #fff; border-radius: 8px; padding: 1rem 1.5rem; margin-bottom: 0; box-shadow: 0 0 8px rgba(0,0,0,0.1); width: 100%; text-align: center;">
+          Track Transactions</div>
+        <p style="font-size: 1rem; text-align: center; margin: 1rem 0;">
+          Here, users log income and expenses, assign categories, and plan out their meals.
+        </p>
+      </div>
+      <div class="dp-analytics" style="position: relative; top: 1072px; width: 100%; z-index: 2;">
+        <div
+          style="background: #fff; border-radius: 8px; padding: 1rem 1.5rem; margin-bottom: 0; box-shadow: 0 0 8px rgba(0,0,0,0.1); width: 100%; text-align: center;">
+          Analytics</div>
+        <p style="font-size: 1rem; text-align: center; margin: 1rem 0;">
+          This section visualizes financial data with dynamic bar and pie charts. Green segments indicate healthy
+          savings or income, and red segments flag overspending or budget breaches. Users can toggle between weekly and
+          monthly views to track trends and spot areas for improvement. A CSV export button in the top right lets users
+          download their data for external analysis, and a CSV import option lets users restore or load data back into
+          the app.
+        </p>
+      </div>
+      <div class="dp-calculator" style="position: relative; top: 1148px; width: 100%; z-index: 2;">
+        <div
+          style="background: #fff; border-radius: 8px; padding: 1rem 1.5rem; margin-bottom: 0; box-shadow: 0 0 8px rgba(0,0,0,0.1); width: 100%; text-align: center;">
+          Calculator</div>
+        <p style="font-size: 1rem; text-align: center; margin: 1rem 0;">
+          A built-in calculator helps perform quick financial calculations and keeps a history log. The SF Mono typeface
+          ensures aligned, easy-to-read digits and complements the SF Symbols icon set used throughout for a consistent,
+          clean visual language.
+        </p>
+      </div>
+      <div class="dp-tips" style="position: relative; top: 1162px; width: 100%; z-index: 2;">
+        <div
+          style="background: #fff; border-radius: 8px; padding: 1rem 1.5rem; margin-bottom: 0; box-shadow: 0 0 8px rgba(0,0,0,0.1); width: 100%; text-align: center;">
+          Money Tips</div>
+        <p style="font-size: 1rem; text-align: center; margin: 1rem 0;">
+          Curated money-saving tips by category—Textbook (light navy for trust and learning), Food & Dining (orange for
+          energy and appetite), Shopping Smart (green for growth), Finance (gold for value), Transportation (teal for
+          clarity), Housing & Utilities (reddish-orange for warmth), Health & Wellness (pink for care), Entertainment
+          (purple for creativity)—each color symbolizes its theme and guides students to the right advice.
+        </p>
+      </div>
+    </div>
+    <div style="width: 60%; position: relative; z-index: 1;">
+      <div style="margin-bottom: 2rem;">
+        <a href="Images/Financier%20Mockup.png" class="image-link" style="width: 100% !important;"
+          data-fancybox="financier-mockup" data-caption="Interactive Budgeting App Mockup in Figma">
+          <img loading="lazy" src="Images/Financier%20Mockup.png" class="image-link" style="height: auto;"
+            alt="Financier App Mockup">
+        </a>
+        <p class="caption" style="color: #000000;">Financier: Interactive Budgeting App Mockup in Figma</p>
+      </div>
+    </div>
+  </div>
+  <div style="margin: 0 auto; width: 100%; max-width: 1200px; margin-top: 14rem;">
+    <h1 class="section-title" style="text-align: left;">Financier Figma Prototype</h1>
+  </div>
+  <div style="margin-top: 0rem; width: 100%; max-width: 1200px; margin-left: auto; margin-right: auto;">
+    <iframe loading="lazy" style="border: 1px solid rgba(0, 0, 0, 0.1); border-radius: 8px; width: 100%; height: 600px;"
+      src="https://www.figma.com/embed?embed_host=share&url=https://www.figma.com/proto/ngZPJ9PQnHfDZCcsMkfjSx/Independent-Study-Project?node-id=0-1&t=IxECJTnhOBDckBcQ-1"
+      allowfullscreen>
+    </iframe>
+  </div>
+  <div
+    style="background: #ffffff; padding: 2rem; margin: 0 auto; width: 100%; max-width: 1135px; box-shadow: 0 0 8px rgba(0, 0, 0, 0.05); border-top-left-radius: 8px; border-top-right-radius: 8px; border-bottom-left-radius: 8px; border-bottom-right-radius: 8px;">
+    <p style="font-size: 1.15rem; line-height: 1.8; margin: 0;">
+      Creating the prototype allowed me to translate user research into a tangible, interactive experience. It helped
+      validate design decisions, demonstrate the flow of key features like goal setting and transaction tracking, and
+      ensure the interface was intuitive for college students. The prototype served as a proof of concept that guided
+      development and clarified the user journey.
+    </p>
+  </div>
+  <div style="margin: 6rem auto 2rem; width: 100%; max-width: 1200px;">
+    <h1 class="section-title" style="text-align: left;">Live Website</h1>
+    <a href="https://rhythmd22.github.io/Financier/" target="_blank">
+      <img loading="lazy" src="Images/Financier%20Site.png" alt="Financier App Screenshot" class="screenshot-img">
+    </a>
+    <div
+      style="background: #ffffff; padding: 2rem; margin: 0rem auto 0; width: 100%; max-width: 1135px; box-shadow: 0 0 8px rgba(0, 0, 0, 0.05); border-radius: 8px;">
+      <div style="margin-top: 0;">
+        <h2 style="font-size: 1.5rem; font-weight: 700;">Overall Outcomes</h2>
+        <ul style="font-size: 1.15rem; line-height: 1.8;">
+          <li>Customizable financial goal setting</li>
+          <li>Weekly and monthly transaction tracking</li>
+          <li>Budget and expense overview with graphs and category breakdowns</li>
+          <li>Built-in calculator with a history log</li>
+          <li>Organized money-saving tips by category</li>
+          <li>CSV export and import of user financial data</li>
+          <li>Adapted to scope limitations to deliver a polished product</li>
+          <li>Developed hands-on skills in UX research, UI design, coding, and project management</li>
+        </ul>
+      </div>
+      <div style="margin-top: 3rem;">
+        <h2 style="font-size: 1.5rem; font-weight: 700;">Reflection</h2>
+        <p style="font-size: 1.15rem; line-height: 1.8;">
+          Building Financier taught me how to go from idea to execution—from user research and interface design to
+          front-end development. I conducted interviews, identified key insights, prototyped in Figma, and brought it
+          all together into a responsive budgeting app. This hands-on process helped me understand how to turn user
+          needs into practical features and deepen my skills across the entire UX pipeline.
+        </p>
+      </div>
+    </div>
+  </div>
+  <div id="footer-placeholder"></div>
   <script src="templates.js"></script>
   <button onclick="window.scrollTo({top: 0, behavior: 'smooth'});" class="scroll-top-btn">
-    <svg width="96" height="72" viewBox="0 0 24 24" fill="none" stroke="#df3f41" stroke-width="0.6" stroke-linecap="round" stroke-linejoin="round">
+    <svg width="96" height="72" viewBox="0 0 24 24" fill="none" stroke="#df3f41" stroke-width="0.6"
+      stroke-linecap="round" stroke-linejoin="round">
       <polyline points="18 15 12 9 6 15"></polyline>
     </svg>
   </button>
-<script>
-  const topButton = document.querySelector('button[onclick*="scrollTo"]');
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 100) {
-      topButton.style.display = 'block';
-    } else {
+  <script>
+    const topButton = document.querySelector('button[onclick*="scrollTo"]');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 100) {
+        topButton.style.display = 'block';
+      } else {
+        topButton.style.display = 'none';
+      }
+    });
+    window.addEventListener('DOMContentLoaded', () => {
       topButton.style.display = 'none';
-    }
-  });
-  window.addEventListener('DOMContentLoaded', () => {
-    topButton.style.display = 'none';
-  });
-</script>
-<script>
-  Fancybox.bind('[data-fancybox]', {
-    Toolbar: {
-      display: [
-        { id: "counter", position: "center" },
-        "zoom",
-        "fullscreen",
-        "close"
-      ]
-    },
-    caption: function(fancybox, carousel, slide) {
-      return slide.$trigger.dataset.caption;
-    }
-  });
-</script>
+    });
+  </script>
+  <script>
+    Fancybox.bind('[data-fancybox="financier-outline"], [data-fancybox="financier-mockup"], [data-fancybox="iGrad"]', {
+      Carousel: {
+        Toolbar: {
+          display: {
+            left: ["counter"],
+            right: ["zoomIn", "zoomOut", "autoplay", "thumbs", "close"],
+          },
+        },
+      },
+    });
+  </script>
 </body>
+
 </html>

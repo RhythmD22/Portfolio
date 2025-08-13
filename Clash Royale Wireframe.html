@@ -1,21 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Clash Royale Wireframe</title>
   <link rel="icon" href="favicon.ico" type="image/x-icon">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css" />
-  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@6.0.22/dist/fancybox/fancybox.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@6.0.22/dist/fancybox/fancybox.umd.min.js"></script>
   <style>
     /* Prevent horizontal scrolling */
-    html, body {
+    html,
+    body {
       overflow-x: hidden;
     }
-    
+
     /* Tighten footer link spacing */
     .site-footer nav a,
     .site-footer nav .link-text {
@@ -49,33 +52,34 @@
 
     /* Responsive styles for mobile */
     @media screen and (max-width: 768px) {
-    /* Ensure container doesn't cause overflow and reaches screen edges */
-    .container {
-      max-width: 100vw !important;
-      overflow-x: hidden !important;
-      padding: 0 !important;
-    }
-      
+
+      /* Ensure container doesn't cause overflow and reaches screen edges */
+      .container {
+        max-width: 100vw !important;
+        overflow-x: hidden !important;
+        padding: 0 !important;
+      }
+
       /* Remove body margins to allow content to reach screen edges */
       body {
         margin: 0 !important;
         font-size: 14px;
       }
-      
+
       .page-title {
         font-size: 1.5rem;
       }
-      
+
       .section-title {
         font-size: 1.4rem;
       }
-      
+
       /* Scale down padding and margins */
       .main-content {
         padding: 1rem !important;
         gap: 2rem !important;
       }
-      
+
       /* Scale down container widths */
       div[style*="max-width: 60%"],
       div[style*="max-width: 50%"],
@@ -83,14 +87,14 @@
         max-width: 100% !important;
         width: 100% !important;
       }
-      
+
       /* Scale down flex layouts */
       div[style*="display: flex"]:not([style*="justify-content: center"]):not([style*="margin: 0 auto"]) {
         flex-direction: column !important;
         align-items: center !important;
         gap: 1rem !important;
       }
-      
+
       div[style*="width: 33%"],
       div[style*="width: 40%"],
       div[style*="width: 50%"],
@@ -98,42 +102,44 @@
       div[style*="width: 100%"] {
         width: 100% !important;
       }
-      
+
       /* Keep comparison images side by side on mobile */
       div[style*="display: flex"][style*="justify-content: center"],
       div[style*="margin: 0 auto"] {
         flex-direction: row !important;
         gap: 1rem !important;
       }
-      
-      div[style*="display: flex"][style*="justify-content: center"] > div[style*="width: 100%"],
-      div[style*="margin: 0 auto"] > div[style*="width: 100%"] {
+
+      div[style*="display: flex"][style*="justify-content: center"]>div[style*="width: 100%"],
+      div[style*="margin: 0 auto"]>div[style*="width: 100%"] {
         width: 45% !important;
       }
-      
+
       /* Scale down image containers */
       .image-link {
         width: 100% !important;
       }
-      
+
       .image-link img {
         width: 100% !important;
         height: auto !important;
       }
-      
+
       /* Scale down font sizes in lists and paragraphs */
-      ul, ol, p {
+      ul,
+      ol,
+      p {
         font-size: 0.9rem !important;
         line-height: 1.6 !important;
       }
-      
+
       /* Scale down iframe */
       iframe {
         width: 100% !important;
         height: 400px !important;
         margin: 2rem auto !important;
       }
-      
+
       /* Scale down margins */
       div[style*="margin: 6rem"],
       div[style*="margin: 8rem"],
@@ -142,18 +148,18 @@
       div[style*="margin: 3rem"] {
         margin: 2rem 0 !important;
       }
-      
+
       /* Reduce margin-top on project showcase for mobile */
       main.project-showcase {
         margin-top: 2rem !important;
       }
-      
+
       /* Ensure images scale properly */
       img {
         max-width: 100% !important;
         height: auto !important;
       }
-      
+
       /* Scale down positioning transforms */
       main[style*="position: relative"],
       main[style*="left: 50%"],
@@ -163,187 +169,189 @@
         transform: none !important;
         width: 100% !important;
       }
-      
+
       /* Scale down box shadows and borders */
       div[style*="box-shadow"],
       div[style*="border-radius"] {
         box-shadow: 0 0 4px rgba(0, 0, 0, 0.1) !important;
         border-radius: 4px !important;
       }
-      
+
       /* Scale down padding in white boxes */
       div[style*="padding: 2rem"] {
         padding: 1rem !important;
       }
-      
+
       /* Adjust specific elements */
       .info-meta {
         text-align: center !important;
       }
-      
-    /* Keep chest images properly sized */
-    div[style*="flex-direction: column"] img[alt*="Chest"],
-    div[style*="flex-direction: column"] img[alt*="Crown"] {
-      max-width: 30% !important;
-    }
-    
-    /* Ensure consistent sizing for crown GIFs */
-    img[alt*="Crown Animated"] {
-      max-width: 30% !important;
-      height: auto !important;
-    }
-    
-    /* Properly resize iframe and text card for mobile */
-    .project-showcase iframe {
-      height: 400px !important;
-    }
-    
-    #iframe-container {
-      width: 100% !important;
-      max-width: 100% !important;
-      margin: 0 !important;
-      padding: 0 !important;
-    }
-    
-    /* Remove centering margins from iframe container's parent */
-    .project-showcase > div[style*="margin: 0 auto"] {
-      margin: 0 !important;
-    }
-    
-    .project-showcase div[style*="background: #ffffff"] {
-      width: 100% !important;
-      max-width: 100% !important;
-      padding: 1rem !important;
-      margin: 2rem auto !important;
-      box-sizing: border-box !important;
-    }
-    
-    /* Ensure the white card beneath the iframe matches the iframe width and has proper spacing */
-    .project-showcase div[style*="background: #ffffff"][style*="padding: 2rem"] {
-      width: 100% !important;
-      max-width: 100% !important;
-      padding: 1rem !important;
-      margin: 0 auto !important;
-      box-sizing: border-box !important;
-    }
-    
-    /* Reduce spacing between iframe and white card */
-    #iframe-container div[style*="margin-top: 0.25rem"] {
-      margin-top: 0 !important;
-    }
-    
-    /* More specific targeting for the white card beneath iframe */
-    #iframe-container > div[style*="background: #ffffff"] {
-      margin-top: -1.8rem !important;
-      padding: 1rem !important;
-    }
-    
-    /* Target the parent container to remove any additional spacing */
-    .project-showcase > div[style*="width: 100%"][style*="max-width: 1200px"] {
-      margin-top: 0 !important;
-      padding-top: 0 !important;
-    }
-    
-    /* Remove any default spacing between iframe and white card */
-    #iframe-container div {
-      margin-top: 0 !important;
-    }
-    
-    /* Additional adjustment to move white card closer to iframe */
-    .project-showcase div[style*="background: #ffffff"][style*="padding: 2rem"] {
-      margin-top: -1rem !important;
-    }
-    
-    /* Correct User Flow image positioning */
-    main.main-content.center-flex:nth-of-type(6) > div[style*="display: flex"] {
-      flex-direction: column !important;
-      align-items: center !important;
-    }
-    
-    main.main-content.center-flex:nth-of-type(6) > div[style*="display: flex"] > div:first-child {
-      order: 2 !important;
-      width: 100% !important;
-      text-align: center !important;
-    }
-    
-    main.main-content.center-flex:nth-of-type(6) > div[style*="display: flex"] > div:last-child {
-      order: 1 !important;
-      width: 100% !important;
-      margin-top: 2rem !important;
-    }
-  }
 
-  /* Additional responsive for very small screens */
+      /* Keep chest images properly sized */
+      div[style*="flex-direction: column"] img[alt*="Chest"],
+      div[style*="flex-direction: column"] img[alt*="Crown"] {
+        max-width: 30% !important;
+      }
+
+      /* Ensure consistent sizing for crown GIFs */
+      img[alt*="Crown Animated"] {
+        max-width: 30% !important;
+        height: auto !important;
+      }
+
+      /* Properly resize iframe and text card for mobile */
+      .project-showcase iframe {
+        height: 400px !important;
+      }
+
+      #iframe-container {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+      }
+
+      /* Remove centering margins from iframe container's parent */
+      .project-showcase>div[style*="margin: 0 auto"] {
+        margin: 0 !important;
+      }
+
+      .project-showcase div[style*="background: #ffffff"] {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 1rem !important;
+        margin: 2rem auto !important;
+        box-sizing: border-box !important;
+      }
+
+      /* Ensure the white card beneath the iframe matches the iframe width and has proper spacing */
+      .project-showcase div[style*="background: #ffffff"][style*="padding: 2rem"] {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 1rem !important;
+        margin: 0 auto !important;
+        box-sizing: border-box !important;
+      }
+
+      /* Reduce spacing between iframe and white card */
+      #iframe-container div[style*="margin-top: 0.25rem"] {
+        margin-top: 0 !important;
+      }
+
+      /* More specific targeting for the white card beneath iframe */
+      #iframe-container>div[style*="background: #ffffff"] {
+        margin-top: -1.8rem !important;
+        padding: 1rem !important;
+      }
+
+      /* Target the parent container to remove any additional spacing */
+      .project-showcase>div[style*="width: 100%"][style*="max-width: 1200px"] {
+        margin-top: 0 !important;
+        padding-top: 0 !important;
+      }
+
+      /* Remove any default spacing between iframe and white card */
+      #iframe-container div {
+        margin-top: 0 !important;
+      }
+
+      /* Additional adjustment to move white card closer to iframe */
+      .project-showcase div[style*="background: #ffffff"][style*="padding: 2rem"] {
+        margin-top: -1rem !important;
+      }
+
+      /* Correct User Flow image positioning */
+      main.main-content.center-flex:nth-of-type(6)>div[style*="display: flex"] {
+        flex-direction: column !important;
+        align-items: center !important;
+      }
+
+      main.main-content.center-flex:nth-of-type(6)>div[style*="display: flex"]>div:first-child {
+        order: 2 !important;
+        width: 100% !important;
+        text-align: center !important;
+      }
+
+      main.main-content.center-flex:nth-of-type(6)>div[style*="display: flex"]>div:last-child {
+        order: 1 !important;
+        width: 100% !important;
+        margin-top: 2rem !important;
+      }
+    }
+
+    /* Additional responsive for very small screens */
     @media screen and (max-width: 480px) {
       body {
         font-size: 12px;
       }
-      
+
       .page-title {
         font-size: 1.3rem;
       }
-      
+
       .section-title {
         font-size: 1.2rem;
       }
-      
-      ul, ol, p {
+
+      ul,
+      ol,
+      p {
         font-size: 0.85rem !important;
       }
 
-    /* Mobile footer sizing fix */
-    @media screen and (max-width: 768px) {
-      .site-footer {
-        padding: 1.5rem 0 1rem !important;
-        font-size: 0.875rem !important;
-      }
-      
-      .site-footer nav {
-        font-size: 0.875rem !important;
-      }
-      
-      .site-footer nav a,
-      .site-footer nav .link-text {
-        font-size: 0.875rem !important;
-      }
-      
-      .site-footer p {
-        font-size: 0.75rem !important;
-        margin-top: 0.5rem !important;
-      }
-    }
+      /* Mobile footer sizing fix */
+      @media screen and (max-width: 768px) {
+        .site-footer {
+          padding: 1.5rem 0 1rem !important;
+          font-size: 0.875rem !important;
+        }
 
-    @media screen and (max-width: 480px) {
-      .site-footer {
-        padding: 1rem 0 0.75rem !important;
+        .site-footer nav {
+          font-size: 0.875rem !important;
+        }
+
+        .site-footer nav a,
+        .site-footer nav .link-text {
+          font-size: 0.875rem !important;
+        }
+
+        .site-footer p {
+          font-size: 0.75rem !important;
+          margin-top: 0.5rem !important;
+        }
       }
-      
-      .site-footer nav {
-        flex-wrap: wrap;
-        gap: 0.5rem;
+
+      @media screen and (max-width: 480px) {
+        .site-footer {
+          padding: 1rem 0 0.75rem !important;
+        }
+
+        .site-footer nav {
+          flex-wrap: wrap;
+          gap: 0.5rem;
+        }
+
+        .site-footer nav span {
+          margin: 0 0.25rem;
+        }
       }
-      
-      .site-footer nav span {
-        margin: 0 0.25rem;
-      }
-    }
-      
+
       /* Adjust comparison images for very small screens */
       div[style*="display: flex"][style*="justify-content: center"],
       div[style*="margin: 0 auto"] {
         gap: 0.75rem !important;
       }
-      
-      div[style*="display: flex"][style*="justify-content: center"] > div[style*="width: 100%"],
-      div[style*="margin: 0 auto"] > div[style*="width: 100%"] {
+
+      div[style*="display: flex"][style*="justify-content: center"]>div[style*="width: 100%"],
+      div[style*="margin: 0 auto"]>div[style*="width: 100%"] {
         width: 48% !important;
       }
-      
+
       /* Reduce container padding for better fit */
       .main-content {
         padding: 0.75rem !important;
       }
-      
+
       /* Scale down iframe further */
       iframe {
         height: 300px !important;
@@ -359,224 +367,284 @@
     }
   </style>
 </head>
+
 <body>
   <div class="container">
-        <div id="header-placeholder"></div>
+    <div id="header-placeholder"></div>
     <main class="main-content center-flex" style="gap: 2rem; padding: 2rem; min-height: calc(100vh - 160px);">
       <div style="max-width: 60%;">
         <h1 class="page-title">Clash Royale Wireframe<br>
           <span style="display: block; text-align: center;">&amp; Prototype Redesign</span>
         </h1>
-        <p style="font-size: 1.15rem;">Released in 2016, Clash Royale is a popular mobile strategy game that combines elements of collectible card games, tower defense, and multiplayer online battle arenas. Players collect and upgrade cards featuring troops, spells, and defenses, deploying them in real-time 1v1 or 2v2 battles. Despite its simple mechanics, the game offers deep strategic gameplay that has kept players engaged for years. In this project, I analyze several pain points and propose wireframe solutions to improve the user experience.</p>
+        <p style="font-size: 1.15rem;">Released in 2016, Clash Royale is a popular mobile strategy game that combines
+          elements of collectible card games, tower defense, and multiplayer online battle arenas. Players collect and
+          upgrade cards featuring troops, spells, and defenses, deploying them in real-time 1v1 or 2v2 battles. Despite
+          its simple mechanics, the game offers deep strategic gameplay that has kept players engaged for years. In this
+          project, I analyze several pain points and propose wireframe solutions to improve the user experience.</p>
       </div>
-        <div class="info-meta">
+      <div class="info-meta">
         <p><strong>CLIENT</strong><br>Personal Project</p>
         <p><strong>MY ROLE</strong><br>UI/UX Designer</p>
         <p><strong>TEAM</strong><br>Individual</p>
         <p><strong>TIMELINE</strong><br>Several weeks, Spring–Summer 2025</p>
       </div>
     </main>
-  <main class="main-content center-flex" style="gap: 6rem; padding: 2rem; margin-top: 8rem; margin-bottom: 6rem;">
-    <div style="max-width: 60%;">
-      <h1 class="section-title">Problem Discovery</h1>
-    </div>
-    <div style="display: flex; gap: 3rem;">
-      <div style="font-size: 1.15rem; flex: 1;">
-        <p>Through analyzing community feedback, key issues with the current Clash Royale UI emerged, including crowded menus, confusing navigation, non-intuitive interface elements, and removal of beloved features enjoyed by millions of users. While users generally preferred the new UI, many still found it to be too cluttered with widgets.
-        </p>
-        <p>Specifically, the Shop screen was often criticized for being cluttered with redundant in-app purchase options that could be handled externally, and some users felt the visual design, including tabs, looked "sketchy." The Collection screens presented challenges in easily switching between viewing and editing card collections, with users expressing a desire for older or more flexible deck builder options, and inefficient use of vertical space meant less content was visible at once. For Battle screens, users found it cumbersome to switch between different battle modes, with some noting the removal of 2v2, and even specific UI alignment issues like the arena not being centered.
-        </p>
+    <div class="main-content center-flex" style="gap: 6rem; padding: 2rem; margin-top: 8rem; margin-bottom: 6rem;">
+      <div style="max-width: 60%;">
+        <h1 class="section-title">Problem Discovery</h1>
       </div>
-    </div>
-  </main>
-  <main class="main-content center-flex" style="gap: 6rem; padding: 2rem; margin-top: 4rem; margin-bottom: 6rem;">
-     <div class="reviews" style="flex: 1;">
-        <blockquote style="font-weight: 500;">Key Concerns:</blockquote>
-        <blockquote>1. Removal of Chests:
-        The elimination of the chest system and introduction of "Lucky Drops" has disrupted the sense of achievement and progression we once enjoyed." <cite><br>— u/RedditUser1</cite></blockquote>
-        <blockquote>"This update sucks.
-        <br>
-        -removed 2v2
-        <br>
-        …
-        <br>
-        What was the point of this update?" <cite><br>— u/RedditUser2</cite></blockquote>
-        <blockquote>"It was a bit less visually cluttered when they changed it, but now it's even more cluttered. I would be fine with the new Ul if they didn't make most of the tabs look like a sketchy webpage that definitely isn't downloading malware onto your computer." <cite><br>— u/RedditUser3</cite></blockquote>
-      </div>
-
-    <div style="max-width: 50%; text-align: center;">
-      <a href="Images/Criticisms.png" class="image-link" style="width: 100% !important;" data-fancybox="criticisms" data-caption="Criticisms from Reddit users">
-        <img src="Images/Criticisms.png" alt="Criticisms" style="height: auto;">
-      </a>
-      <p class="caption" style="color: #000000;">Reddit User Feedback: UI/UX Criticisms of Game Update - Spring 2025</p>
-    </div>
-  </main>
-  <main class="main-content center-flex" style="gap: 6rem; padding: 2rem; margin-top: 4rem; margin-bottom: 6rem;">
-    <div style="max-width: 60%;">
-      <h1 class="section-title">Design Process</h1>
-    </div>
-      <div style="font-size: 1.15rem;">
-        <p>I developed detailed screen diagrams and user flowcharts to iterate on the menu structure, navigation paths for features like deck creation and battles, and overall information hierarchy.</p>
-      </div>
-  </main>
-  <main class="main-content center-flex" style="gap: 6rem; padding: 2rem; margin-top: 4rem;">
-    <div style="display: flex; align-items: flex-start; gap: 3rem; width: 100%">
-      <div style="flex: 1;">
-        <h1 class="section-title" style="font-weight: 600;">Diagram of Screens</h1>
-        <p style="font-size: 1.15rem;">This diagram illustrates the comprehensive number of screens and screen navigation within Clash Royale, detailing various paths and interactions throughout the game.</p>
-    </div>
-    <div style="flex: 1;">
-      <a href="Images/Clash Royale Screens Diagram.png" class="image-link" style="width: 100% !important;" data-fancybox="Screens Diagram" data-caption="Clash Royale Screens Diagram">
-        <img src="Images/Clash Royale Screens Diagram.png" alt="Screens Diagram" style="height: auto;">
-      </a>
-    </div>
-  </div>
-  </main>
-  <main class="main-content center-flex" style="gap: 6rem; padding: 2rem; margin-top: 4rem; margin-bottom: 6rem;">
-    <div style="display: flex; align-items: flex-start; gap: 3rem; width: 100%">
-      <div style="flex: 1;">
-        <a href="Images/Clash Royale User Flows.png" class="image-link" style="width: 100% !important;" data-fancybox="User Flow" data-caption="Clash Royale User Flows">
-          <img src="Images/Clash Royale User Flows.png" alt="User Flow" style="height: auto;">
-        </a>
-      </div>
-      <div style="flex: 1;">
-        <h1 class="section-title" style="font-weight: 600;">User Flow Analysis - <br >Decks and Battling</h1>
-        <p style="font-size: 1.15rem;">I analyzed the existing user flow for deck management, noting a multi-step process that wasn't clearly conveyed to players. To streamline this, I've introduced 'Edit' and 'View' buttons within the Deck Creation/Editing flow.</p>
-        <p style="font-size: 1.15rem;">Similarly, the 1v1/2v2 Battle flow provides easier navigation with a 'Battle' and '2v2 slider' button, addressing sluggish screen transitions and numerous steps that previously hindered quick adaptation during play sessions.</p>
-    </div>
-  </div>
-  </main>
-  <main class="main-content center-flex" style="gap: 6rem; padding: 2rem; margin-top: 8rem;">
-    <div style="max-width: 100%;">
-      <h1 class="section-title" style="font-weight: 600;">Comparisons</h1>
-      <!-- Redesign image centered at the top -->
-      <div style="display: flex; justify-content: center; margin: 2rem 0;">
-        <div style="flex: 1; position: relative; max-width: 800px;">
-          <a href="Images/Clash Royale Redesign.png" class="image-link" style="width: 100% !important; display: block;" data-fancybox="Comparisons" data-caption="Recreation and Redesign Title Card">
-            <img loading="lazy" img src="Images/Clash Royale Redesign.png" alt="Comparisons Title Card" style="height: auto; width: 100%; display: block;">
-          </a>
-        </div>
-      </div>
-      <div style="text-align: center; margin: 2rem 0;">
-        <p style="font-size: 1.15rem; max-width: 800px; margin: 0 auto;">Side-by-side comparisons of the original UI and my improved wireframe. The minimal redesign focuses on streamlining navigation and improving visual hierarchy to enhance user experience.</p>
-      </div>
-      <div style=" margin-top: 8rem;"></div>
-      <div style="display: flex; justify-content: space-between; margin-top: 3rem; width: 100%;">
-        <!-- Left image -->
-        <div style="width: 100%;">
-          <a href="Images/Clash Royale Comparisons.png" class="image-link" data-fancybox="Comparisons" data-caption="Revamped UI/UX Components and Layouts">
-            <img loading="lazy" img src="Images/Clash Royale Comparisons.png" alt="Comparisons 1" style="width: 100%; height: auto;">
-          </a>
-        </div>
-      <!-- Text container -->
-      <div style="text-align: left; margin: 0;">
-        <img loading="lazy" img src="Images/Blue Crown Animated.gif" alt="Blue Crown Animated" style="max-width: 30%; height: auto; margin: 0 auto; display: block; margin-left: auto; margin-right: 33%;">
-        <h3 style="font-size: 1.3rem; margin-bottom: 1.5rem; text-align: center; font-weight: 600;">Key Improvements</h3>
-        <ul style="font-size: 1rem; padding-left: 2.5rem; line-height: 1.8;">
-          <li style="margin-bottom: 4rem;"><strong>Shopping Screen:</strong>
-            <ul style="list-style-type: none; margin-top: 0.8rem; line-height: 1.6;">
-              <li style="margin-left: 2rem; margin-bottom: 0.8rem;">- Removed visual clutter</li>
-              <li style="margin-left: 2rem; margin-bottom: 0.8rem;">- Eliminated redundant Pass Royale display</li>
-              <li style="margin-left: 2rem; margin-bottom: 0.8rem;">- Streamlined in-app purchases</li>
-              <li style="margin-left: 2rem;">- Optimized vertical space usage</li>
-            </ul>
-          </li>
-          <li style="margin-bottom: 4rem;"><strong>Collection Screen:</strong>
-            <ul style="list-style-type: none; margin-top: 0.8rem; line-height: 1.6;">
-              <li style="margin-left: 2rem; margin-bottom: 0.8rem;">- Reintroduced scrollbar for deck selection</li>
-              <li style="margin-left: 2rem; margin-bottom: 0.8rem;">- Added distinct Edit/View buttons for clearer navigation</li>
-              <li style="margin-left: 2rem;">- Reduced component sizes to display more content</li>
-            </ul>
-          </li>
-          <li style="margin-bottom: 4rem;"><strong>Battle Screens:</strong>
-            <ul style="list-style-type: none; margin-top: 0.8rem; line-height: 1.6;">
-              <li style="margin-left: 2rem; margin-bottom: 0.8rem;">- Implemented intuitive 1v1/2v2 slider navigation</li>
-              <li style="margin-left: 2rem; margin-bottom: 0.8rem;">- Removed interface widgets surrounding the Battle button</li>
-              <li style="margin-left: 2rem;">- Restored the classic Chest system that defines the Clash Royale experience</li>
-            </ul>
-          </li>
-        </ul>
-      <!-- Images stacked vertically -->
-      <div style="display: flex; flex-direction: column; gap: 20px; margin-top: 20px;">
-        <img loading="lazy" img src="Images/Chests/1 - Wooden Chest.png" alt="Wooden Chest" style="max-width: 30%; height: auto; margin: 0 auto;">
-        <img loading="lazy" img src="Images/Chests/2 - Silver Chest.png" alt="Silver Chest" style="max-width: 30%; height: auto; margin: 0 auto;">
-        <img loading="lazy" img src="Images/Chests/3 - Golden Chest.png" alt="Golden Chest" style="max-width: 30%; height: auto; margin: 0 auto;">
-        <img loading="lazy" img src="Images/Chests/4 - Magical Chest.png" alt="Magical Chest" style="max-width: 50%; height: auto; margin: 0 auto;">
-        <img loading="lazy" img src="Images/Chests/6 - Legendary Chest.png" alt="Legendary Chest" style="max-width: 30%; height: auto; margin: 0 auto;">
-        <img loading="lazy" img src="Images/Chests/7 - Champion Chest.png" alt="Champion Chest" style="max-width: 30%; height: auto; margin: 0 auto;">
-        <img loading="lazy" img src="Images/Red Crown Animated.gif" alt="Red Animated Crown" style="max-width: 30%; height: auto; margin: 0 auto;">
-      </div>
-      </div>
-        <!-- Right image -->
-        <div style="width: 100%;">
-          <a href="Images/Clash Royale Comparisons cont..png" class="image-link" data-fancybox="Comparisons" data-caption="Revamps Continued and Recreations of the Existing UI/UX">
-            <img loading="lazy" img src="Images/Clash Royale Comparisons cont..png" alt="Comparisons 2" style="width: 100%; height: auto;">
-          </a>
-        </div>
-      </div>
-    </div>
-  </main>
-  <main class="project-showcase" style="margin-top: 14rem;">
-    <div style="width: 100%; max-width: 1200px; margin: 0 auto; position: relative;">
-      <div id="iframe-container" style="position: relative; width: 70vw; margin: 0 auto;">
-        <h1 class="section-title" style="position: relative; text-align: left; margin-bottom: 0rem;">Clash Royale Figma Wireframe & Prototype</h1>
-        <iframe loading="lazy"
-          style="border: 0px solid rgba(0, 0, 0, 0.1); border-radius: 8px; width: 100%; height: 600px; display: block;"
-          src="https://embed.figma.com/proto/xzOx2Eg95N1uA753P0rgvK/Clash-Royale-Wireframe---Prototype?page-id=0%3A1&node-id=10-948&p=f&viewport=436%2C-1065%2C0.07&scaling=contain&content-scaling=responsive&starting-point-node-id=10%3A948&embed-host=share"
-          allowfullscreen>
-        </iframe>
-        <div style="background: #ffffff; padding: 2rem; width: 100%; box-sizing: border-box; box-shadow: 0 0 8px rgba(0, 0, 0, 0.05); border-radius: 8px; margin-top: 0.25rem;">
-          <p style="font-size: 1.15rem; line-height: 1.8; margin: 0;">
-            This wireframe prototype demonstrates my UI/UX redesign approach for Clash Royale. I focused on reducing visual clutter, improving navigation patterns, and enhancing the core gameplay experience. Key improvements include streamlined shopping interfaces, more intuitive deck management with improved scrolling functionality, and redesigned battle screens featuring the classic Chest system that players love. The prototype allowed me to test these interface improvements before finalizing the design direction.
+      <div style="display: flex; gap: 3rem;">
+        <div style="font-size: 1.15rem; flex: 1;">
+          <p>Through analyzing community feedback, key issues with the current Clash Royale UI emerged, including
+            crowded menus, confusing navigation, non-intuitive interface elements, and removal of beloved features
+            enjoyed by millions of users. While users generally preferred the new UI, many still found it to be too
+            cluttered with widgets.
+          </p>
+          <p>Specifically, the Shop screen was often criticized for being cluttered with redundant in-app purchase
+            options that could be handled externally, and some users felt the visual design, including tabs, looked
+            "sketchy." The Collection screens presented challenges in easily switching between viewing and editing card
+            collections, with users expressing a desire for older or more flexible deck builder options, and inefficient
+            use of vertical space meant less content was visible at once. For Battle screens, users found it cumbersome
+            to switch between different battle modes, with some noting the removal of 2v2, and even specific UI
+            alignment issues like the arena not being centered.
           </p>
         </div>
       </div>
     </div>
-  </main>
-  <div style="text-align: center; padding-bottom: 0;">
-    <div style="background: #ffffff; padding: 2rem; width: auto; max-width: 800px; box-sizing: border-box; box-shadow: 0 0 8px rgba(0, 0, 0, 0.05); border-radius: 8px; margin: 8rem auto 8rem; display: inline-block; text-align: left;">
-      <h2 style="font-size: 1.5rem; font-weight: 700;">Reflection</h2>
-      <p style="font-size: 1.15rem; line-height: 1.8; margin: 0;">
-        This project taught me the importance of clear navigation, consistent iconography, and user feedback loops in mobile game interfaces. Iterating based on real user comments led to more intuitive designs.<br>
-        <br>Working in Figma allowed me to rapidly prototype and test different solutions, helping me develop a deeper understanding of mobile gaming UI/UX principles that I'll carry forward into future projects. The skills I gained in balancing aesthetic appeal with functional design have proven essential for creating interfaces that feel both visually compelling and effortlessly navigable.
-      </p>
+    <div class="main-content center-flex" style="gap: 6rem; padding: 2rem; margin-top: 4rem; margin-bottom: 6rem;">
+      <div class="reviews" style="flex: 1;">
+        <blockquote style="font-weight: 500;">Key Concerns:</blockquote>
+        <blockquote>1. Removal of Chests:
+          The elimination of the chest system and introduction of "Lucky Drops" has disrupted the sense of achievement
+          and progression we once enjoyed." <cite><br>— u/RedditUser1</cite></blockquote>
+        <blockquote>"This update sucks.
+          <br>
+          -removed 2v2
+          <br>
+          …
+          <br>
+          What was the point of this update?" <cite><br>— u/RedditUser2</cite>
+        </blockquote>
+        <blockquote>"It was a bit less visually cluttered when they changed it, but now it's even more cluttered. I
+          would be fine with the new Ul if they didn't make most of the tabs look like a sketchy webpage that definitely
+          isn't downloading malware onto your computer." <cite><br>— u/RedditUser3</cite></blockquote>
+      </div>
+
+      <div style="max-width: 50%; text-align: center;">
+        <a href="Images/Criticisms.png" class="image-link" style="width: 100% !important;" data-fancybox="Criticisms"
+          data-caption="Criticisms from Reddit users">
+          <img src="Images/Criticisms.png" alt="Criticisms" style="height: auto;">
+        </a>
+        <p class="caption" style="color: #000000;">Reddit User Feedback: UI/UX Criticisms of Game Update - Spring 2025
+        </p>
+      </div>
     </div>
-  </div>
-        <div id="footer-placeholder"></div>
+    <div class="main-content center-flex" style="gap: 6rem; padding: 2rem; margin-top: 4rem; margin-bottom: 6rem;">
+      <div style="max-width: 60%;">
+        <h1 class="section-title">Design Process</h1>
+      </div>
+      <div style="font-size: 1.15rem;">
+        <p>I developed detailed screen diagrams and user flowcharts to iterate on the menu structure, navigation paths
+          for features like deck creation and battles, and overall information hierarchy.</p>
+      </div>
+    </div>
+    <div class="main-content center-flex" style="gap: 6rem; padding: 2rem; margin-top: 4rem;">
+      <div style="display: flex; align-items: flex-start; gap: 3rem; width: 100%">
+        <div style="flex: 1;">
+          <h1 class="section-title" style="font-weight: 600;">Diagram of Screens</h1>
+          <p style="font-size: 1.15rem;">This diagram illustrates the comprehensive number of screens and screen
+            navigation within Clash Royale, detailing various paths and interactions throughout the game.</p>
+        </div>
+        <div style="flex: 1;">
+          <a href="Images/Clash%20Royale%20Screens%20Diagram.png" class="image-link" style="width: 100% !important;"
+            data-fancybox="Screens Diagram" data-caption="Clash Royale Screens Diagram">
+            <img src="Images/Clash%20Royale%20Screens%20Diagram.png" alt="Screens Diagram" style="height: auto;">
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="main-content center-flex" style="gap: 6rem; padding: 2rem; margin-top: 4rem; margin-bottom: 6rem;">
+      <div style="display: flex; align-items: flex-start; gap: 3rem; width: 100%">
+        <div style="flex: 1;">
+          <a href="Images/Clash%20Royale%20User%20Flows.png" class="image-link" style="width: 100% !important;"
+            data-fancybox="User Flow" data-caption="Clash Royale User Flows">
+            <img src="Images/Clash%20Royale%20User%20Flows.png" alt="User Flow" style="height: auto;">
+          </a>
+        </div>
+        <div style="flex: 1;">
+          <h1 class="section-title" style="font-weight: 600;">User Flow Analysis - <br>Decks and Battling</h1>
+          <p style="font-size: 1.15rem;">I analyzed the existing user flow for deck management, noting a multi-step
+            process that wasn't clearly conveyed to players. To streamline this, I've introduced 'Edit' and 'View'
+            buttons within the Deck Creation/Editing flow.</p>
+          <p style="font-size: 1.15rem;">Similarly, the 1v1/2v2 Battle flow provides easier navigation with a 'Battle'
+            and '2v2 slider' button, addressing sluggish screen transitions and numerous steps that previously hindered
+            quick adaptation during play sessions.</p>
+        </div>
+      </div>
+    </div>
+    <div class="main-content center-flex" style="gap: 6rem; padding: 2rem; margin-top: 8rem;">
+      <div style="max-width: 100%;">
+        <h1 class="section-title" style="font-weight: 600;">Comparisons</h1>
+        <!-- Redesign image centered at the top -->
+        <div style="display: flex; justify-content: center; margin: 2rem 0;">
+          <div style="flex: 1; position: relative; max-width: 800px;">
+            <a href="Images/Clash%20Royale%20Redesign.png" class="image-link"
+              style="width: 100% !important; display: block;" data-fancybox="Comparisons"
+              data-caption="Recreation and Redesign Title Card">
+              <img loading="lazy" src="Images/Clash%20Royale%20Redesign.png" alt="Comparisons Title Card"
+                style="height: auto; width: 100%; display: block;">
+            </a>
+          </div>
+        </div>
+        <div style="text-align: center; margin: 2rem 0;">
+          <p style="font-size: 1.15rem; max-width: 800px; margin: 0 auto;">Side-by-side comparisons of the original UI
+            and my improved wireframe. The minimal redesign focuses on streamlining navigation and improving visual
+            hierarchy to enhance user experience.</p>
+        </div>
+        <div style=" margin-top: 8rem;"></div>
+        <div style="display: flex; justify-content: space-between; margin-top: 3rem; width: 100%;">
+          <!-- Left image -->
+          <div style="width: 100%;">
+            <a href="Images/Clash%20Royale%20Comparisons.png" class="image-link" data-fancybox="Comparisons"
+              data-caption="Revamped UI/UX Components and Layouts">
+              <img loading="lazy" src="Images/Clash%20Royale%20Comparisons.png" alt="Comparisons 1"
+                style="width: 100%; height: auto;">
+            </a>
+          </div>
+          <!-- Text container -->
+          <div style="text-align: left; margin: 0;">
+            <img loading="lazy" src="Images/Blue%20Crown%20Animated.gif" alt="Blue Crown Animated"
+              style="max-width: 30%; height: auto; margin: 0 auto; display: block; margin-left: auto; margin-right: 33%;">
+            <h3 style="font-size: 1.3rem; margin-bottom: 1.5rem; text-align: center; font-weight: 600;">Key Improvements
+            </h3>
+            <ul style="font-size: 1rem; padding-left: 2.5rem; line-height: 1.8;">
+              <li style="margin-bottom: 4rem;"><strong>Shopping Screen:</strong>
+                <ul style="list-style-type: none; margin-top: 0.8rem; line-height: 1.6;">
+                  <li style="margin-left: 2rem; margin-bottom: 0.8rem;">- Removed visual clutter</li>
+                  <li style="margin-left: 2rem; margin-bottom: 0.8rem;">- Eliminated redundant Pass Royale display</li>
+                  <li style="margin-left: 2rem; margin-bottom: 0.8rem;">- Streamlined in-app purchases</li>
+                  <li style="margin-left: 2rem;">- Optimized vertical space usage</li>
+                </ul>
+              </li>
+              <li style="margin-bottom: 4rem;"><strong>Collection Screen:</strong>
+                <ul style="list-style-type: none; margin-top: 0.8rem; line-height: 1.6;">
+                  <li style="margin-left: 2rem; margin-bottom: 0.8rem;">- Reintroduced scrollbar for deck selection</li>
+                  <li style="margin-left: 2rem; margin-bottom: 0.8rem;">- Added distinct Edit/View buttons for clearer
+                    navigation</li>
+                  <li style="margin-left: 2rem;">- Reduced component sizes to display more content</li>
+                </ul>
+              </li>
+              <li style="margin-bottom: 4rem;"><strong>Battle Screens:</strong>
+                <ul style="list-style-type: none; margin-top: 0.8rem; line-height: 1.6;">
+                  <li style="margin-left: 2rem; margin-bottom: 0.8rem;">- Implemented intuitive 1v1/2v2 slider
+                    navigation</li>
+                  <li style="margin-left: 2rem; margin-bottom: 0.8rem;">- Removed interface widgets surrounding the
+                    Battle button</li>
+                  <li style="margin-left: 2rem;">- Restored the classic Chest system that defines the Clash Royale
+                    experience</li>
+                </ul>
+              </li>
+            </ul>
+            <!-- Images stacked vertically -->
+            <div style="display: flex; flex-direction: column; gap: 20px; margin-top: 20px;">
+              <img loading="lazy" src="Images/Chests/1%20-%20Wooden%20Chest.png" alt="Wooden Chest"
+                style="max-width: 30%; height: auto; margin: 0 auto;">
+              <img loading="lazy" src="Images/Chests/2%20-%20Silver%20Chest.png" alt="Silver Chest"
+                style="max-width: 30%; height: auto; margin: 0 auto;">
+              <img loading="lazy" src="Images/Chests/3%20-%20Golden%20Chest.png" alt="Golden Chest"
+                style="max-width: 30%; height: auto; margin: 0 auto;">
+              <img loading="lazy" src="Images/Chests/4%20-%20Magical%20Chest.png" alt="Magical Chest"
+                style="max-width: 50%; height: auto; margin: 0 auto;">
+              <img loading="lazy" src="Images/Chests/6%20-%20Legendary%20Chest.png" alt="Legendary Chest"
+                style="max-width: 30%; height: auto; margin: 0 auto;">
+              <img loading="lazy" src="Images/Chests/7%20-%20Champion%20Chest.png" alt="Champion Chest"
+                style="max-width: 30%; height: auto; margin: 0 auto;">
+              <img loading="lazy" src="Images/Red%20Crown%20Animated.gif" alt="Red Animated Crown"
+                style="max-width: 30%; height: auto; margin: 0 auto;">
+            </div>
+          </div>
+          <!-- Right image -->
+          <div style="width: 100%;">
+            <a href="Images/Clash%20Royale%20Comparisons%20cont..png" class="image-link" data-fancybox="Comparisons"
+              data-caption="Revamps Continued and Recreations of the Existing UI/UX">
+              <img loading="lazy" src="Images/Clash%20Royale%20Comparisons%20cont..png" alt="Comparisons 2"
+                style="width: 100%; height: auto;">
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="project-showcase" style="margin-top: 14rem;">
+      <div style="width: 100%; max-width: 1200px; margin: 0 auto; position: relative;">
+        <div id="iframe-container" style="position: relative; width: 70vw; margin: 0 auto;">
+          <h1 class="section-title" style="position: relative; text-align: left; margin-bottom: 0rem;">Clash Royale
+            Figma Wireframe & Prototype</h1>
+          <iframe loading="lazy"
+            style="border: 0px solid rgba(0, 0, 0, 0.1); border-radius: 8px; width: 100%; height: 600px; display: block;"
+            src="https://embed.figma.com/proto/xzOx2Eg95N1uA753P0rgvK/Clash-Royale-Wireframe---Prototype?page-id=0%3A1&node-id=10-948&p=f&viewport=436%2C-1065%2C0.07&scaling=contain&content-scaling=responsive&starting-point-node-id=10%3A948&embed-host=share"
+            allowfullscreen>
+          </iframe>
+          <div
+            style="background: #ffffff; padding: 2rem; width: 100%; box-sizing: border-box; box-shadow: 0 0 8px rgba(0, 0, 0, 0.05); border-radius: 8px; margin-top: 0.25rem;">
+            <p style="font-size: 1.15rem; line-height: 1.8; margin: 0;">
+              This wireframe prototype demonstrates my UI/UX redesign approach for Clash Royale. I focused on reducing
+              visual clutter, improving navigation patterns, and enhancing the core gameplay experience. Key
+              improvements include streamlined shopping interfaces, more intuitive deck management with improved
+              scrolling functionality, and redesigned battle screens featuring the classic Chest system that players
+              love. The prototype allowed me to test these interface improvements before finalizing the design
+              direction.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="text-align: center; padding-bottom: 0;">
+      <div
+        style="background: #ffffff; padding: 2rem; width: auto; max-width: 800px; box-sizing: border-box; box-shadow: 0 0 8px rgba(0, 0, 0, 0.05); border-radius: 8px; margin: 8rem auto 8rem; display: inline-block; text-align: left;">
+        <h2 style="font-size: 1.5rem; font-weight: 700;">Reflection</h2>
+        <p style="font-size: 1.15rem; line-height: 1.8; margin: 0;">
+          This project taught me the importance of clear navigation, consistent iconography, and user feedback loops in
+          mobile game interfaces. Iterating based on real user comments led to more intuitive designs.<br>
+          <br>Working in Figma allowed me to rapidly prototype and test different solutions, helping me develop a deeper
+          understanding of mobile gaming UI/UX principles that I'll carry forward into future projects. The skills I
+          gained in balancing aesthetic appeal with functional design have proven essential for creating interfaces that
+          feel both visually compelling and effortlessly navigable.
+        </p>
+      </div>
+    </div>
+    <div id="footer-placeholder"></div>
   </div>
   <script src="templates.js"></script>
   <button onclick="window.scrollTo({top: 0, behavior: 'smooth'});" class="scroll-top-btn">
-    <svg width="96" height="72" viewBox="0 0 24 24" fill="none" stroke="#df3f41" stroke-width="0.6" stroke-linecap="round" stroke-linejoin="round">
+    <svg width="96" height="72" viewBox="0 0 24 24" fill="none" stroke="#df3f41" stroke-width="0.6"
+      stroke-linecap="round" stroke-linejoin="round">
       <polyline points="18 15 12 9 6 15"></polyline>
     </svg>
   </button>
-<script>
-  const topButton = document.querySelector('button[onclick*="scrollTo"]');
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 100) {
-      topButton.style.display = 'block';
-    } else {
+  <script>
+    const topButton = document.querySelector('button[onclick*="scrollTo"]');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 100) {
+        topButton.style.display = 'block';
+      } else {
+        topButton.style.display = 'none';
+      }
+    });
+    window.addEventListener('DOMContentLoaded', () => {
       topButton.style.display = 'none';
-    }
-  });
-  window.addEventListener('DOMContentLoaded', () => {
-    topButton.style.display = 'none';
-  });
-</script>
+    });
+
+    Fancybox.bind('[data-fancybox="Criticisms"], [data-fancybox="Screens Diagram"], [data-fancybox="User Flow"], [data-fancybox="Comparisons"]', {
+      Carousel: {
+        Toolbar: {
+          display: {
+            left: ["counter"],
+            right: ["zoomIn", "zoomOut", "autoplay", "thumbs", "close"],
+          },
+        },
+      },
+    });
+  </script>
 </body>
-<script>
-  Fancybox.bind('[data-fancybox]', {
-    Toolbar: {
-      display: [
-        { id: "counter", position: "center" },
-        "zoom",
-        "fullscreen",
-        "close"
-      ]
-    },
-    caption: function(fancybox, carousel, slide) {
-      return slide.$trigger.dataset.caption;
-    }
-  });
-</script>
+
 </html>

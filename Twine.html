@@ -1,19 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Twine Projects</title>
   <link rel="icon" href="favicon.ico" type="image/x-icon">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css">
   <style>
     /* Prevent overscroll chaining */
-    html, body {
+    html,
+    body {
       overscroll-behavior-y: contain;
       overflow-x: hidden;
     }
+
     /* Tighten footer link spacing */
     .site-footer nav a,
     .site-footer nav .link-text {
@@ -23,44 +27,45 @@
 
     /* Responsive styles for mobile */
     @media screen and (max-width: 768px) {
+
       /* Scale down all text proportionally */
       body {
         font-size: 14px;
       }
-      
+
       .page-title {
         font-size: 1.5rem;
       }
-      
+
       .section-title {
         font-size: 1.4rem;
       }
-      
+
       /* Scale down padding and margins */
       .main-content {
         padding: 1rem !important;
         gap: 2rem !important;
       }
-      
+
       /* Scale down container widths */
       div[style*="max-width: 60%"] {
         max-width: 100% !important;
         width: 100% !important;
       }
-      
+
       /* Scale down flex layouts */
       div[style*="display: flex"] {
         flex-direction: column !important;
         align-items: center !important;
         gap: 1rem !important;
       }
-      
+
       /* Scale down image containers */
       .screenshot-img {
         width: 100% !important;
         height: auto !important;
       }
-      
+
       /* Scale down margins */
       div[style*="margin-top: 6rem"],
       div[style*="margin-top: 4rem"],
@@ -68,18 +73,18 @@
         margin-top: 2rem !important;
         margin-bottom: 2rem !important;
       }
-      
+
       /* Ensure images scale properly */
       img {
         max-width: 100% !important;
         height: auto !important;
       }
-      
+
       /* Scale down padding in containers */
       div[style*="padding: 2rem"] {
         padding: 1rem !important;
       }
-      
+
       /* Center images and their containers */
       a[href*="Twine/"] {
         text-align: center !important;
@@ -88,25 +93,25 @@
         display: block !important;
         width: 100% !important;
       }
-      
+
       /* Center the testimonial paragraph */
       div[style*="text-align: center"] {
         text-align: center !important;
         padding: 0 1rem !important;
       }
-      
+
       div[style*="text-align: center"] p {
         text-align: center !important;
         display: block !important;
         margin: 0 auto !important;
         max-width: 100% !important;
       }
-      
+
       /* Override inline text-align for testimonial */
       div[style*="text-align: center"] p[style*="text-align: left"] {
         text-align: center !important;
       }
-      
+
       /* Ensure container doesn't cause overflow */
       .container {
         max-width: 100vw !important;
@@ -119,15 +124,15 @@
       body {
         font-size: 12px;
       }
-      
+
       .page-title {
         font-size: 1.3rem;
       }
-      
+
       .section-title {
         font-size: 1.2rem;
       }
-      
+
       p {
         font-size: 0.85rem !important;
       }
@@ -139,16 +144,16 @@
         padding: 1.5rem 0 1rem !important;
         font-size: 0.875rem !important;
       }
-      
+
       .site-footer nav {
         font-size: 0.875rem !important;
       }
-      
+
       .site-footer nav a,
       .site-footer nav .link-text {
         font-size: 0.875rem !important;
       }
-      
+
       .site-footer p {
         font-size: 0.75rem !important;
         margin-top: 0.5rem !important;
@@ -159,12 +164,12 @@
       .site-footer {
         padding: 1rem 0 0.75rem !important;
       }
-      
+
       .site-footer nav {
         flex-wrap: wrap;
         gap: 0.5rem;
       }
-      
+
       .site-footer nav span {
         margin: 0 0.25rem;
       }
@@ -180,7 +185,7 @@
         padding: 0 !important;
         margin: 2rem auto !important;
       }
-      
+
       .screenshot-img {
         width: auto !important;
         max-width: 90vw !important;
@@ -199,46 +204,60 @@
     }
   </style>
 </head>
+
 <body>
   <div class="container">
-        <div id="header-placeholder"></div>
+    <div id="header-placeholder"></div>
     <main class="main-content" style="display: block; padding: 2rem; height: auto;">
       <div style="width: 100%; margin-bottom: 4rem;">
-          <main class="main-content center-flex" style="gap: 2rem; padding: 2rem; min-height: calc(100vh - 160px); margin-bottom: 4rem;">
+        <div class="main-content center-flex"
+          style="gap: 2rem; padding: 2rem; min-height: calc(100vh - 160px); margin-bottom: 4rem;">
           <div style="max-width: 60%;">
-              <h1 class="page-title">The Guardian's Legacy</h1>
-            <p style="font-size: 1.15rem;">A choice-driven interactive fantasy that follows a young hero from a quiet village into an enchanted forest to recover a powerful relic known as the Luminous Artifact. The story adapts based on player decisions, offering unique experiences through weapon choices, moral dilemmas, and dynamic encounters with both allies and adversaries, including a sorcerer and a mysterious Guardian.</p>
+            <h1 class="page-title">The Guardian's Legacy</h1>
+            <p style="font-size: 1.15rem;">A choice-driven interactive fantasy that follows a young hero from a quiet
+              village into an enchanted forest to recover a powerful relic known as the Luminous Artifact. The story
+              adapts based on player decisions, offering unique experiences through weapon choices, moral dilemmas, and
+              dynamic encounters with both allies and adversaries, including a sorcerer and a mysterious Guardian.</p>
           </div>
-            <div class="info-meta">
+          <div class="info-meta">
             <p><strong>CLIENT</strong><br>ENGCMP 0610 - Composing Digital Media</p>
             <p><strong>MY ROLE</strong><br>Writer, Designer, and Programmer</p>
             <p><strong>TEAM</strong><br>Individual Contribution</p>
             <p><strong>TIMELINE</strong><br>8 weeks (Oct. 16 to Dec. 11, 2024)</p>
           </div>
-        </main>
-        <a href="Twine/The Guardian's Legacy.html" target="_blank" style="display: block; margin-top: 8rem; padding: 0rem 2rem 2rem 2rem; width: 100%;">
-          <img loading="lazy" src="Images/The Guardian's Legacy.png" alt="The Guardian's Legacy" class="screenshot-img" />
+        </div>
+        <a href="Twine/The%20Guardian's%20Legacy.html" target="_blank"
+          style="display: block; margin-top: 8rem; padding: 0rem 2rem 2rem 2rem; width: 100%;">
+          <img loading="lazy" src="Images/The%20Guardian's%20Legacy.png" alt="The Guardian's Legacy"
+            class="screenshot-img">
         </a>
       </div>
       <div style="width: 100%; margin-bottom: 4rem;">
-          <main class="main-content center-flex" style="gap: 2rem; padding: 2rem; min-height: calc(100vh - 160px); margin-bottom: 4rem;">
+        <div class="main-content center-flex"
+          style="gap: 2rem; padding: 2rem; min-height: calc(100vh - 160px); margin-bottom: 4rem;">
           <div style="max-width: 60%;">
-              <h1 class="page-title">Archibald and the Steel Monolith</h1>
-            <p style="font-size: 1.15rem;">A Twine game blending fantasy and sci-fi, following a knight flung into a corporate-dystopian future where his moral compass is tested across different timelines. Built with branching paths, dynamic outcomes, and a climactic minigame, the story adapts to player-defined values like duty, honor, and adaptability.</p>
+            <h1 class="page-title">Archibald and the Steel Monolith</h1>
+            <p style="font-size: 1.15rem;">A Twine game blending fantasy and sci-fi, following a knight flung into a
+              corporate-dystopian future where his moral compass is tested across different timelines. Built with
+              branching paths, dynamic outcomes, and a climactic minigame, the story adapts to player-defined values
+              like duty, honor, and adaptability.</p>
           </div>
-            <div class="info-meta">
+          <div class="info-meta">
             <p><strong>CLIENT</strong><br>ENGLIT 0702 - Introduction to Game Studies</p>
             <p><strong>MY ROLE</strong><br>Co-Writer, Designer, and Programmer</p>
             <p><strong>TEAM</strong><br>Collaborative team project with David Halasz</p>
             <p><strong>TIMELINE</strong><br>4 weeks (Nov. 8 to Dec. 4, 2024)</p>
           </div>
-        </main>
-        <a href="Twine/Archibald and the Steel Monolith.html" target="_blank" style="display: block; margin-top: 6rem; padding: 0rem 2rem 2rem 2rem; width: 100%;">
-            <img loading="lazy" src="Images/Archibald and the Steel Monolith.png" alt="Archibald and the Steel Monolith" class="screenshot-img" />
+        </div>
+        <a href="Twine/Archibald%20and%20the%20Steel%20Monolith.html" target="_blank"
+          style="display: block; margin-top: 6rem; padding: 0rem 2rem 2rem 2rem; width: 100%;">
+          <img loading="lazy" src="Images/Archibald%20and%20the%20Steel%20Monolith.png"
+            alt="Archibald and the Steel Monolith" class="screenshot-img">
         </a>
         <div style="text-align: center; margin-top: 4rem;">
           <h2 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 1rem;">Insights from My Teammate</h2>
-          <p style="display: inline-block; max-width: 800px; font-style: italic; white-space: pre-wrap; text-align: left; line-height: 1.6; margin-bottom: 1rem;">
+          <p
+            style="display: inline-block; max-width: 800px; font-style: italic; white-space: pre-wrap; text-align: left; line-height: 1.6; margin-bottom: 1rem;">
             "The general workflow from there was that we would tag team writing each of the 5 acts
             of the story while Rhythm would implement each scene in Twine. During the process,
             though, we floated the idea of more mechanical challenges at certain points. I saw them
@@ -254,26 +273,28 @@
         </div>
       </div>
     </main>
-        <div id="footer-placeholder"></div>
+    <div id="footer-placeholder"></div>
   </div>
   <script src="templates.js"></script>
   <button onclick="window.scrollTo({top: 0, behavior: 'smooth'});" class="scroll-top-btn">
-    <svg width="96" height="72" viewBox="0 0 24 24" fill="none" stroke="#df3f41" stroke-width="0.6" stroke-linecap="round" stroke-linejoin="round">
+    <svg width="96" height="72" viewBox="0 0 24 24" fill="none" stroke="#df3f41" stroke-width="0.6"
+      stroke-linecap="round" stroke-linejoin="round">
       <polyline points="18 15 12 9 6 15"></polyline>
     </svg>
   </button>
-<script>
-  const topButton = document.querySelector('button[onclick*="scrollTo"]');
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 100) {
-      topButton.style.display = 'block';
-    } else {
+  <script>
+    const topButton = document.querySelector('button[onclick*="scrollTo"]');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 100) {
+        topButton.style.display = 'block';
+      } else {
+        topButton.style.display = 'none';
+      }
+    });
+    window.addEventListener('DOMContentLoaded', () => {
       topButton.style.display = 'none';
-    }
-  });
-  window.addEventListener('DOMContentLoaded', () => {
-    topButton.style.display = 'none';
-  });
-</script>
+    });
+  </script>
 </body>
+
 </html>
