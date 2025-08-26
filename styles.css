@@ -230,6 +230,16 @@ body {
 }
 
 /* Ensure text in white cards is black in dark mode */
+div[style*="background: #ffffff"],
+div[style*="background:#ffffff"],
+div[style*="background: white"],
+div[style*="background:white"],
+div[style*="box-shadow: 0 0 8px rgba(0, 0, 0, 0.1)"],
+div[style*="box-shadow:0 0 8px rgba(0,0,0,0.1)"] {
+  color: black;
+  background-color: white !important;
+}
+
 [data-theme="dark"] div[style*="background: #ffffff"],
 [data-theme="dark"] div[style*="background:#ffffff"],
 [data-theme="dark"] div[style*="background: white"],
@@ -251,15 +261,28 @@ body {
 }
 
 /* Ensure project info meta sections have proper text color in dark mode */
+.info-meta {
+  /* Add padding and border-radius in light mode to match dark mode */
+  padding: 1rem;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
 [data-theme="dark"] .info-meta {
   color: #f0f0f0;
   background-color: #131618;
-  padding: 1rem;
-  border-radius: 4px;
 }
 
 [data-theme="dark"] .info-meta * {
   color: #f0f0f0;
+}
+
+/* Add consistent styling for paragraphs to prevent shifts */
+p {
+  /* Ensure consistent line-height to prevent shifting */
+  line-height: 1.5;
+  /* Prevent margin collapsing issues */
+  margin: 0 0 1rem 0;
 }
 
 /* Work page main content layout */
