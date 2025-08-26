@@ -390,6 +390,15 @@
       }
     }
 
+    /* Scroll up arrow colors - orange in light mode, purple in dark mode */
+    button[onclick*="scrollTo"] svg {
+      stroke: var(--hover-color);
+    }
+
+    [data-theme="dark"] button[onclick*="scrollTo"] svg {
+      stroke: var(--dark-mode-toggle-hover) !important;
+    }
+
     @media (max-width: 390px) {
 
       /* iPhone 13 specific - ensure single scroll area */
@@ -562,8 +571,8 @@
   <script src="templates.js"></script>
   <button onclick="window.scrollTo({top: 0, behavior: 'smooth'});"
     style="position: fixed; bottom: 1.5rem; right: 1.5rem; background: none; border: none; cursor: pointer; z-index: 1000;">
-    <svg width="96" height="72" viewBox="0 0 24 24" fill="none" stroke="#df3f41" stroke-width="0.6"
-      stroke-linecap="round" stroke-linejoin="round">
+    <svg width="96" height="72" viewBox="0 0 24 24" fill="none" stroke-width="0.6" stroke-linecap="round"
+      stroke-linejoin="round">
       <polyline points="18 15 12 9 6 15"></polyline>
     </svg>
   </button>
