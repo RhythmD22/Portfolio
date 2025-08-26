@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@6.0.22/dist/fancybox/fancybox.min.css">
+  <script src="dark-mode.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@6.0.22/dist/fancybox/fancybox.umd.min.js"></script>
   <style>
     :root {
@@ -270,6 +271,25 @@
         bottom: 1rem !important;
       }
     }
+
+    /* Dark mode text color for Design Process cards */
+    html[data-theme="dark"] .dp-landing>div,
+    html[data-theme="dark"] .dp-goals>div,
+    html[data-theme="dark"] .dp-transactions>div,
+    html[data-theme="dark"] .dp-analytics>div,
+    html[data-theme="dark"] .dp-calculator>div,
+    html[data-theme="dark"] .dp-tips>div {
+      color: #000 !important;
+    }
+
+    html[data-theme="dark"] .dp-landing>div>p,
+    html[data-theme="dark"] .dp-goals>div>p,
+    html[data-theme="dark"] .dp-transactions>div>p,
+    html[data-theme="dark"] .dp-analytics>div>p,
+    html[data-theme="dark"] .dp-calculator>div>p,
+    html[data-theme="dark"] .dp-tips>div>p {
+      color: #000 !important;
+    }
   </style>
 </head>
 
@@ -309,7 +329,7 @@
         <img loading="lazy" src="Images/iGrad.png" alt="iGrad Budgeting Tool Screenshot"
           style="border: 1px solid #ccc;">
       </a>
-      <p class="caption" style="color: #000000;">iGrad: Budget Tool</p>
+      <p class="caption">iGrad: Budget Tool</p>
     </div>
   </div>
   <div class="main-content center-flex" style="gap: 6rem; padding: 2rem; margin-bottom: 6rem;">
@@ -330,7 +350,7 @@
         data-fancybox="financier-outline" data-caption="Project Description, Learning Objectives, Learning Outcomes">
         <img loading="lazy" src="Images/Outline%201.png" class="image-link" style="height: auto;" alt="Outline Page 1">
       </a>
-      <p class="caption" style="color: #000000;">Outline Page 1: Project Description, Learning Objectives, Learning
+      <p class="caption">Outline Page 1: Project Description, Learning Objectives, Learning
         Outcomes</p>
     </div>
     <div style="width: 33%;">
@@ -338,14 +358,14 @@
         data-fancybox="financier-outline" data-caption="Learning Outcomes cont., Deliverables">
         <img loading="lazy" src="Images/Outline%202.png" class="image-link" style="height: auto;" alt="Outline Page 2">
       </a>
-      <p class="caption" style="color: #000000;">Outline Page 2: Learning Outcomes cont., Deliverables</p>
+      <p class="caption">Outline Page 2: Learning Outcomes cont., Deliverables</p>
     </div>
     <div style="width: 33%;">
       <a href="Images/Outline%203.png" class="image-link" style="width: 100% !important;"
         data-fancybox="financier-outline" data-caption="Deliverables Timeline, Research Plan">
         <img loading="lazy" src="Images/Outline%203.png" class="image-link" style="height: auto;" alt="Outline Page 3">
       </a>
-      <p class="caption" style="color: #000000;">Outline Page 3: Deliverables Timeline, Research Plan</p>
+      <p class="caption">Outline Page 3: Deliverables Timeline, Research Plan</p>
     </div>
   </div>
   <div
@@ -407,7 +427,7 @@
       </ul>
     </div>
   </div>
-  <p class="caption" style="color: #000000;">User Research Overview – Spring 2025</p>
+  <p class="caption">User Research Overview – Spring 2025</p>
   <h1 class="section-title" style="text-align: center; margin: 6rem auto 2rem; max-width: 1200px;">Design Process</h1>
   <div
     style="display: flex; justify-content: center; align-items: flex-start; gap: 2rem; margin: 4rem auto 0; max-width: 1200px; position: relative;">
@@ -479,7 +499,7 @@
           <img loading="lazy" src="Images/Financier%20Mockup.png" class="image-link" style="height: auto;"
             alt="Financier App Mockup">
         </a>
-        <p class="caption" style="color: #000000;">Financier: Interactive Budgeting App Mockup in Figma</p>
+        <p class="caption">Financier: Interactive Budgeting App Mockup in Figma</p>
       </div>
     </div>
   </div>

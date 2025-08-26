@@ -10,6 +10,7 @@
     rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css">
+  <script src="dark-mode.js"></script>
   <style>
     /* Prevent horizontal overflow */
     html,
@@ -59,7 +60,11 @@
       margin-left: 7rem;
       border-radius: 50%;
       box-shadow: 0 4px 24px 0 rgba(0, 0, 0, 0.06);
-      background: #faefd8;
+      background: white;
+    }
+
+    [data-theme="dark"] .profile-image {
+      box-shadow: 0 4px 24px 0 rgba(255, 255, 255, 0.1);
     }
 
     @media (max-width: 900px) {
@@ -236,10 +241,13 @@
     <div class="description-container">
       <section class="intro">
         <div class="intro-text">
-          <h2 style="font-size: 2rem; margin: 0 0 1rem; font-weight: 600;">Hey, I'm Rhythm!</h2>
-          <p style="line-height: 1.5;">I'm a recent University of Pittsburgh graduate and an aspiring UI/UX Designer. I
+          <h2 style="font-size: 2rem; margin: 0 0 1rem; font-weight: 600; color: var(--text-color);">Hey, I'm Rhythm!
+          </h2>
+          <p style="line-height: 1.5; color: var(--text-color);">I'm a recent University of Pittsburgh graduate and an
+            aspiring UI/UX Designer. I
             design clean interfaces and immersive experiences that bring together form and function.</p>
-          <p style="line-height: 1.5;">I combine design tools and frontend development to craft meaningful, intuitive
+          <p style="line-height: 1.5; color: var(--text-color);">I combine design tools and frontend development to
+            craft meaningful, intuitive
             digital products.</p>
         </div>
         <img src="Images/Profile.png" alt="Profile image" class="profile-image">

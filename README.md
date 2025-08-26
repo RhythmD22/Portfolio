@@ -1,6 +1,6 @@
 # Portfolio
 
-This repository contains Rhythm Desai's personal portfolio website. It showcases both design and front-end projects.
+This repository contains Rhythm Desai's personal portfolio website. It showcases design and front-end projects along with interactive fiction built in Twine.
 
 ## Getting Started
 
@@ -18,11 +18,11 @@ This repository contains Rhythm Desai's personal portfolio website. It showcases
 - **footer.html** – Shared footer snippet included on each page.
 - **Financier.html** – Project page for a college budgeting web app.
 - **SmartShuttle.html** – Project page for a campus shuttle tracking concept.
-- **Twine.html** – Project page introducing the Twine interactive fiction projects.
-- **Clash Royale Wireframe.html** – Project page showcasing wireframe redesigns for a Clash Royale interface.
+- **Twine.html** – Landing page introducing the Twine interactive fiction projects.
 - **Work.html** – Overview of selected work with thumbnails linking to project pages.
 - **index.html** – Home page with a short bio and site navigation.
 - **Resume.pdf** – Printable résumé.
 - **styles.css** – Shared styling for all pages.
 - **templates.js** – Injects the shared header and footer into each page.
 - **favicon.ico** – Browser tab icon.
+- **dark-mode.js** – Implements dark mode functionality across the site.
