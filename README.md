@@ -22,7 +22,21 @@ This repository contains Rhythm Desai's personal portfolio website. It showcases
 - **Work.html** – Overview of selected work with thumbnails linking to project pages.
 - **index.html** – Home page with a short bio and site navigation.
 - **Resume.pdf** – Printable résumé.
-- **styles.css** – Shared styling for all pages.
-- **templates.js** – Injects the shared header and footer into each page.
+- **css/** – Directory containing all CSS files
+  - **styles.css** – Shared styling for all pages.
+  - **index.css** – Specific styling for the home page.
+  - **work.css** – Specific styling for the work page.
+  - **financier.css** – Specific styling for the Financier project page.
+  - **smartshuttle.css** – Specific styling for the SmartShuttle project page.
+  - **twine.css** – Specific styling for the Twine project page.
+  - **clashroyale.css** – Specific styling for the Clash Royale project page.
+- **js/** – Directory containing all JavaScript files
+  - **templates.js** – Injects the shared header and footer into each page.
+  - **dark-mode.js** – Implements dark mode functionality across the site.
+  - **scroll-to-top.js** – Implements shared scroll-to-top functionality across project pages.
+  - **index.js** – Specific JavaScript for the home page.
+  - **work.js** – Specific JavaScript for the work page.
+  - **financier.js** – Specific JavaScript for the Financier project page.
+  - **smartshuttle.js** – Specific JavaScript for the SmartShuttle project page.
+  - **clashroyale.js** – Specific JavaScript for the Clash Royale project page.
 - **favicon.ico** – Browser tab icon.
-- **dark-mode.js** – Implements dark mode functionality across the site.
