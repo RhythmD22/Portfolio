@@ -1,0 +1,454 @@
+/*——————————————————————————
+  Base styles for all pages
+——————————————————————————*/
+
+/* load your Inter font */
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+  --background-color: #faefd8;
+  --text-color: black;
+  --link-color: black;
+  --hover-color: rgb(255, 111, 0);
+  --footer-text-color: #232323;
+  --border-color: rgba(0, 0, 0, 0.1);
+  --dark-mode-toggle-hover: #726dfc;
+}
+
+[data-theme="dark"] {
+  --background-color: #0d1117;
+  --text-color: #f0f0f0;
+  --link-color: #f0f0f0;
+  --footer-text-color: #b0b0b0;
+  --border-color: rgba(255, 255, 255, 0.1);
+}
+
+html {
+  font-family: 'Inter', sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-weight: 300;
+  background: var(--background-color);
+  color: var(--text-color);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  box-sizing: border-box;
+}
+
+/*——————————————————————————
+  Header
+——————————————————————————*/
+.site-header {
+  width: 100%;
+  padding: 1.5rem 0 0;
+  margin: 0;
+  position: relative;
+  /* if you use absolute/relative children */
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 0 2rem;
+  box-sizing: border-box;
+}
+
+
+.header-nav {
+  display: flex;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+.header-nav a {
+  font-weight: 300;
+  color: var(--link-color);
+  text-transform: uppercase;
+  text-decoration: none;
+  letter-spacing: 0.10em;
+  font-size: 0.875rem;
+  display: inline-flex;
+  align-items: center;
+}
+
+.header-nav a:hover {
+  text-decoration: underline;
+  text-decoration-color: var(--hover-color);
+  color: var(--link-color);
+}
+
+/* Dark mode underline color for header links */
+[data-theme="dark"] .header-nav a:hover {
+  text-decoration-color: var(--dark-mode-toggle-hover);
+}
+
+.header-left a {
+  text-decoration: none;
+  color: var(--link-color);
+}
+
+.header-left {
+  margin: 0;
+}
+
+.header-name.fw-medium {
+  font-size: 1.4rem;
+  margin: 0;
+  letter-spacing: 0em;
+}
+
+.header-left a:hover {
+  text-decoration: underline;
+  text-decoration-color: var(--link-color);
+}
+
+/* Dark mode underline color for header name */
+[data-theme="dark"] .header-left a:hover {
+  text-decoration-color: white;
+}
+
+/* Specifically target the dark mode toggle button */
+.dark-mode-toggle {
+  background: none;
+  border: 2px solid var(--dark-mode-toggle-hover);
+  /* Moon icon border should be purple by default on mobile */
+  border-radius: 50%;
+  color: var(--dark-mode-toggle-hover);
+  /* Moon icon should be purple by default on mobile */
+  cursor: pointer;
+  font-size: 1rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+  width: 1.7rem;
+  height: 1.7rem;
+  transition: color 0.3s, border-color 0.3s;
+  vertical-align: middle;
+}
+
+/* Desktop-specific styles for moon icon */
+@media (min-width: 901px) {
+  .dark-mode-toggle {
+    color: var(--link-color);
+    /* Moon icon should be black by default on desktop */
+    border-color: var(--link-color);
+    /* Moon icon border should be black by default on desktop */
+  }
+}
+
+/* Color for sun icon (dark mode) - orange by default on mobile */
+[data-theme="dark"] .dark-mode-toggle {
+  color: var(--hover-color);
+  /* Sun icon should be orange by default on mobile */
+  border-color: var(--hover-color);
+}
+
+/* Desktop-specific styles for sun icon */
+@media (min-width: 901px) {
+  [data-theme="dark"] .dark-mode-toggle {
+    color: white;
+    /* Sun icon should be white by default on desktop */
+    border-color: white;
+  }
+}
+
+/* Hover states for devices that support hover (desktop) */
+@media (hover: hover) {
+
+  /* Moon icon hover color - purple on desktop */
+  .dark-mode-toggle:hover {
+    color: var(--dark-mode-toggle-hover);
+    border-color: var(--dark-mode-toggle-hover);
+  }
+
+  /* Sun icon hover color - orange on desktop */
+  [data-theme="dark"] .dark-mode-toggle:hover {
+    color: var(--hover-color);
+    border-color: var(--hover-color);
+  }
+}
+
+/* Active/tap states for touch devices - visual feedback when tapping */
+.dark-mode-toggle:active {
+  color: var(--dark-mode-toggle-hover);
+  /* Purple feedback for moon icon */
+  border-color: var(--dark-mode-toggle-hover);
+}
+
+[data-theme="dark"] .dark-mode-toggle:active {
+  color: var(--hover-color);
+  /* Orange feedback for sun icon */
+  border-color: var(--hover-color);
+}
+
+/* Focus states for better accessibility */
+.dark-mode-toggle:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--dark-mode-toggle-hover);
+}
+
+[data-theme="dark"] .dark-mode-toggle:focus {
+  box-shadow: 0 0 0 2px var(--hover-color);
+}
+
+/* Intro/Description section */
+.description-container {
+  flex: 1;
+  padding-top: 15vh;
+}
+
+.intro {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  gap: 3rem;
+}
+
+.intro-text {
+  background-color: var(--background-color);
+  padding: 2rem;
+  margin: 4rem 2rem 0 6rem;
+  max-width: 480px;
+  border-radius: 4px;
+  font-weight: 300;
+  color: var(--text-color);
+}
+
+/* Ensure text in white cards is black in dark mode */
+div[style*="background: #ffffff"],
+div[style*="background:#ffffff"],
+div[style*="background: white"],
+div[style*="background:white"],
+div[style*="box-shadow: 0 0 8px rgba(0, 0, 0, 0.1)"],
+div[style*="box-shadow:0 0 8px rgba(0,0,0,0.1)"] {
+  color: black;
+  background-color: white !important;
+}
+
+[data-theme="dark"] div[style*="background: #ffffff"],
+[data-theme="dark"] div[style*="background:#ffffff"],
+[data-theme="dark"] div[style*="background: white"],
+[data-theme="dark"] div[style*="background:white"],
+[data-theme="dark"] div[style*="box-shadow: 0 0 8px rgba(0, 0, 0, 0.1)"],
+[data-theme="dark"] div[style*="box-shadow:0 0 8px rgba(0,0,0,0.1)"] {
+  color: black;
+  background-color: white !important;
+}
+
+[data-theme="dark"] .intro-text *,
+[data-theme="dark"] div[style*="background: #ffffff"] *,
+[data-theme="dark"] div[style*="background:#ffffff"] *,
+[data-theme="dark"] div[style*="background: white"] *,
+[data-theme="dark"] div[style*="background:white"] *,
+[data-theme="dark"] div[style*="box-shadow: 0 0 8px rgba(0, 0, 0, 0.1)"] *,
+[data-theme="dark"] div[style*="box-shadow:0 0 8px rgba(0,0,0,0.1)"] * {
+  color: black;
+}
+
+/* Ensure project info meta sections have proper text color in dark mode */
+.info-meta {
+  /* Add padding and border-radius in light mode to match dark mode */
+  padding: 1rem;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+[data-theme="dark"] .info-meta {
+  color: #f0f0f0;
+  background-color: #0d1117;
+}
+
+[data-theme="dark"] .info-meta * {
+  color: #f0f0f0;
+}
+
+/* Add consistent styling for paragraphs to prevent shifts */
+p {
+  /* Ensure consistent line-height to prevent shifting */
+  line-height: 1.5;
+  /* Prevent margin collapsing issues */
+  margin: 0 0 1rem 0;
+}
+
+/* Work page main content layout */
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  max-width: 1200px;
+  box-sizing: border-box;
+  margin: 0 auto;
+  padding: 3.5rem 2rem 2rem 2rem;
+  gap: 4rem;
+  align-items: flex-start;
+}
+
+/*——————————————————————————
+  Footer
+——————————————————————————*/
+.site-footer {
+  margin-top: auto;
+  padding: 2rem 0 1rem;
+  width: 100%;
+  text-align: center;
+}
+
+.site-footer nav a {
+  color: var(--link-color);
+  text-decoration: none;
+}
+
+.site-footer nav a:hover {
+  text-decoration: underline;
+  text-decoration-color: var(--hover-color);
+  color: var(--link-color);
+}
+
+/* Dark mode underline color for footer links */
+[data-theme="dark"] .site-footer nav a:hover {
+  text-decoration-color: var(--dark-mode-toggle-hover);
+}
+
+.site-footer nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.site-footer nav span {
+  margin: 0 0.4rem;
+  color: var(--link-color);
+}
+
+.site-footer p {
+  margin-top: 0.5rem;
+  font-size: 0.875rem;
+  color: var(--footer-text-color);
+}
+
+/*——————————————————————————
+  Mobile scroll chaining fix
+——————————————————————————*/
+@media (max-width: 1440px) {
+
+  /* Remove fixed viewport height constraint on mobile */
+  .container {
+    height: auto;
+    min-height: 100vh;
+  }
+
+  /* Allow natural document scrolling */
+  body {
+    overflow-y: auto;
+    overscroll-behavior-y: contain;
+  }
+
+  /* Prevent scroll chaining at boundaries */
+  .site-header,
+  .site-footer {
+    overscroll-behavior: contain;
+  }
+
+  /* Ensure content can scroll naturally */
+  .main-content,
+  .description-container {
+    flex: none;
+    min-height: auto;
+  }
+}
+
+/*——————————————————————————
+  Font-weight utility classes
+——————————————————————————*/
+.fw-light {
+  font-weight: 300;
+}
+
+.fw-regular {
+  font-weight: 400;
+}
+
+.fw-medium {
+  font-weight: 500;
+}
+
+.fw-semibold {
+  font-weight: 600;
+}
+
+.fw-bold {
+  font-weight: 700;
+}
+
+/* Utility classes extracted from repeated inline styles */
+.center-flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.scroll-top-btn {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+.section-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.page-title {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.info-meta {
+  font-size: 0.9rem;
+  text-align: left;
+  line-height: 1.8;
+}
+
+.caption {
+  font-size: 0.85rem;
+  color: #555;
+  text-align: center;
+  margin: 0.5rem 0 1rem;
+}
+
+[data-theme="dark"] .caption {
+  color: #f0f0f0;
+}
+
+.full-image {
+  width: 100%;
+  height: auto;
+}
+
+.screenshot-img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+}
