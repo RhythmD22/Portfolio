@@ -1,0 +1,420 @@
+/* Tighten footer link spacing */
+.site-footer nav a,
+.site-footer nav .link-text {
+  margin-right: 0;
+  padding-right: 0;
+}
+
+.work-summary {
+  flex: 1 1 340px;
+  max-width: 340px;
+  margin-top: 0;
+}
+
+.work-summary h2 {
+  font-size: clamp(1.5rem, 5vw, 2.25rem);
+  font-weight: 600;
+  margin: 0 0 1.25rem 0;
+  letter-spacing: -0.03em;
+}
+
+.work-summary p {
+  font-size: clamp(1rem, 3vw, 1.05rem);
+  line-height: 1.5;
+  margin-bottom: 0.5rem;
+  color: var(--text-color);
+}
+
+.projects-section {
+  flex: 2 1 640px;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.main-content:not(.other-designs) .projects-section .project {
+  margin-left: 10rem !important;
+}
+
+.main-content:not(.other-designs) {
+  margin-top: 2rem !important;
+}
+
+.project {
+  margin-bottom: 1.5rem;
+}
+
+.main-content:not(.other-designs) .projects-section .project .project-thumbnail-wrapper {
+  width: 100% !important;
+  max-width: 670px !important;
+  min-width: 0 !important;
+  aspect-ratio: 670 / 377 !important;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+.main-content:not(.other-designs) .projects-section .project .project-thumbnail-wrapper .project-thumbnail {
+  position: absolute;
+  inset: 0;
+  width: calc(100% - 2px);
+  height: calc(100% - 2px);
+  object-fit: cover;
+  object-position: center;
+  transform: none;
+  margin: 1px;
+}
+
+/* SmartShuttle */
+.main-content:not(.other-designs) .projects-section .project:nth-child(2) .project-thumbnail {
+  transform: translateX(-4%) scale(1.8);
+  transform-origin: center center;
+}
+
+/* Clash Royale */
+.main-content:not(.other-designs) .projects-section .project:nth-child(4) .project-thumbnail {
+  transform: scale(1.1);
+  transform-origin: center center;
+}
+
+.main-content:not(.other-designs) .projects-section .project:nth-child(1) a:hover .project-thumbnail,
+.main-content:not(.other-designs) .projects-section .project:nth-child(2) a:hover .project-thumbnail,
+.main-content:not(.other-designs) .projects-section .project:nth-child(3) a:hover .project-thumbnail,
+.main-content:not(.other-designs) .projects-section .project:nth-child(4) a:hover .project-thumbnail {
+  animation: brightnessEffect 2s infinite;
+  transform: scale(1.05);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.main-content:not(.other-designs) .projects-section .project:nth-child(2) a:hover .project-thumbnail {
+  transform: translateX(-4%) scale(1.9);
+}
+
+.main-content:not(.other-designs) .projects-section .project:nth-child(4) a:hover .project-thumbnail {
+  transform: scale(1.15);
+}
+
+@keyframes brightnessEffect {
+
+  0%,
+  100% {
+    filter: brightness(1);
+  }
+
+  50% {
+    filter: brightness(1.1);
+  }
+}
+
+.project-thumbnail {
+  background: white;
+  border-radius: 12px;
+  object-fit: cover;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  margin-bottom: 1.2rem;
+  display: block;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+/* Make Financier and Twine thumbnails use light mode background color in both modes */
+.main-content:not(.other-designs) .projects-section .project:nth-child(1) .project-thumbnail,
+.main-content:not(.other-designs) .projects-section .project:nth-child(3) .project-thumbnail {
+  background-color: #faefd8;
+}
+
+/* Add thin black outlines to Financier and Twine thumbnails */
+.main-content:not(.other-designs) .projects-section .project:nth-child(1) .project-thumbnail,
+.main-content:not(.other-designs) .projects-section .project:nth-child(3) .project-thumbnail {
+  box-shadow: 0 0 0 1px black;
+}
+
+.main-content.other-designs .projects-section .project-thumbnail {
+  cursor: zoom-in !important;
+}
+
+.main-content.other-designs .projects-section .project-thumbnail-wrapper,
+.main-content.other-designs .projects-section .project-thumbnail {
+  margin-bottom: 0 !important;
+}
+
+.main-content.other-designs .projects-section .project-thumbnail-wrapper .project-thumbnail {
+  width: 75% !important;
+  height: auto !important;
+}
+
+.project-title {
+  font-size: clamp(1.2rem, 3.5vw, 1.45rem);
+  font-weight: 600;
+  margin: 0 0 0.25rem 0;
+  letter-spacing: 0.01em;
+}
+
+.project-meta {
+  font-size: clamp(0.75rem, 2.5vw, 0.9rem) !important;
+  color: #656565;
+  font-weight: 400;
+  margin-bottom: 0.4rem;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.project-description {
+  font-size: clamp(0.9rem, 2.5vw, 1rem) !important;
+  color: #2d2d2d;
+  margin: 0 0 0.3rem 0;
+}
+
+@media (max-width: 900px) {
+  .main-content {
+    flex-direction: column;
+    gap: 2.5rem;
+    padding: 2.5rem 1rem 1rem 1rem;
+  }
+
+  .work-summary {
+    max-width: 100%;
+    margin-top: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .main-content {
+    padding: 1rem 0.5rem;
+  }
+}
+
+@media (max-width: 1200px) {
+  .main-content {
+    flex-direction: column !important;
+    gap: 2rem !important;
+  }
+
+  .work-summary {
+    margin-bottom: 2rem !important;
+  }
+
+  .main-content:not(.other-designs) .projects-section .project {
+    margin-left: 0 !important;
+  }
+
+  .main-content .work-summary {
+    margin-left: 0 !important;
+  }
+}
+
+/* Two-column grid for Other Designs */
+.main-content.other-designs .projects-section {
+  display: grid !important;
+  grid-template-columns: repeat(2, 1fr) !important;
+  grid-row-gap: 0 !important;
+  grid-column-gap: 0.25rem !important;
+}
+
+.main-content.other-designs .projects-section .project-thumbnail-wrapper {
+  aspect-ratio: auto !important;
+  height: auto !important;
+  overflow: visible !important;
+}
+
+.main-content.other-designs .projects-section .project .project-thumbnail-wrapper {
+  display: inline-block !important;
+  width: auto !important;
+}
+
+.main-content.other-designs .projects-section .project:nth-child(odd) .project-thumbnail-wrapper {
+  transform: translateX(11rem) !important;
+}
+
+.main-content.other-designs .projects-section .project:nth-child(even) .project-thumbnail-wrapper {
+  transform: translateX(6rem) !important;
+}
+
+.main-content.other-designs .projects-section .project-thumbnail-wrapper {
+  pointer-events: none !important;
+}
+
+.main-content.other-designs .projects-section .project-thumbnail-wrapper a {
+  pointer-events: auto !important;
+}
+
+.main-content.other-designs .projects-section .project-thumbnail-wrapper .project-thumbnail {
+  position: static !important;
+  height: auto !important;
+  object-fit: contain !important;
+}
+
+.main-content.other-designs {
+  margin-top: 16rem !important;
+}
+
+.main-content .work-summary {
+  margin-left: -2rem !important;
+}
+
+.project-thumbnail-wrapper:hover {
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1) !important;
+}
+
+.main-content.other-designs .project-thumbnail-wrapper:hover {
+  box-shadow: none !important;
+}
+
+.main-content.other-designs .project-thumbnail-wrapper a:focus,
+.main-content.other-designs .project-thumbnail-wrapper a:active {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+@media (max-width: 1200px) {
+  .main-content:not(.other-designs) .projects-section .project {
+    margin-left: 0 !important;
+  }
+
+  .main-content .work-summary {
+    margin-left: 0 !important;
+  }
+}
+
+@media (max-width: 900px) {
+  .main-content.other-designs .projects-section {
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+  }
+
+  .main-content.other-designs .projects-section .project:nth-child(odd) .project-thumbnail-wrapper,
+  .main-content.other-designs .projects-section .project:nth-child(even) .project-thumbnail-wrapper {
+    transform: none !important;
+  }
+
+  .main-content.other-designs .projects-section .project .project-thumbnail-wrapper {
+    width: 100% !important;
+  }
+
+  .main-content.other-designs .projects-section .project-thumbnail-wrapper .project-thumbnail {
+    width: 100% !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .container {
+    overflow-x: hidden;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-content {
+    padding: 1rem 0.5rem !important;
+    overflow-x: hidden;
+  }
+
+  .work-summary h2 {
+    font-size: 1.5rem !important;
+  }
+
+  .work-summary p {
+    font-size: 1rem !important;
+  }
+
+  .project-title {
+    font-size: 1.2rem !important;
+  }
+
+  .project-meta {
+    font-size: 0.75rem !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    height: auto !important;
+    overflow-y: auto !important;
+  }
+
+  .main-content {
+    flex: none !important;
+    overflow: visible !important;
+  }
+
+  .main-content.other-designs {
+    margin-top: 2rem !important;
+  }
+
+  /* Make other-designs section flow naturally with the rest of the content */
+  .main-content.other-designs .projects-section {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 1rem !important;
+  }
+
+  /* Remove transforms that create separate scrollable areas */
+  .main-content.other-designs .projects-section .project:nth-child(odd) .project-thumbnail-wrapper,
+  .main-content.other-designs .projects-section .project:nth-child(even) .project-thumbnail-wrapper {
+    transform: none !important;
+  }
+
+  /* Reset positioning to normal flow */
+  .main-content.other-designs .projects-section .project .project-thumbnail-wrapper {
+    width: 100% !important;
+    display: block !important;
+  }
+
+  .main-content.other-designs .projects-section .project-thumbnail-wrapper .project-thumbnail {
+    width: 100% !important;
+    height: auto !important;
+    position: static !important;
+  }
+}
+
+/* Ensure consistent header spacing on mobile */
+@media (max-width: 900px) {
+  .site-header {
+    padding: 1.5rem 0 0 !important;
+  }
+}
+
+/* Scroll up arrow colors - orange in light mode, purple in dark mode */
+button[onclick*="scrollTo"] svg {
+  stroke: var(--hover-color);
+}
+
+[data-theme="dark"] button[onclick*="scrollTo"] svg {
+  stroke: var(--dark-mode-toggle-hover) !important;
+}
+
+@media (max-width: 390px) {
+
+  /* iPhone 13 specific - ensure single scroll area */
+  .container {
+    padding: 0 !important;
+    overflow-x: hidden;
+  }
+
+  .main-content {
+    padding: 1rem 0.75rem !important;
+    margin-bottom: 0 !important;
+  }
+
+  .main-content.other-designs {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+  }
+
+  .main-content.other-designs .work-summary {
+    margin-top: 2rem !important;
+  }
+
+  /* Ensure natural flow between sections */
+  .main-content+.main-content.other-designs {
+    margin-top: 0 !important;
+  }
+}
+
+/* Mobile scroll up arrow positioning */
+@media (max-width: 600px) {
+  button[onclick*="scrollTo"] {
+    right: 0rem !important;
+    bottom: 1rem !important;
+  }
+}
