@@ -1,11 +1,11 @@
 :root {
   /* Landscape-only adjustable offsets for Design Process cards */
   --dp-landing-top-landscape: 0px;
-  --dp-goals-top-landscape: 66px;
-  --dp-transactions-top-landscape: 132px;
-  --dp-analytics-top-landscape: 198px;
-  --dp-calculator-top-landscape: 264px;
-  --dp-tips-top-landscape: 330px;
+  --dp-goals-top-landscape: 33px;
+  --dp-transactions-top-landscape: 66px;
+  --dp-analytics-top-landscape: 99px;
+  --dp-calculator-top-landscape: 132px;
+  --dp-tips-top-landscape: 165px;
 }
 
 /* Tighten footer link spacing */
