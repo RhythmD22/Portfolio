@@ -1,10 +1,8 @@
 // Mobile scroll chaining fix
 (function () {
-  // Check if mobile device
   const isMobile = window.innerWidth <= 900;
 
   if (isMobile) {
-    // Add mobile-specific class for additional styling
     document.body.classList.add('mobile-scroll-fix');
 
     // Prevent scroll chaining on touch devices
