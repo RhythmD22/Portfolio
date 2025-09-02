@@ -1,20 +1,9 @@
-/* Prevent horizontal overflow */
 html,
 body {
   max-width: 100%;
   overflow-x: hidden;
   margin: 0;
   padding: 0;
-}
-
-/* Mobile-specific height handling */
-@media (max-width: 900px) {
-
-  html,
-  body {
-    height: auto;
-    min-height: 100vh;
-  }
 }
 
 /* Main container flex layout */
@@ -24,7 +13,6 @@ body {
   min-height: 100vh;
 }
 
-/* Content area takes remaining space */
 .description-container {
   flex: 1 0 auto;
 }
@@ -53,11 +41,37 @@ body {
   box-shadow: 0 4px 24px 0 rgba(255, 255, 255, 0.1);
 }
 
+/* Intro text styles */
+.intro-heading {
+  font-size: 2rem;
+  margin: 0 0 1rem;
+  font-weight: 600;
+  color: var(--text-color);
+}
+
+.intro-paragraph {
+  line-height: 1.5;
+  color: var(--text-color);
+  margin: 0 0 1rem;
+}
+
+/* Override the dark mode rule that was forcing text to be black */
+[data-theme="dark"] .intro-text .intro-heading,
+[data-theme="dark"] .intro-text .intro-paragraph {
+  color: var(--text-color);
+}
+
 @media (max-width: 900px) {
+
+  html,
+  body {
+    height: auto;
+    min-height: 100vh;
+  }
+
   .intro {
     flex-direction: column;
     align-items: center;
-    /* center by default on small screens */
     text-align: center;
     gap: 1.5rem;
     width: 100%;
@@ -75,20 +89,34 @@ body {
     text-align: center;
   }
 
-  .intro-text h2,
-  .intro-text p {
-    max-width: 100%;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
   .profile-image {
     margin: 0 auto;
     max-width: 180px;
   }
+
+  .container {
+    height: auto;
+    min-height: 100vh;
+  }
+
+  body {
+    overflow-y: auto;
+    overscroll-behavior-y: contain;
+  }
+
+  .site-header,
+  .site-footer {
+    overscroll-behavior: contain;
+  }
+
+  .description-container {
+    flex: none;
+    min-height: auto;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
 }
 
-/* Portrait-specific centering for mobile (reinforce and handle safe areas) */
 @media (max-width: 900px) and (orientation: portrait) {
   .description-container {
     flex: 1;
@@ -127,16 +155,6 @@ body {
     align-items: center;
   }
 
-  .intro-text h2,
-  .intro-text p {
-    max-width: 100%;
-    margin-left: auto;
-    margin-right: auto;
-    width: 100%;
-    box-sizing: border-box;
-    text-align: center;
-  }
-
   /* Remove any left margin that could induce horizontal scroll on narrow portrait */
   .profile-image {
     margin-left: auto;
@@ -161,11 +179,11 @@ body {
       padding: 0 0.5rem;
     }
 
-    .intro-text h2 {
+    .intro-text .intro-heading {
       font-size: 1.75rem;
     }
 
-    .intro-text p {
+    .intro-text .intro-paragraph {
       font-size: 1rem;
       line-height: 1.6;
     }
@@ -177,7 +195,6 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Remove overscroll behavior that might interfere */
 body {
   overscroll-behavior-y: auto;
 }
@@ -187,34 +204,4 @@ body {
 .site-footer nav .link-text {
   margin-right: 0;
   padding-right: 0;
-}
-
-/* Mobile scroll chaining fix */
-@media (max-width: 900px) {
-
-  /* Remove fixed viewport height constraint on mobile */
-  .container {
-    height: auto;
-    min-height: 100vh;
-  }
-
-  /* Allow natural document scrolling */
-  body {
-    overflow-y: auto;
-    overscroll-behavior-y: contain;
-  }
-
-  /* Prevent scroll chaining at boundaries */
-  .site-header,
-  .site-footer {
-    overscroll-behavior: contain;
-  }
-
-  /* Ensure content can scroll naturally */
-  .description-container {
-    flex: none;
-    min-height: auto;
-    padding-top: 2rem;
-    padding-bottom: 2rem;
-  }
 }

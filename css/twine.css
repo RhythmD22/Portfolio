@@ -12,10 +12,7 @@ body {
   padding-right: 0;
 }
 
-/* Responsive styles for mobile */
 @media screen and (max-width: 768px) {
-
-  /* Scale down all text proportionally */
   body {
     font-size: 14px;
   }
@@ -28,7 +25,6 @@ body {
     font-size: 1.4rem;
   }
 
-  /* Scale down padding and margins */
   .main-content {
     padding: 1rem !important;
     gap: 2rem !important;
@@ -47,7 +43,6 @@ body {
     gap: 1rem !important;
   }
 
-  /* Scale down image containers */
   .screenshot-img {
     width: 100% !important;
     height: auto !important;
@@ -61,7 +56,6 @@ body {
     margin-bottom: 2rem !important;
   }
 
-  /* Ensure images scale properly */
   img {
     max-width: 100% !important;
     height: auto !important;
@@ -99,34 +93,12 @@ body {
     text-align: center !important;
   }
 
-  /* Ensure container doesn't cause overflow */
   .container {
     max-width: 100vw !important;
     overflow-x: hidden !important;
   }
-}
 
-/* Additional responsive for very small screens */
-@media screen and (max-width: 480px) {
-  body {
-    font-size: 12px;
-  }
-
-  .page-title {
-    font-size: 1.3rem;
-  }
-
-  .section-title {
-    font-size: 1.2rem;
-  }
-
-  p {
-    font-size: 0.85rem !important;
-  }
-}
-
-/* Mobile footer sizing fix */
-@media screen and (max-width: 768px) {
+  /* Mobile footer sizing */
   .site-footer {
     padding: 1.5rem 0 1rem !important;
     font-size: 0.875rem !important;
@@ -148,6 +120,22 @@ body {
 }
 
 @media screen and (max-width: 480px) {
+  body {
+    font-size: 12px;
+  }
+
+  .page-title {
+    font-size: 1.3rem;
+  }
+
+  .section-title {
+    font-size: 1.2rem;
+  }
+
+  p {
+    font-size: 0.85rem !important;
+  }
+
   .site-footer {
     padding: 1rem 0 0.75rem !important;
   }

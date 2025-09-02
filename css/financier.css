@@ -8,7 +8,6 @@
   --dp-tips-top-landscape: 165px;
 }
 
-/* Tighten footer link spacing */
 .site-footer nav a,
 .site-footer nav .link-text {
   margin-right: 0;
@@ -50,22 +49,17 @@ body {
   overflow-x: hidden;
 }
 
-/* Responsive styles for mobile PORTRAIT ONLY (keep normalization here) */
 @media screen and (max-width: 768px) and (orientation: portrait) {
-
-  /* Scale down all text proportionally */
   body {
     font-size: 14px;
   }
 
-  /* Ensure all elements respect box-sizing */
   *,
   *:before,
   *:after {
     box-sizing: border-box;
   }
 
-  /* Ensure all divs respect viewport width */
   div {
     max-width: 100%;
   }
@@ -78,7 +72,6 @@ body {
     font-size: 1.4rem;
   }
 
-  /* Scale down padding and margins */
   .main-content {
     padding: 1rem !important;
     gap: 2rem !important;
@@ -105,12 +98,10 @@ body {
     width: 100% !important;
   }
 
-  /* Ensure all elements with specific widths respect viewport */
   div[style*="width:"] {
     max-width: 100% !important;
   }
 
-  /* Scale down image containers */
   .image-link {
     width: 100% !important;
   }
@@ -138,11 +129,9 @@ body {
   }
 }
 
-/* Landscape MOBILE: enable adjustable offsets for the six DP blocks only
-   Adjusted to support devices like 852x393 (landscape width 852px) */
+/* Landscape MOBILE: enable adjustable offsets for the six DP blocks only */
 @media screen and (max-width: 900px) and (orientation: landscape) {
 
-  /* Allow our six blocks to remain relatively positioned and adjustable */
   .dp-landing,
   .dp-goals,
   .dp-transactions,
@@ -150,7 +139,6 @@ body {
   .dp-calculator,
   .dp-tips {
     position: relative !important;
-    /* ensure they participate in layout for top offsets */
     display: block !important;
   }
 
@@ -178,9 +166,7 @@ body {
     top: var(--dp-tips-top-landscape) !important;
   }
 
-  /* Importantly: do NOT neutralize our six blocks, but keep normalization for others.
-     We also must not globally reset all position:relative elements above in portrait rules.
-     This selector ensures others remain static in landscape while our six stay adjustable. */
+  /* Keep normalization for other elements */
   div[style*="position: relative; top:"]:not(.dp-landing):not(.dp-goals):not(.dp-transactions):not(.dp-analytics):not(.dp-calculator):not(.dp-tips) {
     position: static !important;
     top: auto !important;
@@ -190,7 +176,6 @@ body {
   }
 }
 
-/* Additional responsive for very small screens */
 @media screen and (max-width: 480px) {
   body {
     font-size: 12px;
@@ -211,7 +196,7 @@ body {
   }
 }
 
-/* Mobile footer sizing fix */
+/* Mobile footer sizing */
 @media screen and (max-width: 768px) {
   .site-footer {
     padding: 1.5rem 0 1rem !important;
@@ -257,21 +242,21 @@ body {
 }
 
 /* Dark mode text color for Design Process cards */
-html[data-theme="dark"] .dp-landing>div,
-html[data-theme="dark"] .dp-goals>div,
-html[data-theme="dark"] .dp-transactions>div,
-html[data-theme="dark"] .dp-analytics>div,
-html[data-theme="dark"] .dp-calculator>div,
-html[data-theme="dark"] .dp-tips>div {
+[data-theme="dark"] .dp-landing>div,
+[data-theme="dark"] .dp-goals>div,
+[data-theme="dark"] .dp-transactions>div,
+[data-theme="dark"] .dp-analytics>div,
+[data-theme="dark"] .dp-calculator>div,
+[data-theme="dark"] .dp-tips>div {
   color: #000 !important;
 }
 
-html[data-theme="dark"] .dp-landing>div>p,
-html[data-theme="dark"] .dp-goals>div>p,
-html[data-theme="dark"] .dp-transactions>div>p,
-html[data-theme="dark"] .dp-analytics>div>p,
-html[data-theme="dark"] .dp-calculator>div>p,
-html[data-theme="dark"] .dp-tips>div>p {
+[data-theme="dark"] .dp-landing>div>p,
+[data-theme="dark"] .dp-goals>div>p,
+[data-theme="dark"] .dp-transactions>div>p,
+[data-theme="dark"] .dp-analytics>div>p,
+[data-theme="dark"] .dp-calculator>div>p,
+[data-theme="dark"] .dp-tips>div>p {
   color: #000 !important;
 }
 

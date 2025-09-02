@@ -317,7 +317,7 @@
   }
 
   .main-content.other-designs {
-    margin-top: 10rem !important;
+    margin-top: 12rem !important;
   }
 
   /* Make other-designs section flow naturally with the rest of the content */
@@ -369,7 +369,7 @@ button[onclick*="scrollTo"] svg {
   }
 
   .main-content.other-designs {
-    margin-top: 0 !important;
+    margin-top: 12rem !important;
     padding-top: 0 !important;
   }
 
@@ -379,7 +379,7 @@ button[onclick*="scrollTo"] svg {
 
   /* Ensure natural flow between sections */
   .main-content+.main-content.other-designs {
-    margin-top: 0 !important;
+    margin-top: 12rem !important;
   }
 }
 

@@ -1,8 +1,6 @@
-/*——————————————————————————
-  Base styles for all pages
-——————————————————————————*/
+/* Base styles for all pages */
 
-/* load your Inter font */
+/* Load Inter font */
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100..900;1,100..900&display=swap');
 
 :root {
@@ -44,15 +42,12 @@ body {
   box-sizing: border-box;
 }
 
-/*——————————————————————————
-  Header
-——————————————————————————*/
+/* Header */
 .site-header {
   width: 100%;
   padding: 1.5rem 0 0;
   margin: 0;
   position: relative;
-  /* if you use absolute/relative children */
 }
 
 .header-content {
@@ -63,7 +58,6 @@ body {
   padding: 0 2rem;
   box-sizing: border-box;
 }
-
 
 .header-nav {
   display: flex;
@@ -88,7 +82,6 @@ body {
   color: var(--link-color);
 }
 
-/* Dark mode underline color for header links */
 [data-theme="dark"] .header-nav a:hover {
   text-decoration-color: var(--dark-mode-toggle-hover);
 }
@@ -113,19 +106,15 @@ body {
   text-decoration-color: var(--link-color);
 }
 
-/* Dark mode underline color for header name */
 [data-theme="dark"] .header-left a:hover {
   text-decoration-color: white;
 }
 
-/* Specifically target the dark mode toggle button */
 .dark-mode-toggle {
   background: none;
   border: 2px solid var(--dark-mode-toggle-hover);
-  /* Moon icon border should be purple by default on mobile */
   border-radius: 50%;
   color: var(--dark-mode-toggle-hover);
-  /* Moon icon should be purple by default on mobile */
   cursor: pointer;
   font-size: 1rem;
   display: inline-flex;
@@ -143,16 +132,12 @@ body {
 @media (min-width: 901px) {
   .dark-mode-toggle {
     color: var(--link-color);
-    /* Moon icon should be black by default on desktop */
     border-color: var(--link-color);
-    /* Moon icon border should be black by default on desktop */
   }
 }
 
-/* Color for sun icon (dark mode) - orange by default on mobile */
 [data-theme="dark"] .dark-mode-toggle {
   color: var(--hover-color);
-  /* Sun icon should be orange by default on mobile */
   border-color: var(--hover-color);
 }
 
@@ -160,41 +145,33 @@ body {
 @media (min-width: 901px) {
   [data-theme="dark"] .dark-mode-toggle {
     color: white;
-    /* Sun icon should be white by default on desktop */
     border-color: white;
   }
 }
 
-/* Hover states for devices that support hover (desktop) */
+/* Hover states for devices that support hover */
 @media (hover: hover) {
-
-  /* Moon icon hover color - purple on desktop */
   .dark-mode-toggle:hover {
     color: var(--dark-mode-toggle-hover);
     border-color: var(--dark-mode-toggle-hover);
   }
 
-  /* Sun icon hover color - orange on desktop */
   [data-theme="dark"] .dark-mode-toggle:hover {
     color: var(--hover-color);
     border-color: var(--hover-color);
   }
 }
 
-/* Active/tap states for touch devices - visual feedback when tapping */
 .dark-mode-toggle:active {
   color: var(--dark-mode-toggle-hover);
-  /* Purple feedback for moon icon */
   border-color: var(--dark-mode-toggle-hover);
 }
 
 [data-theme="dark"] .dark-mode-toggle:active {
   color: var(--hover-color);
-  /* Orange feedback for sun icon */
   border-color: var(--hover-color);
 }
 
-/* Focus states for better accessibility */
 .dark-mode-toggle:focus {
   outline: none;
   box-shadow: 0 0 0 2px var(--dark-mode-toggle-hover);
@@ -204,7 +181,6 @@ body {
   box-shadow: 0 0 0 2px var(--hover-color);
 }
 
-/* Intro/Description section */
 .description-container {
   flex: 1;
   padding-top: 15vh;
@@ -260,12 +236,20 @@ div[style*="box-shadow:0 0 8px rgba(0,0,0,0.1)"] {
   color: black;
 }
 
-/* Ensure project info meta sections have proper text color in dark mode */
+/* Exclude our new intro classes from the above rule */
+[data-theme="dark"] .intro-text .intro-heading,
+[data-theme="dark"] .intro-text .intro-paragraph {
+  color: var(--text-color);
+}
+
+/* Project info meta sections */
 .info-meta {
-  /* Add padding and border-radius in light mode to match dark mode */
   padding: 1rem;
   border-radius: 4px;
   box-sizing: border-box;
+  font-size: 0.9rem;
+  text-align: left;
+  line-height: 1.8;
 }
 
 [data-theme="dark"] .info-meta {
@@ -277,11 +261,8 @@ div[style*="box-shadow:0 0 8px rgba(0,0,0,0.1)"] {
   color: #f0f0f0;
 }
 
-/* Add consistent styling for paragraphs to prevent shifts */
 p {
-  /* Ensure consistent line-height to prevent shifting */
   line-height: 1.5;
-  /* Prevent margin collapsing issues */
   margin: 0 0 1rem 0;
 }
 
@@ -299,9 +280,7 @@ p {
   align-items: flex-start;
 }
 
-/*——————————————————————————
-  Footer
-——————————————————————————*/
+/* Footer */
 .site-footer {
   margin-top: auto;
   padding: 2rem 0 1rem;
@@ -320,7 +299,6 @@ p {
   color: var(--link-color);
 }
 
-/* Dark mode underline color for footer links */
 [data-theme="dark"] .site-footer nav a:hover {
   text-decoration-color: var(--dark-mode-toggle-hover);
 }
@@ -342,30 +320,23 @@ p {
   color: var(--footer-text-color);
 }
 
-/*——————————————————————————
-  Mobile scroll chaining fix
-——————————————————————————*/
+/* Mobile scroll chaining fix */
 @media (max-width: 1440px) {
-
-  /* Remove fixed viewport height constraint on mobile */
   .container {
     height: auto;
     min-height: 100vh;
   }
 
-  /* Allow natural document scrolling */
   body {
     overflow-y: auto;
     overscroll-behavior-y: contain;
   }
 
-  /* Prevent scroll chaining at boundaries */
   .site-header,
   .site-footer {
     overscroll-behavior: contain;
   }
 
-  /* Ensure content can scroll naturally */
   .main-content,
   .description-container {
     flex: none;
@@ -373,9 +344,7 @@ p {
   }
 }
 
-/*——————————————————————————
-  Font-weight utility classes
-——————————————————————————*/
+/* Font-weight utility classes */
 .fw-light {
   font-weight: 300;
 }
@@ -396,7 +365,7 @@ p {
   font-weight: 700;
 }
 
-/* Utility classes extracted from repeated inline styles */
+/* Utility classes */
 .center-flex {
   display: flex;
   justify-content: center;
@@ -422,12 +391,6 @@ p {
 .page-title {
   font-size: 2rem;
   font-weight: 700;
-}
-
-.info-meta {
-  font-size: 0.9rem;
-  text-align: left;
-  line-height: 1.8;
 }
 
 .caption {
