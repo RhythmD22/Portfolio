@@ -118,16 +118,9 @@
   cursor: pointer;
 }
 
-/* Make Financier and Twine thumbnails use light mode background color in both modes */
-.main-content:not(.other-designs) .projects-section .project:nth-child(1) .project-thumbnail,
-.main-content:not(.other-designs) .projects-section .project:nth-child(3) .project-thumbnail {
-  background-color: #faefd8;
-}
-
-/* Add thin black outlines to Financier and Twine thumbnails */
-.main-content:not(.other-designs) .projects-section .project:nth-child(1) .project-thumbnail,
-.main-content:not(.other-designs) .projects-section .project:nth-child(3) .project-thumbnail {
-  box-shadow: 0 0 0 1px black;
+/* Financier thumbnail background gradient */
+.main-content:not(.other-designs) .projects-section .project:nth-child(1) .project-thumbnail {
+  background: linear-gradient(to right, #1e40af, #3b82f6) !important;
 }
 
 .main-content.other-designs .projects-section .project-thumbnail {
@@ -166,6 +159,28 @@
   margin: 0 0 0.3rem 0;
 }
 
+@media (max-width: 1200px) {
+  .main-content {
+    flex-direction: column !important;
+    gap: 2rem !important;
+  }
+
+  .work-summary {
+    max-width: 100%;
+    margin-top: 0;
+    margin-bottom: 2rem !important;
+    margin-left: 0 !important;
+  }
+
+  .main-content:not(.other-designs) .projects-section .project {
+    margin-left: 0 !important;
+  }
+
+  .main-content .work-summary {
+    margin-left: 0 !important;
+  }
+}
+
 @media (max-width: 900px) {
   .main-content {
     flex-direction: column;
@@ -177,30 +192,16 @@
     max-width: 100%;
     margin-top: 0;
   }
+
+  .main-content.other-designs .projects-section {
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+  }
 }
 
 @media (max-width: 600px) {
   .main-content {
     padding: 1rem 0.5rem;
-  }
-}
-
-@media (max-width: 1200px) {
-  .main-content {
-    flex-direction: column !important;
-    gap: 2rem !important;
-  }
-
-  .work-summary {
-    margin-bottom: 2rem !important;
-  }
-
-  .main-content:not(.other-designs) .projects-section .project {
-    margin-left: 0 !important;
-  }
-
-  .main-content .work-summary {
-    margin-left: 0 !important;
   }
 }
 
@@ -277,31 +278,9 @@
   }
 }
 
-@media (max-width: 900px) {
-  .main-content.other-designs .projects-section {
-    grid-template-columns: 1fr !important;
-    gap: 1rem !important;
-  }
 
-  .main-content.other-designs .projects-section .project:nth-child(odd) .project-thumbnail-wrapper,
-  .main-content.other-designs .projects-section .project:nth-child(even) .project-thumbnail-wrapper {
-    transform: none !important;
-  }
 
-  .main-content.other-designs .projects-section .project .project-thumbnail-wrapper {
-    width: 100% !important;
-  }
 
-  .main-content.other-designs .projects-section .project-thumbnail-wrapper .project-thumbnail {
-    width: 100% !important;
-  }
-}
-
-@media (max-width: 600px) {
-  .container {
-    overflow-x: hidden;
-  }
-}
 
 @media (max-width: 480px) {
   .main-content {
@@ -338,7 +317,7 @@
   }
 
   .main-content.other-designs {
-    margin-top: 2rem !important;
+    margin-top: 10rem !important;
   }
 
   /* Make other-designs section flow naturally with the rest of the content */
@@ -364,13 +343,6 @@
     width: 100% !important;
     height: auto !important;
     position: static !important;
-  }
-}
-
-/* Ensure consistent header spacing on mobile */
-@media (max-width: 900px) {
-  .site-header {
-    padding: 1.5rem 0 0 !important;
   }
 }
 
