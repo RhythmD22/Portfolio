@@ -23,6 +23,8 @@
 
 html {
   font-family: 'Inter', sans-serif;
+  /* Smooth transition for dark mode toggle */
+  transition: background-color 0.3s, color 0.3s;
 }
 
 body {
@@ -196,7 +198,6 @@ body {
 }
 
 .intro-text {
-  background-color: var(--background-color);
   padding: 2rem;
   margin: 4rem 2rem 0 6rem;
   max-width: 480px;
@@ -250,15 +251,6 @@ div[style*="box-shadow:0 0 8px rgba(0,0,0,0.1)"] {
   font-size: 0.9rem;
   text-align: left;
   line-height: 1.8;
-}
-
-[data-theme="dark"] .info-meta {
-  color: #f0f0f0;
-  background-color: #0d1117;
-}
-
-[data-theme="dark"] .info-meta * {
-  color: #f0f0f0;
 }
 
 p {
