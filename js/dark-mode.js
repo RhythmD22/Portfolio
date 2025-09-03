@@ -48,11 +48,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Toggle dark mode when button is clicked
     toggleButton.addEventListener('click', () => {
-      // Temporarily disable transitions to prevent staggered updates
-      const style = document.createElement('style');
-      style.innerHTML = '* { transition: none !important; }';
-      document.head.appendChild(style);
-
       const currentTheme = document.documentElement.getAttribute('data-theme');
 
       // Apply theme change
@@ -71,11 +66,6 @@ document.addEventListener('DOMContentLoaded', function () {
           icon.classList.add('fa-sun');
         }
       }
-
-      // Re-enable transitions after a short delay
-      setTimeout(() => {
-        document.head.removeChild(style);
-      }, 10);
     });
 
     // Mark as initialized
