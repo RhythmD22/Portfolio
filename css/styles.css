@@ -344,6 +344,25 @@ p {
   }
 }
 
+/* Mobile header styles */
+@media (max-width: 768px) {
+  .header-nav {
+    gap: 1.5rem;
+  }
+
+  .resume-links {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+  }
+
+  .download-icon {
+    font-size: 0.75rem;
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+}
+
 /* Font-weight utility classes */
 .fw-light {
   font-weight: 300;
