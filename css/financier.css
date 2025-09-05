@@ -237,6 +237,7 @@ body {
   text-decoration: none;
   font-weight: 600;
   transition: color 0.3s ease;
+  display: inline-block;
 }
 
 #magnate-link:hover,
@@ -247,4 +248,5 @@ body {
 
 #magnate-link:active {
   color: #518be5;
+  transition: color 0.1s ease;
 }
