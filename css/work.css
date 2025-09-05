@@ -1,9 +1,5 @@
 /* Tighten footer link spacing */
-.site-footer nav a,
-.site-footer nav .link-text {
-  margin-right: 0;
-  padding-right: 0;
-}
+
 
 .work-summary {
   flex: 1 1 340px;
@@ -151,6 +147,10 @@
   margin-bottom: 0.4rem;
   letter-spacing: 0.03em;
   text-transform: uppercase;
+}
+
+[data-theme="dark"] .project-meta {
+  color: #9E9E9E;
 }
 
 .project-description {
@@ -380,13 +380,5 @@ button[onclick*="scrollTo"] svg {
   /* Ensure natural flow between sections */
   .main-content+.main-content.other-designs {
     margin-top: 12rem !important;
-  }
-}
-
-/* Mobile scroll up arrow positioning */
-@media (max-width: 600px) {
-  button[onclick*="scrollTo"] {
-    right: 0rem !important;
-    bottom: 1rem !important;
   }
 }

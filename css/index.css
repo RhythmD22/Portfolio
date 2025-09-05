@@ -197,10 +197,3 @@ html {
 body {
   overscroll-behavior-y: auto;
 }
-
-/* Tighten footer link spacing */
-.site-footer nav a,
-.site-footer nav .link-text {
-  margin-right: 0;
-  padding-right: 0;
-}

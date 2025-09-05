@@ -5,12 +5,6 @@ body {
   overflow-x: hidden;
 }
 
-/* Tighten footer link spacing */
-.site-footer nav a,
-.site-footer nav .link-text {
-  margin-right: 0;
-  padding-right: 0;
-}
 
 @media screen and (max-width: 768px) {
   body {
@@ -176,13 +170,4 @@ body {
     right: 0rem !important;
     bottom: 1rem !important;
   }
-}
-
-/* Scroll up arrow colors - orange in light mode, purple in dark mode */
-button[onclick*="scrollTo"] svg {
-  stroke: var(--hover-color);
-}
-
-[data-theme="dark"] button[onclick*="scrollTo"] svg {
-  stroke: var(--dark-mode-toggle-hover) !important;
 }

@@ -8,35 +8,6 @@
   --dp-tips-top-landscape: 165px;
 }
 
-.site-footer nav a,
-.site-footer nav .link-text {
-  margin-right: 0;
-  padding-right: 0;
-}
-
-/* Limit Fancybox clickable area to image only */
-.image-link {
-  display: inline-block !important;
-  width: fit-content !important;
-  height: fit-content !important;
-  line-height: 0 !important;
-  padding: 0 !important;
-  margin: 0 !important;
-  font-size: 0 !important;
-  overflow: hidden !important;
-  position: relative !important;
-  box-sizing: content-box !important;
-}
-
-.image-link img {
-  display: block !important;
-  width: 100% !important;
-  height: auto !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  box-sizing: border-box !important;
-  border: none !important;
-}
 
 /* Prevent horizontal overflow */
 body {
@@ -258,13 +229,4 @@ body {
 [data-theme="dark"] .dp-calculator>div>p,
 [data-theme="dark"] .dp-tips>div>p {
   color: #000 !important;
-}
-
-/* Scroll up arrow colors - orange in light mode, purple in dark mode */
-button[onclick*="scrollTo"] svg {
-  stroke: var(--hover-color);
-}
-
-[data-theme="dark"] button[onclick*="scrollTo"] svg {
-  stroke: var(--dark-mode-toggle-hover) !important;
 }
