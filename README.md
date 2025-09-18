@@ -12,7 +12,7 @@ This repository contains Rhythm Desai's personal portfolio website. It showcases
 
 ## Directory Overview
 
-- **Images/** – Screenshots, mockups and other graphics used throughout the site.
+- **images/** – Screenshots, mockups and other graphics used throughout the site.
 - **Twine/** – Published Twine HTML stories.
 - **Clash Royale Wireframe.html** – Project page for a UX redesign of the Clash Royale app.
 - **Financier.html** – Project page for a college budgeting web app.
