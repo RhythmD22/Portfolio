@@ -4,39 +4,171 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Home - Rhythm Desai</title>
+  <title>Portfolio - Rhythm Desai</title>
   <link rel="icon" href="favicon.ico" type="image/x-icon">
   <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100..900;1,100..900&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
   <link rel="stylesheet" href="css/index.css">
+  <link rel="stylesheet" href="css/work.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@6.0.32/dist/fancybox/fancybox.min.css">
   <script src="js/dark-mode.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@6.0.32/dist/fancybox/fancybox.umd.min.js"></script>
 </head>
 
 <body>
   <div class="container">
     <div id="header-placeholder"></div>
+
+    <!-- Introduction Section from index.html -->
     <div class="description-container">
       <section class="intro">
         <div class="intro-text">
           <h2 class="intro-heading">Hey, I'm Rhythm!
           </h2>
-          <p class="intro-paragraph">I'm a recent University of Pittsburgh graduate and an
-            aspiring UI/UX Designer. I
-            design clean interfaces and immersive experiences that bring together form and function.</p>
-          <p class="intro-paragraph">I combine design tools and frontend development to
-            craft meaningful, intuitive
-            digital products.</p>
+          <p class="intro-paragraph">I'm a UI/UX Designer and a recent University of Pittsburgh graduate. I design clean
+            interfaces and immersive experiences that bring together form and function.
         </div>
         <img src="images/Profile.png" alt="Rhythm Desai, a recent University of Pittsburgh graduate"
           class="profile-image">
       </section>
     </div>
+
+    <!-- Work/Projects Section from Work.html -->
+    <main class="main-content work-section" id="selected-work">
+      <section class="work-summary">
+        <h2>Selected Work</h2>
+        <p>
+          A showcase of projects that highlight my design thinking, user-focused solutions, and frontend skills—across
+          web, mobile, and interactive fiction. My work blends research, prototyping, and hands-on implementation.
+        </p>
+      </section>
+      <div class="projects-section">
+        <!-- Project 1: Financier -->
+        <div class="project">
+          <a href="Financier.html">
+            <div class="project-thumbnail-wrapper">
+              <img src="images/Financier%20Homepage.png" alt="Financier Project" class="project-thumbnail">
+            </div>
+          </a>
+          <div class="project-title">Financier - College Budgeting Web App</div>
+          <div class="project-meta">Web Design & Development</div>
+        </div>
+        <!-- Project 2: SmartShuttle -->
+        <div class="project">
+          <a href="SmartShuttle.html">
+            <div class="project-thumbnail-wrapper">
+              <img src="images/SmartShuttle%20Preview%201.png" alt="SmartShuttle Project" class="project-thumbnail">
+            </div>
+          </a>
+          <div class="project-title">SmartShuttle - Live Tracker</div>
+          <div class="project-meta">UI/UX Concept</div>
+        </div>
+        <!-- Project 3: Twine Games (Combined) -->
+        <div class="project">
+          <a href="Twine.html">
+            <div class="project-thumbnail-wrapper">
+              <img src="images/Twine.png" alt="Twine Games" class="project-thumbnail">
+            </div>
+          </a>
+          <div class="project-title">Twine Interactive Fiction</div>
+          <div class="project-meta">Narrative Game Design</div>
+        </div>
+        <!-- Project 4: Clash Royale Wireframe & Prototype Redesign -->
+        <div class="project">
+          <a href="Clash Royale Wireframe.html">
+            <div class="project-thumbnail-wrapper">
+              <img src="images/Clash%20Royale.png" alt="Clash Royale Wireframe & Prototype Redesign"
+                class="project-thumbnail">
+            </div>
+          </a>
+          <div class="project-title">Clash Royale Wireframe & Prototype Redesign</div>
+          <div class="project-meta">UX Redesign, Wireframe</div>
+        </div>
+      </div>
+    </main>
+    <div class="main-content other-designs">
+      <section class="work-summary">
+        <h2>Other Designs</h2>
+        <p>A collection of pressbook materials created with Affinity Photo and Canva through explorations into graphic
+          design and film reviews.</p>
+      </section>
+      <div class="projects-section">
+        <div class="project">
+          <div class="project-thumbnail-wrapper">
+            <a href="images/BoP%201.png" data-fancybox="other-designs">
+              <img src="images/BoP%201.png" loading="lazy" alt="Birds of Prey 1" class="project-thumbnail">
+            </a>
+          </div>
+        </div>
+        <div class="project">
+          <div class="project-thumbnail-wrapper">
+            <a href="images/BoP%202.png" data-fancybox="other-designs">
+              <img src="images/BoP%202.png" loading="lazy" alt="Birds of Prey 2" class="project-thumbnail">
+            </a>
+          </div>
+        </div>
+        <div class="project">
+          <div class="project-thumbnail-wrapper">
+            <a href="images/BoP%203.png" data-fancybox="other-designs">
+              <img src="images/BoP%203.png" loading="lazy" alt="Birds of Prey 3" class="project-thumbnail">
+            </a>
+          </div>
+        </div>
+        <div class="project">
+          <div class="project-thumbnail-wrapper">
+            <a href="images/BoP%204.png" data-fancybox="other-designs">
+              <img src="images/BoP%204.png" loading="lazy" alt="Birds of Prey 4" class="project-thumbnail">
+            </a>
+          </div>
+        </div>
+        <div class="project">
+          <div class="project-thumbnail-wrapper">
+            <a href="images/FC%201.png" data-fancybox="other-designs">
+              <img src="images/FC%201.png" loading="lazy" alt="Fast Color 1" class="project-thumbnail">
+            </a>
+          </div>
+        </div>
+        <div class="project">
+          <div class="project-thumbnail-wrapper">
+            <a href="images/FC%202.png" data-fancybox="other-designs">
+              <img src="images/FC%202.png" loading="lazy" alt="Fast Color 2" class="project-thumbnail">
+            </a>
+          </div>
+        </div>
+        <div class="project">
+          <div class="project-thumbnail-wrapper">
+            <a href="images/FC%203.png" data-fancybox="other-designs">
+              <img src="images/FC%203.png" loading="lazy" alt="Fast Color 3" class="project-thumbnail">
+            </a>
+          </div>
+        </div>
+        <div class="project">
+          <div class="project-thumbnail-wrapper">
+            <a href="images/FC%204.png" data-fancybox="other-designs">
+              <img src="images/FC%204.png" loading="lazy" alt="Fast Color 4" class="project-thumbnail">
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <div id="footer-placeholder"></div>
   </div>
   <script src="js/templates.js"></script>
+  <button onclick="window.scrollTo({top: 0, behavior: 'smooth'});"
+    style="position: fixed; bottom: 1.5rem; right: 1.5rem; background: none; border: none; cursor: pointer; z-index: 1000;"
+    aria-label="Scroll to top">
+    <svg width="96" height="72" viewBox="0 0 24 24" fill="none" stroke-width="0.6" stroke-linecap="round"
+      stroke-linejoin="round">
+      <polyline points="18 15 12 9 6 15"></polyline>
+    </svg>
+  </button>
+  <script src="js/scroll-to-top.js"></script>
+  <script src="js/navigation.js"></script>
   <script src="js/index.js"></script>
+  <script src="js/work.js"></script>
 </body>
 
 </html>

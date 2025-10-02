@@ -1,12 +1,51 @@
+<!-- Dark mode toggle for mobile -->
+<button id="mobile-dark-mode-toggle" class="dark-mode-toggle mobile-dark-mode-toggle" aria-label="Toggle dark mode">
+  <i class="fas fa-moon"></i>
+</button>
+<!-- Hamburger Button for mobile navigation -->
+<button class="hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+  <span class="hamburger-line"></span>
+  <span class="hamburger-line"></span>
+  <span class="hamburger-line"></span>
+</button>
+<!-- Sidebar navigation menu -->
+<div class="sidebar" id="sidebar" role="navigation" aria-label="Main navigation">
+  <div class="nav-item">
+    <a href="#selected-work" class="nav-link" id="mobile-work-link">
+      <span class="nav-text">WORK</span>
+    </a>
+  </div>
+  <div class="nav-item resume-flex-container">
+    <a href="https://docs.google.com/document/d/1Um0AgUWUdk33FvDa_wgQH5yh4F4L9n4_vvsffXUKhno/preview?usp=sharing"
+      class="nav-link resume-text-link" target="_blank">
+      <span class="nav-text">RESUME</span>
+    </a>
+    <a href="https://docs.google.com/document/d/1Um0AgUWUdk33FvDa_wgQH5yh4F4L9n4_vvsffXUKhno/export?format=pdf"
+      class="nav-link download-link" download aria-label="Download Resume">
+      <i class="fas fa-download nav-icon"></i>
+    </a>
+  </div>
+  <div class="nav-item">
+    <a href="About.html" class="nav-link" id="mobile-about-link">
+      <span class="nav-text">ABOUT</span>
+    </a>
+  </div>
+  <div class="sidebar-footer" role="contentinfo">
+  </div>
+</div>
+<!-- /Sidebar -->
 <header class="site-header">
   <div class="header-content">
     <div class="header-left">
       <h1 class="header-name fw-medium">
-        <a href="index.html">Rhythm Desai</a>
+        <a href="index.html" class="portfolio-icon-link">
+          <img src="Portfolio%20Icon%20Light.png" alt="Portfolio Icon" class="portfolio-icon portfolio-icon-light">
+          <img src="Portfolio%20Icon%20Dark.png" alt="Portfolio Icon" class="portfolio-icon portfolio-icon-dark">
+        </a>
       </h1>
     </div>
     <nav class="header-nav">
-      <a href="Work.html">Work</a>
+      <a href="#selected-work">Work</a>
       <div class="resume-links">
         <a href="https://docs.google.com/document/d/1Um0AgUWUdk33FvDa_wgQH5yh4F4L9n4_vvsffXUKhno/preview?usp=sharing"
           target="_blank">Resume</a>
@@ -15,6 +54,7 @@
           <i class="fas fa-download"></i>
         </a>
       </div>
+      <a href="About.html">About</a>
       <button id="dark-mode-toggle" class="dark-mode-toggle" aria-label="Toggle dark mode">
         <i class="fas fa-moon"></i>
       </button>
