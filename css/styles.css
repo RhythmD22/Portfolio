@@ -305,17 +305,10 @@ div[style*="box-shadow:0 0 8px rgba(0,0,0,0.1)"] {
   color: var(--text-color);
 }
 
-/* Fallback for browsers that don't support ::marker */
-[data-theme="dark"] .intro-text ul,
-[data-theme="dark"] .intro-text ol {
-  list-style-color: var(--text-color);
-}
-
 /* Additional rule to ensure list bullets are styled in dark mode */
 [data-theme="dark"] .intro-text ul,
 [data-theme="dark"] .intro-text ol {
   color: var(--text-color);
-  list-style-color: var(--text-color) !important;
 }
 
 /* Ensure list items also get the proper color in dark mode */
