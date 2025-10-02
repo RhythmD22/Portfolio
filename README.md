@@ -12,32 +12,36 @@ This repository contains Rhythm Desai's personal portfolio website. It showcases
 
 ## Directory Overview
 
-- **images/** – Screenshots, mockups, and other graphics used throughout the site.
-- **Twine/** – Published Twine HTML stories.
+- **About.html** – About page with background and contact information.
 - **Clash Royale Wireframe.html** – Project page for a UX redesign of the Clash Royale app.
-- **Financier.html** – Project page for a college budgeting web app.
-- **SmartShuttle.html** – Project page for a campus shuttle tracking concept.
-- **Twine.html** – Landing page introducing the Twine interactive fiction projects.
-- **Work.html** – Overview of selected work with thumbnails linking to project pages.
-- **footer.html** – Shared footer snippet included on each page.
-- **header.html** – Shared header snippet included on each page.
-- **index.html** – Home page with a short bio and site navigation.
-- **Resume.pdf** – Printable résumé.
 - **css/** – Directory containing all CSS files
-  - **styles.css** – Shared styling for all pages.
+  - **about.css** – Specific styling for the About page.
   - **clashroyale.css** – Specific styling for the Clash Royale project page.
   - **financier.css** – Specific styling for the Financier project page.
   - **index.css** – Specific styling for the home page.
   - **smartshuttle.css** – Specific styling for the SmartShuttle project page.
+  - **styles.css** – Shared styling for all pages.
   - **twine.css** – Specific styling for the Twine project page.
   - **work.css** – Specific styling for the work page.
+- **favicon.ico** – Browser tab icon.
+- **Financier.html** – Project page for a college budgeting web app.
+- **footer.html** – Shared footer snippet included on each page.
+- **header.html** – Shared header snippet included on each page.
+- **images/** – Screenshots, mockups, and other graphics used throughout the site.
+- **index.html** – Home page with a short bio and site navigation.
 - **js/** – Directory containing all JavaScript files
-  - **templates.js** – Injects the shared header and footer into each page.
-  - **dark-mode.js** – Implements dark mode functionality across the site.
-  - **scroll-to-top.js** – Implements shared scroll-to-top functionality across project pages.
   - **clashroyale.js** – Specific JavaScript for the Clash Royale project page.
+  - **dark-mode.js** – Implements dark mode functionality across the site.
   - **financier.js** – Specific JavaScript for the Financier project page.
   - **index.js** – Specific JavaScript for the home page.
+  - **navigation.js** – Implements shared navigation functionality including mobile menu and link updates.
+  - **scroll-to-top.js** – Implements shared scroll-to-top functionality across project pages.
   - **smartshuttle.js** – Specific JavaScript for the SmartShuttle project page.
+  - **templates.js** – Injects the shared header and footer into each page.
   - **work.js** – Specific JavaScript for the work page.
-- **favicon.ico** – Browser tab icon.
+- **Portfolio Icon Dark.png** – Dark theme portfolio icon.
+- **Portfolio Icon Light.png** – Light theme portfolio icon.
+- **README.md** – This file, explaining the project structure and setup.
+- **SmartShuttle.html** – Project page for a campus shuttle tracking concept.
+- **Twine/** – Published Twine HTML stories.
+- **Twine.html** – Landing page introducing the Twine interactive fiction projects.
