@@ -1,6 +1,5 @@
 /* Tighten footer link spacing */
 
-
 .work-summary {
   flex: 1 1 340px;
   max-width: 340px;
@@ -207,59 +206,59 @@
 
 /* Two-column grid for Other Designs */
 .main-content.other-designs .projects-section {
-  display: grid !important;
-  grid-template-columns: repeat(2, 1fr) !important;
-  grid-row-gap: 0 !important;
-  grid-column-gap: 0.25rem !important;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-row-gap: 0;
+  grid-column-gap: 0.25rem;
 }
 
 .main-content.other-designs .projects-section .project-thumbnail-wrapper {
-  aspect-ratio: auto !important;
-  height: auto !important;
-  overflow: visible !important;
+  aspect-ratio: auto;
+  height: auto;
+  overflow: visible;
 }
 
 .main-content.other-designs .projects-section .project .project-thumbnail-wrapper {
-  display: inline-block !important;
-  width: auto !important;
+  display: inline-block;
+  width: auto;
 }
 
 .main-content.other-designs .projects-section .project:nth-child(odd) .project-thumbnail-wrapper {
-  transform: translateX(11rem) !important;
+  transform: translateX(11rem);
 }
 
 .main-content.other-designs .projects-section .project:nth-child(even) .project-thumbnail-wrapper {
-  transform: translateX(6rem) !important;
+  transform: translateX(6rem);
 }
 
 .main-content.other-designs .projects-section .project-thumbnail-wrapper {
-  pointer-events: none !important;
+  pointer-events: none;
 }
 
 .main-content.other-designs .projects-section .project-thumbnail-wrapper a {
-  pointer-events: auto !important;
+  pointer-events: auto;
 }
 
 .main-content.other-designs .projects-section .project-thumbnail-wrapper .project-thumbnail {
-  position: static !important;
-  height: auto !important;
-  object-fit: contain !important;
+  position: static;
+  height: auto;
+  object-fit: contain;
 }
 
 .main-content.other-designs {
-  margin-top: 16rem !important;
+  margin-top: 16rem;
 }
 
 .main-content .work-summary {
-  margin-left: -2rem !important;
+  margin-left: -2rem;
 }
 
 .project-thumbnail-wrapper:hover {
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1) !important;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
 .main-content.other-designs .project-thumbnail-wrapper:hover {
-  box-shadow: none !important;
+  box-shadow: none;
 }
 
 .main-content.other-designs .project-thumbnail-wrapper a:focus,

@@ -5,7 +5,6 @@ body {
   overflow-x: hidden;
 }
 
-
 @media screen and (max-width: 768px) {
   body {
     font-size: 14px;
@@ -161,13 +160,5 @@ body {
     height: auto !important;
     margin: 0 auto !important;
     display: block !important;
-  }
-}
-
-/* Mobile scroll up arrow positioning */
-@media (max-width: 600px) {
-  button[onclick*="scrollTo"] {
-    right: 0rem !important;
-    bottom: 1rem !important;
   }
 }

@@ -15,6 +15,11 @@ body {
 
 .description-container {
   flex: 1 0 auto;
+  margin-bottom: 3rem;
+  min-height: 57vh;
+  margin-top: 6rem;
+  /* Push content down below the fixed header */
+  /* Center content further down the page */
 }
 
 /* Ensure intro is a flex container and doesn't cause overflow */
@@ -27,7 +32,7 @@ body {
 
 .profile-image {
   display: block;
-  max-width: 260px;
+  max-width: 220px;
   width: 100%;
   height: auto;
   margin-right: auto;
@@ -49,16 +54,15 @@ body {
 }
 
 .intro-paragraph {
+  font-size: 1.1rem;
   line-height: 1.5;
   color: var(--text-color);
   margin: 0 0 1rem;
 }
 
-/* Override the dark mode rule that was forcing text to be black */
-[data-theme="dark"] .intro-text .intro-heading,
-[data-theme="dark"] .intro-text .intro-paragraph {
-  color: var(--text-color);
-}
+
+
+
 
 @media (max-width: 900px) {
 
@@ -111,7 +115,8 @@ body {
   .description-container {
     flex: none;
     min-height: auto;
-    padding-top: 2rem;
+    padding-top: 6rem;
+    /* More space between header and intro on mobile */
     padding-bottom: 2rem;
   }
 }
@@ -183,7 +188,7 @@ body {
     }
 
     .intro-text .intro-paragraph {
-      font-size: 1rem;
+      font-size: 1.1rem;
       line-height: 1.6;
     }
   }
