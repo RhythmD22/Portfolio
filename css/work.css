@@ -31,7 +31,7 @@
 
 /* Main content for non-other-designs */
 .main-content:not(.other-designs) {
-  margin-top: 2rem !important;
+  margin-top: 2rem;
 }
 
 /* Main content for other designs */
@@ -44,14 +44,14 @@
 }
 
 .main-content:not(.other-designs) .projects-section .project {
-  margin-left: 10rem !important;
+  margin-left: 10rem;
 }
 
 .main-content:not(.other-designs) .projects-section .project .project-thumbnail-wrapper {
-  width: 100% !important;
-  max-width: 670px !important;
-  min-width: 0 !important;
-  aspect-ratio: 670 / 377 !important;
+  width: 100%;
+  max-width: 670px;
+  min-width: 0;
+  aspect-ratio: 670 / 377;
   border-radius: 12px;
   overflow: hidden;
   margin-bottom: 1rem;
@@ -122,23 +122,23 @@
 
 /* Special styling for Financier thumbnail */
 .main-content:not(.other-designs) .projects-section .project:nth-child(1) .project-thumbnail {
-  background: linear-gradient(to right, #1e40af, #3b82f6) !important;
+  background: linear-gradient(to right, #1e40af, #3b82f6);
 }
 
 /* Other designs specific styles */
 .main-content.other-designs .projects-section .project-thumbnail {
-  cursor: zoom-in !important;
+  cursor: zoom-in;
 }
 
 .main-content.other-designs .projects-section .project-thumbnail-wrapper,
 .main-content.other-designs .projects-section .project-thumbnail {
-  margin-bottom: 0 !important;
+  margin-bottom: 0;
 }
 
 .main-content.other-designs .projects-section .project-thumbnail-wrapper .project-thumbnail {
-  width: 100% !important;
-  height: auto !important;
-  max-width: 100% !important;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
   object-fit: contain;
 }
 
@@ -151,7 +151,7 @@
 }
 
 .project-meta {
-  font-size: clamp(0.75rem, 2.5vw, 0.9rem) !important;
+  font-size: clamp(0.75rem, 2.5vw, 0.9rem);
   color: #656565;
   font-weight: 400;
   margin-bottom: 0.4rem;
@@ -164,7 +164,7 @@
 }
 
 .project-description {
-  font-size: clamp(0.9rem, 2.5vw, 1rem) !important;
+  font-size: clamp(0.9rem, 2.5vw, 1rem);
   color: #2d2d2d;
   margin: 0 0 0.3rem 0;
 }
@@ -213,8 +213,8 @@
 
 .main-content.other-designs .project-thumbnail-wrapper a:focus,
 .main-content.other-designs .project-thumbnail-wrapper a:active {
-  outline: none !important;
-  box-shadow: none !important;
+  outline: none;
+  box-shadow: none;
 }
 
 /* Scroll to top button */
@@ -223,29 +223,29 @@ button[onclick*="scrollTo"] svg {
 }
 
 [data-theme="dark"] button[onclick*="scrollTo"] svg {
-  stroke: var(--dark-mode-toggle-hover) !important;
+  stroke: var(--dark-mode-toggle-hover);
 }
 
 /* Responsive styles */
 @media (max-width: 1200px) {
   .main-content {
-    flex-direction: column !important;
-    gap: 2rem !important;
+    flex-direction: column;
+    gap: 2rem;
   }
 
   .work-summary {
     max-width: 100%;
     margin-top: 0;
-    margin-bottom: 2rem !important;
-    margin-left: 0 !important;
+    margin-bottom: 2rem;
+    margin-left: 0;
   }
 
   .main-content:not(.other-designs) .projects-section .project {
-    margin-left: 0 !important;
+    margin-left: 0;
   }
 
   .main-content .work-summary {
-    margin-left: 0 !important;
+    margin-left: 0;
   }
 }
 
@@ -264,35 +264,35 @@ button[onclick*="scrollTo"] svg {
 
 @media (max-width: 768px) {
   .container {
-    height: auto !important;
-    overflow-y: auto !important;
+    height: auto;
+    overflow-y: auto;
   }
 
   .main-content {
-    flex: none !important;
-    overflow: visible !important;
+    flex: none;
+    overflow: visible;
   }
 
   .main-content.other-designs {
-    margin-top: 12rem !important;
+    margin-top: 12rem;
   }
 
   .main-content.other-designs .projects-section {
-    grid-template-columns: 1fr !important;
-    width: 100% !important;
-    max-width: 100% !important;
-    margin-left: 0 !important;
+    grid-template-columns: 1fr;
+    width: 100%;
+    max-width: 100%;
+    margin-left: 0;
   }
 
   .main-content.other-designs .projects-section .project {
-    width: 100% !important;
-    max-width: 100% !important;
+    width: 100%;
+    max-width: 100%;
   }
 
   .main-content.other-designs .projects-section .project:nth-child(1),
   .main-content.other-designs .projects-section .project:nth-child(2) {
-    justify-self: center !important;
-    width: 100% !important;
+    justify-self: center;
+    width: 100%;
   }
 }
 
@@ -308,24 +308,24 @@ button[onclick*="scrollTo"] svg {
   }
 
   .main-content {
-    padding: 1rem 0.5rem !important;
+    padding: 1rem 0.5rem;
     overflow-x: hidden;
   }
 
   .work-summary h2 {
-    font-size: 1.5rem !important;
+    font-size: 1.5rem;
   }
 
   .work-summary p {
-    font-size: 1rem !important;
+    font-size: 1rem;
   }
 
   .project-title {
-    font-size: 1.2rem !important;
+    font-size: 1.2rem;
   }
 
   .project-meta {
-    font-size: 0.75rem !important;
+    font-size: 0.75rem;
   }
 }
 
@@ -339,25 +339,25 @@ button[onclick*="scrollTo"] svg {
 
 @media (max-width: 390px) {
   .container {
-    padding: 0 !important;
+    padding: 0;
     overflow-x: hidden;
   }
 
   .main-content {
-    padding: 1rem 0.75rem !important;
-    margin-bottom: 0 !important;
+    padding: 1rem 0.75rem;
+    margin-bottom: 0;
   }
 
   .main-content.other-designs {
-    margin-top: 12rem !important;
-    padding-top: 0 !important;
+    margin-top: 12rem;
+    padding-top: 0;
   }
 
   .main-content.other-designs .work-summary {
-    margin-top: 2rem !important;
+    margin-top: 2rem;
   }
 
   .main-content+.main-content.other-designs {
-    margin-top: 12rem !important;
+    margin-top: 12rem;
   }
 }
