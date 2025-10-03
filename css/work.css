@@ -35,6 +35,10 @@
   margin-top: 2rem !important;
 }
 
+.main-content.other-designs {
+  margin-top: 16rem;
+}
+
 .project {
   margin-bottom: 1.5rem;
 }
@@ -128,8 +132,11 @@
 }
 
 .main-content.other-designs .projects-section .project-thumbnail-wrapper .project-thumbnail {
-  width: 75% !important;
+  width: 100% !important;
   height: auto !important;
+  max-width: 100% !important;
+  object-fit: contain;
+  /* Changed from cover to contain to ensure full image is visible */
 }
 
 .project-title {
@@ -191,11 +198,6 @@
     max-width: 100%;
     margin-top: 0;
   }
-
-  .main-content.other-designs .projects-section {
-    grid-template-columns: 1fr !important;
-    gap: 1rem !important;
-  }
 }
 
 @media (max-width: 600px) {
@@ -204,31 +206,45 @@
   }
 }
 
-/* Two-column grid for Other Designs */
+/* Grid layout for Other Designs to match project thumbnails width and alignment */
 .main-content.other-designs .projects-section {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-row-gap: 0;
-  grid-column-gap: 0.25rem;
+  grid-template-columns: 290px 290px;
+  /* Two images: (604px - 24px gap) / 2 = 290px each */
+  grid-auto-rows: auto;
+  grid-column-gap: 24px;
+  /* 1.5rem = 24px gap between images */
+  grid-row-gap: 24px;
+  /* Same as horizontal gap */
+  justify-content: start;
+  width: 604px;
+  max-width: 604px;
+  margin-left: calc(10rem + 35px);
+  box-sizing: border-box;
 }
 
-.main-content.other-designs .projects-section .project-thumbnail-wrapper {
-  aspect-ratio: auto;
-  height: auto;
-  overflow: visible;
+/* Adjust for responsive behavior */
+@media (min-width: 1200px) {
+  .main-content.other-designs .projects-section {
+    width: 604px;
+    max-width: 604px;
+    margin-left: calc(10rem + 35px);
+  }
 }
 
-.main-content.other-designs .projects-section .project .project-thumbnail-wrapper {
-  display: inline-block;
-  width: auto;
-}
+/* Further adjustments for very small screens */
+@media (max-width: 480px) {
+  .main-content.other-designs .projects-section {
+    padding: 0 0.5rem;
+  }
 
-.main-content.other-designs .projects-section .project:nth-child(odd) .project-thumbnail-wrapper {
-  transform: translateX(11rem);
-}
+  .main-content.other-designs .projects-section .project:nth-child(odd) {
+    padding-right: 0;
+  }
 
-.main-content.other-designs .projects-section .project:nth-child(even) .project-thumbnail-wrapper {
-  transform: translateX(6rem);
+  .main-content.other-designs .projects-section .project:nth-child(even) {
+    padding-left: 0;
+  }
 }
 
 .main-content.other-designs .projects-section .project-thumbnail-wrapper {
@@ -243,10 +259,6 @@
   position: static;
   height: auto;
   object-fit: contain;
-}
-
-.main-content.other-designs {
-  margin-top: 16rem;
 }
 
 .main-content .work-summary {
@@ -276,10 +288,6 @@
     margin-left: 0 !important;
   }
 }
-
-
-
-
 
 @media (max-width: 480px) {
   .main-content {
@@ -319,29 +327,23 @@
     margin-top: 12rem !important;
   }
 
-  /* Make other-designs section flow naturally with the rest of the content */
+  /* On mobile, switch to a single column layout */
   .main-content.other-designs .projects-section {
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 1rem !important;
-  }
-
-  /* Remove transforms that create separate scrollable areas */
-  .main-content.other-designs .projects-section .project:nth-child(odd) .project-thumbnail-wrapper,
-  .main-content.other-designs .projects-section .project:nth-child(even) .project-thumbnail-wrapper {
-    transform: none !important;
-  }
-
-  /* Reset positioning to normal flow */
-  .main-content.other-designs .projects-section .project .project-thumbnail-wrapper {
+    grid-template-columns: 1fr !important;
     width: 100% !important;
-    display: block !important;
+    max-width: 100% !important;
+    margin-left: 0 !important;
   }
 
-  .main-content.other-designs .projects-section .project-thumbnail-wrapper .project-thumbnail {
+  .main-content.other-designs .projects-section .project {
     width: 100% !important;
-    height: auto !important;
-    position: static !important;
+    max-width: 100% !important;
+  }
+
+  .main-content.other-designs .projects-section .project:nth-child(1),
+  .main-content.other-designs .projects-section .project:nth-child(2) {
+    justify-self: center !important;
+    width: 100% !important;
   }
 }
 
