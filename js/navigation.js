@@ -69,6 +69,19 @@ function initializeHamburgerMenu() {
     });
   });
 
+  // Cache commonly used elements and values
+  const workSection = document.getElementById('selected-work');
+  let workSectionTop = workSection ? workSection.offsetTop : 0;
+  const isIndexPage = window.location.pathname.includes('index') || window.location.pathname === '';
+  const workLink = document.querySelector('#mobile-work-link');
+
+  // Throttle scroll event handler for performance
+  let ticking = false;
+  function updateScrollHandler() {
+    ticking = false;
+    handleScroll();
+  }
+
   // Set active link based on current page
   function setActiveLink() {
     // Get current page name from URL
@@ -83,15 +96,23 @@ function initializeHamburgerMenu() {
     if (currentPage.includes('about')) {
       // On about page, highlight the about link
       activeLink = document.querySelector('#mobile-about-link');
-    } else if (currentPage.includes('index') || currentPage === '' || currentPage === 'index.html') {
-      // On index page, highlight the work link since that's the main content section
-      activeLink = document.querySelector('#mobile-work-link');
+    } else if (isIndexPage) {
+      // On index page, only highlight the work link when user is in the work section
+      // Check if we're in the work section by checking scroll position or hash
+      if (workSection) {
+        const currentScroll = window.scrollY || window.pageYOffset;
+
+        // Highlight work link if we're in the work section or if there's a hash pointing to it
+        if (window.location.hash === '#selected-work' || currentScroll >= workSectionTop - 100) {
+          activeLink = workLink;
+        }
+      }
     } else if (currentPage.includes('financier') ||
       currentPage.includes('smartshuttle') ||
       currentPage.includes('clash') ||
       currentPage.includes('twine')) {
       // On project pages, highlight the work link since they're part of work section
-      activeLink = document.querySelector('#mobile-work-link');
+      activeLink = workLink;
     }
 
     if (activeLink) {
@@ -99,9 +120,53 @@ function initializeHamburgerMenu() {
     }
   }
 
-  // Call setActiveLink when the sidebar is shown
+  // Add scroll event listener to handle highlighting based on scroll position
+  function handleScroll() {
+    if (!isIndexPage || !workSection) return;
+
+    // Update work section position in case it changes
+    workSectionTop = workSection.offsetTop;
+
+    const currentScroll = window.scrollY || window.pageYOffset;
+
+    // Check if we're in the work section
+    if (currentScroll >= workSectionTop - 100) {
+      // We're in the work section, highlight the work link
+      if (workLink && !workLink.classList.contains('active')) {
+        workLink.classList.add('active');
+      }
+    } else {
+      // We're in the intro section, remove highlight from work link
+      if (workLink && workLink.classList.contains('active')) {
+        workLink.classList.remove('active');
+      }
+    }
+  }
+
+  // Add scroll event listener when on index page
+  if (isIndexPage) {
+    // Use throttled scroll handler for better performance
+    window.addEventListener('scroll', function () {
+      if (!ticking) {
+        requestAnimationFrame(updateScrollHandler);
+        ticking = true;
+      }
+    });
+
+    // Call handleScroll on initial load to ensure correct state
+    handleScroll();
+  }
+
+  // Call appropriate function when the sidebar is shown based on the current page
   hamburger.addEventListener('click', function () {
-    setTimeout(setActiveLink, 50); // Small delay to ensure DOM is updated
+    // Only use scroll-based highlighting on index page, otherwise use page-based highlighting
+    if (isIndexPage) {
+      setTimeout(() => {
+        handleScroll(); // Update based on current scroll position
+      }, 50); // Small delay to ensure DOM is updated
+    } else {
+      setTimeout(setActiveLink, 50); // Use page-based highlighting for other pages
+    }
   });
 
   // Set active link when menu is initialized
