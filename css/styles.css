@@ -305,17 +305,6 @@ div[style*="box-shadow:0 0 8px rgba(0,0,0,0.1)"] {
   color: var(--text-color);
 }
 
-/* Additional rule to ensure list bullets are styled in dark mode */
-[data-theme="dark"] .intro-text ul,
-[data-theme="dark"] .intro-text ol {
-  color: var(--text-color);
-}
-
-/* Ensure list items also get the proper color in dark mode */
-[data-theme="dark"] .intro-text li {
-  color: var(--text-color);
-}
-
 /* Project info meta sections */
 .info-meta {
   padding: 1rem;
@@ -440,11 +429,6 @@ p {
     width: 32px;
     height: auto;
   }
-}
-
-.description-container {
-  flex: 1;
-  padding-top: 15vh;
 }
 
 /* Font-weight utility classes */
@@ -887,61 +871,6 @@ p {
   justify-content: center !important;
 }
 
-/* Swipe indicator inside sidebar */
-.swipe-indicator {
-  align-items: center;
-  justify-content: center;
-  margin: 1rem 0;
-  padding: 0.75rem;
-  color: #9CA3AF;
-  font-size: 0.85rem;
-  border-top: 1px solid #e5e7eb;
-  border-bottom: 1px solid #e5e7eb;
-  gap: 0.5rem;
-  text-align: center;
-  display: flex;
-}
-
-[data-theme="dark"] .swipe-indicator {
-  border-top: 1px solid #374151;
-  border-bottom: 1px solid #374151;
-  color: #9CA3AF;
-}
-
-.swipe-indicator svg {
-  width: 16px;
-  height: 16px;
-  animation: swipePulse 2s infinite;
-}
-
-.swipe-indicator .swipe-open svg {
-  animation: swipePulseOpen 2s infinite;
-}
-
-@keyframes swipePulse {
-
-  0%,
-  100% {
-    transform: translateX(0);
-  }
-
-  50% {
-    transform: translateX(-3px);
-  }
-}
-
-@keyframes swipePulseOpen {
-
-  0%,
-  100% {
-    transform: translateX(0);
-  }
-
-  50% {
-    transform: translateX(3px);
-  }
-}
-
 /* Sidebar backdrop for mobile */
 .sidebar-backdrop {
   position: fixed;
@@ -956,24 +885,6 @@ p {
 
 .sidebar-backdrop.active {
   display: block;
-}
-
-/* Visual feedback for swipe gestures */
-.swipe-feedback {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 10px;
-  height: 100%;
-  background-color: rgba(114, 109, 252, 0.5);
-  z-index: 1001;
-  transform: translateX(-100%);
-  transition: transform 0.1s ease;
-  pointer-events: none;
-}
-
-.swipe-feedback.active {
-  transform: translateX(0);
 }
 
 .sidebar-footer {
