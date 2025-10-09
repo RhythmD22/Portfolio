@@ -53,8 +53,10 @@
         element.textContent += text.charAt(i);
         i++;
         setTimeout(type, 20); // Speed of typing (20ms per character)
-      } else if (callback) {
-        callback();
+      } else {
+        if (callback) {
+          callback(); // Execute callback after typing is complete
+        }
       }
     }
 
@@ -66,23 +68,27 @@
     const headingElement = document.querySelector('.intro-heading');
     const paragraphElement = document.querySelector('.intro-paragraph');
 
-    if (headingElement && paragraphElement) {
-      // Store initial content and clear for typing effect
-      const initialHeading = headingElement.textContent;
-      const initialParagraph = paragraphElement.textContent;
-
-      // Clear initial content
-      headingElement.textContent = '';
-      paragraphElement.textContent = '';
-
+    // Check if typing effect has already been completed using session storage
+    if (!sessionStorage.getItem('typingEffectCompleted')) {
       // Add typing cursor to elements
       headingElement.classList.add('typing-text');
       paragraphElement.classList.add('typing-text');
 
       // Start typing for heading, then paragraph
       typeText(headingElement, introHeading, function () {
-        typeText(paragraphElement, introParagraph, null);
+        typeText(paragraphElement, introParagraph, function () {
+          // Mark typing effect as completed to prevent re-typing
+          sessionStorage.setItem('typingEffectCompleted', 'true');
+        });
       });
+    } else {
+      // If typing was already completed, just show the final text with cursor at end
+      if (headingElement && paragraphElement) {
+        headingElement.textContent = introHeading;
+        paragraphElement.textContent = introParagraph;
+        headingElement.classList.add('typing-text');
+        paragraphElement.classList.add('typing-text');
+      }
     }
   });
 })();
