@@ -36,3 +36,53 @@
     window.addEventListener('orientationchange', setViewportHeight);
   }
 })();
+
+// Typing effect for intro text
+(function () {
+  // Text content to type
+  const introHeading = "Hey, I'm Rhythm!";
+  const introParagraph = "I'm a UI/UX Designer and a recent University of Pittsburgh graduate. I design clean interfaces and immersive experiences that bring together form and function.";
+
+  // Function to create typing effect
+  function typeText(element, text, callback) {
+    let i = 0;
+    element.textContent = ''; // Clear initial content
+
+    function type() {
+      if (i < text.length) {
+        element.textContent += text.charAt(i);
+        i++;
+        setTimeout(type, 20); // Speed of typing (20ms per character)
+      } else if (callback) {
+        callback();
+      }
+    }
+
+    type();
+  }
+
+  // Initialize typing effect when DOM is loaded
+  document.addEventListener('DOMContentLoaded', function () {
+    const headingElement = document.querySelector('.intro-heading');
+    const paragraphElement = document.querySelector('.intro-paragraph');
+
+    if (headingElement && paragraphElement) {
+      // Store initial content and clear for typing effect
+      const initialHeading = headingElement.textContent;
+      const initialParagraph = paragraphElement.textContent;
+
+      // Clear initial content
+      headingElement.textContent = '';
+      paragraphElement.textContent = '';
+
+      // Add typing cursor to elements
+      headingElement.classList.add('typing-text');
+      paragraphElement.classList.add('typing-text');
+
+      // Start typing for heading, then paragraph
+      typeText(headingElement, introHeading, function () {
+        typeText(paragraphElement, introParagraph, null);
+      });
+    }
+  });
+})();
