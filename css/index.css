@@ -25,7 +25,8 @@ body {
 /* Ensure intro is a flex container and doesn't cause overflow */
 .intro {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
+  /* Updated to align to top to maintain image position */
   gap: 2rem;
   width: 100%;
 }
@@ -35,6 +36,10 @@ body {
   display: inline-block;
   margin-right: auto;
   margin-left: 7rem;
+  margin-top: 2rem;
+  /* Add top margin to position image lower */
+  flex-shrink: 0;
+  /* Prevent profile container from shrinking */
 }
 
 .profile-image {
@@ -132,6 +137,16 @@ body {
   }
 }
 
+.intro-text {
+  flex: 1;
+  /* Allow text area to take remaining space */
+  min-width: 0;
+  /* Allow flex item to shrink below content size */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
 /* Intro text styles */
 .intro-heading {
   font-size: 2rem;
@@ -173,6 +188,8 @@ body {
     word-break: normal;
     white-space: normal;
     text-align: center;
+    min-height: 200px;
+    /* Fixed minimum height to prevent image push on mobile */
   }
 
   .profile-image {
@@ -240,6 +257,8 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    min-height: 200px;
+    /* Fixed minimum height to prevent image push on mobile */
   }
 
   /* Remove any left margin that could induce horizontal scroll on narrow portrait */
@@ -274,6 +293,37 @@ body {
       font-size: 1.1rem;
       line-height: 1.6;
     }
+  }
+}
+
+/* Typing effect styles */
+.typing-text {
+  position: relative;
+  display: inline-block;
+}
+
+.typing-text::after {
+  content: "_";
+  animation: blink 1s infinite;
+  margin-left: 2px;
+  opacity: 1;
+  display: inline-block;
+  width: 8px;
+  height: 1.2em;
+  vertical-align: bottom;
+  position: relative;
+  top: -1px;
+}
+
+@keyframes blink {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
   }
 }
 

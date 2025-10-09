@@ -240,10 +240,7 @@ body {
 }
 
 .intro {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: flex-start;
+  /* Base styles will be overridden by index.css for specific layout */
   width: 100%;
   gap: 3rem;
 }
