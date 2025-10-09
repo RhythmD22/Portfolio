@@ -69,16 +69,12 @@ body {
   background:
     conic-gradient(from 0deg,
       #337478 0deg,
-      #337478 60deg,
-      var(--background-color) 60deg,
-      var(--background-color) 120deg,
-      #337478 120deg,
-      #337478 180deg,
+      #337478 90deg,
+      var(--background-color) 90deg,
       var(--background-color) 180deg,
-      var(--background-color) 240deg,
-      #337478 240deg,
-      #337478 300deg,
-      var(--background-color) 300deg,
+      #337478 180deg,
+      #337478 270deg,
+      var(--background-color) 270deg,
       var(--background-color) 360deg);
 }
 
@@ -123,16 +119,12 @@ body {
     background:
       conic-gradient(from 0deg,
         #337478 0deg,
-        #337478 60deg,
-        var(--background-color) 60deg,
-        var(--background-color) 120deg,
-        #337478 120deg,
-        #337478 180deg,
+        #337478 90deg,
+        var(--background-color) 90deg,
         var(--background-color) 180deg,
-        var(--background-color) 240deg,
-        #337478 240deg,
-        #337478 300deg,
-        var(--background-color) 300deg,
+        #337478 180deg,
+        #337478 270deg,
+        var(--background-color) 270deg,
         var(--background-color) 360deg);
   }
 }
