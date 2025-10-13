@@ -19,10 +19,13 @@
     rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
   <link rel="stylesheet" href="css/smartshuttle.css">
+  <link rel="stylesheet" href="css/smartshuttle-charts.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@6.0.32/dist/fancybox/fancybox.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@6.0.34/dist/fancybox/fancybox.min.css">
   <script src="js/dark-mode.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@6.0.32/dist/fancybox/fancybox.umd.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@6.0.34/dist/fancybox/fancybox.umd.min.js"></script>
+  <!-- Load Chart.js library -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
 <body>
@@ -80,93 +83,220 @@
           address key user pain points.</p>
       </div>
     </div>
-    <div class="main-content center-flex phase-section"
-      style="gap: 6rem; padding: 2rem; margin-top: 4rem; margin-bottom: 6rem;">
-      <div style="max-width: 60%; text-align: center;">
-        <h1 class="section-title">Phase 2<br>-<br>Technical Solutions</h1>
-      </div>
-      <div style="display: flex; gap: 6rem; align-items: flex-end;">
-        <a href="images/Phase%202.png" class="image-link" style="width: 40% !important;"
-          data-fancybox="smartshuttle-outline-2" data-caption="Phase 2 Outline">
-          <img loading="lazy" src="images/Phase%202.png" alt="Phase 2 diagram" style="height: auto;">
-        </a>
-        <a href="images/Phase%202-2.png" class="image-link" style="width: 40% !important;"
-          data-fancybox="smartshuttle-outline-2" data-caption="Phase 2 Outline cont.">
-          <img loading="lazy" src="images/Phase%202-2.png" alt="Phase 2-2 diagram" style="height: auto;">
-        </a>
+  </div>
+  <div class="main-content center-flex" style="padding: 2rem; margin-top: -8rem; margin-bottom: 6rem;">
+    <div style="max-width: 100%;">
+      <h2 style="text-align: center;">Transportation Challenges Analysis</h2>
+      <p style="text-align: center;">Visualizing key findings from user interviews.</p>
+
+      <!-- Grid container for charts -->
+      <div class="chart-grid-container">
+        <!-- Chart 1: Interviewee Summary (Top Left) -->
+        <div class="chart-grid-item">
+          <h3 style="text-align: center;">Interviewee Transportation Summary</h3>
+          <table id="summaryTable">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Primary Method</th>
+                <th>Main Challenge</th>
+                <th>Key Tech Need</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Jackson</td>
+                <td>Shuttle</td>
+                <td>Unreliable timing, overcrowding</td>
+                <td>Accurate times, occupancy info</td>
+              </tr>
+              <tr>
+                <td>Alex</td>
+                <td>Shuttle</td>
+                <td>Unreliable timing, doesn't stop</td>
+                <td>Accurate times, reliable stops</td>
+              </tr>
+              <tr>
+                <td>George</td>
+                <td>Car</td>
+                <td>Parking difficulties</td>
+                <td>Real-time parking info</td>
+              </tr>
+              <tr>
+                <td>Summit</td>
+                <td>Walking</td>
+                <td>Hilly terrain, distance</td>
+                <td>Alternative transport (bikes/scooters)</td>
+              </tr>
+              <tr>
+                <td>Steven</td>
+                <td>Shuttle</td>
+                <td>Unreliable timing, overcrowding</td>
+                <td>Accurate times, occupancy info</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Chart 2: Problems by Frequency (Top Right) -->
+        <div class="chart-grid-item chart-2-item">
+          <h3 style="text-align: center;">Top Transportation Problems</h3>
+          <div class="chart-container">
+            <canvas id="problemsChart"></canvas>
+          </div>
+        </div>
+
+        <!-- Chart 3: Commute Methods (Bottom Left) -->
+        <div class="chart-grid-item chart-3-item">
+          <h3 style="text-align: center;">Common Commute Methods</h3>
+          <div class="chart-container">
+            <canvas id="commuteChart"></canvas>
+          </div>
+        </div>
+
+        <!-- Chart 4: Technology Solution Preferences (Bottom Right) -->
+        <div class="chart-grid-item chart-4-item">
+          <h3 style="text-align: center;">Desired Technology Features</h3>
+          <div class="chart-container">
+            <canvas id="techChart"></canvas>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="main-content center-flex" style="padding: 2rem; margin-top: -8rem; margin-bottom: 6rem;">
-      <div style="max-width: 60%; text-align: center;">
-        <p>Phase 2 encompasses finalizing SmartShuttle's key features and planning for deployment. Features include
-          real-time GPS tracking of shuttles, push notifications for delays and arrival times, occupancy displays to
-          help users plan, and a feedback mechanism for reporting issues. Implementation strategies involve
-          collaborating with the University's transportation department to install IoT sensors and GPS trackers,
-          developing native mobile apps for iOS and Android, piloting on high-demand routes, and collecting user
-          feedback to refine the system. This phase ensures a scalable, cost-effective rollout that addresses shuttle
-          inefficiencies while laying the foundation for future enhancements.</p>
+  </div>
+  <div class="main-content center-flex phase-section"
+    style="gap: 6rem; padding: 2rem; margin-top: 4rem; margin-bottom: 6rem;">
+    <div style="max-width: 60%; text-align: center;">
+      <h1 class="section-title">Phase 2<br>-<br>Technical Solutions</h1>
+    </div>
+    <div style="display: flex; gap: 6rem; align-items: flex-end;">
+      <a href="images/Phase%202.png" class="image-link" style="width: 40% !important;"
+        data-fancybox="smartshuttle-outline-2" data-caption="Phase 2 Outline">
+        <img loading="lazy" src="images/Phase%202.png" alt="Phase 2 diagram" style="height: auto;">
+      </a>
+      <a href="images/Phase%202-2.png" class="image-link" style="width: 40% !important;"
+        data-fancybox="smartshuttle-outline-2" data-caption="Phase 2 Outline cont.">
+        <img loading="lazy" src="images/Phase%202-2.png" alt="Phase 2-2 diagram" style="height: auto;">
+      </a>
+    </div>
+  </div>
+  <div class="main-content center-flex" style="padding: 2rem; margin-top: -8rem; margin-bottom: 6rem;">
+    <div style="max-width: 60%; text-align: center;">
+      <p>Phase 2 encompasses finalizing SmartShuttle's key features and planning for deployment. Features include
+        real-time GPS tracking of shuttles, push notifications for delays and arrival times, occupancy displays to
+        help users plan, and a feedback mechanism for reporting issues. Implementation strategies involve
+        collaborating with the University's transportation department to install IoT sensors and GPS trackers,
+        developing native mobile apps for iOS and Android, piloting on high-demand routes, and collecting user
+        feedback to refine the system. This phase ensures a scalable, cost-effective rollout that addresses shuttle
+        inefficiencies while laying the foundation for future enhancements.</p>
+    </div>
+  </div>
+  <div class="main-content center-flex" style="padding: 2rem; margin-top: -8rem; margin-bottom: 6rem;">
+    <div style="max-width: 100%;">
+      <h2 style="text-align: center;">Brainstormed Solutions</h2>
+      <p style="text-align: center;">Visualizing the 5 brainstormed solutions for SmartShuttle implementation.</p>
+
+      <!-- Table for Phase 2 Solutions -->
+      <div class="chart-grid-item phase2-solutions-container">
+        <h3 style="text-align: center;">Brainstormed Solutions Summary</h3>
+        <table id="phase2SolutionsTable">
+          <thead>
+            <tr>
+              <th>Solution</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>SmartShuttle Tracking App</td>
+              <td>Develop an app that integrates GPS tracking with real-time updates on shuttle locations, estimated
+                arrival times, and passenger capacity.</td>
+            </tr>
+            <tr>
+              <td>Dynamic Shuttle Scheduling System</td>
+              <td>Introduce an AI-powered scheduling system that adapts to peak usage times, adding or reallocating
+                shuttles to high-demand routes dynamically.</td>
+            </tr>
+            <tr>
+              <td>Smart Parking Management System</td>
+              <td>Create a parking app that shows available spots in real-time and suggests alternative parking areas.
+              </td>
+            </tr>
+            <tr>
+              <td>Campus Micro-Mobility Solution</td>
+              <td>Implement another fleet of shared electric scooters or bikes with designated docking stations across
+                campus.</td>
+            </tr>
+            <tr>
+              <td>Automated Shuttle Stop Recognition</td>
+              <td>Equip shuttles with automatic detection systems to ensure they stop when passengers are present at
+                shuttle stops.</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
-    <div class="main-content center-flex phase-section"
-      style="gap: 6rem; padding: 2rem; margin-top: 4rem; margin-bottom: 6rem;">
-      <div style="max-width: 60%; text-align: center;">
-        <h1 class="section-title">Phase 3<br>-<br>Core Features and Funcationality</h1>
-      </div>
-      <div style="display: flex; gap: 6rem; align-items: flex-end;">
-        <a href="images/Phase%203.png" class="image-link" style="width: 40% !important;"
-          data-fancybox="smartshuttle-outline-3" data-caption="Phase 3 Outline">
-          <img loading="lazy" src="images/Phase%203.png" alt="Phase 3 diagram" style="height: auto;">
-        </a>
-        <a href="images/Phase%203-2.png" class="image-link" style="width: 40% !important;"
-          data-fancybox="smartshuttle-outline-3" data-caption="Phase 3 Outline cont.">
-          <img loading="lazy" src="images/Phase%203-2.png" alt="Phase 3-2 diagram" style="height: auto;">
-        </a>
-      </div>
+  </div>
+  <div class="main-content center-flex phase-section"
+    style="gap: 6rem; padding: 2rem; margin-top: 4rem; margin-bottom: 6rem;">
+    <div style="max-width: 60%; text-align: center;">
+      <h1 class="section-title">Phase 3<br>-<br>Core Features and Functionality</h1>
     </div>
-    <div class="main-content center-flex" style="padding: 2rem; margin-top: -8rem; margin-bottom: 6rem;">
-      <div style="max-width: 60%; text-align: center;">
-        <p>Phase 3 focuses on final refinement, interface design, and ethical considerations. The app includes a Welcome
-          screen for onboarding, Live Tracking map, Live Notifications area, a Settings page, and a User Feedback form
-          ensuring anonymity. User feedback is collected through in-app forms and surveys to drive iterative
-          improvements. Ethical considerations such as privacy (minimal data collection, anonymized GPS), inclusivity
-          (accessibility for users with disabilities), and fairness (unbiased notifications and shuttle details) ensure
-          the app serves all users responsibly.</p>
-      </div>
+    <div style="display: flex; gap: 6rem; align-items: flex-end;">
+      <a href="images/Phase%203.png" class="image-link" style="width: 40% !important;"
+        data-fancybox="smartshuttle-outline-3" data-caption="Phase 3 Outline">
+        <img loading="lazy" src="images/Phase%203.png" alt="Phase 3 diagram" style="height: auto;">
+      </a>
+      <a href="images/Phase%203-2.png" class="image-link" style="width: 40% !important;"
+        data-fancybox="smartshuttle-outline-3" data-caption="Phase 3 Outline cont.">
+        <img loading="lazy" src="images/Phase%203-2.png" alt="Phase 3-2 diagram" style="height: auto;">
+      </a>
     </div>
-    <div class="main-content center-flex final-design-section"
-      style="gap: 6rem; padding: 2rem; margin-top: 4rem; margin-bottom: 6rem;">
-      <div style="max-width: 60%;">
-        <h1 class="section-title">Final Design</h1>
-      </div>
-      <div style="font-size: 1.15rem;">
-        <p>The final SmartShuttle interface emphasizes clarity and ease of use. A real-time map displays shuttle
-          locations and occupancy levels, while a clean, icon-based navigation lets users quickly switch between live
-          tracking, notifications, settings, and feedback. High-contrast colors improve readability, and responsive
-          layouts ensure a seamless experience. Every screen balances functionality with minimal visual clutter, making
-          it simple for riders to find shuttle times, view capacity, and send feedback without distraction. Recent
-          improvements to the interface have focused on enhancing accessibility, including better WCAG compliance
-          to ensure the app is usable by individuals with diverse abilities and needs.</p>
-      </div>
+  </div>
+  <div class="main-content center-flex" style="padding: 2rem; margin-top: -8rem; margin-bottom: 6rem;">
+    <div style="max-width: 60%; text-align: center;">
+      <p>Phase 3 focuses on final refinement, interface design, and ethical considerations. The app includes a Welcome
+        screen for onboarding, Live Tracking map, Live Notifications area, a Settings page, and a User Feedback form
+        ensuring anonymity. User feedback is collected through in-app forms and surveys to drive iterative
+        improvements. Ethical considerations such as privacy (minimal data collection, anonymized GPS), inclusivity
+        (accessibility for users with disabilities), and fairness (unbiased notifications and shuttle details) ensure
+        the app serves all users responsibly.</p>
     </div>
-    <div
-      style="position: relative; left: 50%; transform: translateX(-50%); width: 100vw; margin-top: 4rem; margin-bottom: 6rem; padding: 0;">
-      <img loading="lazy" src="images/SmartShuttle%20Preview%202.png" alt="SmartShuttle Preview"
-        style="width: 100vw; height: auto; display: block;">
+  </div>
+  <div class="main-content center-flex final-design-section"
+    style="gap: 6rem; padding: 2rem; margin-top: 4rem; margin-bottom: 6rem;">
+    <div style="max-width: 60%;">
+      <h1 class="section-title">Final Design</h1>
     </div>
-    <div style="margin: 0 auto; width: 100%; max-width: 1200px; margin-top: 4rem;">
-      <h1 class="section-title" style="text-align: left;">SmartShuttle Figma Prototype</h1>
+    <div style="font-size: 1.15rem;">
+      <p>The final SmartShuttle interface emphasizes clarity and ease of use. A real-time map displays shuttle
+        locations and occupancy levels, while a clean, icon-based navigation lets users quickly switch between live
+        tracking, notifications, settings, and feedback. High-contrast colors improve readability, and responsive
+        layouts ensure a seamless experience. Every screen balances functionality with minimal visual clutter, making
+        it simple for riders to find shuttle times, view capacity, and send feedback without distraction. Recent
+        improvements to the interface have focused on enhancing accessibility, including better WCAG compliance
+        to ensure the app is usable by individuals with diverse abilities and needs.</p>
     </div>
-    <div style="margin-top: 0rem; width: 100%; max-width: 1200px; margin-left: auto; margin-right: auto;">
-      <iframe loading="lazy"
-        style="border: 1px solid rgba(0, 0, 0, 0.1); border-radius: 8px; width: 100%; height: 600px;"
-        src="https://embed.figma.com/proto/6fDBBVI6y7vGPex2yUrzPO/INFSCI-0410---Smart-Shuttle-Mockup?page-id=0%3A1&node-id=26-358&viewport=161%2C12%2C0.33&scaling=scale-down&content-scaling=fixed&starting-point-node-id=26%3A358&embed-host=share"
-        allowfullscreen>
-      </iframe>
-    </div>
-    <div id="footer-placeholder"></div>
+  </div>
+  <div
+    style="position: relative; left: 50%; transform: translateX(-50%); width: 100vw; margin-top: 4rem; margin-bottom: 6rem; padding: 0;">
+    <img loading="lazy" src="images/SmartShuttle%20Preview%202.png" alt="SmartShuttle Preview"
+      style="width: 100vw; height: auto; display: block;">
+  </div>
+  <div style="margin: 0 auto; width: 100%; max-width: 1200px; margin-top: 4rem;">
+    <h1 class="section-title" style="text-align: left;">SmartShuttle Figma Prototype</h1>
+  </div>
+  <div style="margin-top: 0rem; width: 100%; max-width: 1200px; margin-left: auto; margin-right: auto;">
+    <iframe loading="lazy" style="border: 1px solid rgba(0, 0, 0, 0.1); border-radius: 8px; width: 100%; height: 600px;"
+      src="https://embed.figma.com/proto/6fDBBVI6y7vGPex2yUrzPO/INFSCI-0410---Smart-Shuttle-Mockup?page-id=0%3A1&node-id=26-358&viewport=161%2C12%2C0.33&scaling=scale-down&content-scaling=fixed&starting-point-node-id=26%3A358&embed-host=share"
+      allowfullscreen>
+    </iframe>
+  </div>
+  <div id="footer-placeholder"></div>
   </div>
   <script src="js/templates.js"></script>
   <script src="js/navigation.js"></script>
+  <script src="js/smartshuttle-charts.js"></script>
   <button onclick="window.scrollTo({top: 0, behavior: 'smooth'});" class="scroll-top-btn" aria-label="Scroll to top">
     <svg width="96" height="72" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.6"
       stroke-linecap="round" stroke-linejoin="round">
