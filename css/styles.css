@@ -456,7 +456,8 @@ p {
   align-items: center;
 }
 
-.scroll-top-btn {
+.scroll-top-btn,
+.scroll-btn {
   position: fixed;
   bottom: 1.5rem;
   right: 1.5rem;
@@ -466,12 +467,14 @@ p {
   z-index: 1000;
 }
 
-/* Scroll up arrow colors - orange in light mode, purple in dark mode */
-.scroll-top-btn svg {
+/* Scroll arrow colors - orange in light mode, purple in dark mode */
+.scroll-top-btn svg,
+.scroll-btn svg {
   stroke: var(--hover-color);
 }
 
-[data-theme="dark"] .scroll-top-btn svg {
+[data-theme="dark"] .scroll-top-btn svg,
+[data-theme="dark"] .scroll-btn svg {
   stroke: var(--dark-mode-toggle-hover);
 }
 
@@ -479,6 +482,7 @@ p {
 @media (max-width: 600px) {
 
   .scroll-top-btn,
+  .scroll-btn,
   button[onclick*="scrollTo"] {
     right: 0rem;
     bottom: 1rem;

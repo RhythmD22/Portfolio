@@ -12,7 +12,8 @@ body {
   }
 
   body {
-    font-size: 14px;
+    font-size: 16px;
+    /* Increased base font size for mobile */
   }
 
   .page-title {
@@ -41,6 +42,43 @@ body {
     flex-direction: column !important;
     align-items: center !important;
     gap: 1rem !important;
+  }
+
+  /* For phase sections, stack heading on top of images on mobile */
+  .phase-section {
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 1rem !important;
+  }
+
+  .phase-section>div[style*="display: flex"][style*="align-items: flex-end"] {
+    justify-content: center !important;
+    width: 100% !important;
+  }
+
+  /* Stack headings and paragraphs for specific sections on mobile */
+  /* Inspiration section */
+  @media screen and (max-width: 768px) {
+    .main-content.inspiration-section {
+      flex-direction: column !important;
+    }
+
+    .main-content.inspiration-section>div[style*="max-width: 60%"],
+    .main-content.inspiration-section>div[style*="font-size: 1.15rem"] {
+      width: 100% !important;
+      max-width: 100% !important;
+    }
+
+    /* Final Design section */
+    .main-content.final-design-section {
+      flex-direction: column !important;
+    }
+
+    .main-content.final-design-section>div[style*="max-width: 60%"],
+    .main-content.final-design-section>div[style*="font-size: 1.15rem"] {
+      width: 100% !important;
+      max-width: 100% !important;
+    }
   }
 
   div[style*="width: 33%"],
@@ -73,7 +111,8 @@ body {
   ul,
   ol,
   p {
-    font-size: 0.9rem !important;
+    font-size: 1.05rem !important;
+    /* Increased paragraph font size for mobile */
     line-height: 1.6 !important;
   }
 
@@ -141,7 +180,8 @@ body {
 
 @media screen and (max-width: 480px) {
   body {
-    font-size: 12px;
+    font-size: 14px;
+    /* Increased base font size for smaller mobile */
   }
 
   .page-title {
@@ -155,7 +195,8 @@ body {
   ul,
   ol,
   p {
-    font-size: 0.85rem !important;
+    font-size: 1rem !important;
+    /* Increased paragraph font size for mobile */
   }
 
   /* Site footer styles for mobile */

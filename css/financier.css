@@ -21,7 +21,8 @@ body {
 
 @media screen and (max-width: 768px) and (orientation: portrait) {
   body {
-    font-size: 14px;
+    font-size: 16px;
+    /* Increased base font size for mobile */
   }
 
   *,
@@ -60,6 +61,46 @@ body {
     flex-direction: column !important;
     align-items: center !important;
     gap: 1rem !important;
+  }
+
+  /* Problem Statement Section: Make header and text appear side by side on desktop,
+     but ensure image comes after both elements on mobile */
+  .problem-statement-section {
+    display: flex;
+    flex-direction: row;
+    gap: 6rem;
+  }
+
+  @media screen and (max-width: 768px) and (orientation: portrait) {
+
+    /* Mobile: arrange the elements properly */
+    .problem-statement-section {
+      flex-direction: column;
+    }
+
+    .problem-statement-section>div[style*="max-width: 60%"],
+    .problem-statement-section>div[style*="font-size: 1.15rem"] {
+      width: 100% !important;
+      max-width: 100% !important;
+    }
+
+    /* Position the image after both the heading and paragraph */
+    .problem-statement-section>.igrad-image-wrapper {
+      order: 2;
+      /* Ensure image appears after both text elements */
+      margin-top: 2rem !important;
+    }
+
+    /* Role & Responsibilities section: make heading stack on top of paragraph on mobile */
+    .role-responsibilities-section {
+      flex-direction: column;
+    }
+
+    .role-responsibilities-section>div[style*="max-width: 60%"],
+    .role-responsibilities-section>div[style*="font-size: 1.15rem"] {
+      width: 100% !important;
+      max-width: 100% !important;
+    }
   }
 
   div[style*="width: 33%"],
@@ -148,7 +189,8 @@ body {
 
 @media screen and (max-width: 480px) {
   body {
-    font-size: 12px;
+    font-size: 14px;
+    /* Increased base font size for smaller mobile */
   }
 
   .page-title {
@@ -162,7 +204,8 @@ body {
   ul,
   ol,
   p {
-    font-size: 0.85rem !important;
+    font-size: 1rem !important;
+    /* Increased paragraph font size for mobile */
   }
 }
 
