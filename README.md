@@ -13,12 +13,16 @@ This repository contains Rhythm Desai's personal portfolio website. It showcases
 ## Directory Overview
 
 - **About.html** – About page with background and contact information.
+- **android-chrome-192x192.png** – Chrome browser app icon (192x192).
+- **android-chrome-512x512.png** – Chrome browser app icon (512x512).
+- **apple-touch-icon.png** – Apple touch icon for mobile devices.
 - **Clash Royale Wireframe.html** – Project page for a UX redesign of the Clash Royale app.
 - **css/** – Directory containing all CSS files
   - **about.css** – Specific styling for the About page.
   - **clashroyale.css** – Specific styling for the Clash Royale project page.
   - **financier.css** – Specific styling for the Financier project page.
   - **index.css** – Specific styling for the home page.
+  - **smartshuttle-charts.css** – Specific styling for SmartShuttle charts.
   - **smartshuttle.css** – Specific styling for the SmartShuttle project page.
   - **styles.css** – Shared styling for all pages.
   - **twine.css** – Specific styling for the Twine project page.
@@ -35,13 +39,17 @@ This repository contains Rhythm Desai's personal portfolio website. It showcases
   - **financier.js** – Specific JavaScript for the Financier project page.
   - **index.js** – Specific JavaScript for the home page.
   - **navigation.js** – Implements shared navigation functionality including mobile menu and link updates.
-  - **scroll-to-top.js** – Implements shared scroll-to-top functionality across project pages.
+  - **scroll.js** – Implements shared scroll functionality across project pages.
+  - **service-worker-register.js** – Registers the service worker for PWA functionality.
+  - **smartshuttle-charts.js** – Specific JavaScript for SmartShuttle chart functionality.
   - **smartshuttle.js** – Specific JavaScript for the SmartShuttle project page.
   - **templates.js** – Injects the shared header and footer into each page.
   - **work.js** – Specific JavaScript for the work page.
-- **Portfolio Icon Dark.png** – Dark theme portfolio icon.
-- **Portfolio Icon Light.png** – Light theme portfolio icon.
+- **manifest.json** – Web app manifest file for PWA features.
+- **portfolio-dark.png** – Dark theme portfolio icon.
+- **portfolio-light.png** – Light theme portfolio icon.
 - **README.md** – This file, explaining the project structure and setup.
+- **service-worker.js** – Service worker for offline functionality and caching.
 - **SmartShuttle.html** – Project page for a campus shuttle tracking concept.
 - **Twine/** – Published Twine HTML stories.
 - **Twine.html** – Landing page introducing the Twine interactive fiction projects.

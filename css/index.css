@@ -64,16 +64,16 @@ body {
   border-radius: 50%;
   box-sizing: border-box;
   animation: spin 10s linear infinite, glow 2s ease-in-out infinite alternate;
-  box-shadow: 0 0 15px #337478;
+  box-shadow: 0 0 15px #4a9fc8;
   z-index: -1;
   background:
     conic-gradient(from 0deg,
-      #337478 0deg,
-      #337478 90deg,
+      #4a9fc8 0deg,
+      #4a9fc8 90deg,
       var(--background-color) 90deg,
       var(--background-color) 180deg,
-      #337478 180deg,
-      #337478 270deg,
+      #4a9fc8 180deg,
+      #4a9fc8 270deg,
       var(--background-color) 270deg,
       var(--background-color) 360deg);
 }
@@ -90,11 +90,11 @@ body {
 
 @keyframes glow {
   0% {
-    box-shadow: 0 0 10px #337478;
+    box-shadow: 0 0 10px #4a9fc8;
   }
 
   100% {
-    box-shadow: 0 0 25px #337478, 0 0 35px #337478;
+    box-shadow: 0 0 25px #4a9fc8, 0 0 35px #4a9fc8;
   }
 }
 
@@ -118,12 +118,12 @@ body {
     animation: spin 10s linear infinite, glow 2s ease-in-out infinite alternate;
     background:
       conic-gradient(from 0deg,
-        #337478 0deg,
-        #337478 90deg,
+        #4a9fc8 0deg,
+        #4a9fc8 90deg,
         var(--background-color) 90deg,
         var(--background-color) 180deg,
-        #337478 180deg,
-        #337478 270deg,
+        #4a9fc8 180deg,
+        #4a9fc8 270deg,
         var(--background-color) 270deg,
         var(--background-color) 360deg);
   }
