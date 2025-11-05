@@ -1,5 +1,5 @@
 // Service Worker for Rhythm Desai's Portfolio
-const CACHE_NAME = 'portfolio-v1.0.0';
+const CACHE_NAME = 'portfolio-v1.0';
 const urlsToCache = [
   '/Portfolio/',
   '/Portfolio/manifest.json',
@@ -100,6 +100,9 @@ self.addEventListener('install', event => {
         console.log('Caches opened');
         return cache.addAll(urlsToCache);
       })
+      .catch(err => {
+        console.error('Failed to cache assets', err);
+      })
   );
 });
 
@@ -123,14 +126,18 @@ self.addEventListener('fetch', event => {
             // Clone the response to store in cache
             const responseToCache = response.clone();
 
-            caches.open(CACHE_NAME)
+            return caches.open(CACHE_NAME)
               .then(cache => {
-                cache.put(event.request, responseToCache);
-              });
-
-            return response;
+                return cache.put(event.request, responseToCache);
+              })
+              .then(() => response);
           }
-        );
+        ).catch(() => {
+          // Serve cached index.html for navigation requests when offline
+          if (event.request.mode === 'navigate') {
+            return caches.match('/Portfolio/index.html');
+          }
+        });
       })
   );
 });
