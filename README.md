@@ -38,9 +38,8 @@ This repository contains Rhythm Desai's personal portfolio website. It showcases
   - **dark-mode.js** – Implements dark mode functionality across the site.
   - **financier.js** – Specific JavaScript for the Financier project page.
   - **index.js** – Specific JavaScript for the home page.
-  - **navigation.js** – Implements shared navigation functionality including mobile menu and link updates.
+  - **navigation.js** – Implements shared navigation functionality including mobile menu, link updates, and service worker registration for PWA functionality.
   - **scroll.js** – Implements shared scroll functionality across project pages.
-  - **service-worker-register.js** – Registers the service worker for PWA functionality.
   - **smartshuttle-charts.js** – Specific JavaScript for SmartShuttle chart functionality.
   - **smartshuttle.js** – Specific JavaScript for the SmartShuttle project page.
   - **templates.js** – Injects the shared header and footer into each page.
