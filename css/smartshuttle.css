@@ -152,9 +152,113 @@ body {
     border-radius: 4px !important;
   }
 
-  /* Scale down padding in white boxes */
+  /* Scale down padding in general white boxes, but be more specific for containers matching financier */
   div[style*="padding: 2rem"] {
     padding: 1rem !important;
+    /* Standard mobile padding reduction */
+  }
+
+  /* Remove spacing for the heading container */
+  div[style*="margin: 0 auto; width: 100%; max-width: 1200px; margin-top: 4rem;"] {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+  }
+
+  /* Remove spacing for the iframe container */
+  div[style*="margin-top: 0rem; width: 100%; max-width: 1200px; margin-left: auto; margin-right: auto;"] {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+  }
+
+  /* Adjust spacing for the description containers */
+  div[style*="background: #ffffff; padding: 2rem; margin: 0 auto; width: 100%; max-width: 1135px; box-shadow: 0 0 8px rgba(0, 0, 0, 0.05); border-top-left-radius: 8px; border-top-right-radius: 8px; border-bottom-left-radius: 8px; border-bottom-right-radius: 8px;"] {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+  }
+
+  /* Also adjust the live website description container */
+  div[style*="background: #ffffff; padding: 2rem; margin: 0rem auto 0; width: 100%; max-width: 1135px; box-shadow: 0 0 8px rgba(0, 0, 0, 0.05); border-radius: 8px;"] {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+  }
+
+  /* Specific padding for containers - override general padding reduction */
+  div[style*="background: #ffffff; padding: 2rem; margin: 0 auto; width: 100%; max-width: 1135px; box-shadow: 0 0 8px rgba(0, 0, 0, 0.05); border-top-left-radius: 8px; border-top-right-radius: 8px; border-bottom-left-radius: 8px; border-bottom-right-radius: 8px;"],
+  div[style*="background: #ffffff; padding: 2rem; margin: 0rem auto 0; width: 100%; max-width: 1135px; box-shadow: 0 0 8px rgba(0, 0, 0, 0.05); border-radius: 8px;"] {
+    padding: 2rem 2.25rem 1.25rem 2rem !important;
+    /* More padding on top and left, much more on right; slightly less on bottom */
+    overflow-wrap: break-word !important;
+    /* Ensure content wraps inside the container */
+    word-wrap: break-word !important;
+    word-break: break-word !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Adjust text margins inside containers to match financier and enforce strict constraints */
+  div[style*="background: #ffffff; padding: 2rem; margin: 0 auto; width: 100%; max-width: 1135px; box-shadow: 0 0 8px rgba(0, 0, 0, 0.05); border-top-left-radius: 8px; border-top-right-radius: 8px; border-bottom-left-radius: 8px; border-bottom-right-radius: 8px;"] *,
+  div[style*="background: #ffffff; padding: 2rem; margin: 0rem auto 0; width: 100%; max-width: 1135px; box-shadow: 0 0 8px rgba(0, 0, 0, 0.05); border-radius: 8px;"] * {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    max-width: 100% !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+    word-break: break-word !important;
+    /* Force break of long words */
+    hyphens: auto !important;
+    /* Additional property for better text wrapping */
+  }
+
+  /* Ensure text content respects container padding */
+  div[style*="background: #ffffff; padding: 2rem; margin: 0 auto; width: 100%; max-width: 1135px; box-shadow: 0 0 8px rgba(0, 0, 0, 0.05); border-top-left-radius: 8px; border-top-right-radius: 8px; border-bottom-left-radius: 8px; border-bottom-right-radius: 8px;"] p,
+  div[style*="background: #ffffff; padding: 2rem; margin: 0rem auto 0; width: 100%; max-width: 1135px; box-shadow: 0 0 8px rgba(0, 0, 0, 0.05); border-radius: 8px;"] p,
+  div[style*="background: #ffffff; padding: 2rem; margin: 0 auto; width: 100%; max-width: 1135px; box-shadow: 0 0 8px rgba(0, 0, 0, 0.05); border-top-left-radius: 8px; border-top-right-radius: 8px; border-bottom-left-radius: 8px; border-bottom-right-radius: 8px;"] ul,
+  div[style*="background: #ffffff; padding: 2rem; margin: 0rem auto 0; width: 100%; max-width: 1135px; box-shadow: 0 0 8px rgba(0, 0, 0, 0.05); border-radius: 8px;"] ul,
+  div[style*="background: #ffffff; padding: 2rem; margin: 0 auto; width: 100%; max-width: 1135px; box-shadow: 0 0 8px rgba(0, 0, 0, 0.05); border-top-left-radius: 8px; border-top-right-radius: 8px; border-bottom-left-radius: 8px; border-bottom-right-radius: 8px;"] li,
+  div[style*="background: #ffffff; padding: 2rem; margin: 0rem auto 0; width: 100%; max-width: 1135px; box-shadow: 0 0 8px rgba(0, 0, 0, 0.05); border-radius: 8px;"] li {
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+    word-break: break-word !important;
+    /* Force break of long words */
+  }
+
+  /* Handle list items specifically to ensure proper alignment and prevent overflow */
+  div[style*="background: #ffffff; padding: 2rem; margin: 0rem auto 0; width: 100%; max-width: 1135px; box-shadow: 0 0 8px rgba(0, 0, 0, 0.05); border-radius: 8px;"] ul {
+    padding-left: 1.5em !important;
+    /* Standard left padding for lists */
+    margin: 0 !important;
+    /* Remove default margin */
+    margin-left: 0.5em !important;
+    /* Ensure list has some margin from container edge */
+    list-style: disc !important;
+    /* Ensure bullet points are shown */
+  }
+
+  div[style*="background: #ffffff; padding: 2rem; margin: 0rem auto 0; width: 100%; max-width: 1135px; box-shadow: 0 0 8px rgba(0, 0, 0, 0.05); border-radius: 8px;"] li {
+    margin-right: 0.5em !important;
+    /* Add right margin to keep text from edge */
+    word-wrap: break-word !important;
+    word-break: break-word !important;
+    margin-left: 0 !important;
+  }
+
+  /* Ensure proper spacing for iframe and description containers */
+  div[style*="margin: 0 auto; width: 100%; max-width: 1200px; margin-top: 4rem;"] h1.section-title {
+    margin: 0 !important;
+  }
+
+  div[style*="margin-top: 0rem; width: 100%; max-width: 1200px; margin-left: auto; margin-right: auto;"] iframe {
+    margin: 0 !important;
+  }
+
+  /* Increase spacing before the Live Website section to match financier */
+  div[style*="margin: 6rem auto 2rem; width: 100%; max-width: 1200px;"] {
+    margin: 6rem auto 3rem !important;
   }
 
   /* Site footer styles for tablet */
