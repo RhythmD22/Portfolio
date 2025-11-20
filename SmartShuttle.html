@@ -281,13 +281,13 @@
       <h1 class="section-title">Final Design</h1>
     </div>
     <div style="font-size: 1.15rem;">
-      <p>The final SmartShuttle interface emphasizes clarity and ease of use. A real-time map displays shuttle
-        locations and occupancy levels, while a clean, icon-based navigation lets users quickly switch between live
-        tracking, notifications, settings, and feedback. High-contrast colors improve readability, and responsive
-        layouts ensure a seamless experience. Every screen balances functionality with minimal visual clutter, making
-        it simple for riders to find shuttle times, view capacity, and send feedback without distraction. Recent
-        improvements to the interface have focused on enhancing accessibility, including better WCAG compliance
-        to ensure the app is usable by individuals with diverse abilities and needs.</p>
+      <p>The final SmartShuttle interface emphasizes clarity and ease of use. A real-time map displays shuttle locations
+        and occupancy levels, while a clean, icon-based navigation enables users to quickly switch between live
+        shuttles, route tracking, notifications, and feedback.</p>
+      <p>Each screen balances functionality with minimal visual clutter, allowing riders to easily find shuttle times,
+        view capacity and service alerts, and submit feedback without distraction.</p>
+      <p>Recent enhancements include notification filters and improved accessibility features with better WCAG
+        compliance, ensuring the app serves users with diverse abilities and needs.</p>
     </div>
   </div>
   <div
@@ -303,6 +303,62 @@
       src="https://embed.figma.com/proto/6fDBBVI6y7vGPex2yUrzPO/INFSCI-0410---Smart-Shuttle-Mockup?page-id=0%3A1&node-id=26-358&viewport=161%2C12%2C0.33&scaling=scale-down&content-scaling=fixed&starting-point-node-id=26%3A358&embed-host=share"
       allowfullscreen>
     </iframe>
+  </div>
+  <div
+    style="background: #ffffff; padding: 2rem; margin: 0 auto; width: 100%; max-width: 1135px; box-shadow: 0 0 8px rgba(0, 0, 0, 0.05); border-top-left-radius: 8px; border-top-right-radius: 8px; border-bottom-left-radius: 8px; border-bottom-right-radius: 8px;">
+    <p style="font-size: 1.15rem; line-height: 1.8; margin: 0;">
+      This prototype went through several iterations before I finalized the design. The settings page, for instance,
+      evolved significantly from a basic interface with simple toggles to a more comprehensive notification page
+      displaying a live feed of service-related transit alerts. My primary goal was to create an intuitive interface for
+      students and staff that balanced minimalism with
+      comprehensive functionality. I believe this approach resulted in a design that is both user-friendly and
+      feature-rich.
+    </p>
+  </div>
+  <div style="margin: 6rem auto 2rem; width: 100%; max-width: 1200px;">
+    <h1 class="section-title" style="text-align: left;">Live Website</h1>
+    <a href="https://smartshuttle.vercel.app" target="_blank">
+      <video id="smartshuttle-video" loading="lazy" src="images/SmartShuttle%20Homescreen.mp4"
+        alt="SmartShuttle App Screenshot" class="screenshot-img" style="width: 100%;" autoplay muted loop
+        playsinline></video>
+    </a>
+    <div
+      style="background: #ffffff; padding: 2rem; margin: 0rem auto 0; width: 100%; max-width: 1135px; box-shadow: 0 0 8px rgba(0, 0, 0, 0.05); border-radius: 8px;">
+      <div style="margin-top: 0;">
+        <h2 style="font-size: 1.5rem; font-weight: 700;">Overall Outcomes</h2>
+        <ul style="font-size: 1.15rem; line-height: 1.8;">
+          <li>Successfully implemented core functionality including geolocation to access the user's location for
+            finding nearby shuttles.</li>
+          <li>Created interactive map with Leaflet.js and Transit API integration for live transit stop locations.</li>
+          <li>Integrated Lottie animations for engaging UI elements and improved user experience.</li>
+          <li>Implemented real-time shuttle status and departure information display.</li>
+          <li>Added live updates about shuttle status and service details.</li>
+          <li>Established feedback collection system with GitHub Issues integration.</li>
+        </ul>
+      </div>
+      <div style="margin-top: 3rem;">
+        <h2 style="font-size: 1.5rem; font-weight: 700;">Reflection</h2>
+        <p style="font-size: 1.15rem; line-height: 1.8;">
+          Initially, I hadn't planned to create a full implementation of my Figma prototype, but I viewed it as an
+          appropriate challenge after developing and refining my other web applications, Financier and Magnate. In the
+          process, I successfully implemented the core functionality and gained valuable experience integrating APIs and
+          managing environment variables for both the Transit API and a GitHub Issues-based feedback system.
+        </p>
+        <p style="font-size: 1.15rem; line-height: 1.8; margin-top: 1rem;">
+          While the application functions, there remain several areas for enhancement. Currently, the feedback system
+          doesn't properly support file attachments, the Live Stops page doesn't display actual real-time vehicle
+          movement due to API limitations,
+          and route tracking could utilize polylines to represent complete vehicle routes. These limitations offer clear
+          directions for future development.
+        </p>
+        <p style="font-size: 1.15rem; line-height: 1.8; margin-top: 1rem;">
+          Despite these areas for improvement, this project provided valuable learning experiences that strengthened
+          both my design and development skills. It resulted in a functional application that provides important transit
+          information to students, staff, and commuters, demonstrating the full cycle from design concept to
+          implementation.
+        </p>
+      </div>
+    </div>
   </div>
   <div id="footer-placeholder"></div>
   <script src="js/templates.js"></script>

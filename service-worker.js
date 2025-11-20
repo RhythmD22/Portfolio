@@ -89,6 +89,7 @@ const urlsToCache = [
   '/Portfolio/images/Chests/10%20-%20Fortune%20Chest.png',
   '/Portfolio/images/Chests/11%20-%20Legendary%20King%20Chest.png',
   '/Portfolio/images/Chests/12%20-%20Level%20Up%20Chest.jpg',
+  '/Portfolio/images/SmartShuttle%20Homescreen.mp4',
   '/Portfolio/Twine/Archibald%20and%20the%20Steel%20Monolith.html',
   '/Portfolio/Twine/The%20Guardian\'s%20Legacy.html',
 ];
