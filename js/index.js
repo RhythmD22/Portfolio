@@ -93,6 +93,17 @@
   });
 })();
 
+// Toggle profile image to reveal spinning circle
+document.addEventListener('DOMContentLoaded', function () {
+  const profileImage = document.querySelector('.profile-image');
+
+  if (profileImage) {
+    profileImage.addEventListener('click', function () {
+      this.classList.toggle('hide');
+    });
+  }
+});
+
 // Service Worker Registration
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', function () {
