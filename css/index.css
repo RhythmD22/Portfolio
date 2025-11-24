@@ -27,7 +27,7 @@ body {
   display: flex;
   align-items: flex-start;
   /* Updated to align to top to maintain image position */
-  gap: 2rem;
+  gap: 4rem;
   width: 100%;
 }
 
@@ -44,28 +44,57 @@ body {
 
 .profile-image {
   display: block;
-  max-width: 220px;
-  width: 220px;
-  height: 220px;
+  width: 360px;
+  height: 360px;
   border-radius: 50%;
-  box-shadow: 0 4px 24px 0 rgba(0, 0, 0, 0.06);
+  object-fit: cover;
+  box-shadow: none;
+  position: relative;
+  top: -70px;
+  left: -70px;
+  z-index: 2;
+  cursor: pointer;
+  transition: opacity 0.4s ease;
+}
+
+.profile-image.hide {
+  opacity: 0;
+}
+
+.profile-image::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #ffffff;
+  box-shadow: 0 0 15px #ffffff, 0 0 30px #4a9fc8, 0 0 45px #4a9fc8;
+  transform: translate(-50%, -50%);
+  z-index: 10;
 }
 
 [data-theme="dark"] .profile-image {
-  box-shadow: 0 4px 24px 0 rgba(255, 255, 255, 0.1);
+  box-shadow: none;
+}
+
+[data-theme="dark"] .profile-image::after {
+  background: #ffffff;
+  box-shadow: 0 0 15px #ffffff, 0 0 30px #4a9fc8, 0 0 45px #4a9fc8;
 }
 
 .spinning-ring {
   position: absolute;
   top: -10px;
   left: -10px;
-  width: calc(220px + 20px);
-  height: calc(220px + 20px);
+  width: calc(218px + 20px);
+  height: calc(218px + 20px);
   border-radius: 50%;
   box-sizing: border-box;
   animation: spin 10s linear infinite, glow 2s ease-in-out infinite alternate;
   box-shadow: 0 0 15px #4a9fc8;
-  z-index: -1;
+  z-index: 1;
   background:
     conic-gradient(from 0deg,
       #4a9fc8 0deg,
@@ -98,36 +127,6 @@ body {
   }
 }
 
-/* Mobile styles for the profile container and ring */
-@media (max-width: 900px) {
-  .profile-container {
-    margin: 0 auto;
-  }
-
-  .profile-image {
-    max-width: 180px;
-    width: 180px;
-    height: 180px;
-  }
-
-  .spinning-ring {
-    top: -10px;
-    left: -10px;
-    width: calc(180px + 20px);
-    height: calc(180px + 20px);
-    animation: spin 10s linear infinite, glow 2s ease-in-out infinite alternate;
-    background:
-      conic-gradient(from 0deg,
-        #4a9fc8 0deg,
-        #4a9fc8 90deg,
-        var(--background-color) 90deg,
-        var(--background-color) 180deg,
-        #4a9fc8 180deg,
-        #4a9fc8 270deg,
-        var(--background-color) 270deg,
-        var(--background-color) 360deg);
-  }
-}
 
 .intro-text {
   flex: 1;
@@ -155,6 +154,28 @@ body {
 }
 
 @media (max-width: 900px) {
+  .profile-container {
+    margin: 0 auto;
+  }
+
+  .spinning-ring {
+    top: 20px;
+    left: 50px;
+    width: calc(178px + 20px);
+    height: calc(178px + 20px);
+    animation: spin 10s linear infinite, glow 2s ease-in-out infinite alternate;
+    background:
+      conic-gradient(from 0deg,
+        #4a9fc8 0deg,
+        #4a9fc8 90deg,
+        var(--background-color) 90deg,
+        var(--background-color) 180deg,
+        #4a9fc8 180deg,
+        #4a9fc8 270deg,
+        var(--background-color) 270deg,
+        var(--background-color) 360deg);
+    z-index: 1;
+  }
 
   html,
   body {
@@ -185,8 +206,35 @@ body {
   }
 
   .profile-image {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    top: 20px;
+    left: 0;
+    z-index: 2;
     margin: 0 auto;
-    max-width: 180px;
+    align-self: center;
+    position: relative;
+    cursor: pointer;
+    transition: opacity 0.4s ease;
+  }
+
+  .profile-image.hide {
+    opacity: 0;
+  }
+
+  .profile-image::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #ffffff;
+    box-shadow: 0 0 15px #ffffff, 0 0 30px #4a9fc8, 0 0 45px #4a9fc8;
+    transform: translate(-50%, -50%);
+    z-index: 10;
   }
 
   .container {
@@ -257,7 +305,20 @@ body {
   .profile-image {
     margin-left: auto;
     margin-right: auto;
-    max-width: 180px;
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    top: -30px;
+    left: 0;
+    z-index: 2;
+    align-self: center;
+    position: relative;
+    cursor: pointer;
+    transition: opacity 0.4s ease;
+  }
+
+  .profile-image.hide {
+    opacity: 0;
   }
 
   /* iPhone 390x844 portrait specific adjustments */
@@ -286,6 +347,7 @@ body {
       line-height: 1.6;
     }
   }
+
 }
 
 /* Typing effect styles */
