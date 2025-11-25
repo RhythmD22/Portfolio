@@ -159,11 +159,15 @@ body {
   }
 
   .spinning-ring {
-    top: 20px;
-    left: 50px;
-    width: calc(178px + 20px);
-    height: calc(178px + 20px);
+    top: 30px;
+    left: 57px;
+    width: calc(201px + 20px);
+    height: calc(201px + 20px);
+    border-radius: 50%;
+    box-sizing: border-box;
     animation: spin 10s linear infinite, glow 2s ease-in-out infinite alternate;
+    box-shadow: 0 0 15px #4a9fc8;
+    z-index: 1;
     background:
       conic-gradient(from 0deg,
         #4a9fc8 0deg,
@@ -174,7 +178,6 @@ body {
         #4a9fc8 270deg,
         var(--background-color) 270deg,
         var(--background-color) 360deg);
-    z-index: 1;
   }
 
   html,
@@ -206,10 +209,10 @@ body {
   }
 
   .profile-image {
-    width: 300px;
-    height: 300px;
+    width: 340px;
+    height: 340px;
     object-fit: cover;
-    top: 20px;
+    top: -30px;
     left: 0;
     z-index: 2;
     margin: 0 auto;
@@ -305,8 +308,8 @@ body {
   .profile-image {
     margin-left: auto;
     margin-right: auto;
-    width: 300px;
-    height: 300px;
+    width: 340px;
+    height: 340px;
     object-fit: cover;
     top: -30px;
     left: 0;
