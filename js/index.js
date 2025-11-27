@@ -179,35 +179,64 @@ document.addEventListener('DOMContentLoaded', function () {
 
       // Play animation once on hover (desktop)
       profileAnimation.addEventListener('mouseenter', function () {
+        // Remove animation-completed class to indicate animation is starting again
+        this.classList.remove('animation-completed');
+
         if (this._dotLottieInstance) {
           // Reset to beginning and play
           this._dotLottieInstance.setFrame(0);
           this._dotLottieInstance.setSpeed(1); // Set speed to normal
           this._dotLottieInstance.play();
-          // Listen for the complete event to pause the animation after it finishes
-          this.removeEventListener('complete', null);  // Remove any existing listener first
+
+          // Since the animation should complete in ~1500ms, ensure it stops after that time
           const self = this;
-          const listener = function () {
+          setTimeout(() => {
             if (self._dotLottieInstance) {
               self._dotLottieInstance.pause();
+              self.classList.add('animation-completed');
             }
+          }, 1500); // Match the animation duration
+
+          // Also listen for the complete event as a backup
+          const completeListener = function () {
+            if (self._dotLottieInstance) {
+              self._dotLottieInstance.pause();
+              self.classList.add('animation-completed');
+            }
+            // Remove the listener after completion
+            self.removeEventListener('complete', completeListener);
           };
-          this.addEventListener('complete', listener);
+          // Remove any existing listener first
+          this.removeEventListener('complete', completeListener);
+          this.addEventListener('complete', completeListener);
         } else if (this.dotLottie) {
           // Also try direct access to dotLottie property
           // Reset to beginning and play
           this.dotLottie.setFrame(0);
           this.dotLottie.setSpeed(1); // Set speed to normal
           this.dotLottie.play();
-          // Listen for the complete event to pause the animation after it finishes
-          this.removeEventListener('complete', null);  // Remove any existing listener first
+
+          // Since the animation should complete in ~1500ms, ensure it stops after that time
           const self = this;
-          const listener = function () {
+          setTimeout(() => {
             if (self.dotLottie) {
               self.dotLottie.pause();
+              self.classList.add('animation-completed');
             }
+          }, 1500); // Match the animation duration
+
+          // Also listen for the complete event as a backup
+          const completeListener = function () {
+            if (self.dotLottie) {
+              self.dotLottie.pause();
+              self.classList.add('animation-completed');
+            }
+            // Remove the listener after completion
+            self.removeEventListener('complete', completeListener);
           };
-          this.addEventListener('complete', listener);
+          // Remove any existing listener first
+          this.removeEventListener('complete', completeListener);
+          this.addEventListener('complete', completeListener);
         } else {
           // If dotLottie is not ready, try to get it now
           this._dotLottieInstance = this.dotLottie;
@@ -216,37 +245,36 @@ document.addEventListener('DOMContentLoaded', function () {
             this._dotLottieInstance.setFrame(0);
             this._dotLottieInstance.setSpeed(1); // Set speed to normal
             this._dotLottieInstance.play();
-            // Listen for the complete event to pause the animation after it finishes
-            this.removeEventListener('complete', null);  // Remove any existing listener first
+
+            // Since the animation should complete in ~1500ms, ensure it stops after that time
             const self = this;
-            const listener = function () {
+            setTimeout(() => {
               if (self._dotLottieInstance) {
                 self._dotLottieInstance.pause();
+                self.classList.add('animation-completed');
               }
+            }, 1500); // Match the animation duration
+
+            // Also listen for the complete event as a backup
+            const completeListener = function () {
+              if (self._dotLottieInstance) {
+                self._dotLottieInstance.pause();
+                self.classList.add('animation-completed');
+              }
+              // Remove the listener after completion
+              self.removeEventListener('complete', completeListener);
             };
-            this.addEventListener('complete', listener);
+            // Remove any existing listener first
+            this.removeEventListener('complete', completeListener);
+            this.addEventListener('complete', completeListener);
           }
         }
       });
 
-      // Reset animation when mouse leaves (if not completed yet)
+      // When mouse leaves, allow animation to complete naturally instead of stopping it
       profileAnimation.addEventListener('mouseleave', function () {
-        // If animation is still playing, reset to beginning
-        if (this._dotLottieInstance) {
-          this._dotLottieInstance.pause();
-          this._dotLottieInstance.setFrame(0);
-        } else if (this.dotLottie) {
-          // Also try direct access to dotLottie property
-          this.dotLottie.pause();
-          this.dotLottie.setFrame(0);
-        } else {
-          // If dotLottie is not ready, try to get it now
-          this._dotLottieInstance = this.dotLottie;
-          if (this._dotLottieInstance) {
-            this._dotLottieInstance.pause();
-            this._dotLottieInstance.setFrame(0);
-          }
-        }
+        // Do nothing - let the animation complete naturally
+        // The animation will stop naturally when it reaches the end
       });
 
       // Store touch start time for long press detection
