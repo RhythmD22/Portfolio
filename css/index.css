@@ -40,48 +40,78 @@ body {
   /* Add top margin to position image lower */
   flex-shrink: 0;
   /* Prevent profile container from shrinking */
+
+  /* Responsive width that accounts for the animation size */
+  width: max-content;
 }
 
-.profile-image {
+/* Base styles for profile animation */
+.profile-animation {
   display: block;
-  width: 360px;
-  height: 360px;
+  width: 340px;
+  /* Mobile default */
+  height: 340px;
+  /* Mobile default */
   border-radius: 50%;
-  object-fit: cover;
   box-shadow: none;
   position: relative;
-  top: -70px;
-  left: -70px;
   z-index: 2;
-  cursor: pointer;
-  transition: opacity 0.4s ease;
+  transition: opacity 0.4s ease, transform 0.2s ease;
 }
 
-.profile-image.hide {
+/* Add interactive overlay limited to spinning circle area */
+.profile-animation::before {
+  content: '';
+  position: absolute;
+  top: calc(50% - 125px);
+  /* Position at center minus half of the animation size (250px/2) */
+  left: calc(50% - 125px);
+  /* Position at center minus half of the animation size (250px/2) */
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  z-index: 3;
+  cursor: pointer;
+}
+
+/* Desktop styles for profile animation */
+@media (min-width: 901px) {
+  .profile-animation {
+    width: 450px !important;
+    height: 450px !important;
+    top: -117px !important;
+    left: -116px !important;
+  }
+
+  /* Desktop styles for interactive overlay - limited to spinning circle area */
+  .profile-animation::before {
+    top: calc(50% - 225px) !important;
+    /* Position at center minus half of the desktop animation size (450px/2) */
+    left: calc(50% - 225px) !important;
+    /* Position at center minus half of the desktop animation size (450px/2) */
+    width: 450px !important;
+    height: 450px !important;
+    border-radius: 50% !important;
+    z-index: 3 !important;
+    cursor: pointer !important;
+  }
+}
+
+.profile-animation.hide {
   opacity: 0;
 }
 
-.profile-image::after {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  background: #ffffff;
-  box-shadow: 0 0 15px #ffffff, 0 0 30px #4a9fc8, 0 0 45px #4a9fc8;
-  transform: translate(-50%, -50%);
-  z-index: 10;
-}
-
-[data-theme="dark"] .profile-image {
+[data-theme="dark"] .profile-animation {
   box-shadow: none;
 }
 
+/* Hide profile image and related elements */
+.profile-image,
+.profile-image.hide,
+.profile-image::after,
+[data-theme="dark"] .profile-image,
 [data-theme="dark"] .profile-image::after {
-  background: #ffffff;
-  box-shadow: 0 0 15px #ffffff, 0 0 30px #4a9fc8, 0 0 45px #4a9fc8;
+  display: none;
 }
 
 .spinning-ring {
@@ -127,7 +157,6 @@ body {
   }
 }
 
-
 .intro-text {
   flex: 1;
   /* Allow text area to take remaining space */
@@ -156,28 +185,18 @@ body {
 @media (max-width: 900px) {
   .profile-container {
     margin: 0 auto;
+    align-self: center;
+    display: block;
+    /* Change from inline-block to block for better centering in flex */
+    margin-left: 0;
+    /* Override the default margin-left: 7rem */
   }
 
   .spinning-ring {
-    top: 30px;
-    left: 57px;
-    width: calc(201px + 20px);
-    height: calc(201px + 20px);
-    border-radius: 50%;
-    box-sizing: border-box;
-    animation: spin 10s linear infinite, glow 2s ease-in-out infinite alternate;
-    box-shadow: 0 0 15px #4a9fc8;
-    z-index: 1;
-    background:
-      conic-gradient(from 0deg,
-        #4a9fc8 0deg,
-        #4a9fc8 90deg,
-        var(--background-color) 90deg,
-        var(--background-color) 180deg,
-        #4a9fc8 180deg,
-        #4a9fc8 270deg,
-        var(--background-color) 270deg,
-        var(--background-color) 360deg);
+    left: 0;
+    right: -120px;
+    margin: 0 auto;
+    top: 25px;
   }
 
   html,
@@ -187,6 +206,7 @@ body {
   }
 
   .intro {
+    justify-content: center;
     flex-direction: column;
     align-items: center;
     text-align: center;
@@ -208,36 +228,17 @@ body {
     /* Fixed minimum height to prevent image push on mobile */
   }
 
-  .profile-image {
-    width: 340px;
-    height: 340px;
-    object-fit: cover;
-    top: -30px;
-    left: 0;
-    z-index: 2;
-    margin: 0 auto;
-    align-self: center;
-    position: relative;
-    cursor: pointer;
-    transition: opacity 0.4s ease;
-  }
+  .profile-animation {
+    width: 250px !important;
+    height: 250px !important;
+    z-index: 2 !important;
+    margin: 0 auto !important;
+    align-self: center !important;
+    position: relative !important;
+    cursor: pointer !important;
+    transition: opacity 0.4s ease !important;
+    top: -20px !important;
 
-  .profile-image.hide {
-    opacity: 0;
-  }
-
-  .profile-image::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    background: #ffffff;
-    box-shadow: 0 0 15px #ffffff, 0 0 30px #4a9fc8, 0 0 45px #4a9fc8;
-    transform: translate(-50%, -50%);
-    z-index: 10;
   }
 
   .container {
@@ -289,7 +290,7 @@ body {
 
   .intro-text {
     text-align: center;
-    margin: 0 !important;
+    margin: 0;
     width: 100%;
     max-width: 100%;
     padding: 0 1rem;
@@ -304,53 +305,173 @@ body {
     /* Fixed minimum height to prevent image push on mobile */
   }
 
-  /* Remove any left margin that could induce horizontal scroll on narrow portrait */
-  .profile-image {
-    margin-left: auto;
-    margin-right: auto;
-    width: 340px;
-    height: 340px;
-    object-fit: cover;
-    top: -30px;
-    left: 0;
-    z-index: 2;
+  /* Portrait mobile positioning */
+  .profile-container {
     align-self: center;
-    position: relative;
-    cursor: pointer;
-    transition: opacity 0.4s ease;
+    margin: 0 auto;
+    display: block;
+    /* Change from inline-block to block for better centering in flex */
+    margin-left: 0;
+    /* Override the default margin-left: 7rem */
   }
 
-  .profile-image.hide {
-    opacity: 0;
+  .spinning-ring {
+    left: -6px;
+    right: 0px;
+    margin: 0 auto;
+    top: 11px;
+    width: 200px;
+    height: 200px;
   }
 
-  /* iPhone 390x844 portrait specific adjustments */
-  @media (max-width: 390px) and (orientation: portrait) {
-    .description-container {
-      padding-top: 1rem;
-      padding-bottom: 1rem;
-      min-height: calc(100vh - 180px);
-    }
-
-    .intro {
-      padding: 0 0.5rem;
-      gap: 1.5rem;
-    }
-
-    .intro-text {
-      padding: 0 0.5rem;
-    }
-
-    .intro-text .intro-heading {
-      font-size: 1.75rem;
-    }
-
-    .intro-text .intro-paragraph {
-      font-size: 1.1rem;
-      line-height: 1.6;
-    }
+  .profile-animation {
+    margin: 0 auto !important;
+    width: 375px !important;
+    height: 375px !important;
+    z-index: 2 !important;
+    position: relative !important;
+    cursor: pointer !important;
+    transition: opacity 0.4s ease !important;
+    left: -3px !important;
+    top: -77px !important;
   }
 
+  /* Mobile portrait styles for interactive overlay */
+  .profile-animation::before {
+    top: calc(50% - 100px) !important;
+    /* Position at center minus half of the spinning ring size (200px/2) */
+    left: calc(50% - 100px) !important;
+    /* Position at center minus half of the spinning ring size (200px/2) */
+    width: 200px !important;
+    height: 200px !important;
+    border-radius: 50% !important;
+    z-index: 3 !important;
+    cursor: pointer !important;
+  }
+}
+
+/* Mobile landscape adjustments */
+@media (max-width: 900px) and (orientation: landscape) {
+  .description-container {
+    flex: 1;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: calc(100vh - 200px);
+    /* Account for header/footer */
+  }
+
+  .intro {
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    padding: 0 1rem;
+    box-sizing: border-box;
+    justify-content: center;
+    min-height: auto;
+    gap: 1.5rem;
+  }
+
+  .intro-text {
+    text-align: center;
+    margin: 0;
+    width: 100%;
+    max-width: 100%;
+    padding: 0 1rem;
+    box-sizing: border-box;
+    overflow-wrap: break-word;
+    word-break: normal;
+    white-space: normal;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 200px;
+    /* Fixed minimum height to prevent image push on mobile */
+  }
+
+  /* Landscape mobile positioning */
+  .profile-container {
+    align-self: center;
+    margin: 0 auto;
+    display: block;
+    /* Change from inline-block to block for better centering in flex */
+    margin-left: 0;
+    /* Override the default margin-left: 7rem */
+  }
+
+  .spinning-ring {
+    left: 0;
+    right: -250px;
+    margin: 0 auto;
+    top: 11px;
+    width: 240px;
+    height: 240px;
+  }
+
+  .profile-animation {
+    margin: 0 auto !important;
+    width: 450px !important;
+    height: 450px !important;
+    z-index: 2 !important;
+    position: relative !important;
+    cursor: pointer !important;
+    transition: opacity 0.4s ease !important;
+    left: 125px !important;
+    top: -95px !important;
+  }
+
+  /* Mobile landscape styles for interactive overlay */
+  .profile-animation::before {
+    top: calc(50% - 120px) !important;
+    /* Position at center minus half of the spinning ring size (240px/2) */
+    left: calc(50% - 120px) !important;
+    /* Position at center minus half of the spinning ring size (240px/2) */
+    width: 240px !important;
+    height: 240px !important;
+    border-radius: 50% !important;
+    z-index: 3 !important;
+    cursor: pointer !important;
+  }
+
+  /* Adjust spacing in landscape orientation */
+  .description-container {
+    padding-bottom: 0.25rem;
+    /* Further reduce space between animation and work section */
+  }
+
+  .main-content.work-section {
+    padding-top: 0.25rem;
+    /* Further reduce top padding of work section */
+  }
+}
+
+/* iPhone 390x844 portrait specific adjustments */
+@media (max-width: 390px) and (orientation: portrait) {
+  .description-container {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    min-height: calc(100vh - 180px);
+  }
+
+  .intro {
+    padding: 0 0.5rem;
+    gap: 1.5rem;
+  }
+
+  .intro-text {
+    padding: 0 0.5rem;
+  }
+
+  .intro-text .intro-heading {
+    font-size: 1.75rem;
+  }
+
+  .intro-text .intro-paragraph {
+    font-size: 1.1rem;
+    line-height: 1.6;
+  }
 }
 
 /* Typing effect styles */
