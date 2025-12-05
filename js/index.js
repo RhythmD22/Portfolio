@@ -41,7 +41,7 @@
 (function () {
   // Text content to type
   const introHeading = "Hey, I'm Rhythm!";
-  const introParagraph = "I'm a UI/UX Designer and a recent University of Pittsburgh graduate. I design clean interfaces and immersive experiences that bring together form and function.";
+  const introParagraph = "I'm a Product Designer and a recent University of Pittsburgh graduate. I design clean interfaces and immersive experiences that bring together form and function.";
 
   // Function to create typing effect
   function typeText(element, text, callback) {
