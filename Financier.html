@@ -35,6 +35,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@6.1/dist/fancybox/fancybox.min.css">
   <script src="js/dark-mode.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@6.1/dist/fancybox/fancybox.umd.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
 <body>
@@ -157,6 +158,49 @@
         </ul>
       </div>
     </div>
+
+    <div class="main-content" style="padding: 2rem; margin-top: 2rem; margin-bottom: 2rem;">
+      <div style="max-width: 100%;">
+        <h2 style="text-align: center;">Budgeting Analysis</h2>
+        <p style="text-align: center;">Visualizing key findings from user interviews.</p>
+
+        <!-- Grid container for charts -->
+        <div class="chart-grid-container">
+          <!-- Chart 1: Meal Plan Status (Top Left) -->
+          <div class="chart-grid-item">
+            <h3>Meal Plan Status (n=10)</h3>
+            <div class="chart-container">
+              <canvas id="mealPlanChart"></canvas>
+            </div>
+          </div>
+
+          <!-- Chart 2: Student Employment Status (Top Right) -->
+          <div class="chart-grid-item chart-2-item">
+            <h3>Student Employment Status (n=10)</h3>
+            <div class="chart-container">
+              <canvas id="employmentChart"></canvas>
+            </div>
+          </div>
+
+          <!-- Chart 3: Most Common Student Expenses (Bottom Left) -->
+          <div class="chart-grid-item chart-3-item">
+            <h3>Most Common Student Expenses (n=10)</h3>
+            <div class="chart-container">
+              <canvas id="expensesChart"></canvas>
+            </div>
+          </div>
+
+          <!-- Chart 4: Spending Emphasis by Living Situation (Bottom Right) -->
+          <div class="chart-grid-item chart-4-item">
+            <h3>Spending Emphasis by Living Situation</h3>
+            <div class="chart-container">
+              <canvas id="livingSpendingChart"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <div style="margin-top: 4rem;">
       <h1 class="section-title">Key Interview Findings</h1>
       <ul style="font-size: 1.15rem; line-height: 1.8; padding-left: 1.2rem;">
@@ -166,8 +210,6 @@
           living on campus.</li>
         <li>Having a job or other income source gives students greater flexibility and confidence in spending; those
           without are more cautious and savings-oriented.</li>
-        <li>Academic and tech-related purchases are a notable part of student budgets, especially for those focused on
-          coursework or projects.</li>
         <li>Living arrangements (on-campus vs. off-campus) significantly influence how students manage transportation,
           food, and personal expenses.</li>
         <li>Most students haven’t used budgeting apps and haven't had much experience actively keeping track of their
@@ -336,6 +378,7 @@
         <polyline points="18 15 12 9 6 15"></polyline>
       </svg>
     </button>
+    <script src="js/financier-charts.js"></script>
     <script src="js/scroll.js"></script>
     <script src="js/financier.js"></script>
 </body>
