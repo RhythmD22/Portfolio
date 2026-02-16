@@ -19,198 +19,6 @@ body {
   overflow-x: hidden;
 }
 
-@media screen and (max-width: 768px) and (orientation: portrait) {
-  body {
-    font-size: 16px;
-    /* Increased base font size for mobile */
-  }
-
-  *,
-  *:before,
-  *:after {
-    box-sizing: border-box;
-  }
-
-  div {
-    max-width: 100%;
-  }
-
-  .page-title {
-    font-size: 1.5rem;
-  }
-
-  .section-title {
-    font-size: 1.4rem;
-  }
-
-  .main-content {
-    padding: 1rem !important;
-    gap: 2rem !important;
-  }
-
-  /* Scale down container widths */
-  div[style*="max-width: 60%"],
-  div[style*="max-width: 1200px"],
-  div[style*="max-width: 1135px"] {
-    max-width: 100% !important;
-    width: 100% !important;
-  }
-
-  /* Scale down flex layouts */
-  div[style*="display: flex"] {
-    flex-direction: column !important;
-    align-items: center !important;
-    gap: 1rem !important;
-  }
-
-  /* Problem Statement Section: Make header and text appear side by side on desktop,
-     but ensure image comes after both elements on mobile */
-  .problem-statement-section {
-    display: flex;
-    flex-direction: row;
-    gap: 6rem;
-  }
-
-  @media screen and (max-width: 768px) and (orientation: portrait) {
-
-    /* Mobile: arrange the elements properly */
-    .problem-statement-section {
-      flex-direction: column;
-    }
-
-    .problem-statement-section>div[style*="max-width: 60%"],
-    .problem-statement-section>div[style*="font-size: 1.15rem"] {
-      width: 100% !important;
-      max-width: 100% !important;
-    }
-
-    /* Position the image after both the heading and paragraph */
-    .problem-statement-section>.igrad-image-wrapper {
-      order: 2;
-      /* Ensure image appears after both text elements */
-      margin-top: 2rem !important;
-    }
-
-    /* Role & Responsibilities section: make heading stack on top of paragraph on mobile */
-    .role-responsibilities-section {
-      flex-direction: column;
-    }
-
-    .role-responsibilities-section>div[style*="max-width: 60%"],
-    .role-responsibilities-section>div[style*="font-size: 1.15rem"] {
-      width: 100% !important;
-      max-width: 100% !important;
-    }
-  }
-
-  div[style*="width: 33%"],
-  div[style*="width: 40%"],
-  div[style*="width: 60%"] {
-    width: 100% !important;
-  }
-
-  div[style*="width:"] {
-    max-width: 100% !important;
-  }
-
-  .image-link {
-    width: 100% !important;
-  }
-
-  .image-link img {
-    width: 100% !important;
-    height: auto !important;
-  }
-
-  /* Scale down text positioning relative to mockup */
-  div[style*="position: relative"] {
-    position: relative !important;
-    top: auto !important;
-    width: 100% !important;
-    max-width: 100% !important;
-  }
-
-  /* Fix positioned elements in Design Process section (portrait only) */
-  div[style*="position: relative; top:"] {
-    position: static !important;
-    top: auto !important;
-    width: 100% !important;
-    max-width: 100% !important;
-    margin: 1rem 0 !important;
-  }
-}
-
-/* Landscape MOBILE: enable adjustable offsets for the six DP blocks only */
-@media screen and (max-width: 900px) and (orientation: landscape) {
-
-  .dp-landing,
-  .dp-goals,
-  .dp-transactions,
-  .dp-analytics,
-  .dp-calculator,
-  .dp-tips {
-    position: relative !important;
-    display: block !important;
-  }
-
-  .dp-landing {
-    top: var(--dp-landing-top-landscape) !important;
-  }
-
-  .dp-goals {
-    top: var(--dp-goals-top-landscape) !important;
-  }
-
-  .dp-transactions {
-    top: var(--dp-transactions-top-landscape) !important;
-  }
-
-  .dp-analytics {
-    top: var(--dp-analytics-top-landscape) !important;
-  }
-
-  .dp-calculator {
-    top: var(--dp-calculator-top-landscape) !important;
-  }
-
-  .dp-tips {
-    top: var(--dp-tips-top-landscape) !important;
-  }
-
-  /* Keep normalization for other elements */
-  div[style*="position: relative; top:"]:not(.dp-landing):not(.dp-goals):not(.dp-transactions):not(.dp-analytics):not(.dp-calculator):not(.dp-tips) {
-    position: static !important;
-    top: auto !important;
-    width: 100% !important;
-    max-width: 100% !important;
-    margin: 1rem 0 !important;
-  }
-}
-
-@media screen and (max-width: 480px) {
-  body {
-    font-size: 14px;
-    /* Increased base font size for smaller mobile */
-  }
-
-  .page-title {
-    font-size: 1.3rem;
-  }
-
-  .section-title {
-    font-size: 1.2rem;
-  }
-
-  ul,
-  ol,
-  p {
-    font-size: 1rem !important;
-    /* Increased paragraph font size for mobile */
-  }
-}
-
-
-
 /* Dark mode text color for Design Process cards */
 [data-theme="dark"] .dp-landing>div,
 [data-theme="dark"] .dp-goals>div,
@@ -254,6 +62,108 @@ body {
 .site-footer p {
   font-size: 0.875rem !important;
 }
+
+/* Neon animated border for Magnate card */
+div[class*="neon-border-card"] {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  /* This is critical for the animation */
+  background-color: #ffffff;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
+  padding: 2rem;
+  max-width: 800px;
+  margin: 8rem auto 8rem;
+  display: inline-block;
+  text-align: center;
+  z-index: 0;
+  /* Establish stacking context */
+}
+
+div[class*="neon-border-card"]::before {
+  content: "";
+  position: absolute;
+  background-image: conic-gradient(transparent 0deg,
+      transparent 70deg,
+      #4f84ef 70deg,
+      #4f84ef 80deg,
+      rgba(79, 132, 239, 0.8) 85deg,
+      rgba(79, 132, 239, 0.6) 90deg,
+      rgba(79, 132, 239, 0.4) 95deg,
+      rgba(79, 132, 239, 0.2) 100deg,
+      transparent 105deg,
+      transparent 360deg);
+  height: 150%;
+  width: 150%;
+  left: -25%;
+  top: -25%;
+  animation: rotate 4s infinite linear;
+  z-index: 1;
+  /* Place behind the content */
+  /* Add a slight glow effect */
+  filter: drop-shadow(0 0 4px rgba(79, 132, 239, 0.5));
+}
+
+div[class*="neon-border-card"]::after {
+  content: "";
+  position: absolute;
+  height: calc(100% - 8px);
+  /* Slightly smaller to reveal the border */
+  width: calc(100% - 8px);
+  top: 4px;
+  left: 4px;
+  background-color: #ffffff;
+  /* Match the card's background */
+  border-radius: calc(8px - 2px);
+  /* Slightly smaller radius */
+  z-index: 2;
+  /* Place above the animated border but below the content */
+}
+
+/* Ensure content stays on top */
+div[class*="neon-border-card"]>* {
+  position: relative;
+  z-index: 3;
+  /* Place content above the ::after pseudo-element */
+}
+
+/* Reflection section as a separate card */
+.reflection-card {
+  background: #ffffff;
+  padding: 2rem;
+  margin: 4rem auto 0;
+  width: 100%;
+  max-width: 1135px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
+  border-radius: 8px;
+  box-sizing: border-box;
+  border: 4px solid #4f84ef;
+  /* Blue border to match other blue elements */
+}
+
+/* Double the border thickness for problem statement and key interview findings */
+div[style*="background: #ffffff"][style*="padding: 2rem"][style*="border: 2px solid #4f84ef"] {
+  border: 4px solid #4f84ef !important;
+}
+
+/* Dark mode adjustment for reflection card */
+[data-theme="dark"] .reflection-card {
+  background-color: white;
+  color: black;
+  border-color: #4f84ef;
+  /* Ensure blue border shows in dark mode too */
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(-360deg);
+  }
+}
+
 
 /* Grid container for charts */
 .chart-grid-container {
@@ -333,6 +243,268 @@ body {
   /* Ensure proper display */
   box-sizing: border-box;
   /* Include padding and border in width calculation */
+}
+
+/* Bento grid dividers for research plan sections */
+.research-plan-section {
+  position: relative;
+  padding-bottom: 2rem;
+  margin-bottom: 2rem;
+}
+
+/* Vertical line to the left of Interview Questions section */
+.interview-questions-section {
+  position: relative;
+  padding-left: 2rem;
+}
+
+.interview-questions-section::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background-color: #e0e0e0;
+}
+
+/* Extend the horizontal lines to meet the vertical line */
+.research-plan-container {
+  position: relative;
+}
+
+/* Remove the border-bottom from individual sections and use absolute positioning */
+.research-plan-section {
+  border-bottom: none !important;
+  position: relative;
+}
+
+/* Horizontal line between Research Plan and Participant Information sections - spans only the left column initially */
+.research-plan-container>div:first-child>.research-plan-section:first-child {
+  position: relative;
+}
+
+.research-plan-container>div:first-child>.research-plan-section:first-child::after {
+  content: '';
+  position: absolute;
+  bottom: 0.5rem;
+  /* Moved up from -2rem to -1rem */
+  left: 0;
+  right: 1px;
+  /* Leave space for the vertical line */
+  height: 1px;
+  background-color: #e0e0e0;
+}
+
+/* Remove the horizontal line after Participant Information section */
+
+
+/* Move the user research overview caption up */
+.caption {
+  margin-top: -2rem;
+  /* Move up by 2rem */
+}
+
+/* Mobile styles */
+@media screen and (max-width: 768px) and (orientation: portrait) {
+  body {
+    font-size: 16px;
+    /* Increased base font size for mobile */
+  }
+
+  *,
+  *:before,
+  *:after {
+    box-sizing: border-box;
+  }
+
+  div {
+    max-width: 100%;
+  }
+
+  .page-title {
+    font-size: 1.5rem;
+  }
+
+  .section-title {
+    font-size: 1.4rem;
+  }
+
+  .main-content {
+    padding: 1rem !important;
+    gap: 2rem !important;
+  }
+
+  /* Scale down container widths */
+  div[style*="max-width: 60%"],
+  div[style*="max-width: 1200px"],
+  div[style*="max-width: 1135px"] {
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+
+  /* Scale down flex layouts */
+  div[style*="display: flex"] {
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 1rem !important;
+  }
+
+  div[style*="width: 33%"],
+  div[style*="width: 40%"],
+  div[style*="width: 60%"] {
+    width: 100% !important;
+  }
+
+  div[style*="width:"] {
+    max-width: 100% !important;
+  }
+
+  .image-link {
+    width: 100% !important;
+  }
+
+  .image-link img {
+    width: 100% !important;
+    height: auto !important;
+  }
+
+  /* Scale down text positioning relative to mockup */
+  div[style*="position: relative"] {
+    position: relative !important;
+    top: auto !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  /* Fix positioned elements in Design Process section (portrait only) */
+  div[style*="position: relative; top:"] {
+    position: static !important;
+    top: auto !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 1rem 0 !important;
+  }
+
+  /* Adjust banner height for mobile */
+  div[style*="width: 100%"][style*="margin: 0"][style*="overflow: hidden"] img[alt="Financier Banner"] {
+    height: 300px !important;
+    /* Reduced from 600px for mobile */
+    object-fit: cover;
+  }
+
+  /* Move the entire top section down on mobile */
+  main.main-content {
+    margin-top: 0rem !important;
+    /* Adjusted to move the whole section down */
+  }
+
+  /* Make the gray line in research plan section horizontal on mobile with same width as existing horizontal line */
+  .research-plan-container>div:first-child>.research-plan-section:first-child::after {
+    display: block !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: auto !important;
+  }
+
+  /* Change the vertical line to the left of interview questions to horizontal above it */
+  .interview-questions-section::before {
+    display: none !important;
+    /* Hide the vertical line */
+  }
+
+  .interview-questions-section {
+    position: relative;
+  }
+
+  .interview-questions-section::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: -2rem;
+    /* Position above the section */
+    height: 1px;
+    background-color: #e0e0e0;
+    display: block !important;
+  }
+}
+
+/* Landscape MOBILE: enable adjustable offsets for the six DP blocks only */
+@media screen and (max-width: 900px) and (orientation: landscape) {
+
+  .dp-landing,
+  .dp-goals,
+  .dp-transactions,
+  .dp-analytics,
+  .dp-calculator,
+  .dp-tips {
+    position: relative !important;
+    display: block !important;
+  }
+
+  .dp-landing {
+    top: var(--dp-landing-top-landscape) !important;
+  }
+
+  .dp-goals {
+    top: var(--dp-goals-top-landscape) !important;
+  }
+
+  .dp-transactions {
+    top: var(--dp-transactions-top-landscape) !important;
+  }
+
+  .dp-analytics {
+    top: var(--dp-analytics-top-landscape) !important;
+  }
+
+  .dp-calculator {
+    top: var(--dp-calculator-top-landscape) !important;
+  }
+
+  .dp-tips {
+    top: var(--dp-tips-top-landscape) !important;
+  }
+
+  /* Keep normalization for other elements */
+  div[style*="position: relative; top:"]:not(.dp-landing):not(.dp-goals):not(.dp-transactions):not(.dp-analytics):not(.dp-calculator):not(.dp-tips) {
+    position: static !important;
+    top: auto !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 1rem 0 !important;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  body {
+    font-size: 14px;
+    /* Increased base font size for smaller mobile */
+  }
+
+  .page-title {
+    font-size: 1.3rem;
+  }
+
+  .section-title {
+    font-size: 1.2rem;
+  }
+
+  ul,
+  ol,
+  p {
+    font-size: 1rem !important;
+    /* Increased paragraph font size for mobile */
+  }
+
+  /* Adjust banner height for mobile */
+  div[style*="width: 100%"][style*="margin: 0"][style*="overflow: hidden"] img[alt="Financier Banner"] {
+    margin-top: -50px !important;
+    height: 200px !important;
+    /* Further reduced for smaller screens */
+    object-fit: cover;
+  }
 }
 
 /* Responsive adjustments for portrait mobile */
@@ -436,5 +608,765 @@ body {
     /* Ensure proper display */
     box-sizing: border-box;
     /* Include padding and border in width calculation */
+  }
+}
+
+/* Style the 4 budget analysis graphs on mobile like SmartShuttle */
+@media (max-width: 768px) and (orientation: portrait) {
+  .chart-grid-container {
+    grid-template-columns: 1fr;
+    /* Stack items vertically on small screens */
+    justify-items: center;
+    /* Center grid items */
+  }
+
+  .chart-grid-item {
+    padding: 15px;
+    height: 380px;
+    /* Set fixed height like SmartShuttle to allow proper chart sizing */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Center contents horizontally */
+    width: 100%;
+    /* Ensure full width usage */
+    margin: 0 auto;
+    /* Center the item itself */
+  }
+
+  /* Allow charts to fill available space like SmartShuttle */
+  .chart-container {
+    flex: 1;
+    /* Take remaining space */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    min-height: 200px;
+    /* Ensure there's enough space for the chart */
+  }
+
+  .chart-container canvas {
+    width: 100% !important;
+    /* Responsive width */
+    max-width: 100%;
+    height: 100% !important;
+    /* Override Chart.js height */
+    max-height: 350px;
+    /* Maximum height for charts */
+    margin: 0 auto;
+    /* Center the chart horizontally */
+    display: block;
+    /* Ensure proper display */
+    box-sizing: border-box;
+    /* Include padding and border in width calculation */
+  }
+}
+
+/* Landscape mobile adjustments for budget analysis graphs */
+@media (max-width: 768px) and (orientation: landscape) {
+  .chart-grid-container {
+    grid-template-columns: 1fr;
+    /* Stack items vertically on small screens */
+    justify-items: center;
+    /* Center grid items */
+  }
+
+  .chart-grid-item {
+    padding: 15px;
+    height: 380px;
+    /* Set fixed height like SmartShuttle to allow proper chart sizing */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Center contents horizontally */
+    width: 100%;
+    /* Ensure full width usage */
+    margin: 0 auto;
+    /* Center the item itself */
+  }
+
+  /* Allow charts to fill available space like SmartShuttle */
+  .chart-container {
+    flex: 1;
+    /* Take remaining space */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    min-height: 200px;
+    /* Ensure there's enough space for the chart */
+  }
+
+  .chart-container canvas {
+    width: 100% !important;
+    /* Responsive width */
+    max-width: 100%;
+    height: 100% !important;
+    /* Override Chart.js height */
+    max-height: 250px;
+    /* Maximum height for charts */
+    margin: 0 auto;
+    /* Center the chart horizontally */
+    display: block;
+    /* Ensure proper display */
+    box-sizing: border-box;
+    /* Include padding and border in width calculation */
+  }
+}
+
+/* Move the problem statement section up by reducing the main content's bottom margin */
+main.main-content[style*="min-height: calc(100vh - 160px)"] {
+  margin-bottom: 0 !important;
+}
+
+/* Then use a negative top margin on the problem statement container */
+div[style*="max-width: 1150px"][style*="margin: 4rem auto"] {
+  margin-top: -4rem !important;
+}
+
+/* Fix positions of captions below the outline pages */
+div[style*="display: flex"][style*="justify-content: center"][style*="gap: 2rem"] .caption {
+  margin-top: 1.5rem !important;
+  text-align: center !important;
+  font-size: 1rem !important;
+  line-height: 1.4 !important;
+}
+
+/* More specific rule to override other caption styles for outline pages */
+div[style*="display: flex"][style*="justify-content: center"][style*="gap: 2rem"]>div>.caption {
+  margin-top: 0.5rem !important;
+}
+
+/* On desktop, add more space after the problem statement section */
+div[style*="max-width: 1150px"][style*="margin: 4rem auto"] {
+  margin-bottom: 10rem !important;
+}
+
+/* Convert the budgeting tool app images section to a two-column table-like layout with visible borders */
+div[style*="padding: 2rem"][style*="margin-top: 14rem"][style*="display: flex"][style*="justify-content: flex-end"] {
+  display: grid !important;
+  grid-template-columns: 1fr 2fr !important;
+  gap: 2rem !important;
+  max-width: 1200px !important;
+  margin: 6rem auto !important;
+  padding: 2rem !important;
+  border: 2px solid #ccc !important;
+  border-radius: 8px !important;
+  position: relative !important;
+}
+
+/* Add a small square in the top left corner of the table */
+div[style*="padding: 2rem"][style*="margin-top: 14rem"][style*="display: flex"][style*="justify-content: flex-end"]::after {
+  content: '';
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 120px !important;
+  height: 120px !important;
+  background-color: transparent !important;
+  /* No color inside */
+  opacity: 0.5 !important;
+  /* Make it translucent */
+  border-right: 2px solid #cccccc !important;
+  /* Match table border exactly */
+  border-bottom: 2px solid #cccccc !important;
+  /* Match table border exactly */
+  z-index: 3 !important;
+}
+
+/* Add a line from bottom right of the square to the middle of the container */
+div[style*="padding: 2rem"][style*="margin-top: 14rem"][style*="display: flex"][style*="justify-content: flex-end"]::before {
+  content: '';
+  position: absolute !important;
+  top: 120px !important;
+  left: 120px !important;
+  width: calc(50% - 120px) !important;
+  height: 2px !important;
+  background-color: #ccc !important;
+  z-index: 2 !important;
+}
+
+/* Add a horizontal line from the start of the container to the middle, in the bottom left area */
+div[style*="padding: 2rem"][style*="margin-top: 14rem"][style*="display: flex"][style*="justify-content: flex-end"] {
+  position: relative !important;
+}
+
+div[style*="padding: 2rem"][style*="margin-top: 14rem"][style*="display: flex"][style*="justify-content: flex-end"]>.horizontal-line-bottom {
+  position: absolute !important;
+  bottom: 225px !important;
+  /* Positioned between the bottom of container and bottom of the square */
+  left: 0 !important;
+  width: 50% !important;
+  height: 2px !important;
+  background-color: #ccc !important;
+  z-index: 2 !important;
+}
+
+/* Mobile view: Remove gray lines but keep competitor badge borders */
+@media (max-width: 768px) {
+  div[style*="padding: 2rem"][style*="margin-top: 14rem"][style*="display: flex"][style*="justify-content: flex-end"] {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    border: none !important;
+  }
+
+  div[style*="padding: 2rem"][style*="margin-top: 14rem"][style*="display: flex"][style*="justify-content: flex-end"]::after {
+    border-right: none !important;
+    border-bottom: none !important;
+  }
+
+  div[style*="padding: 2rem"][style*="margin-top: 14rem"][style*="display: flex"][style*="justify-content: flex-end"]::before {
+    display: none !important;
+  }
+
+  div[style*="padding: 2rem"][style*="margin-top: 14rem"][style*="display: flex"][style*="justify-content: flex-end"]>.horizontal-line-bottom {
+    display: none !important;
+  }
+
+  /* Hide the vertical line to the left of stacked images */
+  .other-images-wrapper::before {
+    display: none !important;
+  }
+
+  /* Keep the borders around the 3 competitor badges but remove top and left */
+  div[style*="position: absolute; top: 0; left: 0; width: 120px; height: 120px; display: flex; flex-direction: column; justify-content: center; align-items: center;"] {
+    border-right: 2px solid #cccccc !important;
+    border-bottom: 2px solid #cccccc !important;
+    border-radius: 8px !important;
+  }
+
+  /* Fix overflow of list text and reposition strengths/weaknesses titles */
+  div[style*="position: absolute; top: 140px; left: 20px; width: 120px; text-align: center;"] {
+    position: static !important;
+    width: 100% !important;
+    text-align: left !important;
+    margin-top: 1rem !important;
+  }
+
+  div[style*="position: absolute; top: 145px; left: 160px; width: 400px; font-size: 1rem;"] {
+    position: static !important;
+    width: 100% !important;
+    margin-left: 0 !important;
+    padding-left: 1rem !important;
+  }
+
+  div[style*="position: absolute; top: 400px; left: 20px; width: 120px; text-align: center;"] {
+    position: static !important;
+    width: 100% !important;
+    text-align: left !important;
+    margin-top: 2rem !important;
+  }
+
+  div[style*="position: absolute; top: 405px; left: 160px; width: 400px; font-size: 1rem;"] {
+    position: static !important;
+    width: 100% !important;
+    margin-left: 0 !important;
+    padding-left: 1rem !important;
+  }
+}
+
+
+/* Place the images container in the second column */
+.budgeting-images-container {
+  grid-column: 2 !important;
+  display: flex !important;
+  align-items: flex-start !important;
+  gap: 0.5rem !important;
+  width: 100% !important;
+  position: relative !important;
+  z-index: 2 !important;
+}
+
+/* Add a vertical line to the left of the stacked images */
+.other-images-wrapper::before {
+  content: '';
+  position: absolute !important;
+  left: 50% !important;
+  /* Position to the left of the stacked images */
+  top: 0 !important;
+  bottom: 0 !important;
+  width: 2px !important;
+  background-color: #ccc !important;
+  z-index: 1 !important;
+}
+
+/* Position the other images wrapper in the second column */
+.other-images-wrapper {
+  width: 80% !important;
+  margin-right: auto !important;
+  margin-left: 180% !important;
+  /* Move as far right as possible */
+  margin-top: 2rem !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  gap: 0.5rem !important;
+}
+
+/* Position the iGrad image wrapper in the second column to the right of the stacked images */
+.igrad-image-wrapper {
+  width: 15% !important;
+  margin: 0 0 2rem !important;
+  position: relative !important;
+  top: 20px !important;
+  /* Move it down */
+  left: 85% !important;
+  /* Position it to the right of the stacked images */
+}
+
+/* Make all caption styles consistent except for iGrad */
+.moneyhelper-image-wrapper .caption,
+.voya-image-wrapper .caption,
+div[style*="display: flex"][style*="justify-content: center"][style*="gap: 2rem"] .caption {
+  margin-top: -0.5rem !important;
+  text-align: center !important;
+  font-size: 1rem !important;
+  line-height: 1.4 !important;
+}
+
+/* On mobile only, move the problem statement section down */
+@media screen and (max-width: 768px) {
+  div[style*="max-width: 1150px"][style*="margin: 4rem auto"] {
+    margin-top: 2rem !important;
+    position: static !important;
+    top: auto !important;
+  }
+
+  /* Also adjust the main content margin on mobile */
+  main.main-content[style*="min-height: calc(100vh - 160px)"] {
+    margin-bottom: 2rem !important;
+  }
+
+  /* On mobile, revert to flex layout for budgeting tool images */
+  div[style*="padding: 2rem"][style*="margin-top: 14rem"][style*="display: flex"][style*="justify-content: flex-end"] {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    border: none !important;
+  }
+
+  .other-images-wrapper {
+    width: 100% !important;
+    margin-left: 0 !important;
+  }
+
+  .igrad-image-wrapper {
+    width: 100% !important;
+    margin: 0 auto !important;
+    position: static !important;
+    left: auto !important;
+  }
+}
+
+/* Ensure text in competitor grid remains readable in dark mode */
+[data-theme="dark"] .main-content[style*="background: #eaeaea"] h2,
+[data-theme="dark"] .main-content[style*="background: #eaeaea"] .section-title,
+[data-theme="dark"] .main-content[style*="background: #eaeaea"] p {
+  color: #000 !important;
+  /* Force dark text on light background */
+}
+
+/* Desktop: Prevent list overflow in competitor grid */
+@media (min-width: 769px) {
+
+  div[style*="position: absolute; top: 145px; left: 160px; width: 400px; font-size: 1rem;"],
+  div[style*="position: absolute; top: 405px; left: 160px; width: 400px; font-size: 1rem;"] {
+    width: calc(50% - 200px) !important;
+    /* Ensure content ends before the middle line */
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+    max-width: calc(100% - 160px) !important;
+    /* Ensure text doesn't overflow outside the grid */
+    overflow: hidden;
+  }
+}
+
+/* Handle intermediate screen sizes to prevent overflow issues */
+@media (min-width: 769px) and (max-width: 1200px) {
+  div[style*="position: absolute; top: 145px; left: 160px; width: 400px; font-size: 1rem;"] {
+    width: calc(50% - 250px) !important;
+    /* Extra constraint for intermediate sizes */
+    font-size: 0.9rem !important;
+    /* Slightly smaller text for intermediate sizes */
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+    max-height: 200px;
+    /* Increase height to allow more text */
+    overflow-y: auto;
+    /* Make scrollable if content exceeds height */
+  }
+
+  div[style*="position: absolute; top: 405px; left: 160px; width: 400px; font-size: 1rem;"] {
+    width: calc(50% - 250px) !important;
+    /* Extra constraint for intermediate sizes */
+    font-size: 0.9rem !important;
+    /* Slightly smaller text for intermediate sizes */
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+    max-height: 200px;
+    /* Increase height to allow more text */
+    overflow-y: auto;
+    /* Make scrollable if content exceeds height */
+  }
+
+  /* Ensure the main container properly contains all content */
+  div[style*="background: #eaeaea"][style*="padding: 2rem; margin-top: 14rem;"] {
+    overflow: hidden;
+    position: relative;
+  }
+
+  /* Shrink logos to prevent overflow of center gray vertical line */
+  div[style*="position: absolute; top: 0; left: 140px; display: flex; gap: 2rem; align-items: center; height: 120px;"] img {
+    height: 30px !important;
+    /* Even smaller height for intermediate screens */
+    width: auto !important;
+  }
+}
+
+/* For wider desktop screens - larger logos */
+@media (min-width: 1201px) {
+  div[style*="position: absolute; top: 0; left: 140px; display: flex; gap: 2rem; align-items: center; height: 120px;"] img {
+    height: 50px !important;
+    /* Reduced size to prevent overflow */
+    width: auto !important;
+  }
+}
+
+/* For medium desktop screens */
+@media (min-width: 901px) and (max-width: 1200px) {
+  div[style*="position: absolute; top: 0; left: 140px; display: flex; gap: 2rem; align-items: center; height: 120px;"] img {
+    height: 40px !important;
+    /* Reduced size to prevent overflow */
+    width: auto !important;
+  }
+}
+
+/* For screens just above mobile - smallest logos */
+@media (min-width: 769px) and (max-width: 900px) {
+  div[style*="position: absolute; top: 0; left: 140px; display: flex; gap: 2rem; align-items: center; height: 120px;"] img {
+    height: 25px !important;
+    /* Further reduced size to prevent overflow */
+    width: auto !important;
+  }
+}
+
+/* Mobile-specific fixes for the gray grid */
+@media (max-width: 768px) {
+
+  /* Fix overflow of list text in the gray grid */
+  div[style*="background: #eaeaea"][style*="padding: 2rem"] p {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+    max-width: 100%;
+    padding-right: 1rem;
+  }
+
+  /* Position strengths and weaknesses titles properly in mobile view */
+  div[style*="position: absolute; top: 140px; left: 20px; width: 120px; text-align: center;"] {
+    position: static !important;
+    width: 100% !important;
+    text-align: left !important;
+    margin-top: 1rem !important;
+    margin-left: 0 !important;
+  }
+
+  div[style*="position: absolute; top: 145px; left: 160px; width: 400px; font-size: 1rem;"] {
+    position: static !important;
+    width: 100% !important;
+    margin-left: 0 !important;
+    padding-left: 1rem !important;
+    margin-top: 0.5rem !important;
+  }
+
+  div[style*="position: absolute; top: 400px; left: 20px; width: 120px; text-align: center;"] {
+    position: static !important;
+    width: 100% !important;
+    text-align: left !important;
+    margin-top: 2rem !important;
+    margin-left: 0 !important;
+  }
+
+  div[style*="position: absolute; top: 405px; left: 160px; width: 400px; font-size: 1rem;"] {
+    position: static !important;
+    width: 100% !important;
+    margin-left: 0 !important;
+    padding-left: 1rem !important;
+    margin-top: 0.5rem !important;
+  }
+
+  /* Change the order of elements in mobile view:
+     1. Competitor badges (keep as is)
+     2. Strengths section
+     3. Weaknesses section
+     4. Images (move to after weaknesses)
+  */
+  div[style*="background: #eaeaea"][style*="padding: 2rem; margin-top: 14rem;"] {
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
+  /* Center the logo container in mobile layout */
+  div[style*="position: absolute; top: 0; left: 140px; display: flex; gap: 2rem; align-items: center; height: 120px;"] {
+    justify-content: center !important;
+    width: 100% !important;
+    margin-left: 0 !important;
+    left: 0 !important;
+  }
+
+  /* Competitor badges container */
+  div[style*="position: absolute; top: 0; left: 0; width: 120px; height: 120px;"] {
+    order: 1;
+  }
+
+  /* Competitor logos container */
+  div[style*="position: absolute; top: 0; left: 140px; display: flex; gap: 2rem; align-items: center; height: 120px;"] {
+    order: 2;
+    align-self: flex-start;
+    margin-top: 8rem !important;
+    flex-direction: row !important;
+    justify-content: center !important;
+    width: 100% !important;
+  }
+
+  /* Slightly shrink the logo images */
+  div[style*="position: absolute; top: 0; left: 140px; display: flex; gap: 2rem; align-items: center; height: 120px;"] img {
+    height: 45px !important;
+    width: auto !important;
+  }
+
+
+  /* Strengths title */
+  div[style*="position: absolute; top: 140px; left: 20px; width: 120px; text-align: center;"] {
+    order: 3;
+    margin-top: 15rem !important;
+  }
+
+  /* Strengths content */
+  div[style*="position: absolute; top: 145px; left: 160px; width: 400px; font-size: 1rem;"] {
+    order: 4;
+    margin-top: 0.5rem !important;
+    position: relative;
+    padding-top: 2rem;
+  }
+
+
+  /* Weaknesses title */
+  div[style*="position: absolute; top: 400px; left: 20px; width: 120px; text-align: center;"] {
+    order: 5;
+  }
+
+  /* Weaknesses content */
+  div[style*="position: absolute; top: 405px; left: 160px; width: 400px; font-size: 1rem;"] {
+    order: 6;
+    position: relative;
+    padding-top: 1.5rem;
+  }
+
+
+  /* Images wrapper (move to after weaknesses) */
+  .other-images-wrapper {
+    order: 7;
+    margin-top: 1rem;
+  }
+
+  /* iGrad image wrapper */
+  .igrad-image-wrapper {
+    order: 8;
+    margin-top: 1rem;
+  }
+
+  /* iGrad caption */
+  .igrad-image-wrapper .caption {
+    margin-top: 0.5rem !important;
+  }
+
+  /* Horizontal line (hide it since we're reordering) */
+  .horizontal-line-bottom {
+    display: none;
+  }
+
+  /* Add a horizontal line after strengths section */
+  div[style*="position: absolute; top: 145px; left: 160px; width: 400px; font-size: 1rem;"] {
+    position: relative;
+  }
+
+  /* Add back the fixed-position gray lines for mobile layout only */
+  /* Add a horizontal line after strengths section - hidden by default */
+  div[style*="position: absolute; top: 145px; left: 160px; width: 400px; font-size: 1rem;"]::after {
+    content: '';
+    position: absolute;
+    top: 41rem;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: #ccc;
+    display: none;
+    /* Hidden by default */
+  }
+
+  /* Add a horizontal line after weaknesses section */
+  div[style*="position: absolute; top: 405px; left: 160px; width: 400px; font-size: 1rem;"] {
+    position: relative;
+  }
+
+  /* Add a horizontal line after weaknesses section - hidden by default */
+  div[style*="position: absolute; top: 405px; left: 160px; width: 400px; font-size: 1rem;"]::after {
+    content: '';
+    position: absolute;
+    top: 66rem;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: #ccc;
+    display: none;
+    /* Hidden by default */
+  }
+
+  /* Add a horizontal line above images section */
+  .other-images-wrapper {
+    position: relative;
+  }
+
+  /* Add a horizontal line above images section - hidden by default */
+  .other-images-wrapper::before {
+    content: '';
+    position: absolute;
+    top: -1rem;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: #ccc;
+    display: none;
+    /* Hidden by default */
+  }
+}
+
+/* Media query for exactly 393px width - show gray lines only at this size */
+@media screen and (max-width: 393px) {
+
+  /* Show the horizontal line after strengths section */
+  div[style*="position: absolute; top: 145px; left: 160px; width: 400px; font-size: 1rem;"]::after {
+    display: block;
+    /* Show the line */
+  }
+
+  /* Show the horizontal line after weaknesses section */
+  div[style*="position: absolute; top: 405px; left: 160px; width: 400px; font-size: 1rem;"]::after {
+    display: block;
+    /* Show the line */
+  }
+
+  /* Show the horizontal line above images section */
+  .other-images-wrapper::before {
+    display: block;
+    /* Show the line */
+  }
+}
+
+/* Mobile responsiveness for video containers and text alignment */
+@media screen and (max-width: 768px) {
+
+  /* Make video containers stretch full width */
+  .video-container {
+    width: calc(100% - 4rem) !important;
+    max-width: calc(100% - 4rem) !important;
+    min-height: 300px !important;
+  }
+
+  /* Align text to the left */
+  .section-subtitle,
+  .subtitle-description {
+    text-align: left !important;
+    margin-left: 0 !important;
+    max-width: 100% !important;
+  }
+
+  /* Adjust the flex container for mobile */
+  div[style*="display: flex; flex-direction: column; align-items: flex-start; gap: 2rem; padding: 0 2rem;"] {
+    padding: 0 1rem !important;
+  }
+
+  /* Align the core features section to the left like user interviews */
+  div[style*="margin: 0 auto; width: 100%; max-width: 1200px; margin-top: 8rem;"]>div[style*="padding: 0 2rem;"] {
+    padding: 0 !important;
+  }
+
+  /* Add padding below the main heading and regular text */
+  div[style*="margin: 0 auto; width: 100%; max-width: 1200px; margin-top: 8rem;"]>div[style*="padding: 0 2rem;"]>h1.section-title {
+    margin-bottom: 1rem !important;
+  }
+
+  div[style*="margin: 0 auto; width: 100%; max-width: 1200px; margin-top: 8rem;"]>div[style*="padding: 0 2rem;"]>p {
+    margin-bottom: 2.5rem !important;
+  }
+
+  /* Make video containers full width on mobile */
+  .video-container {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 1.5rem !important;
+  }
+
+  /* Add more spacing and proper alignment for subsections */
+  .section-subtitle {
+    margin: 0.5rem 0 -1rem 0 !important;
+    text-align: left !important;
+    padding-left: 0 !important;
+    margin-left: 0 !important;
+    align-self: flex-start !important;
+  }
+
+  .subtitle-description {
+    margin: 0.5rem 0 2rem 0 !important;
+    text-align: left !important;
+    padding-left: 0 !important;
+    margin-left: 0 !important;
+    align-self: flex-start !important;
+  }
+
+  /* Reduce gap between header and banner on mobile */
+  #header-placeholder {
+    margin-bottom: 0rem !important;
+  }
+
+  /* Add top padding to banner container */
+  div[style*="width: 100%; margin: 0; overflow: hidden; padding: 0;"] {
+    padding-top: 31px !important;
+    /* Add small top padding */
+  }
+}
+
+/* Landscape mobile adjustments */
+@media screen and (max-width: 768px) and (orientation: landscape) {
+
+  /* Ensure banner is fully visible in landscape */
+  div[style*="width: 100%; margin: 0; overflow: hidden; padding: 0;"] img[alt="Financier Banner"] {
+    height: 400px !important;
+    /* Increase height for landscape */
+    object-fit: cover !important;
+    object-position: center top !important;
+  }
+
+  /* Add top padding to banner container in landscape */
+  div[style*="width: 100%; margin: 0; overflow: hidden; padding: 0;"] {
+    padding-top: 5px !important;
+  }
+
+  /* Ensure main content doesn't overlap with banner in landscape */
+  main.main-content {
+    margin-top: 0 !important;
+  }
+
+  /* Ensure content below banner is properly spaced in landscape */
+  .main-content.center-flex[style*="gap: 2rem;"] {
+    margin-top: 1rem !important;
   }
 }
