@@ -1,6 +1,5 @@
 :root {
-  /* Landscape-only adjustable offsets for Design Process cards */
-  --dp-landing-top-landscape: 0px;
+  --dp-landing-top-landscape: 0;
   --dp-goals-top-landscape: 33px;
   --dp-transactions-top-landscape: 66px;
   --dp-analytics-top-landscape: 99px;
@@ -8,7 +7,6 @@
   --dp-tips-top-landscape: 165px;
 }
 
-/* Prevent horizontal overflow */
 body {
   overflow-x: hidden;
   box-sizing: border-box;
@@ -19,26 +17,847 @@ body {
   overflow-x: hidden;
 }
 
-/* Dark mode text color for Design Process cards */
-[data-theme="dark"] .dp-landing>div,
-[data-theme="dark"] .dp-goals>div,
-[data-theme="dark"] .dp-transactions>div,
-[data-theme="dark"] .dp-analytics>div,
-[data-theme="dark"] .dp-calculator>div,
-[data-theme="dark"] .dp-tips>div {
-  color: #000 !important;
+.banner-container {
+  width: 100%;
+  margin: 0;
+  overflow: hidden;
+  padding: 0;
 }
 
-[data-theme="dark"] .dp-landing>div>p,
-[data-theme="dark"] .dp-goals>div>p,
-[data-theme="dark"] .dp-transactions>div>p,
-[data-theme="dark"] .dp-analytics>div>p,
-[data-theme="dark"] .dp-calculator>div>p,
-[data-theme="dark"] .dp-tips>div>p {
-  color: #000 !important;
+.banner-image {
+  width: 100%;
+  height: 600px;
+  object-fit: cover;
+  display: block;
+  margin: 0;
+  padding: 0;
 }
 
-/* Magnate link styles */
+.project-intro-section {
+  gap: 2rem;
+  padding: 2rem;
+  min-height: calc(100vh - 160px);
+  margin-top: 0;
+}
+
+.project-description {
+  max-width: 60%;
+}
+
+.project-overview {
+  font-size: 1.15rem;
+}
+
+.info-meta {
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.info-meta p {
+  margin: 0.5rem 0;
+}
+
+.problem-statement-section {
+  max-width: 1150px;
+  margin: -14rem auto 12rem;
+  padding: 0 2rem;
+  position: relative;
+}
+
+.problem-statement-content {
+  background: #ffffff;
+  padding: 2rem;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  margin-top: 1rem;
+  border: 4px solid #4f84ef;
+}
+
+.problem-statement-text {
+  font-size: 1.15rem;
+  text-align: center;
+}
+
+.role-responsibilities-section {
+  gap: 6rem;
+  padding: 2rem;
+  margin-top: 4rem;
+  margin-bottom: 0;
+}
+
+.role-section {
+  max-width: 60%;
+}
+
+.responsibilities-content {
+  font-size: 1.15rem;
+  margin-top: -2rem;
+}
+
+.outline-images-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 2rem;
+  margin: 3rem auto;
+  max-width: 1200px;
+}
+
+.outline-image-item {
+  width: 33%;
+}
+
+.outline-image-item .image-link {
+  width: 100% !important;
+  height: auto;
+}
+
+.market-research-section {
+  position: relative;
+  margin-top: 7rem;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.research-header {
+  margin-bottom: -14rem;
+  position: relative;
+  z-index: 2;
+}
+
+.research-header .section-title {
+  text-align: left;
+}
+
+.research-intro {
+  font-size: 1.15rem;
+  margin: 1rem 0 6rem;
+  max-width: 100%;
+}
+
+.competitor-analysis-container {
+  background: #eaeaea;
+  padding: 2rem;
+  padding-bottom: 4rem;
+  margin-top: 15rem;
+  display: flex;
+  justify-content: flex-end;
+  gap: 2rem;
+  border-radius: 8px;
+  position: relative;
+  z-index: 1;
+}
+
+.competitor-count-box {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 120px;
+  height: 120px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.competitor-count {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin: 0;
+  color: black !important;
+}
+
+.competitor-label {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0;
+  color: black !important;
+}
+
+.competitor-logos-container {
+  position: absolute;
+  top: 0;
+  left: 175px;
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  height: 120px;
+}
+
+.competitor-logo-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.competitor-logo-item img {
+  height: 60px;
+  width: auto;
+}
+
+.competitor-screenshots {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 35%;
+  margin-right: auto;
+  margin-left: 50%;
+  margin-top: 1rem;
+  position: relative;
+  z-index: 2;
+}
+
+.moneyhelper-screenshot,
+.voya-screenshot {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.moneyhelper-screenshot .image-link,
+.voya-screenshot .image-link {
+  display: block;
+}
+
+.moneyhelper-screenshot img,
+.voya-screenshot img {
+  width: 100%;
+  height: 200px;
+  object-fit: contain;
+}
+
+.moneyhelper-screenshot .caption,
+.voya-screenshot .caption {
+  margin-top: 0.5rem;
+  text-align: center;
+}
+
+.igrad-screenshot {
+  position: absolute;
+  top: 50%;
+  right: -7rem;
+  width: 24%;
+  transform: translateY(-50%);
+}
+
+.igrad-screenshot .image-link {
+  display: block;
+}
+
+.igrad-screenshot img {
+  width: 100%;
+  height: 500px;
+  object-fit: contain;
+}
+
+.igrad-screenshot .caption {
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  text-align: center;
+  padding: 0 0.5rem;
+  margin-left: -10rem;
+}
+
+.strengths-section,
+.weaknesses-section {
+  position: absolute;
+  width: 120px;
+  text-align: center;
+}
+
+.strengths-section {
+  top: 140px;
+  left: 20px;
+}
+
+.weaknesses-section {
+  top: 385px;
+  left: 20px;
+}
+
+.strengths-section .section-title,
+.weaknesses-section .section-title {
+  font-size: 1.2rem;
+}
+
+.strengths-list,
+.weaknesses-list {
+  position: absolute;
+  left: 160px;
+  width: 400px;
+  font-size: 1rem;
+}
+
+.horizontal-line-bottom {
+  position: absolute;
+  top: 365px;
+  left: 0;
+  width: 50%;
+  height: 2px;
+  background-color: #ccc;
+  z-index: 2;
+}
+
+.strengths-list {
+  top: 140px;
+}
+
+.weaknesses-list {
+  top: 385px;
+}
+
+.user-interviews-section {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1200px;
+  margin-top: 8rem;
+}
+
+.interviews-content {
+  background: #ffffff;
+  padding: 2rem;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  margin: 1rem auto 2rem;
+  max-width: 1200px;
+}
+
+.research-plan-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 5rem;
+  padding: 2rem;
+  margin-top: 4rem;
+  position: relative;
+}
+
+.research-plan-column {
+  max-width: 60%;
+}
+
+.research-plan-section {
+  position: relative;
+  padding-bottom: 2rem;
+  margin-bottom: 2rem;
+}
+
+.research-plan-section ul,
+.research-plan-section ol {
+  font-size: 1.15rem;
+  line-height: 1.8;
+}
+
+.participant-focus {
+  font-size: 1.15rem;
+  margin-top: 1rem;
+}
+
+.interview-questions-section {
+  position: relative;
+  padding-left: 2rem;
+  font-size: 1.15rem;
+}
+
+.interview-questions-section::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background-color: #e0e0e0;
+}
+
+.interview-questions-section ol,
+.interview-questions-section ul {
+  line-height: 1.8;
+}
+
+.interview-questions-section p {
+  margin-top: 1rem;
+}
+
+.research-plan-container>div:first-child>.research-plan-section:first-child::after {
+  content: '';
+  position: absolute;
+  bottom: 0.5rem;
+  left: 0;
+  right: 1px;
+  height: 1px;
+  background-color: #e0e0e0;
+}
+
+.budgeting-analysis-section {
+  padding: 2rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.analysis-content {
+  max-width: 100%;
+}
+
+.analysis-content .section-title {
+  text-align: center;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+.analysis-subtitle {
+  text-align: center;
+  margin: 1rem 0 2rem;
+  font-size: 1.15rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+.chart-grid-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.chart-grid-item {
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  height: 350px;
+}
+
+.chart-grid-item h3 {
+  color: #333;
+  margin-top: 0;
+  margin-bottom: 15px;
+  border-bottom: 2px solid #3b86f7;
+  padding-bottom: 10px;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.chart-container {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  min-height: 200px;
+}
+
+.chart-container canvas {
+  width: 100% !important;
+  max-width: 100%;
+  height: 100% !important;
+  max-height: 250px;
+  margin: 0 auto;
+  display: block;
+  box-sizing: border-box;
+}
+
+.key-findings-section {
+  margin: 4rem auto;
+  max-width: 1200px;
+  position: relative;
+}
+
+.findings-content {
+  background: #ffffff;
+  padding: 2rem;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  border: 4px solid #4f84ef;
+}
+
+.findings-content ul {
+  font-size: 1.15rem;
+  line-height: 1.8;
+  padding-left: 1.2rem;
+  max-width: 100%;
+}
+
+.research-caption {
+  margin-top: 0.5rem !important;
+}
+
+.core-features-section {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1200px;
+  margin-top: 8rem;
+}
+
+.features-header {
+  padding: 0 2rem;
+}
+
+.features-header .section-title {
+  text-align: left;
+  margin-left: 0;
+}
+
+.features-subtitle {
+  text-align: left;
+  margin: 1rem 0 1rem;
+  font-size: 1.15rem;
+  margin-left: 0;
+}
+
+.features-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2rem;
+  padding: 0 2rem;
+}
+
+.video-container {
+  background: #eaeaea;
+  padding: 2rem;
+  border-radius: 8px;
+  width: calc(1200px - 4rem);
+  max-width: calc(1200px - 4rem);
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: visible;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.feature-video {
+  width: 800px;
+  height: auto;
+  max-width: 100%;
+  display: block;
+}
+
+.section-subtitle {
+  text-align: left;
+  margin: -1rem 0 0 0;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.subtitle-description {
+  text-align: left;
+  margin: -2rem 0 2rem 0;
+  font-size: 1rem;
+  font-weight: 400;
+  max-width: calc(1200px - 4rem);
+}
+
+.final-design-title {
+  text-align: center;
+  margin: 6rem auto 2rem;
+  max-width: 1200px;
+}
+
+.final-design-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 2rem;
+  margin: 4rem auto 0;
+  max-width: 1200px;
+  position: relative;
+}
+
+.design-panels-column {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 3;
+}
+
+.dp-landing,
+.dp-goals,
+.dp-transactions,
+.dp-analytics,
+.dp-calculator,
+.dp-tips {
+  position: relative;
+  width: 100%;
+  z-index: 2;
+}
+
+.dp-landing {
+  top: 0;
+}
+
+.dp-goals {
+  top: 66px;
+}
+
+.dp-transactions {
+  top: 429px;
+}
+
+.dp-analytics {
+  top: 1154px;
+}
+
+.dp-calculator {
+  top: 1251px;
+}
+
+.dp-tips {
+  top: 1292px;
+}
+
+.panel-label {
+  background: #fff;
+  border-radius: 8px;
+  padding: 1rem 1.5rem;
+  margin-bottom: 0;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  text-align: center;
+}
+
+.panel-description {
+  font-size: 1rem;
+  text-align: center;
+  margin: 1rem 0;
+}
+
+.mockup-column {
+  width: 60%;
+  position: relative;
+  z-index: 1;
+}
+
+.mockup-container {
+  margin-bottom: 2rem;
+}
+
+.mockup-container .image-link {
+  width: 100% !important;
+}
+
+.mockup-container img {
+  height: auto;
+}
+
+.mockup-caption {
+  margin-top: 0 !important;
+}
+
+.figma-prototype-section {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1200px;
+  margin-top: 14rem;
+}
+
+.figma-prototype-section .section-title {
+  text-align: left;
+}
+
+.figma-embed-container {
+  margin-top: 1rem;
+  width: 100%;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.figma-embed-container iframe {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  width: 100%;
+  height: 600px;
+}
+
+.prototype-description {
+  background: #ffffff;
+  padding: 2rem;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1135px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
+  border-radius: 8px;
+}
+
+.prototype-description p {
+  font-size: 1.15rem;
+  line-height: 1.8;
+  margin: 0;
+}
+
+.live-website-section {
+  margin: 8rem auto 0;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.live-website-section .section-title {
+  text-align: left;
+  margin-bottom: 1rem;
+}
+
+.screenshot-img {
+  width: 100%;
+  height: auto;
+}
+
+.outcomes-section {
+  margin-top: 0;
+}
+
+.outcomes-content {
+  background: #ffffff;
+  padding: 2rem;
+  margin: 0 auto 0;
+  width: 100%;
+  max-width: 1135px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
+  border-radius: 8px;
+}
+
+.outcomes-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-top: 0;
+}
+
+.outcomes-content ul {
+  font-size: 1.15rem;
+  line-height: 1.8;
+}
+
+.reflection-card {
+  background: #ffffff;
+  padding: 2rem;
+  margin: 4rem auto 0;
+  width: 100%;
+  max-width: 1135px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
+  border-radius: 8px;
+  box-sizing: border-box;
+  border: 4px solid #4f84ef;
+}
+
+.reflection-content {
+  margin-top: 0;
+}
+
+.reflection-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-top: 0;
+}
+
+.reflection-content p {
+  font-size: 1.15rem;
+  line-height: 1.8;
+}
+
+.reflection-content p:first-of-type {
+  margin-top: 0;
+}
+
+.reflection-content p+p {
+  margin-top: 1rem;
+}
+
+.lottie-animation-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 4rem auto;
+}
+
+.magnate-section {
+  text-align: center;
+  padding-bottom: 0;
+  position: relative;
+}
+
+.neon-border-card {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: #ffffff;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
+  padding: 2rem;
+  max-width: 800px;
+  margin: 0 auto 8rem;
+  display: inline-block;
+  text-align: center;
+  z-index: 0;
+}
+
+.neon-border-card::before {
+  content: "";
+  position: absolute;
+  background-image: conic-gradient(transparent 0deg,
+      transparent 70deg,
+      #4f84ef 70deg,
+      #4f84ef 80deg,
+      rgba(79, 132, 239, 0.8) 85deg,
+      rgba(79, 132, 239, 0.6) 90deg,
+      rgba(79, 132, 239, 0.4) 95deg,
+      rgba(79, 132, 239, 0.2) 100deg,
+      transparent 105deg,
+      transparent 360deg);
+  height: 150%;
+  width: 150%;
+  left: -25%;
+  top: -25%;
+  animation: rotate 4s infinite linear;
+  z-index: 1;
+  filter: drop-shadow(0 0 4px rgba(79, 132, 239, 0.5));
+}
+
+.neon-border-card::after {
+  content: "";
+  position: absolute;
+  height: calc(100% - 8px);
+  width: calc(100% - 8px);
+  top: 4px;
+  left: 4px;
+  background-color: #ffffff;
+  border-radius: calc(8px - 2px);
+  z-index: 2;
+}
+
+.neon-border-card>* {
+  position: relative;
+  z-index: 3;
+}
+
+.magnate-title {
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.magnate-description {
+  font-size: 1.15rem;
+  line-height: 1.8;
+  text-align: left;
+}
+
+.magnate-link-container {
+  font-size: 1.15rem;
+  line-height: 1.8;
+  text-align: center;
+  margin-top: 1rem;
+}
+
 #magnate-link {
   color: #1143b0;
   text-decoration: none;
@@ -58,100 +877,16 @@ body {
   transition: color 0.1s ease;
 }
 
-/* Footer copyright text sizing to match index */
+.caption {
+  margin-top: 0;
+}
+
+main.main-content.project-intro-section {
+  margin-bottom: 0 !important;
+}
+
 .site-footer p {
   font-size: 0.875rem !important;
-}
-
-/* Neon animated border for Magnate card */
-div[class*="neon-border-card"] {
-  position: relative;
-  border-radius: 8px;
-  overflow: hidden;
-  /* This is critical for the animation */
-  background-color: #ffffff;
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
-  padding: 2rem;
-  max-width: 800px;
-  margin: 8rem auto 8rem;
-  display: inline-block;
-  text-align: center;
-  z-index: 0;
-  /* Establish stacking context */
-}
-
-div[class*="neon-border-card"]::before {
-  content: "";
-  position: absolute;
-  background-image: conic-gradient(transparent 0deg,
-      transparent 70deg,
-      #4f84ef 70deg,
-      #4f84ef 80deg,
-      rgba(79, 132, 239, 0.8) 85deg,
-      rgba(79, 132, 239, 0.6) 90deg,
-      rgba(79, 132, 239, 0.4) 95deg,
-      rgba(79, 132, 239, 0.2) 100deg,
-      transparent 105deg,
-      transparent 360deg);
-  height: 150%;
-  width: 150%;
-  left: -25%;
-  top: -25%;
-  animation: rotate 4s infinite linear;
-  z-index: 1;
-  /* Place behind the content */
-  /* Add a slight glow effect */
-  filter: drop-shadow(0 0 4px rgba(79, 132, 239, 0.5));
-}
-
-div[class*="neon-border-card"]::after {
-  content: "";
-  position: absolute;
-  height: calc(100% - 8px);
-  /* Slightly smaller to reveal the border */
-  width: calc(100% - 8px);
-  top: 4px;
-  left: 4px;
-  background-color: #ffffff;
-  /* Match the card's background */
-  border-radius: calc(8px - 2px);
-  /* Slightly smaller radius */
-  z-index: 2;
-  /* Place above the animated border but below the content */
-}
-
-/* Ensure content stays on top */
-div[class*="neon-border-card"]>* {
-  position: relative;
-  z-index: 3;
-  /* Place content above the ::after pseudo-element */
-}
-
-/* Reflection section as a separate card */
-.reflection-card {
-  background: #ffffff;
-  padding: 2rem;
-  margin: 4rem auto 0;
-  width: 100%;
-  max-width: 1135px;
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
-  border-radius: 8px;
-  box-sizing: border-box;
-  border: 4px solid #4f84ef;
-  /* Blue border to match other blue elements */
-}
-
-/* Double the border thickness for problem statement and key interview findings */
-div[style*="background: #ffffff"][style*="padding: 2rem"][style*="border: 2px solid #4f84ef"] {
-  border: 4px solid #4f84ef !important;
-}
-
-/* Dark mode adjustment for reflection card */
-[data-theme="dark"] .reflection-card {
-  background-color: white;
-  color: black;
-  border-color: #4f84ef;
-  /* Ensure blue border shows in dark mode too */
 }
 
 @keyframes rotate {
@@ -164,152 +899,98 @@ div[style*="background: #ffffff"][style*="padding: 2rem"][style*="border: 2px so
   }
 }
 
-
-/* Grid container for charts */
-.chart-grid-container {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  /* 2 columns */
-  gap: 20px;
-  /* Space between items */
-  margin-top: 20px;
+[data-theme="dark"] .dp-landing>div[style*="background: #fff"],
+[data-theme="dark"] .dp-goals>div[style*="background: #fff"],
+[data-theme="dark"] .dp-transactions>div[style*="background: #fff"],
+[data-theme="dark"] .dp-analytics>div[style*="background: #fff"],
+[data-theme="dark"] .dp-calculator>div[style*="background: #fff"],
+[data-theme="dark"] .dp-tips>div[style*="background: #fff"] {
+  background-color: #ffffff !important;
+  color: #000 !important;
 }
 
-.chart-grid-item {
-  background-color: #f9f9f9;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  padding: 20px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  display: flex;
-  flex-direction: column;
-  height: 350px;
-  /* Fixed height for all grid items to maintain consistency */
+[data-theme="dark"] .problem-statement-content,
+[data-theme="dark"] .problem-statement-content p,
+[data-theme="dark"] .problem-statement-content .problem-statement-text {
+  color: #000 !important;
 }
 
-/* Dark mode styles for charts */
+[data-theme="dark"] .competitor-analysis-container,
+[data-theme="dark"] .competitor-analysis-container p,
+[data-theme="dark"] .competitor-analysis-container h2,
+[data-theme="dark"] .competitor-analysis-container .section-title {
+  color: #000 !important;
+}
+
+[data-theme="dark"] .interviews-content,
+[data-theme="dark"] .interviews-content p,
+[data-theme="dark"] .interviews-content h1,
+[data-theme="dark"] .interviews-content h2,
+[data-theme="dark"] .interviews-content li {
+  color: #000 !important;
+}
+
+[data-theme="dark"] .findings-content,
+[data-theme="dark"] .findings-content p,
+[data-theme="dark"] .findings-content h1,
+[data-theme="dark"] .findings-content h2,
+[data-theme="dark"] .findings-content li {
+  color: #000 !important;
+}
+
+[data-theme="dark"] .dp-landing .panel-label,
+[data-theme="dark"] .dp-goals .panel-label,
+[data-theme="dark"] .dp-transactions .panel-label,
+[data-theme="dark"] .dp-analytics .panel-label,
+[data-theme="dark"] .dp-calculator .panel-label,
+[data-theme="dark"] .dp-tips .panel-label {
+  color: #000 !important;
+}
+
+[data-theme="dark"] .prototype-description,
+[data-theme="dark"] .prototype-description p {
+  color: #000 !important;
+}
+
+[data-theme="dark"] .outcomes-content,
+[data-theme="dark"] .outcomes-content p,
+[data-theme="dark"] .outcomes-content h2,
+[data-theme="dark"] .outcomes-content li {
+  color: #000 !important;
+}
+
+[data-theme="dark"] .neon-border-card,
+[data-theme="dark"] .neon-border-card p,
+[data-theme="dark"] .neon-border-card h2 {
+  color: #000 !important;
+}
+
 [data-theme="dark"] .chart-grid-item {
   background-color: #2d2d2d;
-  /* Dark background */
   border: 1px solid #555;
-  /* Darker border */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-  /* Darker shadow */
 }
 
 [data-theme="dark"] .chart-grid-item h3 {
   color: #f0f0f0;
-  /* Lighter text in dark mode */
   border-bottom-color: #3b86f7;
-  /* Updated blue bar */
 }
 
-.chart-grid-item h3 {
-  color: #333;
-  margin-top: 0;
-  margin-bottom: 15px;
-  border-bottom: 2px solid #3b86f7;
-  padding-bottom: 10px;
-  text-align: center;
-  flex-shrink: 0;
-  /* Don't shrink the heading */
+[data-theme="dark"] .reflection-card {
+  background-color: white;
+  color: black;
+  border-color: #4f84ef;
 }
 
-/* Container for charts to allow proper sizing */
-.chart-container {
-  flex: 1;
-  /* Take remaining space */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 100%;
-  min-height: 200px;
-  /* Ensure there's enough space for the chart */
+[data-theme="dark"] .main-content[style*="background: #eaeaea"] h2,
+[data-theme="dark"] .main-content[style*="background: #eaeaea"] .section-title,
+[data-theme="dark"] .main-content[style*="background: #eaeaea"] p {
+  color: #000 !important;
 }
 
-/* Apply to canvas elements */
-.chart-container canvas {
-  width: 100% !important;
-  /* Override Chart.js width */
-  max-width: 100%;
-  height: 100% !important;
-  /* Override Chart.js height */
-  max-height: 250px;
-  /* Maximum height for charts */
-  margin: 0 auto;
-  /* Center the chart horizontally */
-  display: block;
-  /* Ensure proper display */
-  box-sizing: border-box;
-  /* Include padding and border in width calculation */
-}
-
-/* Bento grid dividers for research plan sections */
-.research-plan-section {
-  position: relative;
-  padding-bottom: 2rem;
-  margin-bottom: 2rem;
-}
-
-/* Vertical line to the left of Interview Questions section */
-.interview-questions-section {
-  position: relative;
-  padding-left: 2rem;
-}
-
-.interview-questions-section::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  width: 1px;
-  background-color: #e0e0e0;
-}
-
-/* Extend the horizontal lines to meet the vertical line */
-.research-plan-container {
-  position: relative;
-}
-
-/* Remove the border-bottom from individual sections and use absolute positioning */
-.research-plan-section {
-  border-bottom: none !important;
-  position: relative;
-}
-
-/* Horizontal line between Research Plan and Participant Information sections - spans only the left column initially */
-.research-plan-container>div:first-child>.research-plan-section:first-child {
-  position: relative;
-}
-
-.research-plan-container>div:first-child>.research-plan-section:first-child::after {
-  content: '';
-  position: absolute;
-  bottom: 0.5rem;
-  /* Moved up from -2rem to -1rem */
-  left: 0;
-  right: 1px;
-  /* Leave space for the vertical line */
-  height: 1px;
-  background-color: #e0e0e0;
-}
-
-/* Remove the horizontal line after Participant Information section */
-
-
-/* Move the user research overview caption up */
-.caption {
-  margin-top: -2rem;
-  /* Move up by 2rem */
-}
-
-/* Mobile styles */
 @media screen and (max-width: 768px) and (orientation: portrait) {
   body {
     font-size: 16px;
-    /* Increased base font size for mobile */
   }
 
   *,
@@ -335,29 +1016,91 @@ div[style*="background: #ffffff"][style*="padding: 2rem"][style*="border: 2px so
     gap: 2rem !important;
   }
 
-  /* Scale down container widths */
-  div[style*="max-width: 60%"],
-  div[style*="max-width: 1200px"],
-  div[style*="max-width: 1135px"] {
+  .role-responsibilities-section {
+    margin-top: 4rem !important;
+    display: block !important;
+  }
+
+  .role-responsibilities-section .section-title {
+    margin-top: 0 !important;
+    font-size: 1.4rem !important;
+    text-align: center !important;
+  }
+
+  .role-responsibilities-section .responsibilities-content {
+    margin-top: 1rem !important;
+    text-align: center !important;
+  }
+
+  .user-interviews-section {
+    margin-top: 8rem !important;
+  }
+
+  .user-interviews-section .section-title {
+    margin-top: 0 !important;
+    font-size: 1.4rem !important;
+  }
+
+  .market-research-section .section-title {
+    font-size: 1.4rem !important;
+  }
+
+  .budgeting-analysis-section .section-title {
+    font-size: 1.4rem !important;
+  }
+
+  .core-features-section .section-title {
+    font-size: 1.4rem !important;
+  }
+
+  .final-design-title {
+    font-size: 1.4rem !important;
+  }
+
+  .figma-prototype-section .section-title {
+    font-size: 1.4rem !important;
+    margin-bottom: 1rem !important;
+  }
+
+  .live-website-section .section-title {
+    font-size: 1.4rem !important;
+    margin-bottom: 1rem !important;
+  }
+
+  .user-interviews-section .interviews-content {
+    margin-top: 1rem !important;
+  }
+
+  .project-description,
+  .role-section,
+  .analysis-content,
+  .findings-content,
+  .outcomes-content,
+  .reflection-card,
+  .prototype-description {
     max-width: 100% !important;
     width: 100% !important;
   }
 
-  /* Scale down flex layouts */
-  div[style*="display: flex"] {
+  .final-design-container,
+  .features-container,
+  .outline-images-container,
+  .research-plan-container {
     flex-direction: column !important;
-    align-items: center !important;
+    align-items: stretch !important;
     gap: 1rem !important;
+    padding: 0 !important;
   }
 
-  div[style*="width: 33%"],
-  div[style*="width: 40%"],
-  div[style*="width: 60%"] {
+  .research-plan-column {
+    max-width: 100% !important;
     width: 100% !important;
   }
 
-  div[style*="width:"] {
-    max-width: 100% !important;
+  .outline-image-item,
+  .design-panels-column,
+  .mockup-column {
+    width: 100% !important;
   }
 
   .image-link {
@@ -369,16 +1112,12 @@ div[style*="background: #ffffff"][style*="padding: 2rem"][style*="border: 2px so
     height: auto !important;
   }
 
-  /* Scale down text positioning relative to mockup */
-  div[style*="position: relative"] {
-    position: relative !important;
-    top: auto !important;
-    width: 100% !important;
-    max-width: 100% !important;
-  }
-
-  /* Fix positioned elements in Design Process section (portrait only) */
-  div[style*="position: relative; top:"] {
+  .dp-landing,
+  .dp-goals,
+  .dp-transactions,
+  .dp-analytics,
+  .dp-calculator,
+  .dp-tips {
     position: static !important;
     top: auto !important;
     width: 100% !important;
@@ -386,20 +1125,15 @@ div[style*="background: #ffffff"][style*="padding: 2rem"][style*="border: 2px so
     margin: 1rem 0 !important;
   }
 
-  /* Adjust banner height for mobile */
-  div[style*="width: 100%"][style*="margin: 0"][style*="overflow: hidden"] img[alt="Financier Banner"] {
+  .banner-image {
     height: 300px !important;
-    /* Reduced from 600px for mobile */
     object-fit: cover;
   }
 
-  /* Move the entire top section down on mobile */
-  main.main-content {
-    margin-top: 0rem !important;
-    /* Adjusted to move the whole section down */
+  .project-intro-section {
+    margin-top: 0 !important;
   }
 
-  /* Make the gray line in research plan section horizontal on mobile with same width as existing horizontal line */
   .research-plan-container>div:first-child>.research-plan-section:first-child::after {
     display: block !important;
     left: 0 !important;
@@ -407,10 +1141,8 @@ div[style*="background: #ffffff"][style*="padding: 2rem"][style*="border: 2px so
     width: auto !important;
   }
 
-  /* Change the vertical line to the left of interview questions to horizontal above it */
   .interview-questions-section::before {
     display: none !important;
-    /* Hide the vertical line */
   }
 
   .interview-questions-section {
@@ -423,26 +1155,42 @@ div[style*="background: #ffffff"][style*="padding: 2rem"][style*="border: 2px so
     left: 0;
     right: 0;
     top: -2rem;
-    /* Position above the section */
     height: 1px;
     background-color: #e0e0e0;
     display: block !important;
   }
-}
 
-/* Landscape MOBILE: enable adjustable offsets for the six DP blocks only */
-@media screen and (max-width: 900px) and (orientation: landscape) {
-
-  .dp-landing,
-  .dp-goals,
-  .dp-transactions,
-  .dp-analytics,
-  .dp-calculator,
-  .dp-tips {
-    position: relative !important;
-    display: block !important;
+  .problem-statement-section {
+    margin-top: 2rem !important;
+    position: static !important;
+    top: auto !important;
   }
 
+  .problem-statement-section .section-title {
+    font-size: 1.4rem !important;
+  }
+
+  .project-intro-section {
+    margin-bottom: 2rem !important;
+  }
+
+  .caption {
+    margin-top: 0 !important;
+    text-align: center !important;
+    font-size: 1rem !important;
+    line-height: 1.4 !important;
+  }
+
+  .research-caption {
+    margin-top: 0.5rem !important;
+  }
+
+  .mockup-caption {
+    margin-top: 0 !important;
+  }
+}
+
+@media screen and (max-width: 900px) and (orientation: landscape) {
   .dp-landing {
     top: var(--dp-landing-top-landscape) !important;
   }
@@ -467,8 +1215,17 @@ div[style*="background: #ffffff"][style*="padding: 2rem"][style*="border: 2px so
     top: var(--dp-tips-top-landscape) !important;
   }
 
-  /* Keep normalization for other elements */
-  div[style*="position: relative; top:"]:not(.dp-landing):not(.dp-goals):not(.dp-transactions):not(.dp-analytics):not(.dp-calculator):not(.dp-tips) {
+  .dp-landing,
+  .dp-goals,
+  .dp-transactions,
+  .dp-analytics,
+  .dp-calculator,
+  .dp-tips {
+    position: relative !important;
+    display: block !important;
+  }
+
+  .final-design-container>div:not(.design-panels-column):not(.mockup-column) {
     position: static !important;
     top: auto !important;
     width: 100% !important;
@@ -480,7 +1237,6 @@ div[style*="background: #ffffff"][style*="padding: 2rem"][style*="border: 2px so
 @media screen and (max-width: 480px) {
   body {
     font-size: 14px;
-    /* Increased base font size for smaller mobile */
   }
 
   .page-title {
@@ -495,639 +1251,246 @@ div[style*="background: #ffffff"][style*="padding: 2rem"][style*="border: 2px so
   ol,
   p {
     font-size: 1rem !important;
-    /* Increased paragraph font size for mobile */
   }
 
-  /* Adjust banner height for mobile */
-  div[style*="width: 100%"][style*="margin: 0"][style*="overflow: hidden"] img[alt="Financier Banner"] {
+  .banner-image {
     margin-top: -50px !important;
     height: 200px !important;
-    /* Further reduced for smaller screens */
     object-fit: cover;
   }
 }
 
-/* Responsive adjustments for portrait mobile */
 @media (max-width: 768px) and (orientation: portrait) {
   .chart-grid-container {
     grid-template-columns: 1fr;
-    /* Stack items vertically on small screens */
     width: 100% !important;
-    /* Ensure full width usage */
+    justify-items: center;
   }
 
   .chart-grid-item {
     padding: 15px;
     height: 380px;
-    /* Set fixed height like SmartShuttle to allow proper chart sizing */
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* Center contents horizontally */
-    width: 395px;
-    /* Ensure full width usage */
-    margin-left: -32px;
-    /* Move entire container to the left */
+    justify-content: center;
+    width: 100%;
+    max-width: 360px;
+    margin: 0 auto;
   }
 
-  /* Allow charts to fill available space like SmartShuttle */
   .chart-container {
     flex: 1;
-    /* Take remaining space */
     display: flex;
     align-items: center;
     justify-content: center;
     width: 100%;
     height: 100%;
     min-height: 200px;
-    /* Ensure there's enough space for the chart */
   }
 
   .chart-container canvas {
-    width: 350px !important;
-    /* Larger fixed width for mobile */
-    max-width: none;
+    width: 320px !important;
+    max-width: 100%;
     height: 100% !important;
-    /* Override Chart.js height */
-    max-height: 350px;
-    /* Maximum height for charts */
+    max-height: 320px;
     margin: 0 auto;
-    /* Back to centered */
     display: block;
-    /* Ensure proper display */
     box-sizing: border-box;
-    /* Include padding and border in width calculation */
   }
 }
 
-/* Responsive adjustments for landscape mobile */
 @media (max-width: 768px) and (orientation: landscape) {
   .chart-grid-container {
     grid-template-columns: 1fr;
-    /* Stack items vertically on small screens */
     justify-items: center;
-    /* Center grid items */
   }
 
   .chart-grid-item {
     padding: 15px;
     height: 380px;
-    /* Set fixed height like SmartShuttle to allow proper chart sizing */
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* Center contents horizontally */
     width: 100%;
-    /* Ensure full width usage */
   }
 
-  /* Allow charts to fill available space like SmartShuttle */
   .chart-container {
     flex: 1;
-    /* Take remaining space */
     display: flex;
     align-items: center;
     justify-content: center;
     width: 100%;
     height: 100%;
     min-height: 200px;
-    /* Ensure there's enough space for the chart */
   }
 
   .chart-container canvas {
     width: 100% !important;
-    /* Responsive width */
     max-width: 100%;
     height: 100% !important;
-    /* Override Chart.js height */
     max-height: 250px;
-    /* Maximum height for charts */
     margin: 0 auto;
-    /* Center the chart horizontally */
     display: block;
-    /* Ensure proper display */
     box-sizing: border-box;
-    /* Include padding and border in width calculation */
   }
 }
 
-/* Style the 4 budget analysis graphs on mobile like SmartShuttle */
-@media (max-width: 768px) and (orientation: portrait) {
-  .chart-grid-container {
-    grid-template-columns: 1fr;
-    /* Stack items vertically on small screens */
-    justify-items: center;
-    /* Center grid items */
+@media (min-width: 769px) {
+  .competitor-analysis-container::after {
+    content: '';
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 120px !important;
+    height: 120px !important;
+    background-color: transparent !important;
+    opacity: 0.5 !important;
+    border-right: 2px solid #cccccc !important;
+    border-bottom: 2px solid #cccccc !important;
+    z-index: 3 !important;
   }
 
-  .chart-grid-item {
-    padding: 15px;
-    height: 380px;
-    /* Set fixed height like SmartShuttle to allow proper chart sizing */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    /* Center contents horizontally */
-    width: 100%;
-    /* Ensure full width usage */
-    margin: 0 auto;
-    /* Center the item itself */
+  .competitor-analysis-container::before {
+    content: '';
+    position: absolute !important;
+    top: 120px !important;
+    left: 120px !important;
+    width: calc(50% - 120px) !important;
+    height: 2px !important;
+    background-color: #ccc !important;
+    z-index: 2 !important;
   }
 
-  /* Allow charts to fill available space like SmartShuttle */
-  .chart-container {
-    flex: 1;
-    /* Take remaining space */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 100%;
-    min-height: 200px;
-    /* Ensure there's enough space for the chart */
-  }
-
-  .chart-container canvas {
-    width: 100% !important;
-    /* Responsive width */
-    max-width: 100%;
-    height: 100% !important;
-    /* Override Chart.js height */
-    max-height: 350px;
-    /* Maximum height for charts */
-    margin: 0 auto;
-    /* Center the chart horizontally */
-    display: block;
-    /* Ensure proper display */
-    box-sizing: border-box;
-    /* Include padding and border in width calculation */
+  .competitor-screenshots::before {
+    content: '';
+    position: absolute !important;
+    left: 0 !important;
+    top: -3rem !important;
+    bottom: -4rem !important;
+    width: 2px !important;
+    background-color: #ccc !important;
+    z-index: 1 !important;
   }
 }
 
-/* Landscape mobile adjustments for budget analysis graphs */
-@media (max-width: 768px) and (orientation: landscape) {
-  .chart-grid-container {
-    grid-template-columns: 1fr;
-    /* Stack items vertically on small screens */
-    justify-items: center;
-    /* Center grid items */
-  }
+@media (min-width: 769px) {
 
-  .chart-grid-item {
-    padding: 15px;
-    height: 380px;
-    /* Set fixed height like SmartShuttle to allow proper chart sizing */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    /* Center contents horizontally */
-    width: 100%;
-    /* Ensure full width usage */
-    margin: 0 auto;
-    /* Center the item itself */
-  }
-
-  /* Allow charts to fill available space like SmartShuttle */
-  .chart-container {
-    flex: 1;
-    /* Take remaining space */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 100%;
-    min-height: 200px;
-    /* Ensure there's enough space for the chart */
-  }
-
-  .chart-container canvas {
-    width: 100% !important;
-    /* Responsive width */
-    max-width: 100%;
-    height: 100% !important;
-    /* Override Chart.js height */
-    max-height: 250px;
-    /* Maximum height for charts */
-    margin: 0 auto;
-    /* Center the chart horizontally */
-    display: block;
-    /* Ensure proper display */
-    box-sizing: border-box;
-    /* Include padding and border in width calculation */
+  .strengths-list,
+  .weaknesses-list {
+    width: calc(50% - 200px) !important;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+    max-width: calc(100% - 160px) !important;
+    overflow: hidden;
   }
 }
 
-/* Move the problem statement section up by reducing the main content's bottom margin */
-main.main-content[style*="min-height: calc(100vh - 160px)"] {
-  margin-bottom: 0 !important;
+@media (min-width: 769px) and (max-width: 1200px) {
+
+  .strengths-list,
+  .weaknesses-list {
+    width: calc(50% - 250px) !important;
+    font-size: 0.9rem !important;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+    max-height: 200px;
+    overflow-y: auto;
+  }
+
+  .competitor-analysis-container {
+    overflow: hidden;
+    position: relative;
+  }
+
+  .competitor-logo-item img {
+    height: 30px !important;
+    width: auto !important;
+  }
 }
 
-/* Then use a negative top margin on the problem statement container */
-div[style*="max-width: 1150px"][style*="margin: 4rem auto"] {
-  margin-top: -4rem !important;
+@media (min-width: 1201px) {
+  .competitor-logo-item img {
+    height: 50px !important;
+    width: auto !important;
+  }
 }
 
-/* Fix positions of captions below the outline pages */
-div[style*="display: flex"][style*="justify-content: center"][style*="gap: 2rem"] .caption {
-  margin-top: 1.5rem !important;
-  text-align: center !important;
-  font-size: 1rem !important;
-  line-height: 1.4 !important;
+@media (min-width: 901px) and (max-width: 1200px) {
+  .competitor-logo-item img {
+    height: 40px !important;
+    width: auto !important;
+  }
 }
 
-/* More specific rule to override other caption styles for outline pages */
-div[style*="display: flex"][style*="justify-content: center"][style*="gap: 2rem"]>div>.caption {
-  margin-top: 0.5rem !important;
+@media (min-width: 769px) and (max-width: 900px) {
+  .competitor-logo-item img {
+    height: 25px !important;
+    width: auto !important;
+  }
 }
 
-/* On desktop, add more space after the problem statement section */
-div[style*="max-width: 1150px"][style*="margin: 4rem auto"] {
-  margin-bottom: 10rem !important;
-}
-
-/* Convert the budgeting tool app images section to a two-column table-like layout with visible borders */
-div[style*="padding: 2rem"][style*="margin-top: 14rem"][style*="display: flex"][style*="justify-content: flex-end"] {
-  display: grid !important;
-  grid-template-columns: 1fr 2fr !important;
-  gap: 2rem !important;
-  max-width: 1200px !important;
-  margin: 6rem auto !important;
-  padding: 2rem !important;
-  border: 2px solid #ccc !important;
-  border-radius: 8px !important;
-  position: relative !important;
-}
-
-/* Add a small square in the top left corner of the table */
-div[style*="padding: 2rem"][style*="margin-top: 14rem"][style*="display: flex"][style*="justify-content: flex-end"]::after {
-  content: '';
-  position: absolute !important;
-  top: 0 !important;
-  left: 0 !important;
-  width: 120px !important;
-  height: 120px !important;
-  background-color: transparent !important;
-  /* No color inside */
-  opacity: 0.5 !important;
-  /* Make it translucent */
-  border-right: 2px solid #cccccc !important;
-  /* Match table border exactly */
-  border-bottom: 2px solid #cccccc !important;
-  /* Match table border exactly */
-  z-index: 3 !important;
-}
-
-/* Add a line from bottom right of the square to the middle of the container */
-div[style*="padding: 2rem"][style*="margin-top: 14rem"][style*="display: flex"][style*="justify-content: flex-end"]::before {
-  content: '';
-  position: absolute !important;
-  top: 120px !important;
-  left: 120px !important;
-  width: calc(50% - 120px) !important;
-  height: 2px !important;
-  background-color: #ccc !important;
-  z-index: 2 !important;
-}
-
-/* Add a horizontal line from the start of the container to the middle, in the bottom left area */
-div[style*="padding: 2rem"][style*="margin-top: 14rem"][style*="display: flex"][style*="justify-content: flex-end"] {
-  position: relative !important;
-}
-
-div[style*="padding: 2rem"][style*="margin-top: 14rem"][style*="display: flex"][style*="justify-content: flex-end"]>.horizontal-line-bottom {
-  position: absolute !important;
-  bottom: 225px !important;
-  /* Positioned between the bottom of container and bottom of the square */
-  left: 0 !important;
-  width: 50% !important;
-  height: 2px !important;
-  background-color: #ccc !important;
-  z-index: 2 !important;
-}
-
-/* Mobile view: Remove gray lines but keep competitor badge borders */
 @media (max-width: 768px) {
-  div[style*="padding: 2rem"][style*="margin-top: 14rem"][style*="display: flex"][style*="justify-content: flex-end"] {
+  .competitor-analysis-container {
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
     border: none !important;
   }
 
-  div[style*="padding: 2rem"][style*="margin-top: 14rem"][style*="display: flex"][style*="justify-content: flex-end"]::after {
+  .competitor-analysis-container::after {
     border-right: none !important;
     border-bottom: none !important;
   }
 
-  div[style*="padding: 2rem"][style*="margin-top: 14rem"][style*="display: flex"][style*="justify-content: flex-end"]::before {
+  .competitor-analysis-container::before {
     display: none !important;
   }
 
-  div[style*="padding: 2rem"][style*="margin-top: 14rem"][style*="display: flex"][style*="justify-content: flex-end"]>.horizontal-line-bottom {
+  .competitor-analysis-container>.horizontal-line-bottom {
     display: none !important;
   }
 
-  /* Hide the vertical line to the left of stacked images */
-  .other-images-wrapper::before {
+  .competitor-screenshots::before {
     display: none !important;
   }
 
-  /* Keep the borders around the 3 competitor badges but remove top and left */
-  div[style*="position: absolute; top: 0; left: 0; width: 120px; height: 120px; display: flex; flex-direction: column; justify-content: center; align-items: center;"] {
+  .competitor-count-box {
     border-right: 2px solid #cccccc !important;
     border-bottom: 2px solid #cccccc !important;
     border-radius: 8px !important;
   }
 
-  /* Fix overflow of list text and reposition strengths/weaknesses titles */
-  div[style*="position: absolute; top: 140px; left: 20px; width: 120px; text-align: center;"] {
+  .strengths-section,
+  .weaknesses-section {
     position: static !important;
     width: 100% !important;
     text-align: left !important;
     margin-top: 1rem !important;
   }
 
-  div[style*="position: absolute; top: 145px; left: 160px; width: 400px; font-size: 1rem;"] {
+  .strengths-list,
+  .weaknesses-list {
     position: static !important;
     width: 100% !important;
     margin-left: 0 !important;
     padding-left: 1rem !important;
   }
 
-  div[style*="position: absolute; top: 400px; left: 20px; width: 120px; text-align: center;"] {
-    position: static !important;
-    width: 100% !important;
-    text-align: left !important;
-    margin-top: 2rem !important;
-  }
-
-  div[style*="position: absolute; top: 405px; left: 160px; width: 400px; font-size: 1rem;"] {
-    position: static !important;
-    width: 100% !important;
-    margin-left: 0 !important;
-    padding-left: 1rem !important;
-  }
-}
-
-
-/* Place the images container in the second column */
-.budgeting-images-container {
-  grid-column: 2 !important;
-  display: flex !important;
-  align-items: flex-start !important;
-  gap: 0.5rem !important;
-  width: 100% !important;
-  position: relative !important;
-  z-index: 2 !important;
-}
-
-/* Add a vertical line to the left of the stacked images */
-.other-images-wrapper::before {
-  content: '';
-  position: absolute !important;
-  left: 50% !important;
-  /* Position to the left of the stacked images */
-  top: 0 !important;
-  bottom: 0 !important;
-  width: 2px !important;
-  background-color: #ccc !important;
-  z-index: 1 !important;
-}
-
-/* Position the other images wrapper in the second column */
-.other-images-wrapper {
-  width: 80% !important;
-  margin-right: auto !important;
-  margin-left: 180% !important;
-  /* Move as far right as possible */
-  margin-top: 2rem !important;
-  display: flex !important;
-  flex-direction: column !important;
-  align-items: center !important;
-  gap: 0.5rem !important;
-}
-
-/* Position the iGrad image wrapper in the second column to the right of the stacked images */
-.igrad-image-wrapper {
-  width: 15% !important;
-  margin: 0 0 2rem !important;
-  position: relative !important;
-  top: 20px !important;
-  /* Move it down */
-  left: 85% !important;
-  /* Position it to the right of the stacked images */
-}
-
-/* Make all caption styles consistent except for iGrad */
-.moneyhelper-image-wrapper .caption,
-.voya-image-wrapper .caption,
-div[style*="display: flex"][style*="justify-content: center"][style*="gap: 2rem"] .caption {
-  margin-top: -0.5rem !important;
-  text-align: center !important;
-  font-size: 1rem !important;
-  line-height: 1.4 !important;
-}
-
-/* On mobile only, move the problem statement section down */
-@media screen and (max-width: 768px) {
-  div[style*="max-width: 1150px"][style*="margin: 4rem auto"] {
-    margin-top: 2rem !important;
-    position: static !important;
-    top: auto !important;
-  }
-
-  /* Also adjust the main content margin on mobile */
-  main.main-content[style*="min-height: calc(100vh - 160px)"] {
-    margin-bottom: 2rem !important;
-  }
-
-  /* On mobile, revert to flex layout for budgeting tool images */
-  div[style*="padding: 2rem"][style*="margin-top: 14rem"][style*="display: flex"][style*="justify-content: flex-end"] {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    border: none !important;
-  }
-
-  .other-images-wrapper {
-    width: 100% !important;
-    margin-left: 0 !important;
-  }
-
-  .igrad-image-wrapper {
-    width: 100% !important;
-    margin: 0 auto !important;
-    position: static !important;
-    left: auto !important;
-  }
-}
-
-/* Ensure text in competitor grid remains readable in dark mode */
-[data-theme="dark"] .main-content[style*="background: #eaeaea"] h2,
-[data-theme="dark"] .main-content[style*="background: #eaeaea"] .section-title,
-[data-theme="dark"] .main-content[style*="background: #eaeaea"] p {
-  color: #000 !important;
-  /* Force dark text on light background */
-}
-
-/* Desktop: Prevent list overflow in competitor grid */
-@media (min-width: 769px) {
-
-  div[style*="position: absolute; top: 145px; left: 160px; width: 400px; font-size: 1rem;"],
-  div[style*="position: absolute; top: 405px; left: 160px; width: 400px; font-size: 1rem;"] {
-    width: calc(50% - 200px) !important;
-    /* Ensure content ends before the middle line */
-    word-wrap: break-word;
-    overflow-wrap: break-word;
-    hyphens: auto;
-    max-width: calc(100% - 160px) !important;
-    /* Ensure text doesn't overflow outside the grid */
-    overflow: hidden;
-  }
-}
-
-/* Handle intermediate screen sizes to prevent overflow issues */
-@media (min-width: 769px) and (max-width: 1200px) {
-  div[style*="position: absolute; top: 145px; left: 160px; width: 400px; font-size: 1rem;"] {
-    width: calc(50% - 250px) !important;
-    /* Extra constraint for intermediate sizes */
-    font-size: 0.9rem !important;
-    /* Slightly smaller text for intermediate sizes */
-    word-wrap: break-word;
-    overflow-wrap: break-word;
-    hyphens: auto;
-    max-height: 200px;
-    /* Increase height to allow more text */
-    overflow-y: auto;
-    /* Make scrollable if content exceeds height */
-  }
-
-  div[style*="position: absolute; top: 405px; left: 160px; width: 400px; font-size: 1rem;"] {
-    width: calc(50% - 250px) !important;
-    /* Extra constraint for intermediate sizes */
-    font-size: 0.9rem !important;
-    /* Slightly smaller text for intermediate sizes */
-    word-wrap: break-word;
-    overflow-wrap: break-word;
-    hyphens: auto;
-    max-height: 200px;
-    /* Increase height to allow more text */
-    overflow-y: auto;
-    /* Make scrollable if content exceeds height */
-  }
-
-  /* Ensure the main container properly contains all content */
-  div[style*="background: #eaeaea"][style*="padding: 2rem; margin-top: 14rem;"] {
-    overflow: hidden;
-    position: relative;
-  }
-
-  /* Shrink logos to prevent overflow of center gray vertical line */
-  div[style*="position: absolute; top: 0; left: 140px; display: flex; gap: 2rem; align-items: center; height: 120px;"] img {
-    height: 30px !important;
-    /* Even smaller height for intermediate screens */
-    width: auto !important;
-  }
-}
-
-/* For wider desktop screens - larger logos */
-@media (min-width: 1201px) {
-  div[style*="position: absolute; top: 0; left: 140px; display: flex; gap: 2rem; align-items: center; height: 120px;"] img {
-    height: 50px !important;
-    /* Reduced size to prevent overflow */
-    width: auto !important;
-  }
-}
-
-/* For medium desktop screens */
-@media (min-width: 901px) and (max-width: 1200px) {
-  div[style*="position: absolute; top: 0; left: 140px; display: flex; gap: 2rem; align-items: center; height: 120px;"] img {
-    height: 40px !important;
-    /* Reduced size to prevent overflow */
-    width: auto !important;
-  }
-}
-
-/* For screens just above mobile - smallest logos */
-@media (min-width: 769px) and (max-width: 900px) {
-  div[style*="position: absolute; top: 0; left: 140px; display: flex; gap: 2rem; align-items: center; height: 120px;"] img {
-    height: 25px !important;
-    /* Further reduced size to prevent overflow */
-    width: auto !important;
-  }
-}
-
-/* Mobile-specific fixes for the gray grid */
-@media (max-width: 768px) {
-
-  /* Fix overflow of list text in the gray grid */
-  div[style*="background: #eaeaea"][style*="padding: 2rem"] p {
-    word-wrap: break-word;
-    overflow-wrap: break-word;
-    hyphens: auto;
-    max-width: 100%;
-    padding-right: 1rem;
-  }
-
-  /* Position strengths and weaknesses titles properly in mobile view */
-  div[style*="position: absolute; top: 140px; left: 20px; width: 120px; text-align: center;"] {
-    position: static !important;
-    width: 100% !important;
-    text-align: left !important;
-    margin-top: 1rem !important;
-    margin-left: 0 !important;
-  }
-
-  div[style*="position: absolute; top: 145px; left: 160px; width: 400px; font-size: 1rem;"] {
-    position: static !important;
-    width: 100% !important;
-    margin-left: 0 !important;
-    padding-left: 1rem !important;
-    margin-top: 0.5rem !important;
-  }
-
-  div[style*="position: absolute; top: 400px; left: 20px; width: 120px; text-align: center;"] {
-    position: static !important;
-    width: 100% !important;
-    text-align: left !important;
-    margin-top: 2rem !important;
-    margin-left: 0 !important;
-  }
-
-  div[style*="position: absolute; top: 405px; left: 160px; width: 400px; font-size: 1rem;"] {
-    position: static !important;
-    width: 100% !important;
-    margin-left: 0 !important;
-    padding-left: 1rem !important;
-    margin-top: 0.5rem !important;
-  }
-
-  /* Change the order of elements in mobile view:
-     1. Competitor badges (keep as is)
-     2. Strengths section
-     3. Weaknesses section
-     4. Images (move to after weaknesses)
-  */
-  div[style*="background: #eaeaea"][style*="padding: 2rem; margin-top: 14rem;"] {
-    display: flex !important;
-    flex-direction: column !important;
-  }
-
-  /* Center the logo container in mobile layout */
-  div[style*="position: absolute; top: 0; left: 140px; display: flex; gap: 2rem; align-items: center; height: 120px;"] {
+  .competitor-logos-container {
     justify-content: center !important;
     width: 100% !important;
     margin-left: 0 !important;
     left: 0 !important;
   }
 
-  /* Competitor badges container */
-  div[style*="position: absolute; top: 0; left: 0; width: 120px; height: 120px;"] {
+  .competitor-count-box {
     order: 1;
   }
 
-  /* Competitor logos container */
-  div[style*="position: absolute; top: 0; left: 140px; display: flex; gap: 2rem; align-items: center; height: 120px;"] {
+  .competitor-logos-container {
     order: 2;
     align-self: flex-start;
     margin-top: 8rem !important;
@@ -1136,152 +1499,85 @@ div[style*="display: flex"][style*="justify-content: center"][style*="gap: 2rem"
     width: 100% !important;
   }
 
-  /* Slightly shrink the logo images */
-  div[style*="position: absolute; top: 0; left: 140px; display: flex; gap: 2rem; align-items: center; height: 120px;"] img {
+  .competitor-logo-item img {
     height: 45px !important;
     width: auto !important;
   }
 
-
-  /* Strengths title */
-  div[style*="position: absolute; top: 140px; left: 20px; width: 120px; text-align: center;"] {
+  .strengths-section {
     order: 3;
     margin-top: 15rem !important;
   }
 
-  /* Strengths content */
-  div[style*="position: absolute; top: 145px; left: 160px; width: 400px; font-size: 1rem;"] {
+  .strengths-list {
     order: 4;
     margin-top: 0.5rem !important;
     position: relative;
     padding-top: 2rem;
   }
 
-
-  /* Weaknesses title */
-  div[style*="position: absolute; top: 400px; left: 20px; width: 120px; text-align: center;"] {
+  .weaknesses-section {
     order: 5;
   }
 
-  /* Weaknesses content */
-  div[style*="position: absolute; top: 405px; left: 160px; width: 400px; font-size: 1rem;"] {
+  .weaknesses-list {
     order: 6;
     position: relative;
     padding-top: 1.5rem;
   }
 
-
-  /* Images wrapper (move to after weaknesses) */
-  .other-images-wrapper {
+  .competitor-screenshots {
     order: 7;
     margin-top: 1rem;
   }
 
-  /* iGrad image wrapper */
-  .igrad-image-wrapper {
+  .igrad-screenshot {
     order: 8;
     margin-top: 1rem;
   }
 
-  /* iGrad caption */
-  .igrad-image-wrapper .caption {
+  .igrad-screenshot .caption {
     margin-top: 0.5rem !important;
   }
 
-  /* Horizontal line (hide it since we're reordering) */
   .horizontal-line-bottom {
     display: none;
   }
 
-  /* Add a horizontal line after strengths section */
-  div[style*="position: absolute; top: 145px; left: 160px; width: 400px; font-size: 1rem;"] {
-    position: relative;
+  .competitor-screenshots {
+    width: 100% !important;
+    margin-left: 0 !important;
   }
 
-  /* Add back the fixed-position gray lines for mobile layout only */
-  /* Add a horizontal line after strengths section - hidden by default */
-  div[style*="position: absolute; top: 145px; left: 160px; width: 400px; font-size: 1rem;"]::after {
-    content: '';
-    position: absolute;
-    top: 41rem;
-    left: 0;
-    width: 100%;
-    height: 1px;
-    background-color: #ccc;
-    display: none;
-    /* Hidden by default */
+  .igrad-screenshot {
+    width: 100% !important;
+    margin: 1rem auto 0 !important;
+    position: static !important;
+    left: auto !important;
+    transform: none !important;
   }
 
-  /* Add a horizontal line after weaknesses section */
-  div[style*="position: absolute; top: 405px; left: 160px; width: 400px; font-size: 1rem;"] {
-    position: relative;
+  .igrad-screenshot .caption {
+    margin-left: 0 !important;
+    margin-top: 0.5rem !important;
   }
 
-  /* Add a horizontal line after weaknesses section - hidden by default */
-  div[style*="position: absolute; top: 405px; left: 160px; width: 400px; font-size: 1rem;"]::after {
-    content: '';
-    position: absolute;
-    top: 66rem;
-    left: 0;
-    width: 100%;
-    height: 1px;
-    background-color: #ccc;
-    display: none;
-    /* Hidden by default */
-  }
-
-  /* Add a horizontal line above images section */
-  .other-images-wrapper {
-    position: relative;
-  }
-
-  /* Add a horizontal line above images section - hidden by default */
-  .other-images-wrapper::before {
-    content: '';
-    position: absolute;
-    top: -1rem;
-    left: 0;
-    width: 100%;
-    height: 1px;
-    background-color: #ccc;
-    display: none;
-    /* Hidden by default */
+  .competitor-analysis-container p {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+    max-width: 100%;
+    padding-right: 1rem;
   }
 }
 
-/* Media query for exactly 393px width - show gray lines only at this size */
-@media screen and (max-width: 393px) {
-
-  /* Show the horizontal line after strengths section */
-  div[style*="position: absolute; top: 145px; left: 160px; width: 400px; font-size: 1rem;"]::after {
-    display: block;
-    /* Show the line */
-  }
-
-  /* Show the horizontal line after weaknesses section */
-  div[style*="position: absolute; top: 405px; left: 160px; width: 400px; font-size: 1rem;"]::after {
-    display: block;
-    /* Show the line */
-  }
-
-  /* Show the horizontal line above images section */
-  .other-images-wrapper::before {
-    display: block;
-    /* Show the line */
-  }
-}
-
-/* Mobile responsiveness for video containers and text alignment */
 @media screen and (max-width: 768px) {
-
-  /* Make video containers stretch full width */
   .video-container {
     width: calc(100% - 4rem) !important;
     max-width: calc(100% - 4rem) !important;
     min-height: 300px !important;
   }
 
-  /* Align text to the left */
   .section-subtitle,
   .subtitle-description {
     text-align: left !important;
@@ -1289,33 +1585,29 @@ div[style*="display: flex"][style*="justify-content: center"][style*="gap: 2rem"
     max-width: 100% !important;
   }
 
-  /* Adjust the flex container for mobile */
-  div[style*="display: flex; flex-direction: column; align-items: flex-start; gap: 2rem; padding: 0 2rem;"] {
+  .features-container {
     padding: 0 1rem !important;
   }
 
-  /* Align the core features section to the left like user interviews */
-  div[style*="margin: 0 auto; width: 100%; max-width: 1200px; margin-top: 8rem;"]>div[style*="padding: 0 2rem;"] {
-    padding: 0 !important;
+  .features-header {
+    padding: 0 1rem !important;
   }
 
-  /* Add padding below the main heading and regular text */
-  div[style*="margin: 0 auto; width: 100%; max-width: 1200px; margin-top: 8rem;"]>div[style*="padding: 0 2rem;"]>h1.section-title {
+  .features-header .section-title {
     margin-bottom: 1rem !important;
   }
 
-  div[style*="margin: 0 auto; width: 100%; max-width: 1200px; margin-top: 8rem;"]>div[style*="padding: 0 2rem;"]>p {
+  .features-subtitle {
     margin-bottom: 2.5rem !important;
+    padding-left: 0 !important;
   }
 
-  /* Make video containers full width on mobile */
   .video-container {
     width: 100% !important;
     max-width: 100% !important;
     padding: 1.5rem !important;
   }
 
-  /* Add more spacing and proper alignment for subsections */
   .section-subtitle {
     margin: 0.5rem 0 -1rem 0 !important;
     text-align: left !important;
@@ -1332,40 +1624,30 @@ div[style*="display: flex"][style*="justify-content: center"][style*="gap: 2rem"
     align-self: flex-start !important;
   }
 
-  /* Reduce gap between header and banner on mobile */
   #header-placeholder {
-    margin-bottom: 0rem !important;
+    margin-bottom: 0 !important;
   }
 
-  /* Add top padding to banner container */
-  div[style*="width: 100%; margin: 0; overflow: hidden; padding: 0;"] {
+  .banner-container {
     padding-top: 31px !important;
-    /* Add small top padding */
   }
 }
 
-/* Landscape mobile adjustments */
 @media screen and (max-width: 768px) and (orientation: landscape) {
-
-  /* Ensure banner is fully visible in landscape */
-  div[style*="width: 100%; margin: 0; overflow: hidden; padding: 0;"] img[alt="Financier Banner"] {
+  .banner-image {
     height: 400px !important;
-    /* Increase height for landscape */
     object-fit: cover !important;
     object-position: center top !important;
   }
 
-  /* Add top padding to banner container in landscape */
-  div[style*="width: 100%; margin: 0; overflow: hidden; padding: 0;"] {
+  .banner-container {
     padding-top: 5px !important;
   }
 
-  /* Ensure main content doesn't overlap with banner in landscape */
-  main.main-content {
+  .project-intro-section {
     margin-top: 0 !important;
   }
 
-  /* Ensure content below banner is properly spaced in landscape */
   .main-content.center-flex[style*="gap: 2rem;"] {
     margin-top: 1rem !important;
   }
