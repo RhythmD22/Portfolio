@@ -10,6 +10,8 @@
 body {
   overflow-x: hidden;
   box-sizing: border-box;
+  padding-top: 60px;
+  /* Reduced top padding to move banner closer to header */
 }
 
 .container {
@@ -26,11 +28,12 @@ body {
 
 .banner-image {
   width: 100%;
-  height: 600px;
+  height: 610px;
   object-fit: cover;
   display: block;
   margin: 0;
   padding: 0;
+  margin-bottom: 1rem;
 }
 
 .project-intro-section {
@@ -997,6 +1000,11 @@ main.main-content.project-intro-section {
   *:before,
   *:after {
     box-sizing: border-box;
+  }
+
+  body {
+    padding-top: 50px !important;
+    /* Reduced top padding on mobile */
   }
 
   div {
