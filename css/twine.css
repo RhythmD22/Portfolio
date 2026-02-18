@@ -47,6 +47,11 @@ body {
   margin-bottom: 1rem;
 }
 
+.page-main-title {
+  text-align: center;
+  margin: 2rem 0;
+}
+
 .project-overview {
   font-size: 1.15rem;
   line-height: 1.6;
