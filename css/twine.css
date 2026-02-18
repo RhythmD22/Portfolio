@@ -1,14 +1,120 @@
-/* Prevent overscroll chaining */
 html,
 body {
   overscroll-behavior-y: contain;
   overflow-x: hidden;
 }
 
+.banner-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: -2rem;
+}
+
+.banner-image {
+  width: 100%;
+  height: 600px;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  margin-bottom: 4rem;
+}
+
+.main-content {
+  padding: 2rem;
+  gap: 2rem;
+}
+
+.project-intro-section {
+  gap: 0;
+  padding: 0;
+  min-height: calc(100vh - 160px);
+  margin-top: 0;
+  margin-bottom: 2rem;
+}
+
+.project-section {
+  display: flex;
+  gap: 2rem;
+  padding: 2rem;
+}
+
+.project-description {
+  max-width: 60%;
+}
+
+.page-title {
+  margin-bottom: 1rem;
+}
+
+.project-overview {
+  font-size: 1.15rem;
+  line-height: 1.6;
+}
+
+.info-meta {
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.info-meta p {
+  margin: 0.5rem 0;
+}
+
+.project-screenshot-link {
+  display: block;
+  margin: -13rem auto 2rem;
+  max-width: 1200px;
+}
+
+.project-screenshot-link:first-of-type {
+  margin-bottom: 9rem;
+}
+
+.screenshot-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.testimonial-section {
+  text-align: center;
+  margin-top: 4rem;
+  padding: 0 2rem;
+}
+
+.testimonial-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.testimonial-quote {
+  display: inline-block;
+  max-width: 800px;
+  font-style: italic;
+  white-space: pre-wrap;
+  text-align: left;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.testimonial-quote cite {
+  display: block;
+  margin-top: 1rem;
+  font-style: normal;
+  font-weight: 600;
+  text-align: center;
+}
+
+.site-footer p {
+  font-size: 0.875rem !important;
+}
+
 @media screen and (max-width: 768px) {
   body {
     font-size: 16px;
-    /* Increased base font size for mobile */
+    padding-top: 50px !important;
   }
 
   .page-title {
@@ -24,17 +130,32 @@ body {
     gap: 2rem !important;
   }
 
-  /* Scale down container widths */
-  div[style*="max-width: 60%"] {
-    max-width: 100% !important;
-    width: 100% !important;
+  .banner-container {
+    margin-top: -1rem;
   }
 
-  /* Scale down flex layouts */
-  div[style*="display: flex"] {
-    flex-direction: column !important;
-    align-items: center !important;
+  .banner-image {
+    height: 300px !important;
+    margin-bottom: 0 !important;
+  }
+
+  .project-intro-section {
+    margin-top: 0 !important;
+    margin-bottom: 2rem !important;
+  }
+
+  .project-section {
     gap: 1rem !important;
+    padding: 1rem !important;
+  }
+
+  .project-description {
+    max-width: 60% !important;
+  }
+
+  .project-screenshot-link {
+    max-width: 100% !important;
+    margin: 2rem auto !important;
   }
 
   .screenshot-img {
@@ -42,49 +163,21 @@ body {
     height: auto !important;
   }
 
-  /* Scale down margins */
-  div[style*="margin-top: 6rem"],
-  div[style*="margin-top: 4rem"],
-  div[style*="margin-bottom: 4rem"] {
+  .testimonial-section {
     margin-top: 2rem !important;
-    margin-bottom: 2rem !important;
+    padding: 0 1rem !important;
+  }
+
+  .testimonial-quote {
+    text-align: center !important;
+    display: block !important;
+    max-width: 100% !important;
+    white-space: normal !important;
   }
 
   img {
     max-width: 100% !important;
     height: auto !important;
-  }
-
-  /* Scale down padding in containers */
-  div[style*="padding: 2rem"] {
-    padding: 1rem !important;
-  }
-
-  /* Center images and their containers */
-  a[href*="Twine/"] {
-    text-align: center !important;
-    padding: 0 !important;
-    margin: 2rem auto !important;
-    display: block !important;
-    width: 100% !important;
-  }
-
-  /* Center the testimonial paragraph */
-  div[style*="text-align: center"] {
-    text-align: center !important;
-    padding: 0 1rem !important;
-  }
-
-  div[style*="text-align: center"] p {
-    text-align: center !important;
-    display: block !important;
-    margin: 0 auto !important;
-    max-width: 100% !important;
-  }
-
-  /* Override inline text-align for testimonial */
-  div[style*="text-align: center"] p[style*="text-align: left"] {
-    text-align: center !important;
   }
 
   .container {
@@ -96,7 +189,6 @@ body {
 @media screen and (max-width: 480px) {
   body {
     font-size: 14px;
-    /* Increased base font size for smaller mobile */
   }
 
   .page-title {
@@ -109,17 +201,14 @@ body {
 
   p {
     font-size: 1rem !important;
-    /* Increased paragraph font size for mobile */
   }
 }
 
-/* Center images in mobile landscape view */
 @media screen and (max-height: 500px) and (orientation: landscape) {
-  a[href*="Twine/"] {
+  .project-screenshot-link {
     display: flex !important;
     justify-content: center !important;
     align-items: center !important;
-    text-align: center !important;
     padding: 0 !important;
     margin: 2rem auto !important;
   }
@@ -131,9 +220,4 @@ body {
     margin: 0 auto !important;
     display: block !important;
   }
-}
-
-/* Footer copyright text sizing to match index */
-.site-footer p {
-  font-size: 0.875rem !important;
 }
