@@ -36,6 +36,7 @@ This repository contains Rhythm Desai's personal portfolio website. It showcases
 - **js/** – Directory containing all JavaScript files
   - **clashroyale.js** – Specific JavaScript for the Clash Royale project page.
   - **dark-mode.js** – Implements dark mode functionality across the site.
+  - **financier-charts.js** – Specific JavaScript for Financier chart functionality.
   - **financier.js** – Specific JavaScript for the Financier project page.
   - **index.js** – Specific JavaScript for the home page.
   - **navigation.js** – Implements shared navigation functionality including mobile menu, link updates, and service worker registration for PWA functionality.
