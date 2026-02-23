@@ -1,11 +1,508 @@
 html,
 body {
   overflow-x: hidden;
+  padding-top: 34px;
 }
 
-/* Limit Fancybox clickable area to image only */
+.container {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+.banner-container {
+  width: 100%;
+  margin: 0;
+  overflow: hidden;
+  padding: 0;
+}
+
+.banner-image {
+  width: 100%;
+  height: 602px;
+  object-fit: cover;
+  display: block;
+  margin: 0;
+  padding: 0;
+  margin-bottom: 1rem;
+}
+
+.project-intro-section {
+  padding: 2rem;
+  min-height: calc(100vh - 160px);
+  margin-top: 0;
+}
+
+.project-description {
+  max-width: 60%;
+}
+
+.project-description .page-title {
+  margin-bottom: 1rem;
+}
+
+.project-overview {
+  font-size: 1.15rem;
+}
+
+.info-meta {
+  font-size: 0.95rem;
+}
+
+.info-meta p {
+  margin: 1rem 0;
+}
+
+.info-meta strong {
+  display: block;
+  margin-bottom: -1.4rem;
+}
+
+.problem-discovery-section {
+  max-width: 1150px;
+  margin: -11rem auto 12rem;
+  padding: 0 2rem;
+  position: relative;
+}
+
+.problem-discovery-content {
+  background: #ffffff;
+  padding: 2rem;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  border: 4px solid #dc3e3d;
+  max-width: 100%;
+  margin-top: 1rem;
+}
+
+.problem-discovery-content p {
+  font-size: 1.15rem;
+  margin: 0 0 1rem;
+}
+
+.problem-discovery-content p:last-child {
+  margin-bottom: 0;
+}
+
+.reviews-section {
+  display: flex;
+  align-items: flex-start;
+  gap: 3rem;
+  width: 100%;
+}
+
+.reviews-section .reviews {
+  flex: 1;
+}
+
+.reviews-section .reviews .section-title {
+  margin-bottom: 2rem;
+  font-weight: 600;
+}
+
+.reviews-section .reviews-content {
+  max-width: 50%;
+  text-align: center;
+}
+
+.reviews-section .reviews blockquote {
+  margin: 0 0 1.5rem;
+  padding: 0;
+}
+
+.reviews-section .reviews blockquote:first-of-type {
+  margin-top: -1rem;
+}
+
+.reviews-section cite {
+  display: block;
+  margin-top: 0.25rem;
+}
+
+.design-process-section {
+  margin: 14rem auto 11rem;
+  padding: 0 2rem;
+}
+
+.design-process-content {
+  background: #ffffff;
+  padding: 2rem;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  border: 4px solid #dc3e3d;
+  width: 100%;
+  display: flex;
+  gap: 3rem;
+  align-items: center;
+}
+
+.design-process-content .design-process-text {
+  font-size: 1.15rem;
+  flex: 1;
+}
+
+.design-process-content .design-process-text p {
+  margin: 0;
+}
+
+.diagram-section,
+.user-flow-section {
+  display: flex;
+  align-items: flex-start;
+  gap: 3rem;
+  width: 100%;
+}
+
+.diagram-section>div,
+.user-flow-section>div {
+  flex: 1;
+}
+
+.diagram-section .section-title,
+.user-flow-section .section-title {
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+}
+
+.user-flow-second-paragraph {
+  margin-top: 1.5rem;
+}
+
+.diagram-section p,
+.user-flow-section p {
+  font-size: 1.15rem;
+  margin: 0 0 1.5rem;
+}
+
+.user-flow-section {
+  margin-top: 3rem;
+}
+
+.comparisons-section {
+  max-width: 100%;
+  padding-left: 9rem;
+  margin-top: 13rem;
+}
+
+.comparisons-section .section-title {
+  font-weight: 600;
+  margin-bottom: 2rem;
+}
+
+.key-improvements-card h2 {
+  font-size: 1.3rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  font-weight: 600;
+}
+
+.key-improvements-list {
+  font-size: 1rem;
+  padding-left: 2.5rem;
+  line-height: 1.8;
+}
+
+.key-improvement-item {
+  margin-bottom: 4rem;
+}
+
+.key-improvements-sublist {
+  list-style-type: none;
+  margin-top: 0.8rem;
+  line-height: 1.6;
+}
+
+.key-improvements-sublist li {
+  margin-left: 2rem;
+  margin-bottom: 0.8rem;
+}
+
+.comparisons-title-card {
+  display: flex;
+  justify-content: center;
+  margin: 2rem 0;
+}
+
+.comparisons-title-image {
+  display: block;
+}
+
+.comparisons-title-card>div {
+  flex: 1;
+  position: relative;
+  max-width: 800px;
+}
+
+.comparisons-description {
+  text-align: center;
+  margin: 2rem 0;
+}
+
+.comparisons-description p {
+  font-size: 1.15rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.comparisons-spacer {
+  margin-top: 8rem;
+}
+
+.comparisons-content {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 3rem;
+  width: 100%;
+  gap: 2rem;
+}
+
+.comparisons-content>div:first-child {
+  width: 100%;
+}
+
+.comparisons-content>div:last-child {
+  width: 100%;
+}
+
+.comparisons-content .crown-image {
+  max-width: 30%;
+  height: auto;
+  margin: 0 auto;
+  display: block;
+  margin-left: auto;
+  margin-right: 33%;
+}
+
+.comparisons-content .chest-images {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.comparisons-content .chest-images img {
+  max-width: 30%;
+  height: auto;
+  margin: 0 auto;
+}
+
+.comparisons-content .chest-images img[alt*="Magical"] {
+  max-width: 50%;
+}
+
+.project-showcase {
+  margin-top: 14rem;
+}
+
+.project-showcase>div {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+}
+
+#iframe-container {
+  position: relative;
+  width: 70vw;
+  margin: 0 auto;
+}
+
+#iframe-container .section-title {
+  position: relative;
+  text-align: left;
+  margin-bottom: 0;
+  transform: translateY(-1rem);
+}
+
+#iframe-container .wireframe-break {
+  display: inline;
+}
+
+#iframe-container iframe {
+  border: 0 solid rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  width: 100%;
+  height: 600px;
+  display: block;
+}
+
+#iframe-container .figma-description {
+  background: #ffffff;
+  padding: 2rem;
+  width: 100%;
+  box-sizing: border-box;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
+  border-radius: 8px;
+  margin-top: 0.25rem;
+}
+
+#iframe-container .figma-description p {
+  font-size: 1.15rem;
+  line-height: 1.8;
+  margin: 0;
+  color: #0d1117;
+}
+
+[data-theme="dark"] #iframe-container .figma-description {
+  background: #ffffff;
+}
+
+[data-theme="dark"] #iframe-container .figma-description p {
+  color: #0d1117;
+}
+
+.reflection-section {
+  text-align: center;
+  padding-bottom: 0;
+}
+
+.reflection-card {
+  background: #ffffff;
+  padding: 2rem;
+  max-width: 800px;
+  box-sizing: border-box;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
+  border-radius: 8px;
+  margin: 8rem auto;
+  text-align: left;
+  border: 4px solid #dc3e3d !important;
+}
+
+.reflection-card h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0 0 1rem;
+}
+
+.reflection-card p {
+  font-size: 1.15rem;
+  line-height: 1.8;
+  margin: 0;
+}
+
+.image-link {
+  display: block;
+  width: 100%;
+}
+
+.image-link img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.caption {
+  margin-top: 0.75rem;
+  font-size: 0.9rem;
+  color: inherit;
+  opacity: 0.8;
+}
+
+.caption-title {
+  font-weight: 500;
+}
+
+.caption-date {
+  font-style: italic;
+}
+
+.caption,
+.problem-discovery-section .caption,
+.reviews+div .caption {
+  margin: 0;
+}
+
+.reviews-section .reviews-content .caption {
+  margin-top: 0.25rem;
+}
+
+.key-improvements-card {
+  background: #ffffff;
+  padding: 1rem 1.5rem;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  border: 4px solid #dc3e3d;
+  box-sizing: border-box;
+}
+
+.scroll-top-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.7;
+  transition: opacity 0.3s;
+}
+
+.scroll-top-btn:hover {
+  opacity: 1;
+}
+
+.scroll-top-btn svg {
+  width: 96px;
+  height: 72px;
+  stroke-width: 0.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none;
+}
+
+[data-theme="dark"] .problem-discovery-section .section-title {
+  color: #ffffff;
+}
+
+[data-theme="dark"] .problem-discovery-content {
+  background: #ffffff;
+}
+
+[data-theme="dark"] .problem-discovery-content p {
+  color: #0d1117;
+}
+
+[data-theme="dark"] .design-process-content .section-title {
+  color: #0d1117;
+}
+
+[data-theme="dark"] .design-process-content {
+  background: #ffffff;
+}
+
+[data-theme="dark"] .design-process-content p {
+  color: #0d1117;
+}
+
+[data-theme="dark"] .reflection-card {
+  background: #ffffff !important;
+}
+
+[data-theme="dark"] .reflection-card h2,
+[data-theme="dark"] .reflection-card p {
+  color: #0d1117 !important;
+}
+
+[data-theme="dark"] .key-improvements-card {
+  background: #ffffff !important;
+}
+
+[data-theme="dark"] .key-improvements-card h2,
+[data-theme="dark"] .key-improvements-card p,
+[data-theme="dark"] .key-improvements-card li,
+[data-theme="dark"] .key-improvements-card strong {
+  color: #0d1117 !important;
+}
 
 @media screen and (max-width: 768px) {
+
+  html,
+  body {
+    padding-top: 1.5rem !important;
+  }
+
   .container {
     max-width: 100vw !important;
     overflow-x: hidden !important;
@@ -15,7 +512,6 @@ body {
   body {
     margin: 0 !important;
     font-size: 16px;
-    /* Increased base font size for mobile */
   }
 
   .page-title {
@@ -31,7 +527,47 @@ body {
     gap: 2rem !important;
   }
 
-  /* Scale down container widths */
+  .info-meta {
+    text-align: center !important;
+  }
+
+  .design-process-content {
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+  }
+
+  .design-process-content>div:first-child {
+    width: 100%;
+    margin-bottom: -2rem;
+  }
+
+  .problem-discovery-section {
+    margin-top: 8rem !important;
+  }
+
+  .reviews+div .caption .caption-title,
+  .reviews+div .caption .caption-date {
+    display: block;
+  }
+
+  .reviews+div .caption .caption-title {
+    margin-bottom: 0.25rem;
+  }
+
+  .reviews+div .caption .caption-date {
+    margin-top: 0.25rem;
+  }
+
+  #iframe-container .section-title {
+    position: relative;
+    top: 2rem;
+  }
+
+  #iframe-container .section-title .wireframe-break {
+    display: block;
+  }
+
   div[style*="max-width: 60%"],
   div[style*="max-width: 50%"],
   div[style*="max-width: 1200px"] {
@@ -39,11 +575,23 @@ body {
     width: 100% !important;
   }
 
-  /* Scale down flex layouts */
   div[style*="display: flex"]:not([style*="justify-content: center"]):not([style*="margin: 0 auto"]) {
     flex-direction: column !important;
     align-items: center !important;
     gap: 1rem !important;
+  }
+
+  .comparisons-content {
+    flex-direction: column !important;
+    gap: 2rem !important;
+  }
+
+  .comparisons-content>div {
+    width: 100% !important;
+  }
+
+  .comparisons-content>div:last-child {
+    margin-bottom: 1.8rem !important;
   }
 
   div[style*="width: 33%"],
@@ -54,7 +602,6 @@ body {
     width: 100% !important;
   }
 
-  /* Keep comparison images side by side on mobile */
   div[style*="display: flex"][style*="justify-content: center"],
   div[style*="margin: 0 auto"] {
     flex-direction: row !important;
@@ -66,6 +613,13 @@ body {
     width: 45% !important;
   }
 
+  ul,
+  ol,
+  p {
+    font-size: 0.9rem !important;
+    line-height: 1.6 !important;
+  }
+
   .image-link {
     width: 100% !important;
   }
@@ -75,73 +629,26 @@ body {
     height: auto !important;
   }
 
-  ul,
-  ol,
-  p {
-    font-size: 0.9rem !important;
-    line-height: 1.6 !important;
+  img {
+    max-width: 100% !important;
+    height: auto !important;
+  }
+
+  .chest-images img {
+    max-width: 45% !important;
+  }
+
+  .crown-image {
+    max-width: 45% !important;
+    height: auto !important;
+    display: block !important;
+    margin: 0 auto !important;
   }
 
   iframe {
     width: 100% !important;
     height: 400px !important;
     margin: 2rem auto !important;
-  }
-
-  /* Scale down margins */
-  div[style*="margin: 6rem"],
-  div[style*="margin: 8rem"],
-  div[style*="margin: 4rem"],
-  div[style*="margin: 14rem"],
-  div[style*="margin: 3rem"] {
-    margin: 2rem 0 !important;
-  }
-
-  main.project-showcase {
-    margin-top: 2rem !important;
-  }
-
-  img {
-    max-width: 100% !important;
-    height: auto !important;
-  }
-
-  /* Scale down positioning transforms */
-  main[style*="position: relative"],
-  main[style*="left: 50%"],
-  main[style*="transform: translateX"] {
-    position: relative !important;
-    left: auto !important;
-    transform: none !important;
-    width: 100% !important;
-  }
-
-  /* Scale down box shadows and borders */
-  div[style*="box-shadow"],
-  div[style*="border-radius"] {
-    box-shadow: 0 0 4px rgba(0, 0, 0, 0.1) !important;
-    border-radius: 4px !important;
-  }
-
-  /* Scale down padding in white boxes */
-  div[style*="padding: 2rem"] {
-    padding: 1rem !important;
-  }
-
-  .info-meta {
-    text-align: center !important;
-  }
-
-  /* Keep chest images properly sized */
-  div[style*="flex-direction: column"] img[alt*="Chest"],
-  div[style*="flex-direction: column"] img[alt*="Crown"] {
-    max-width: 30% !important;
-  }
-
-  /* Ensure consistent sizing for crown GIFs */
-  img[alt*="Crown Animated"] {
-    max-width: 30% !important;
-    height: auto !important;
   }
 
   .project-showcase iframe {
@@ -153,6 +660,33 @@ body {
     max-width: 100% !important;
     margin: 0 !important;
     padding: 0 !important;
+  }
+
+  div[style*="margin: 6rem"],
+  div[style*="margin: 8rem"],
+  div[style*="margin: 4rem"],
+  div[style*="margin: 14rem"],
+  div[style*="margin: 3rem"] {
+    margin: 2rem 0 !important;
+  }
+
+  div[style*="padding: 2rem"] {
+    padding: 1rem !important;
+  }
+
+  div[style*="box-shadow"],
+  div[style*="border-radius"] {
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.1) !important;
+    border-radius: 4px !important;
+  }
+
+  main[style*="position: relative"],
+  main[style*="left: 50%"],
+  main[style*="transform: translateX"] {
+    position: relative !important;
+    left: auto !important;
+    transform: none !important;
+    width: 100% !important;
   }
 
   .project-showcase>div[style*="margin: 0 auto"] {
@@ -175,8 +709,8 @@ body {
     box-sizing: border-box !important;
   }
 
-  #iframe-container div[style*="margin-top: 0.25rem"] {
-    margin-top: 0 !important;
+  #iframe-container .figma-description {
+    margin-top: -1.8rem !important;
   }
 
   #iframe-container>div[style*="background: #ffffff"] {
@@ -189,15 +723,10 @@ body {
     padding-top: 0 !important;
   }
 
-  #iframe-container div {
-    margin-top: 0 !important;
-  }
-
   .project-showcase div[style*="background: #ffffff"][style*="padding: 2rem"] {
     margin-top: -1rem !important;
   }
 
-  /* Correct User Flow image positioning */
   #user-flow-section div[style*="display: flex"] {
     flex-direction: column !important;
     align-items: center !important;
@@ -215,13 +744,11 @@ body {
     width: 100% !important;
     margin-top: 2rem !important;
   }
-
 }
 
 @media screen and (max-width: 480px) {
   body {
     font-size: 14px;
-    /* Increased base font size for smaller mobile */
   }
 
   .page-title {
@@ -236,10 +763,8 @@ body {
   ol,
   p {
     font-size: 1rem !important;
-    /* Increased paragraph font size for mobile */
   }
 
-  /* Adjust comparison images for very small screens */
   div[style*="display: flex"][style*="justify-content: center"],
   div[style*="margin: 0 auto"] {
     gap: 0.75rem !important;
@@ -259,7 +784,6 @@ body {
   }
 }
 
-/* Footer copyright text sizing to match index */
 .site-footer p {
   font-size: 0.875rem !important;
 }
