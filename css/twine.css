@@ -68,10 +68,6 @@ body {
   line-height: 1.6;
 }
 
-.info-meta p {
-  margin: 0.5rem 0;
-}
-
 .project-screenshot-link {
   display: block;
   margin: -13rem auto 2rem;

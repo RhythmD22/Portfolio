@@ -56,10 +56,6 @@ body {
   line-height: 1.6;
 }
 
-.info-meta p {
-  margin: 0.5rem 0;
-}
-
 .problem-statement-section {
   max-width: 1150px;
   margin: -14rem auto 12rem;
@@ -1638,6 +1634,11 @@ main.main-content.project-intro-section {
 
   .banner-container {
     padding-top: 31px !important;
+  }
+
+  .moneyhelper-screenshot .caption,
+  .voya-screenshot .caption {
+    margin-top: 0.5rem !important;
   }
 }
 
