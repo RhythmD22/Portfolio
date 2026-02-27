@@ -30,7 +30,7 @@ body {
   gap: 2rem;
   padding: 2rem;
   min-height: calc(100vh - 160px);
-  margin-top: 1rem;
+  margin-top: 0rem;
 }
 
 .project-description {
@@ -48,15 +48,6 @@ body {
 .info-meta {
   font-size: 0.95rem;
   line-height: 1.6;
-}
-
-.info-meta p {
-  margin: 1rem 0;
-}
-
-.info-meta strong {
-  display: block;
-  margin-bottom: -1.4rem;
 }
 
 .problem-discovery-section {
