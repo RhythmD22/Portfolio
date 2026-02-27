@@ -719,7 +719,7 @@ body {
 .outcomes-content {
   background: #ffffff;
   padding: 2rem;
-  margin: 0 auto 0;
+  margin: 0 auto 8rem;
   width: 100%;
   max-width: 1135px;
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
