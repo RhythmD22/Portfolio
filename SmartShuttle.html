@@ -27,11 +27,15 @@
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
   <link rel="apple-touch-icon" media="(prefers-color-scheme: dark)" href="dark-apple-touch-icon.png">
 
+  <!-- Preconnect for external resources -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+
   <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100..900;1,100..900&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
   <link rel="stylesheet" href="css/smartshuttle.css">
-  <link rel="stylesheet" href="css/smartshuttle-charts.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@6.1/dist/fancybox/fancybox.min.css">
   <script src="js/dark-mode.js"></script>
@@ -42,11 +46,16 @@
 <body>
   <div class="container">
     <div id="header-placeholder"></div>
-    <main class="main-content center-flex" style="gap: 2rem; padding: 2rem; min-height: calc(100vh - 160px);">
-      <div style="max-width: 60%;">
+
+    <div class="banner-container">
+      <img src="images/Banner 2.png" alt="SmartShuttle Banner" class="banner-image" loading="eager" decoding="async">
+    </div>
+
+    <main class="main-content project-intro-section">
+      <div class="project-description">
         <h1 class="page-title">SmartShuttle Project</h1>
-        <p style="font-size: 1.15rem;">The SmartShuttle tracking app addresses inefficiencies in the University of
-          Pittsburgh’s campus shuttle service, focusing on inconsistent arrival times, overcrowding, and unreliable
+        <p class="project-overview">The SmartShuttle tracking app addresses inefficiencies in the University of
+          Pittsburgh's campus shuttle service, focusing on inconsistent arrival times, overcrowding, and unreliable
           updates. It provides real-time GPS tracking, estimated arrival times, occupancy details, and more, enabling
           students and staff to plan their commutes more efficiently.</p>
       </div>
@@ -57,52 +66,91 @@
         <p><strong>TIMELINE</strong><br>3 weeks in Fall 2024</p>
       </div>
     </main>
-    <div class="main-content center-flex inspiration-section"
-      style="gap: 6rem; padding: 2rem; margin-top: 8rem; margin-bottom: 6rem;">
-      <div style="max-width: 60%;">
-        <h1 class="section-title">Inspiration</h1>
-      </div>
-      <div style="font-size: 1.15rem;">
-        <p>The SmartShuttle concept began as a response to persistent issues with Pitt’s campus shuttles. Riders
+    <div class="inspiration-section">
+      <h2 class="section-title">Inspiration</h2>
+      <div class="inspiration-content">
+        <p>The SmartShuttle concept began as a response to persistent issues with Pitt's campus shuttles. Riders
           frequently face late or crowded buses without reliable arrival updates, making each trip uncertain. Combining
           GPS tracking with live occupancy data provides students and staff clear information on when and where shuttles
           arrive. SmartShuttle uses existing mobile and location technology to make planning a campus commute simple and
           stress-free.</p>
       </div>
     </div>
-    <div class="main-content center-flex phase-section"
-      style="gap: 6rem; padding: 2rem; margin-top: 4rem; margin-bottom: 6rem;">
-      <div style="max-width: 60%; text-align: center;">
-        <h1 class="section-title">Phase 1<br>-<br>Interview Qs and Answers</h1>
+    <div class="main-content center-flex phase-section">
+      <div class="phase-title-container">
+        <h2 class="section-title">Phase 1<br>-<br>Interview Qs and Answers</h2>
+        <img loading="lazy" src="images/undraw_interview.png" alt="Interview illustration" class="phase-undraw-image"
+          decoding="async">
       </div>
-      <div style="display: flex; gap: 6rem; align-items: flex-end;">
-        <a href="images/Phase%201.png" class="image-link" style="width: 40% !important;"
-          data-fancybox="smartshuttle-outline-1" data-caption="Phase 1 Outline">
-          <img loading="lazy" src="images/Phase%201.png" alt="Phase 1 diagram" style="height: auto;">
+      <div class="phase-images-container">
+        <a href="images/Phase%201.png" class="image-link" data-fancybox="smartshuttle-outline-1"
+          data-caption="Phase 1 Outline">
+          <img loading="lazy" src="images/Phase%201.png" alt="Phase 1 diagram" decoding="async">
         </a>
-        <a href="images/Phase%201-2.png" class="image-link" style="width: 40% !important;"
-          data-fancybox="smartshuttle-outline-1" data-caption="Phase 1 Outline cont.">
-          <img loading="lazy" src="images/Phase%201-2.png" alt="Phase 1-2 diagram" style="height: auto;">
+        <a href="images/Phase%201-2.png" class="image-link" data-fancybox="smartshuttle-outline-1"
+          data-caption="Phase 1 Outline cont.">
+          <img loading="lazy" src="images/Phase%201-2.png" alt="Phase 1-2 diagram" decoding="async">
         </a>
       </div>
     </div>
-    <div class="main-content center-flex" style="padding: 2rem; margin-top: -8rem; margin-bottom: 6rem;">
-      <div style="max-width: 60%; text-align: center;">
+    <div class="main-content center-flex phase-content-section">
+      <div>
         <p>Phase 1 focuses on user research and requirements gathering. Interviews with students and staff revealed
           challenges such as shuttle unreliability, overcrowding, and parking difficulties. These findings informed the
-          initial design of SmartShuttle’s real-time tracking, occupancy data, and route optimization features to
+          initial design of SmartShuttle's real-time tracking, occupancy data, and route optimization features to
           address key user pain points.</p>
       </div>
     </div>
   </div>
-  <div class="main-content center-flex" style="padding: 2rem; margin-top: -8rem; margin-bottom: 6rem;">
-    <div style="max-width: 100%;">
-      <h2 style="text-align: center;">Transportation Challenges Analysis</h2>
-      <p style="text-align: center;">Visualizing key findings from user interviews.</p>
+  <div class="user-interviews-section">
+    <h2 class="section-title">User Interviews</h2>
+    <div class="interviews-content">
+      <div class="research-plan-container">
+        <div class="research-plan-column">
+          <div class="research-plan-section">
+            <h2 class="section-title">Research Plan</h2>
+            <ul>
+              <li>Interviewed 5 students and staff to gather insights on transportation challenges.</li>
+              <li>Extracted themes such as shuttle unreliability, overcrowding, and parking difficulties.</li>
+              <li>Used findings to guide features like real-time tracking, occupancy data, and route optimization.</li>
+            </ul>
+          </div>
+          <div class="research-plan-section">
+            <h2 class="section-title">Participant Information</h2>
+            <ul>
+              <li><strong>Total Participants:</strong> 5</li>
+              <li><strong>Names:</strong> Jackson, Alex, George, Summit, Steven</li>
+              <li><strong>Age Range:</strong> 20-35 years old</li>
+            </ul>
+            <p class="participant-focus"><strong>General Focus:</strong> Identifying key transportation challenges,
+              primary commute methods, and desired technology features for campus transit.</p>
+          </div>
+        </div>
+        <div class="interview-questions-section">
+          <h2 class="section-title">Interview Questions</h2>
+          <ol>
+            <li>Can you describe your daily commute to and from the University of Pittsburgh? What are the
+              most significant challenges you face?</li>
+            <li>How do you typically plan your transportation routes? Are there any tools or services you
+              currently use to help with this?</li>
+            <li>Have there been any instances where your transportation options were particularly unreliable
+              or inefficient? How did that impact your day?</li>
+            <li>In what ways do you think technology could improve your overall transportation experience,
+              whether it’s commuting, navigating the city, or finding real-time updates?</li>
+            <li>What features or improvements would you most want to see in a transportation app or system
+              that would make your daily commute more efficient or less stressful?</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="main-content center-flex chart-section">
+    <div>
+      <h2>Transportation Challenges Analysis</h2>
+      <p>Visualizing key findings from user
+        interviews.</p>
 
-      <!-- Grid container for charts -->
       <div class="chart-grid-container">
-        <!-- Chart 1: Interviewee Summary (Top Left) -->
         <div class="chart-grid-item">
           <h3 style="text-align: center;">Interviewee Transportation Summary</h3>
           <table id="summaryTable">
@@ -149,7 +197,6 @@
           </table>
         </div>
 
-        <!-- Chart 2: Problems by Frequency (Top Right) -->
         <div class="chart-grid-item chart-2-item">
           <h3 style="text-align: center;">Top Transportation Problems</h3>
           <div class="chart-container">
@@ -157,7 +204,6 @@
           </div>
         </div>
 
-        <!-- Chart 3: Commute Methods (Bottom Left) -->
         <div class="chart-grid-item chart-3-item">
           <h3 style="text-align: center;">Common Commute Methods</h3>
           <div class="chart-container">
@@ -165,7 +211,6 @@
           </div>
         </div>
 
-        <!-- Chart 4: Technology Solution Preferences (Bottom Right) -->
         <div class="chart-grid-item chart-4-item">
           <h3 style="text-align: center;">Desired Technology Features</h3>
           <div class="chart-container">
@@ -175,24 +220,25 @@
       </div>
     </div>
   </div>
-  <div class="main-content center-flex phase-section"
-    style="gap: 6rem; padding: 2rem; margin-top: 4rem; margin-bottom: 6rem;">
-    <div style="max-width: 60%; text-align: center;">
-      <h1 class="section-title">Phase 2<br>-<br>Technical Solutions</h1>
+  <div class="main-content center-flex phase-section">
+    <div class="phase-title-container">
+      <h2 class="section-title">Phase 2<br>-<br>Technical Solutions</h2>
+      <img loading="lazy" src="images/undraw_features-overview.png" alt="Features overview illustration"
+        class="phase-undraw-image" decoding="async">
     </div>
-    <div style="display: flex; gap: 6rem; align-items: flex-end;">
-      <a href="images/Phase%202.png" class="image-link" style="width: 40% !important;"
-        data-fancybox="smartshuttle-outline-2" data-caption="Phase 2 Outline">
-        <img loading="lazy" src="images/Phase%202.png" alt="Phase 2 diagram" style="height: auto;">
+    <div class="phase-images-container">
+      <a href="images/Phase%202.png" class="image-link" data-fancybox="smartshuttle-outline-2"
+        data-caption="Phase 2 Outline">
+        <img loading="lazy" src="images/Phase%202.png" alt="Phase 2 diagram" decoding="async">
       </a>
-      <a href="images/Phase%202-2.png" class="image-link" style="width: 40% !important;"
-        data-fancybox="smartshuttle-outline-2" data-caption="Phase 2 Outline cont.">
-        <img loading="lazy" src="images/Phase%202-2.png" alt="Phase 2-2 diagram" style="height: auto;">
+      <a href="images/Phase%202-2.png" class="image-link" data-fancybox="smartshuttle-outline-2"
+        data-caption="Phase 2 Outline cont.">
+        <img loading="lazy" src="images/Phase%202-2.png" alt="Phase 2-2 diagram" decoding="async">
       </a>
     </div>
   </div>
-  <div class="main-content center-flex" style="padding: 2rem; margin-top: -8rem; margin-bottom: 6rem;">
-    <div style="max-width: 60%; text-align: center;">
+  <div class="main-content center-flex phase-content-section phase-2-description">
+    <div>
       <p>Phase 2 encompasses finalizing SmartShuttle's key features and planning for deployment. Features include
         real-time GPS tracking of shuttles, push notifications for delays and arrival times, occupancy displays to
         help users plan, and a feedback mechanism for reporting issues. Implementation strategies involve
@@ -202,12 +248,11 @@
         inefficiencies while laying the foundation for future enhancements.</p>
     </div>
   </div>
-  <div class="main-content center-flex" style="padding: 2rem; margin-top: -8rem; margin-bottom: 6rem;">
-    <div style="max-width: 100%;">
-      <h2 style="text-align: center;">Brainstormed Solutions</h2>
-      <p style="text-align: center;">Visualizing the 5 brainstormed solutions for implementation.</p>
+  <div class="main-content center-flex phase2-solutions-section">
+    <div>
+      <h2>Brainstormed Solutions</h2>
+      <p>Visualizing the 5 brainstormed solutions for implementation.</p>
 
-      <!-- Table for Phase 2 Solutions -->
       <div class="chart-grid-item phase2-solutions-container">
         <h3 style="text-align: center;">Brainstormed Solutions Summary</h3>
         <table id="phase2SolutionsTable">
@@ -248,24 +293,25 @@
       </div>
     </div>
   </div>
-  <div class="main-content center-flex phase-section"
-    style="gap: 6rem; padding: 2rem; margin-top: 4rem; margin-bottom: 6rem;">
-    <div style="max-width: 60%; text-align: center;">
-      <h1 class="section-title">Phase 3<br>-<br>Core Features and Functionality</h1>
+  <div class="main-content center-flex phase-section">
+    <div class="phase-title-container">
+      <h2 class="section-title">Phase 3<br>-<br>Core Features and Functionality</h2>
+      <img loading="lazy" src="images/undraw_sorting-thoughts.png" alt="Sorting thoughts illustration"
+        class="phase-undraw-image" decoding="async">
     </div>
-    <div style="display: flex; gap: 6rem; align-items: flex-end;">
-      <a href="images/Phase%203.png" class="image-link" style="width: 40% !important;"
-        data-fancybox="smartshuttle-outline-3" data-caption="Phase 3 Outline">
-        <img loading="lazy" src="images/Phase%203.png" alt="Phase 3 diagram" style="height: auto;">
+    <div class="phase-images-container">
+      <a href="images/Phase%203.png" class="image-link" data-fancybox="smartshuttle-outline-3"
+        data-caption="Phase 3 Outline">
+        <img loading="lazy" src="images/Phase%203.png" alt="Phase 3 diagram" decoding="async">
       </a>
-      <a href="images/Phase%203-2.png" class="image-link" style="width: 40% !important;"
-        data-fancybox="smartshuttle-outline-3" data-caption="Phase 3 Outline cont.">
-        <img loading="lazy" src="images/Phase%203-2.png" alt="Phase 3-2 diagram" style="height: auto;">
+      <a href="images/Phase%203-2.png" class="image-link" data-fancybox="smartshuttle-outline-3"
+        data-caption="Phase 3 Outline cont.">
+        <img loading="lazy" src="images/Phase%203-2.png" alt="Phase 3-2 diagram" decoding="async">
       </a>
     </div>
   </div>
-  <div class="main-content center-flex" style="padding: 2rem; margin-top: -8rem; margin-bottom: 6rem;">
-    <div style="max-width: 60%; text-align: center;">
+  <div class="main-content center-flex phase-content-section">
+    <div>
       <p>Phase 3 focuses on final refinement, interface design, and ethical considerations. The app includes a Welcome
         screen for onboarding, Live Tracking map, Live Notifications area, a Settings page, and a User Feedback form
         ensuring anonymity. User feedback is collected through in-app forms and surveys to drive iterative
@@ -274,12 +320,9 @@
         the app serves all users responsibly.</p>
     </div>
   </div>
-  <div class="main-content center-flex final-design-section"
-    style="gap: 6rem; padding: 2rem; margin-top: 4rem; margin-bottom: 6rem;">
-    <div style="max-width: 60%;">
-      <h1 class="section-title">Final Design</h1>
-    </div>
-    <div style="font-size: 1.15rem;">
+  <div class="final-design-section">
+    <h2 class="section-title">Final Design</h2>
+    <div class="final-design-content">
       <p>The final SmartShuttle interface emphasizes clarity and ease of use. A real-time map displays shuttle locations
         and occupancy levels, while a clean, icon-based navigation enables users to quickly switch between live
         shuttles, route tracking, notifications, and feedback.</p>
@@ -289,42 +332,40 @@
         compliance, ensuring the app serves users with diverse abilities and needs.</p>
     </div>
   </div>
-  <div
-    style="position: relative; left: 50%; transform: translateX(-50%); width: 100vw; margin-top: 4rem; margin-bottom: 6rem; padding: 0;">
-    <img loading="lazy" src="images/SmartShuttle%20Preview%202.png" alt="SmartShuttle Preview"
-      style="width: 100vw; height: auto; display: block;">
+  <div class="full-width-image-section">
+    <img loading="lazy" src="images/SmartShuttle%20Preview%202.png" alt="SmartShuttle Preview" decoding="async">
   </div>
-  <div style="margin: 0 auto; width: 100%; max-width: 1200px; margin-top: 4rem;">
-    <h1 class="section-title" style="text-align: left;">SmartShuttle Figma Prototype</h1>
-  </div>
-  <div style="margin-top: 0rem; width: 100%; max-width: 1200px; margin-left: auto; margin-right: auto;">
-    <iframe loading="lazy" style="border: 1px solid rgba(0, 0, 0, 0.1); border-radius: 8px; width: 100%; height: 600px;"
-      src="https://embed.figma.com/proto/6fDBBVI6y7vGPex2yUrzPO/INFSCI-0410---Smart-Shuttle-Mockup?page-id=0%3A1&node-id=26-358&viewport=161%2C12%2C0.33&scaling=scale-down&content-scaling=fixed&starting-point-node-id=26%3A358&embed-host=share"
-      allowfullscreen>
-    </iframe>
-  </div>
-  <div
-    style="background: #ffffff; padding: 2rem; margin: 0 auto; width: 100%; max-width: 1135px; box-shadow: 0 0 8px rgba(0, 0, 0, 0.05); border-top-left-radius: 8px; border-top-right-radius: 8px; border-bottom-left-radius: 8px; border-bottom-right-radius: 8px;">
-    <p style="font-size: 1.15rem; line-height: 1.8; margin: 0;">
-      This prototype went through several iterations before I finalized the design. The settings page, for instance,
-      evolved significantly from a basic interface with simple toggles to a more comprehensive notification page
-      displaying a live feed of service-related transit alerts. My primary goal was to create an intuitive interface for
-      students and staff that balanced minimalism with
-      comprehensive functionality. I believe this approach resulted in a design that is both user-friendly and
-      feature-rich.
-    </p>
-  </div>
-  <div style="margin: 6rem auto 2rem; width: 100%; max-width: 1200px;">
-    <h1 class="section-title" style="text-align: left;">Live Website</h1>
-    <a href="https://smartshuttle.vercel.app" target="_blank">
-      <video id="smartshuttle-video" src="images/SmartShuttle%20Homescreen.mp4" class="screenshot-img"
-        style="width: 100%;" autoplay muted loop playsinline></video>
-    </a>
-    <div
-      style="background: #ffffff; padding: 2rem; margin: 0rem auto 0; width: 100%; max-width: 1135px; box-shadow: 0 0 8px rgba(0, 0, 0, 0.05); border-radius: 8px;">
-      <div style="margin-top: 0;">
-        <h2 style="font-size: 1.5rem; font-weight: 700;">Overall Outcomes</h2>
-        <ul style="font-size: 1.15rem; line-height: 1.8;">
+  <div class="container">
+    <div class="figma-prototype-section">
+      <h2 class="section-title">SmartShuttle Figma Prototype</h2>
+    </div>
+    <div class="figma-prototype-iframe-container">
+      <iframe loading="lazy"
+        src="https://embed.figma.com/proto/6fDBBVI6y7vGPex2yUrzPO/INFSCI-0410---Smart-Shuttle-Mockup?page-id=0%3A1&node-id=26-358&viewport=161%2C12%2C0.33&scaling=scale-down&content-scaling=fixed&starting-point-node-id=26%3A358&embed-host=share"
+        allowfullscreen>
+      </iframe>
+    </div>
+    <div class="prototype-description-box">
+      <p>
+        This prototype went through several iterations before I finalized the design. The settings page, for instance,
+        evolved significantly from a basic interface with simple toggles to a more comprehensive notification page
+        displaying a live feed of service-related transit alerts. My primary goal was to create an intuitive interface
+        for students and staff that balanced minimalism with comprehensive functionality. I believe this approach
+        resulted in a design that is both user-friendly and feature-rich.
+      </p>
+    </div>
+    <div class="live-website-section">
+      <h2 class="section-title">Live Website</h2>
+      <a href="https://smartshuttle.vercel.app" target="_blank">
+        <video id="smartshuttle-video" src="images/SmartShuttle%20Homescreen.mp4" class="screenshot-img" autoplay muted
+          loop playsinline></video>
+      </a>
+    </div>
+
+    <div class="outcomes-section">
+      <div class="outcomes-content">
+        <h2 class="outcomes-title">Overall Outcomes</h2>
+        <ul>
           <li>Successfully implemented core functionality including geolocation to access the user's location for
             finding nearby shuttles.</li>
           <li>Created interactive map with Leaflet.js and Transit API integration for live transit stop locations.</li>
@@ -334,40 +375,35 @@
           <li>Established feedback collection system with GitHub Issues integration.</li>
         </ul>
       </div>
-      <div style="margin-top: 3rem;">
-        <h2 style="font-size: 1.5rem; font-weight: 700;">Reflection</h2>
-        <p style="font-size: 1.15rem; line-height: 1.8;">
-          Initially, I hadn't planned to implement my Figma prototype, but viewed it as an appropriate challenge after
+    </div>
+
+    <div class="reflection-card">
+      <div class="reflection-content">
+        <h2 class="reflection-title">Reflection</h2>
+        <p>Initially, I hadn't planned to implement my Figma prototype, but viewed it as an appropriate challenge after
           developing Financier and Magnate. I successfully built the core functionality and gained valuable experience
           integrating the Transit API and a GitHub Issues-based feedback system, while managing environment variables
-          securely.
-        </p>
-        <p style="font-size: 1.15rem; line-height: 1.8; margin-top: 1rem;">
-          While the application functions well, several areas remain for enhancement: the feedback system doesn't
+          securely.</p>
+        <p>While the application functions well, several areas remain for enhancement: the feedback system doesn't
           support file attachments, the Live Stops page can't display real-time vehicle movement due to API limitations,
           and route tracking could benefit from polylines. These limitations provide clear directions for future
-          development.
-        </p>
-        <p style="font-size: 1.15rem; line-height: 1.8; margin-top: 1rem;">
-          This project strengthened both my design and development skills, resulting in a functional application that
+          development.</p>
+        <p>This project strengthened both my design and development skills, resulting in a functional application that
           provides transit information to students, staff, and commuters—demonstrating the full cycle from design
-          concept to implementation.
-        </p>
+          concept to implementation.</p>
       </div>
     </div>
-  </div>
-  <div id="footer-placeholder"></div>
-  <script src="js/templates.js"></script>
-  <script src="js/navigation.js"></script>
-  <script src="js/smartshuttle-charts.js"></script>
-  <button onclick="window.scrollTo({top: 0, behavior: 'smooth'});" class="scroll-top-btn" aria-label="Scroll to top">
-    <svg width="96" height="72" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.6"
-      stroke-linecap="round" stroke-linejoin="round">
-      <polyline points="18 15 12 9 6 15"></polyline>
-    </svg>
-  </button>
-  <script src="js/scroll.js"></script>
-  <script src="js/smartshuttle.js"></script>
+    <div id="footer-placeholder"></div>
+    <script src="js/templates.js"></script>
+    <script src="js/navigation.js"></script>
+    <button onclick="window.scrollTo({top: 0, behavior: 'smooth'});" class="scroll-top-btn" aria-label="Scroll to top">
+      <svg width="96" height="72" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.6"
+        stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="18 15 12 9 6 15"></polyline>
+      </svg>
+    </button>
+    <script src="js/scroll.js"></script>
+    <script src="js/smartshuttle.js"></script>
 </body>
 
 </html>
