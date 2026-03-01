@@ -876,6 +876,19 @@ body {
   transition: color 0.1s ease;
 }
 
+[data-theme="dark"] #magnate-link {
+  color: #518be5;
+}
+
+[data-theme="dark"] #magnate-link:hover,
+[data-theme="dark"] #magnate-link:focus {
+  color: #8ab4f8;
+}
+
+[data-theme="dark"] #magnate-link:active {
+  color: #8ab4f8;
+}
+
 .caption {
   margin-top: 0;
 }
@@ -904,21 +917,28 @@ main.main-content.project-intro-section {
 [data-theme="dark"] .dp-analytics>div[style*="background: #fff"],
 [data-theme="dark"] .dp-calculator>div[style*="background: #fff"],
 [data-theme="dark"] .dp-tips>div[style*="background: #fff"] {
-  background-color: #ffffff !important;
-  color: #000 !important;
+  background-color: #1e1e1e !important;
+  color: #e0e0e0 !important;
 }
 
 [data-theme="dark"] .problem-statement-content,
 [data-theme="dark"] .problem-statement-content p,
 [data-theme="dark"] .problem-statement-content .problem-statement-text {
-  color: #000 !important;
+  background-color: #1e1e1e !important;
+  color: #e0e0e0 !important;
 }
 
 [data-theme="dark"] .competitor-analysis-container,
 [data-theme="dark"] .competitor-analysis-container p,
 [data-theme="dark"] .competitor-analysis-container h2,
 [data-theme="dark"] .competitor-analysis-container .section-title {
-  color: #000 !important;
+  background-color: #1e1e1e !important;
+  color: #e0e0e0 !important;
+}
+
+[data-theme="dark"] .competitor-count,
+[data-theme="dark"] .competitor-label {
+  color: #e0e0e0 !important;
 }
 
 [data-theme="dark"] .interviews-content,
@@ -926,7 +946,8 @@ main.main-content.project-intro-section {
 [data-theme="dark"] .interviews-content h1,
 [data-theme="dark"] .interviews-content h2,
 [data-theme="dark"] .interviews-content li {
-  color: #000 !important;
+  background-color: #1e1e1e !important;
+  color: #e0e0e0 !important;
 }
 
 [data-theme="dark"] .findings-content,
@@ -934,7 +955,8 @@ main.main-content.project-intro-section {
 [data-theme="dark"] .findings-content h1,
 [data-theme="dark"] .findings-content h2,
 [data-theme="dark"] .findings-content li {
-  color: #000 !important;
+  background-color: #1e1e1e !important;
+  color: #e0e0e0 !important;
 }
 
 [data-theme="dark"] .dp-landing .panel-label,
@@ -943,25 +965,50 @@ main.main-content.project-intro-section {
 [data-theme="dark"] .dp-analytics .panel-label,
 [data-theme="dark"] .dp-calculator .panel-label,
 [data-theme="dark"] .dp-tips .panel-label {
-  color: #000 !important;
+  background-color: #1e1e1e !important;
+  color: #e0e0e0 !important;
 }
 
 [data-theme="dark"] .prototype-description,
 [data-theme="dark"] .prototype-description p {
-  color: #000 !important;
+  background-color: #1e1e1e !important;
+  color: #e0e0e0 !important;
 }
 
 [data-theme="dark"] .outcomes-content,
 [data-theme="dark"] .outcomes-content p,
 [data-theme="dark"] .outcomes-content h2,
 [data-theme="dark"] .outcomes-content li {
-  color: #000 !important;
+  background-color: #1e1e1e !important;
+  color: #e0e0e0 !important;
 }
 
 [data-theme="dark"] .neon-border-card,
 [data-theme="dark"] .neon-border-card p,
 [data-theme="dark"] .neon-border-card h2 {
-  color: #000 !important;
+  background-color: #1e1e1e !important;
+  color: #e0e0e0 !important;
+}
+
+[data-theme="dark"] .neon-border-card::after {
+  background-color: #1e1e1e;
+}
+
+[data-theme="dark"] .reflection-card {
+  background-color: #1e1e1e !important;
+  color: #e0e0e0 !important;
+}
+
+[data-theme="dark"] .reflection-card p,
+[data-theme="dark"] .reflection-card h2 {
+  color: #e0e0e0 !important;
+}
+
+[data-theme="dark"] .main-content[style*="background: #eaeaea"] h2,
+[data-theme="dark"] .main-content[style*="background: #eaeaea"] .section-title,
+[data-theme="dark"] .main-content[style*="background: #eaeaea"] p {
+  background-color: #1e1e1e !important;
+  color: #e0e0e0 !important;
 }
 
 [data-theme="dark"] .chart-grid-item {
@@ -976,15 +1023,9 @@ main.main-content.project-intro-section {
 }
 
 [data-theme="dark"] .reflection-card {
-  background-color: white;
-  color: black;
+  background-color: #1e1e1e !important;
+  color: #e0e0e0 !important;
   border-color: #4f84ef;
-}
-
-[data-theme="dark"] .main-content[style*="background: #eaeaea"] h2,
-[data-theme="dark"] .main-content[style*="background: #eaeaea"] .section-title,
-[data-theme="dark"] .main-content[style*="background: #eaeaea"] p {
-  color: #000 !important;
 }
 
 @media screen and (max-width: 768px) and (orientation: portrait) {
@@ -1629,7 +1670,11 @@ main.main-content.project-intro-section {
   }
 
   #header-placeholder {
-    margin-bottom: 0 !important;
+    margin-bottom: 1rem !important;
+  }
+
+  .site-header {
+    padding-bottom: 1.1rem !important;
   }
 
   .banner-container {
