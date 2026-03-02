@@ -1,26 +1,141 @@
-/* CSS specific to the About page */
 .description-container {
-    padding-top: 4vh;
+    padding-top: 16vh;
 }
 
 .intro-text {
-    max-width: 800px;
+    max-width: 1100px;
     margin: 0 auto;
-    padding: 0.25rem 2rem 2rem 2rem;
+    padding: 0.25rem 2rem 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2rem;
 }
 
-.img-container {
-    text-align: center;
-    margin-bottom: 0.5rem;
+.intro-content {
+    display: flex;
+    align-items: flex-start;
+    gap: 8rem;
+    width: 100%;
 }
 
-.intro-text img {
-    max-width: 240px;
-    border-radius: 50%;
+.intro-content p {
+    order: 1;
+    flex: 1;
+}
+
+.intro-content .img-container {
+    order: 2;
+    flex-shrink: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.intro-content .img-container img {
+    max-width: 280px;
+    display: block;
+}
+
+.about-heading {
+    font-size: 2rem;
+    font-weight: 600;
+    margin: 0;
+    color: var(--text-color);
+    line-height: 1.2;
 }
 
 .intro-paragraph {
     font-size: 1.1rem;
     line-height: 1.5;
-    margin-bottom: 1rem;
+    margin-bottom: 0;
+}
+
+.intro-paragraph a {
+    color: inherit;
+    text-decoration: underline;
+    text-decoration-color: currentColor;
+}
+
+.intro-paragraph a:hover {
+    color: var(--hover-color);
+    text-decoration-color: var(--hover-color);
+}
+
+.image-caption {
+    font-size: 0.9rem;
+    color: var(--text-color);
+    opacity: 0.7;
+    text-align: center;
+    margin-top: 0.75rem;
+    line-height: 1.4;
+    max-width: 280px;
+}
+
+@media (max-width: 900px) {
+    .description-container {
+        padding-top: 4vh;
+    }
+
+    .about-heading {
+        white-space: normal;
+        font-size: 1.5rem;
+    }
+
+    .about-heading .mobile-break {
+        display: block;
+    }
+
+    .intro-text {
+        padding: 0.25rem 1rem 2rem;
+    }
+
+    .intro-content {
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+    }
+
+    .intro-content .img-container {
+        order: unset;
+    }
+
+    .intro-content p {
+        order: unset;
+        width: 100%;
+    }
+
+    .img-container {
+        text-align: center;
+        margin-bottom: 0.5rem;
+    }
+
+    .intro-text img {
+        max-width: 240px;
+    }
+
+    .image-caption {
+        max-width: 240px;
+    }
+}
+
+[data-theme="dark"] .about-heading,
+[data-theme="dark"] .about-heading .mobile-break {
+    color: var(--text-color) !important;
+}
+
+[data-theme="dark"] .image-caption {
+    color: var(--text-color);
+    opacity: 0.8;
+}
+
+[data-theme="dark"] .intro-paragraph a {
+    color: var(--text-color);
+    text-decoration-color: var(--text-color);
+}
+
+[data-theme="dark"] .intro-paragraph a:hover {
+    color: var(--dark-mode-toggle-hover);
+    text-decoration-color: var(--dark-mode-toggle-hover);
 }

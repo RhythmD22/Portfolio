@@ -6,7 +6,14 @@ body {
   padding: 0;
 }
 
-/* Main container flex layout */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  overscroll-behavior-y: auto;
+}
+
 .container {
   display: flex;
   flex-direction: column;
@@ -18,15 +25,11 @@ body {
   margin-bottom: 3rem;
   min-height: 57vh;
   margin-top: 6rem;
-  /* Push content down below the fixed header */
-  /* Center content further down the page */
 }
 
-/* Ensure intro is a flex container and doesn't cause overflow */
 .intro {
   display: flex;
   align-items: flex-start;
-  /* Updated to align to top to maintain image position */
   gap: 4rem;
   width: 100%;
 }
@@ -37,21 +40,14 @@ body {
   margin-right: auto;
   margin-left: 7rem;
   margin-top: 2rem;
-  /* Add top margin to position image lower */
   flex-shrink: 0;
-  /* Prevent profile container from shrinking */
-
-  /* Responsive width that accounts for the animation size */
   width: max-content;
 }
 
-/* Base styles for profile animation */
 .profile-animation {
   display: block;
   width: 340px;
-  /* Mobile default */
   height: 340px;
-  /* Mobile default */
   border-radius: 50%;
   box-shadow: none;
   position: relative;
@@ -59,42 +55,16 @@ body {
   transition: opacity 0.4s ease, transform 0.2s ease;
 }
 
-/* Add interactive overlay limited to spinning circle area */
 .profile-animation::before {
   content: '';
   position: absolute;
   top: calc(50% - 125px);
-  /* Position at center minus half of the animation size (250px/2) */
   left: calc(50% - 125px);
-  /* Position at center minus half of the animation size (250px/2) */
   width: 250px;
   height: 250px;
   border-radius: 50%;
   z-index: 3;
   cursor: pointer;
-}
-
-/* Desktop styles for profile animation */
-@media (min-width: 901px) {
-  .profile-animation {
-    width: 450px !important;
-    height: 450px !important;
-    top: -117px !important;
-    left: -116px !important;
-  }
-
-  /* Desktop styles for interactive overlay - limited to spinning circle area */
-  .profile-animation::before {
-    top: calc(50% - 225px) !important;
-    /* Position at center minus half of the desktop animation size (450px/2) */
-    left: calc(50% - 225px) !important;
-    /* Position at center minus half of the desktop animation size (450px/2) */
-    width: 450px !important;
-    height: 450px !important;
-    border-radius: 50% !important;
-    z-index: 3 !important;
-    cursor: pointer !important;
-  }
 }
 
 .profile-animation.hide {
@@ -105,7 +75,6 @@ body {
   box-shadow: none;
 }
 
-/* Hide profile image and related elements */
 .profile-image,
 .profile-image.hide,
 .profile-image::after,
@@ -118,15 +87,14 @@ body {
   position: absolute;
   top: -10px;
   left: -10px;
-  width: calc(218px + 20px);
-  height: calc(218px + 20px);
+  width: calc(200px + 20px);
+  height: calc(200px + 20px);
   border-radius: 50%;
   box-sizing: border-box;
   animation: spin 10s linear infinite, glow 2s ease-in-out infinite alternate;
   box-shadow: 0 0 15px #4a9fc8;
   z-index: 1;
-  background:
-    conic-gradient(from 0deg,
+  background: conic-gradient(from 0deg,
       #4a9fc8 0deg,
       #4a9fc8 90deg,
       var(--background-color) 90deg,
@@ -159,17 +127,14 @@ body {
 
 .intro-text {
   flex: 1;
-  /* Allow text area to take remaining space */
   min-width: 0;
-  /* Allow flex item to shrink below content size */
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
 }
 
-/* Intro text styles */
 .intro-heading {
-  font-size: 2rem;
+  font-size: 2.2rem;
   margin: 0 0 1rem;
   font-weight: 600;
   color: var(--text-color);
@@ -182,299 +147,6 @@ body {
   margin: 0 0 1rem;
 }
 
-@media (max-width: 900px) {
-  .profile-container {
-    margin: 0 auto;
-    align-self: center;
-    display: block;
-    /* Change from inline-block to block for better centering in flex */
-    margin-left: 0;
-    /* Override the default margin-left: 7rem */
-  }
-
-  .spinning-ring {
-    left: 0;
-    right: -120px;
-    margin: 0 auto;
-    top: 25px;
-  }
-
-  html,
-  body {
-    height: auto;
-    min-height: 100vh;
-  }
-
-  .intro {
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: 1.5rem;
-    width: 100%;
-  }
-
-  .intro-text {
-    width: 100%;
-    max-width: min(28rem, 100vw);
-    margin: 0 auto;
-    padding-left: clamp(16px, 4vw, 24px);
-    padding-right: clamp(16px, 4vw, 24px);
-    overflow-wrap: break-word;
-    word-break: normal;
-    white-space: normal;
-    text-align: center;
-    min-height: 200px;
-    /* Fixed minimum height to prevent image push on mobile */
-  }
-
-  .profile-animation {
-    width: 250px !important;
-    height: 250px !important;
-    z-index: 2 !important;
-    margin: 0 auto !important;
-    align-self: center !important;
-    position: relative !important;
-    cursor: pointer !important;
-    transition: opacity 0.4s ease !important;
-    top: -20px !important;
-
-  }
-
-  .container {
-    height: auto;
-    min-height: 100vh;
-  }
-
-  body {
-    overflow-y: auto;
-    overscroll-behavior-y: contain;
-  }
-
-  .site-header,
-  .site-footer {
-    overscroll-behavior: contain;
-  }
-
-  .description-container {
-    flex: none;
-    min-height: auto;
-    padding-top: 6rem;
-    /* More space between header and intro on mobile */
-    padding-bottom: 2rem;
-  }
-}
-
-@media (max-width: 900px) and (orientation: portrait) {
-  .description-container {
-    flex: 1;
-    padding-top: 2rem;
-    padding-bottom: 2rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: calc(100vh - 200px);
-    /* Account for header/footer */
-  }
-
-  .intro {
-    align-items: center;
-    text-align: center;
-    width: 100%;
-    padding: 0 1rem;
-    box-sizing: border-box;
-    justify-content: center;
-    min-height: auto;
-    gap: 1.5rem;
-  }
-
-  .intro-text {
-    text-align: center;
-    margin: 0;
-    width: 100%;
-    max-width: 100%;
-    padding: 0 1rem;
-    box-sizing: border-box;
-    overflow-wrap: break-word;
-    word-break: normal;
-    white-space: normal;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    min-height: 200px;
-    /* Fixed minimum height to prevent image push on mobile */
-  }
-
-  /* Portrait mobile positioning */
-  .profile-container {
-    align-self: center;
-    margin: 0 auto;
-    display: block;
-    /* Change from inline-block to block for better centering in flex */
-    margin-left: 0;
-    /* Override the default margin-left: 7rem */
-  }
-
-  .spinning-ring {
-    left: -6px;
-    right: 0px;
-    margin: 0 auto;
-    top: 11px;
-    width: 200px;
-    height: 200px;
-  }
-
-  .profile-animation {
-    margin: 0 auto !important;
-    width: 375px !important;
-    height: 375px !important;
-    z-index: 2 !important;
-    position: relative !important;
-    cursor: pointer !important;
-    transition: opacity 0.4s ease !important;
-    left: -3px !important;
-    top: -77px !important;
-  }
-
-  /* Mobile portrait styles for interactive overlay */
-  .profile-animation::before {
-    top: calc(50% - 100px) !important;
-    /* Position at center minus half of the spinning ring size (200px/2) */
-    left: calc(50% - 100px) !important;
-    /* Position at center minus half of the spinning ring size (200px/2) */
-    width: 200px !important;
-    height: 200px !important;
-    border-radius: 50% !important;
-    z-index: 3 !important;
-    cursor: pointer !important;
-  }
-}
-
-/* Mobile landscape adjustments */
-@media (max-width: 900px) and (orientation: landscape) {
-  .description-container {
-    flex: 1;
-    padding-top: 2rem;
-    padding-bottom: 2rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: calc(100vh - 200px);
-    /* Account for header/footer */
-  }
-
-  .intro {
-    align-items: center;
-    text-align: center;
-    width: 100%;
-    padding: 0 1rem;
-    box-sizing: border-box;
-    justify-content: center;
-    min-height: auto;
-    gap: 1.5rem;
-  }
-
-  .intro-text {
-    text-align: center;
-    margin: 0;
-    width: 100%;
-    max-width: 100%;
-    padding: 0 1rem;
-    box-sizing: border-box;
-    overflow-wrap: break-word;
-    word-break: normal;
-    white-space: normal;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    min-height: 200px;
-    /* Fixed minimum height to prevent image push on mobile */
-  }
-
-  /* Landscape mobile positioning */
-  .profile-container {
-    align-self: center;
-    margin: 0 auto;
-    display: block;
-    /* Change from inline-block to block for better centering in flex */
-    margin-left: 0;
-    /* Override the default margin-left: 7rem */
-  }
-
-  .spinning-ring {
-    left: 0;
-    right: -250px;
-    margin: 0 auto;
-    top: 11px;
-    width: 240px;
-    height: 240px;
-  }
-
-  .profile-animation {
-    margin: 0 auto !important;
-    width: 450px !important;
-    height: 450px !important;
-    z-index: 2 !important;
-    position: relative !important;
-    cursor: pointer !important;
-    transition: opacity 0.4s ease !important;
-    left: 125px !important;
-    top: -95px !important;
-  }
-
-  /* Mobile landscape styles for interactive overlay */
-  .profile-animation::before {
-    top: calc(50% - 120px) !important;
-    /* Position at center minus half of the spinning ring size (240px/2) */
-    left: calc(50% - 120px) !important;
-    /* Position at center minus half of the spinning ring size (240px/2) */
-    width: 240px !important;
-    height: 240px !important;
-    border-radius: 50% !important;
-    z-index: 3 !important;
-    cursor: pointer !important;
-  }
-
-  /* Adjust spacing in landscape orientation */
-  .description-container {
-    padding-bottom: 0.25rem;
-    /* Further reduce space between animation and work section */
-  }
-
-  .main-content.work-section {
-    padding-top: 0.25rem;
-    /* Further reduce top padding of work section */
-  }
-}
-
-/* iPhone 390x844 portrait specific adjustments */
-@media (max-width: 390px) and (orientation: portrait) {
-  .description-container {
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-    min-height: calc(100vh - 180px);
-  }
-
-  .intro {
-    padding: 0 0.5rem;
-    gap: 1.5rem;
-  }
-
-  .intro-text {
-    padding: 0 0.5rem;
-  }
-
-  .intro-text .intro-heading {
-    font-size: 1.75rem;
-  }
-
-  .intro-text .intro-paragraph {
-    font-size: 1.1rem;
-    line-height: 1.6;
-  }
-}
-
-/* Typing effect styles */
 .typing-text {
   position: relative;
   display: inline-block;
@@ -505,7 +177,6 @@ body {
   }
 }
 
-/* Screen reader only text - visually hidden but accessible to screen readers */
 .sr-only {
   position: absolute;
   width: 1px;
@@ -518,11 +189,288 @@ body {
   border: 0;
 }
 
-/* Ensure smooth scrolling on all devices */
-html {
-  scroll-behavior: smooth;
+@media (min-width: 901px) {
+  .profile-animation {
+    width: 415px !important;
+    height: 415px !important;
+    top: -108px !important;
+    left: -107px !important;
+  }
+
+  .profile-animation::before {
+    top: calc(50% - 200px) !important;
+    left: calc(50% - 200px) !important;
+    width: 415px !important;
+    height: 415px !important;
+    border-radius: 50% !important;
+    z-index: 3 !important;
+    cursor: pointer !important;
+  }
 }
 
-body {
-  overscroll-behavior-y: auto;
+@media (max-width: 900px) {
+
+  html,
+  body {
+    height: auto;
+    min-height: 100vh;
+  }
+
+  body {
+    overflow-y: auto;
+    overscroll-behavior-y: contain;
+  }
+
+  .container {
+    height: auto;
+    min-height: 100vh;
+  }
+
+  .site-header,
+  .site-footer {
+    overscroll-behavior: contain;
+  }
+
+  .description-container {
+    flex: none;
+    min-height: auto;
+    padding-top: 6rem;
+    padding-bottom: 2rem;
+  }
+
+  .profile-container {
+    margin: 0 auto;
+    align-self: center;
+    display: block;
+    margin-left: 0;
+  }
+
+  .spinning-ring {
+    left: 0;
+    right: -120px;
+    margin: 0 auto;
+    top: 25px;
+  }
+
+  .intro {
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1.5rem;
+    width: 100%;
+  }
+
+  .intro-text {
+    width: 100%;
+    max-width: min(28rem, 100vw);
+    margin: 0 auto;
+    padding-left: clamp(16px, 4vw, 24px);
+    padding-right: clamp(16px, 4vw, 24px);
+    overflow-wrap: break-word;
+    word-break: normal;
+    white-space: normal;
+    text-align: center;
+    min-height: 200px;
+  }
+
+  .profile-animation {
+    width: 250px !important;
+    height: 250px !important;
+    z-index: 2 !important;
+    margin: 0 auto !important;
+    align-self: center !important;
+    position: relative !important;
+    cursor: pointer !important;
+    transition: opacity 0.4s ease !important;
+    top: -20px !important;
+  }
+}
+
+@media (max-width: 900px) and (orientation: portrait) {
+  .description-container {
+    flex: 1;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: calc(100vh - 200px);
+  }
+
+  .intro {
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    padding: 0 1rem;
+    box-sizing: border-box;
+    justify-content: center;
+    min-height: auto;
+    gap: 1.5rem;
+  }
+
+  .intro-text {
+    text-align: center;
+    margin: 0;
+    width: 100%;
+    max-width: 100%;
+    padding: 0 1rem;
+    box-sizing: border-box;
+    overflow-wrap: break-word;
+    word-break: normal;
+    white-space: normal;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 200px;
+  }
+
+  .profile-container {
+    align-self: center;
+    margin: 0 auto;
+    display: block;
+    margin-left: 0;
+  }
+
+  .spinning-ring {
+    left: -6px;
+    right: 0;
+    margin: 0 auto;
+    top: 11px;
+    width: 200px;
+    height: 200px;
+  }
+
+  .profile-animation {
+    margin: 0 auto !important;
+    width: 375px !important;
+    height: 375px !important;
+    z-index: 2 !important;
+    position: relative !important;
+    cursor: pointer !important;
+    transition: opacity 0.4s ease !important;
+    left: -3px !important;
+    top: -77px !important;
+  }
+
+  .profile-animation::before {
+    top: calc(50% - 100px) !important;
+    left: calc(50% - 100px) !important;
+    width: 200px !important;
+    height: 200px !important;
+    border-radius: 50% !important;
+    z-index: 3 !important;
+    cursor: pointer !important;
+  }
+}
+
+@media (max-width: 900px) and (orientation: landscape) {
+  .description-container {
+    flex: 1;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: calc(100vh - 200px);
+  }
+
+  .intro {
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    padding: 0 1rem;
+    box-sizing: border-box;
+    justify-content: center;
+    min-height: auto;
+    gap: 1.5rem;
+  }
+
+  .intro-text {
+    text-align: center;
+    margin: 0;
+    width: 100%;
+    max-width: 100%;
+    padding: 0 1rem;
+    box-sizing: border-box;
+    overflow-wrap: break-word;
+    word-break: normal;
+    white-space: normal;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 200px;
+  }
+
+  .profile-container {
+    align-self: center;
+    margin: 0 auto;
+    display: block;
+    margin-left: 0;
+  }
+
+  .spinning-ring {
+    left: 0;
+    right: -250px;
+    margin: 0 auto;
+    top: 11px;
+    width: 240px;
+    height: 240px;
+  }
+
+  .profile-animation {
+    margin: 0 auto !important;
+    width: 450px !important;
+    height: 450px !important;
+    z-index: 2 !important;
+    position: relative !important;
+    cursor: pointer !important;
+    transition: opacity 0.4s ease !important;
+    left: 125px !important;
+    top: -95px !important;
+  }
+
+  .profile-animation::before {
+    top: calc(50% - 120px) !important;
+    left: calc(50% - 120px) !important;
+    width: 240px !important;
+    height: 240px !important;
+    border-radius: 50% !important;
+    z-index: 3 !important;
+    cursor: pointer !important;
+  }
+
+  .description-container {
+    padding-bottom: 0.25rem;
+  }
+
+  .main-content.work-section {
+    padding-top: 0;
+  }
+}
+
+@media (max-width: 390px) and (orientation: portrait) {
+  .description-container {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    min-height: calc(100vh - 180px);
+  }
+
+  .intro {
+    padding: 0 0.5rem;
+    gap: 1.5rem;
+  }
+
+  .intro-text {
+    padding: 0 0.5rem;
+  }
+
+  .intro-text .intro-heading {
+    font-size: 1.75rem;
+  }
+
+  .intro-text .intro-paragraph {
+    font-size: 1.1rem;
+    line-height: 1.6;
+  }
 }
