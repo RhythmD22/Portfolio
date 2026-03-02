@@ -17,7 +17,7 @@ This repository contains Rhythm Desai's personal portfolio website. It showcases
 - **android-chrome-512x512.png** – Chrome browser app icon (512x512).
 - **apple-touch-icon.png** – Apple touch icon for mobile devices.
 - **Clash Royale Redesign.html** – Project page for a UI/UX redesign of the Clash Royale app.
-- **css/** – Directory containing all CSS files
+- **css/** – Directory containing all CSS files.
   - **about.css** – Specific styling for the About page.
   - **clashroyale.css** – Specific styling for the Clash Royale project page.
   - **financier.css** – Specific styling for the Financier project page.
@@ -32,7 +32,7 @@ This repository contains Rhythm Desai's personal portfolio website. It showcases
 - **header.html** – Shared header snippet included on each page.
 - **images/** – Screenshots, mockups, and other graphics used throughout the site.
 - **index.html** – Home page with a short bio and site navigation.
-- **js/** – Directory containing all JavaScript files
+- **js/** – Directory containing all JavaScript files.
   - **clashroyale.js** – Specific JavaScript for the Clash Royale project page.
   - **dark-mode.js** – Implements dark mode functionality across the site.
   - **financier.js** – Specific JavaScript for the Financier project page.
