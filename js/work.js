@@ -1,4 +1,3 @@
-// Initialize Fancybox for other designs gallery on index page
 Fancybox.bind('[data-fancybox="other-designs"]', {
   Carousel: {
     Toolbar: {

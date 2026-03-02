@@ -1,134 +1,96 @@
-// Chart theme configuration
 function getThemeOptions(isDarkMode) {
   const textColor = isDarkMode ? '#f0f0f0' : '#333';
   const gridColor = isDarkMode ? 'rgba(255, 255, 255, 0.2)' : 'rgba(0, 0, 0, 0.1)';
   const tickColor = isDarkMode ? '#f0f0f0' : '#666';
 
-  const barOptions = {
-    responsive: true,
-    maintainAspectRatio: true,
-    plugins: {
-      legend: {
-        position: 'top',
-        labels: {
-          color: textColor,
-          font: { size: 14 }
+  return {
+    barOptions: {
+      responsive: true,
+      maintainAspectRatio: true,
+      plugins: {
+        legend: {
+          position: 'top',
+          labels: { color: textColor, font: { size: 14 } }
+        },
+        title: { display: false }
+      },
+      scales: {
+        y: {
+          beginAtZero: true,
+          ticks: { stepSize: 1, color: tickColor, font: { size: 12 } },
+          grid: { color: gridColor }
+        },
+        x: {
+          ticks: { maxRotation: 45, minRotation: 0, color: tickColor, font: { size: 12 } },
+          grid: { color: gridColor }
         }
-      },
-      title: { display: false }
-    },
-    scales: {
-      y: {
-        beginAtZero: true,
-        ticks: {
-          stepSize: 1,
-          color: tickColor,
-          font: { size: 12 }
-        },
-        grid: { color: gridColor }
-      },
-      x: {
-        ticks: {
-          maxRotation: 45,
-          minRotation: 0,
-          color: tickColor,
-          font: { size: 12 }
-        },
-        grid: { color: gridColor }
       }
-    }
-  };
-
-  const pieOptions = {
-    responsive: true,
-    maintainAspectRatio: true,
-    plugins: {
-      legend: {
-        position: 'top',
-        labels: {
-          color: textColor,
-          font: { size: 14 }
-        }
-      },
-      title: { display: false }
-    }
-  };
-
-  const horizontalBarOptions = {
-    indexAxis: 'y',
-    responsive: true,
-    maintainAspectRatio: true,
-    plugins: {
-      legend: {
-        position: 'top',
-        labels: {
-          color: textColor,
-          font: { size: 14 }
-        }
-      },
-      title: { display: false }
     },
-    scales: {
-      x: {
-        beginAtZero: true,
-        ticks: {
-          stepSize: 1,
-          color: tickColor,
-          font: { size: 12 }
+    pieOptions: {
+      responsive: true,
+      maintainAspectRatio: true,
+      plugins: {
+        legend: {
+          position: 'top',
+          labels: { color: textColor, font: { size: 14 } }
         },
-        grid: { color: gridColor }
-      },
-      y: {
-        ticks: {
-          color: tickColor,
-          font: { size: 12 }
-        },
-        grid: { color: gridColor }
+        title: { display: false }
       }
-    }
-  };
-
-  const stackedBarOptions = {
-    responsive: true,
-    maintainAspectRatio: true,
-    plugins: {
-      legend: {
-        position: 'top',
-        labels: {
-          color: textColor,
-          font: { size: 14 }
-        }
-      },
-      title: { display: false }
     },
-    scales: {
-      x: {
-        stacked: true,
-        ticks: {
-          color: tickColor,
-          font: { size: 12 }
+    horizontalBarOptions: {
+      indexAxis: 'y',
+      responsive: true,
+      maintainAspectRatio: true,
+      plugins: {
+        legend: {
+          position: 'top',
+          labels: { color: textColor, font: { size: 14 } }
         },
-        grid: { color: gridColor }
+        title: { display: false }
       },
-      y: {
-        stacked: true,
-        min: 0,
-        max: 4,
-        ticks: {
-          color: tickColor,
-          font: { size: 12 }
+      scales: {
+        x: {
+          beginAtZero: true,
+          ticks: { stepSize: 1, color: tickColor, font: { size: 12 } },
+          grid: { color: gridColor }
         },
-        grid: { color: gridColor },
-        title: {
-          display: true,
-          text: 'Relative Emphasis (1–3 scale)',
-          color: textColor
+        y: {
+          ticks: { color: tickColor, font: { size: 12 } },
+          grid: { color: gridColor }
+        }
+      }
+    },
+    stackedBarOptions: {
+      responsive: true,
+      maintainAspectRatio: true,
+      plugins: {
+        legend: {
+          position: 'top',
+          labels: { color: textColor, font: { size: 14 } }
+        },
+        title: { display: false }
+      },
+      scales: {
+        x: {
+          stacked: true,
+          ticks: { color: tickColor, font: { size: 12 } },
+          grid: { color: gridColor }
+        },
+        y: {
+          stacked: true,
+          min: 0,
+          max: 4,
+          ticks: { color: tickColor, font: { size: 12 } },
+          grid: { color: gridColor },
+          title: {
+            display: true,
+            text: 'Relative Emphasis (1–3 scale)',
+            color: textColor
+          }
         }
       }
     }
   };
-
-  return { barOptions, pieOptions, horizontalBarOptions, stackedBarOptions };
 }
 
 function updateChartTheme() {
@@ -166,14 +128,8 @@ function initCharts() {
           labels: ['Have Meal Plan', 'No Meal Plan'],
           datasets: [{
             data: [5, 5],
-            backgroundColor: [
-              'rgba(40, 167, 69, 0.7)',
-              'rgba(108, 117, 125, 0.7)'
-            ],
-            borderColor: [
-              'rgba(40, 167, 69, 1)',
-              'rgba(108, 117, 125, 1)'
-            ],
+            backgroundColor: ['rgba(40, 167, 69, 0.7)', 'rgba(108, 117, 125, 0.7)'],
+            borderColor: ['rgba(40, 167, 69, 1)', 'rgba(108, 117, 125, 1)'],
             borderWidth: 1
           }]
         },
@@ -192,14 +148,8 @@ function initCharts() {
           datasets: [{
             label: 'Number of Students',
             data: [7, 3],
-            backgroundColor: [
-              'rgba(220, 53, 69, 0.7)',
-              'rgba(40, 167, 69, 0.7)'
-            ],
-            borderColor: [
-              'rgba(220, 53, 69, 1)',
-              'rgba(40, 167, 69, 1)'
-            ],
+            backgroundColor: ['rgba(220, 53, 69, 0.7)', 'rgba(40, 167, 69, 0.7)'],
+            borderColor: ['rgba(220, 53, 69, 1)', 'rgba(40, 167, 69, 1)'],
             borderWidth: 1
           }]
         },
@@ -259,7 +209,6 @@ function initCharts() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  // Initialize Fancybox
   if (typeof Fancybox !== 'undefined') {
     Fancybox.bind(
       '[data-fancybox="financier-outline"], [data-fancybox="financier-mockup"], [data-fancybox="iGrad"], [data-fancybox="moneyhelper-voya"]',
@@ -276,7 +225,6 @@ document.addEventListener('DOMContentLoaded', () => {
     );
   }
 
-  // Initialize feature videos
   document.querySelectorAll('.feature-video').forEach(video => {
     video.controls = false;
     video.addEventListener('loadeddata', () => {
@@ -287,10 +235,8 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Initialize charts
   initCharts();
 
-  // Watch for theme changes
   const observer = new MutationObserver((mutations) => {
     mutations.forEach((mutation) => {
       if (mutation.type === 'attributes' && mutation.attributeName === 'data-theme') {

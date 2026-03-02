@@ -1,4 +1,49 @@
-// Mobile scroll chaining fix
+const TYPING_SPEED = 20;
+const ANIMATION_DURATION = 1500;
+const LONG_PRESS_DURATION = 1000;
+const OBSERVER_THRESHOLD = 0.3;
+
+function typeText(element, text, callback) {
+  let i = 0;
+  element.textContent = '';
+
+  function type() {
+    if (i < text.length) {
+      element.textContent += text.charAt(i);
+      i++;
+      setTimeout(type, TYPING_SPEED);
+    } else if (callback) {
+      callback();
+    }
+  }
+
+  type();
+}
+
+function getLottieInstance(element) {
+  return element?._dotLottieInstance || element?.dotLottie || null;
+}
+
+function playLottieAnimation(element) {
+  const instance = getLottieInstance(element);
+  if (!instance) return;
+
+  instance.pause();
+  instance.setFrame(0);
+  instance.setSpeed(1);
+  instance.play();
+
+  element.classList.remove('animation-completed');
+
+  setTimeout(() => {
+    const inst = getLottieInstance(element);
+    if (inst) {
+      inst.pause();
+      element.classList.add('animation-completed');
+    }
+  }, ANIMATION_DURATION);
+}
+
 (function () {
   if (window.innerWidth > 900) return;
 
@@ -28,30 +73,11 @@
   window.addEventListener('orientationchange', setViewportHeight);
 })();
 
-// Typing effect for intro text
 (function () {
   const INTRO_HEADING = "Rhythm Desai";
   const INTRO_PARAGRAPH = "Designing clean interfaces and immersive experiences that bring together form and function.";
-  const TYPING_SPEED = 20;
 
-  function typeText(element, text, callback) {
-    let i = 0;
-    element.textContent = '';
-
-    function type() {
-      if (i < text.length) {
-        element.textContent += text.charAt(i);
-        i++;
-        setTimeout(type, TYPING_SPEED);
-      } else if (callback) {
-        callback();
-      }
-    }
-
-    type();
-  }
-
-  document.addEventListener('DOMContentLoaded', function () {
+  function initIntroTyping() {
     const headingElement = document.querySelector('.intro-heading');
     const paragraphElement = document.querySelector('.intro-paragraph');
 
@@ -70,35 +96,13 @@
       paragraphElement.textContent = INTRO_PARAGRAPH;
       paragraphElement.classList.add('typing-text');
     }
-  });
-})();
-
-// Scroll-triggered typing effect for section headings
-(function () {
-  const TYPING_SPEED = 20;
-
-  function typeSectionHeading(element, text, callback) {
-    let i = 0;
-    element.textContent = '';
-
-    function type() {
-      if (i < text.length) {
-        element.textContent += text.charAt(i);
-        i++;
-        setTimeout(type, TYPING_SPEED);
-      } else if (callback) {
-        callback();
-      }
-    }
-
-    type();
   }
 
-  document.addEventListener('DOMContentLoaded', function () {
+  function initSectionTyping() {
     const sectionHeadings = document.querySelectorAll('.work-summary h2[data-text]');
     const sectionDescriptions = document.querySelectorAll('.work-summary p[data-text]');
 
-    const createObserver = () => new IntersectionObserver((entries, observer) => {
+    const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (!entry.isIntersecting || entry.target.classList.contains('typed')) return;
 
@@ -106,76 +110,27 @@
         const text = element.getAttribute('data-text');
         element.classList.add('typing-text');
 
-        typeSectionHeading(element, text, function () {
+        typeText(element, text, function () {
           element.classList.add('typed');
         });
         observer.unobserve(element);
       });
-    }, { threshold: 0.3 });
+    }, { threshold: OBSERVER_THRESHOLD });
 
-    const headingObserver = createObserver();
-    const descriptionObserver = createObserver();
+    sectionHeadings.forEach(heading => observer.observe(heading));
+    sectionDescriptions.forEach(description => observer.observe(description));
+  }
 
-    sectionHeadings.forEach(heading => headingObserver.observe(heading));
-    sectionDescriptions.forEach(description => descriptionObserver.observe(description));
+  document.addEventListener('DOMContentLoaded', function () {
+    initIntroTyping();
+    initSectionTyping();
   });
 })();
 
-// Profile animation and Lottie interactions
-document.addEventListener('DOMContentLoaded', function () {
-  const profileImage = document.querySelector('.profile-image');
-  const profileAnimation = document.querySelector('.profile-animation');
+(function () {
+  function setupAnimationEvents(profileAnimation) {
+    if (!profileAnimation) return;
 
-  if (profileImage) {
-    profileImage.addEventListener('click', function () {
-      this.classList.toggle('hide');
-    });
-  }
-
-  if (!profileAnimation) return;
-
-  profileAnimation.addEventListener('click', function () {
-    this.classList.toggle('hide');
-  });
-
-  function getLottieInstance(element) {
-    return element._dotLottieInstance || element.dotLottie;
-  }
-
-  function playLottieAnimation(element) {
-    const instance = getLottieInstance(element);
-    if (!instance) return;
-
-    instance.pause();
-    instance.setFrame(0);
-    instance.setSpeed(1);
-    instance.play();
-
-    element.classList.remove('animation-completed');
-
-    const self = element;
-    setTimeout(() => {
-      const inst = getLottieInstance(self);
-      if (inst) {
-        inst.pause();
-        self.classList.add('animation-completed');
-      }
-    }, 1500);
-
-    const onComplete = function () {
-      const inst = getLottieInstance(self);
-      if (inst) {
-        inst.pause();
-        self.classList.add('animation-completed');
-      }
-      self.removeEventListener('complete', onComplete);
-    };
-
-    element.removeEventListener('complete', onComplete);
-    element.addEventListener('complete', onComplete);
-  }
-
-  function setupAnimationEvents() {
     profileAnimation.addEventListener('ready', function () {
       const dotLottie = this.dotLottie;
       if (dotLottie) {
@@ -187,10 +142,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
     profileAnimation.addEventListener('mouseenter', function () {
       playLottieAnimation(this);
-    });
-
-    profileAnimation.addEventListener('mouseleave', function () {
-      // Let animation complete naturally
     });
 
     let touchStartTime = 0;
@@ -209,21 +160,20 @@ document.addEventListener('DOMContentLoaded', function () {
         instance.setSpeed(1);
         instance.play();
 
-        const self = this;
         setTimeout(() => {
-          const inst = getLottieInstance(self);
-          if (inst && self._isPlayingOnMobile) {
+          const inst = getLottieInstance(this);
+          if (inst && this._isPlayingOnMobile) {
             inst.pause();
             inst.setFrame(0);
-            self._isPlayingOnMobile = false;
+            this._isPlayingOnMobile = false;
           }
-        }, 1500);
+        }, ANIMATION_DURATION);
       }
 
       touchStartTime = Date.now();
       longPressTimer = setTimeout(() => {
         this.classList.add('hide');
-      }, 1000);
+      }, LONG_PRESS_DURATION);
     });
 
     profileAnimation.addEventListener('touchend', function () {
@@ -232,7 +182,7 @@ document.addEventListener('DOMContentLoaded', function () {
         longPressTimer = null;
       }
 
-      if (Date.now() - touchStartTime >= 1000) {
+      if (Date.now() - touchStartTime >= LONG_PRESS_DURATION) {
         this.classList.toggle('hide');
       }
     });
@@ -246,11 +196,30 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  if (customElements.get('dotlottie-wc')) {
-    setupAnimationEvents();
-  } else {
-    customElements.whenDefined('dotlottie-wc').then(() => {
-      setTimeout(setupAnimationEvents, 100);
-    });
+  function initProfileAnimations() {
+    const profileImage = document.querySelector('.profile-image');
+    const profileAnimation = document.querySelector('.profile-animation');
+
+    if (profileImage) {
+      profileImage.addEventListener('click', function () {
+        this.classList.toggle('hide');
+      });
+    }
+
+    if (profileAnimation) {
+      profileAnimation.addEventListener('click', function () {
+        this.classList.toggle('hide');
+      });
+
+      if (customElements.get('dotlottie-wc')) {
+        setupAnimationEvents(profileAnimation);
+      } else {
+        customElements.whenDefined('dotlottie-wc').then(() => {
+          setTimeout(() => setupAnimationEvents(profileAnimation), 100);
+        });
+      }
+    }
   }
-});
+
+  document.addEventListener('DOMContentLoaded', initProfileAnimations);
+})();

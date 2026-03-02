@@ -1,21 +1,10 @@
-// Chart data
 const problemsData = {
   labels: ['Shuttle Unreliability', 'Shuttle Overcrowding', 'Parking Issues', 'Walking Distance/Hills'],
   datasets: [{
     label: 'Number of Mentions',
     data: [3, 2, 1, 1],
-    backgroundColor: [
-      'rgba(220, 53, 69, 0.7)',
-      'rgba(220, 53, 69, 0.5)',
-      'rgba(255, 193, 7, 0.7)',
-      'rgba(255, 193, 7, 0.5)'
-    ],
-    borderColor: [
-      'rgba(220, 53, 69, 1)',
-      'rgba(220, 53, 69, 1)',
-      'rgba(255, 193, 7, 1)',
-      'rgba(255, 193, 7, 1)'
-    ],
+    backgroundColor: ['rgba(220, 53, 69, 0.7)', 'rgba(220, 53, 69, 0.5)', 'rgba(255, 193, 7, 0.7)', 'rgba(255, 193, 7, 0.5)'],
+    borderColor: ['rgba(220, 53, 69, 1)', 'rgba(220, 53, 69, 1)', 'rgba(255, 193, 7, 1)', 'rgba(255, 193, 7, 1)'],
     borderWidth: 1
   }]
 };
@@ -25,16 +14,8 @@ const commuteData = {
   datasets: [{
     label: 'Number of Users',
     data: [3, 1, 1],
-    backgroundColor: [
-      'rgba(153, 102, 255, 0.7)',
-      'rgba(199, 199, 199, 0.7)',
-      'rgba(255, 159, 64, 0.7)'
-    ],
-    borderColor: [
-      'rgba(153, 102, 255, 1)',
-      'rgba(199, 199, 199, 1)',
-      'rgba(255, 159, 64, 1)'
-    ],
+    backgroundColor: ['rgba(153, 102, 255, 0.7)', 'rgba(199, 199, 199, 0.7)', 'rgba(255, 159, 64, 0.7)'],
+    borderColor: ['rgba(153, 102, 255, 1)', 'rgba(199, 199, 199, 1)', 'rgba(255, 159, 64, 1)'],
     borderWidth: 1
   }]
 };
@@ -44,77 +25,52 @@ const techData = {
   datasets: [{
     label: 'Number of Requests',
     data: [3, 1, 1],
-    backgroundColor: [
-      'rgba(40, 167, 69, 0.7)',
-      'rgba(40, 167, 69, 0.5)',
-      'rgba(40, 167, 69, 0.3)'
-    ],
-    borderColor: [
-      'rgba(40, 167, 69, 1)',
-      'rgba(40, 167, 69, 1)',
-      'rgba(40, 167, 69, 1)'
-    ],
+    backgroundColor: ['rgba(40, 167, 69, 0.7)', 'rgba(40, 167, 69, 0.5)', 'rgba(40, 167, 69, 0.3)'],
+    borderColor: ['rgba(40, 167, 69, 1)', 'rgba(40, 167, 69, 1)', 'rgba(40, 167, 69, 1)'],
     borderWidth: 1
   }]
 };
 
-// Chart theme configuration
 function getThemeOptions(isDarkMode) {
   const textColor = isDarkMode ? '#f0f0f0' : '#333';
   const gridColor = isDarkMode ? 'rgba(255, 255, 255, 0.2)' : 'rgba(0, 0, 0, 0.1)';
   const tickColor = isDarkMode ? '#f0f0f0' : '#666';
 
-  const barOptions = {
-    responsive: true,
-    maintainAspectRatio: true,
-    plugins: {
-      legend: {
-        position: 'top',
-        labels: {
-          color: textColor,
-          font: { size: 14 }
+  return {
+    barOptions: {
+      responsive: true,
+      maintainAspectRatio: true,
+      plugins: {
+        legend: {
+          position: 'top',
+          labels: { color: textColor, font: { size: 14 } }
+        },
+        title: { display: false }
+      },
+      scales: {
+        y: {
+          beginAtZero: true,
+          ticks: { stepSize: 1, color: tickColor, font: { size: 12 } },
+          grid: { color: gridColor }
+        },
+        x: {
+          ticks: { maxRotation: 45, minRotation: 0, color: tickColor, font: { size: 12 } },
+          grid: { color: gridColor }
         }
-      },
-      title: { display: false }
+      }
     },
-    scales: {
-      y: {
-        beginAtZero: true,
-        ticks: {
-          stepSize: 1,
-          color: tickColor,
-          font: { size: 12 }
+    doughnutOptions: {
+      responsive: true,
+      maintainAspectRatio: true,
+      plugins: {
+        legend: {
+          position: 'top',
+          labels: { color: textColor, font: { size: 14 } }
         },
-        grid: { color: gridColor }
-      },
-      x: {
-        ticks: {
-          maxRotation: 45,
-          minRotation: 0,
-          color: tickColor,
-          font: { size: 12 }
-        },
-        grid: { color: gridColor }
+        title: { display: false }
       }
     }
   };
-
-  const doughnutOptions = {
-    responsive: true,
-    maintainAspectRatio: true,
-    plugins: {
-      legend: {
-        position: 'top',
-        labels: {
-          color: textColor,
-          font: { size: 14 }
-        }
-      },
-      title: { display: false }
-    }
-  };
-
-  return { barOptions, doughnutOptions };
 }
 
 function updateChartTheme() {
@@ -174,7 +130,6 @@ function initCharts() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  // Initialize Fancybox
   Fancybox.bind(
     '[data-fancybox="smartshuttle-outline-1"], [data-fancybox="smartshuttle-outline-2"], [data-fancybox="smartshuttle-outline-3"]',
     {
@@ -189,17 +144,14 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   );
 
-  // Initialize SmartShuttle video
   const video = document.getElementById('smartshuttle-video');
   if (video) {
     video.muted = true;
     video.play().catch(e => console.log('SmartShuttle video autoplay failed:', e));
   }
 
-  // Initialize charts
   initCharts();
 
-  // Watch for theme changes
   const observer = new MutationObserver((mutations) => {
     mutations.forEach((mutation) => {
       if (mutation.type === 'attributes' && mutation.attributeName === 'data-theme') {
