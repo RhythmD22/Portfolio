@@ -11,7 +11,6 @@ body {
   overflow-x: hidden;
   box-sizing: border-box;
   padding-top: 60px;
-  /* Reduced top padding to move banner closer to header */
 }
 
 .container {
@@ -1041,7 +1040,6 @@ main.main-content.project-intro-section {
 
   body {
     padding-top: 50px !important;
-    /* Reduced top padding on mobile */
   }
 
   div {
