@@ -29,7 +29,7 @@
 
   <!-- Preconnect for external resources -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
   <link rel="preconnect" href="https://cdnjs.cloudflare.com">
 
   <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100..900;1,100..900&display=swap"
@@ -43,38 +43,49 @@
 <body>
   <div class="container">
     <div id="header-placeholder"></div>
-    <div id="selected-work"></div> <!-- Anchor for header Work link -->
     <div class="description-container">
       <div class="intro-text">
-        <div class="img-container">
-          <img src="images/Me.png" alt="Rhythm Desai" decoding="async">
+        <h1 class="about-heading">Hey, I'm Rhythm - <span class="mobile-break">I&nbsp;like to build what
+            I&nbsp;imagine</span></h1>
+        <div class="intro-content">
+          <div class="img-container">
+            <img src="images/about.png" alt="Rhythm Desai" decoding="async">
+            <p class="image-caption">On a hike with my family<br>(my sister's&nbsp;behind&nbsp;the&nbsp;camera)</p>
+          </div>
+          <p class="intro-paragraph">As a kid, video games sparked my interest in interactive experiences. While
+            studying
+            video game design in Pittsburgh, I discovered a deeper passion for the user-centered problem-solving
+            inherent
+            in product design, where I could directly impact how people interact with digital products.<br><br>
+
+            Now, with a B.S. in Digital Narrative and Interactive Design, I apply user-centered design principles to
+            create intuitive and impactful experiences. My work focuses on ensuring every interaction serves a purpose
+            and
+            enhances the overall user journey, often leveraging tools like Figma and my understanding of front-end
+            development (HTML, CSS, JS).<br><br>
+
+            Currently, I'm reading Refactoring UI by Adam Wathan & Steve Schoger and learning more about front-end
+            development to better bridge the gap between design and implementation.<br><br>
+
+            I'm always eager to connect on interesting projects and conversations about design. Feel free to reach out
+            to
+            collaborate or discuss opportunities at <a
+              href="mailto:rhythmdesai22@gmail.com">rhythmdesai22@gmail.com</a>.</p>
         </div>
-        <p class="intro-paragraph">As a kid, video games sparked my interest in interactive experiences. While studying
-          video game design in Pittsburgh, I discovered a deeper passion for the user-centered problem-solving inherent
-          in product design, where I could directly impact how people interact with digital products.<br><br>
-
-          Now, with a B.S. in Digital Narrative and Interactive Design, I apply user-centered design principles to
-          create intuitive and impactful experiences. My work focuses on ensuring every interaction serves a purpose and
-          enhances the overall user journey, often leveraging tools like Figma and my understanding of front-end
-          development (HTML, CSS, JS).<br><br>
-
-          Currently, I'm reading Refactoring UI by Adam Wathan & Steve Schoger and learning more about front-end
-          development to better bridge the gap between design and implementation.<br><br>
-
-          I'm always eager to connect on interesting projects and conversations about design. Feel free to reach out to
-          collaborate or discuss opportunities.</p>
       </div>
     </div>
     <div id="footer-placeholder"></div>
   </div>
-  <script src="js/templates.js"></script>
-  <script src="js/navigation.js"></script>
+
   <button onclick="window.scrollTo({top: 0, behavior: 'smooth'});" class="scroll-btn" aria-label="Scroll to top">
     <svg width="96" height="72" viewBox="0 0 24 24" fill="none" stroke-width="0.6" stroke-linecap="round"
       stroke-linejoin="round">
       <polyline points="18 15 12 9 6 15"></polyline>
     </svg>
   </button>
+
+  <script src="js/templates.js"></script>
+  <script src="js/navigation.js"></script>
   <script src="js/scroll.js"></script>
 </body>
 
