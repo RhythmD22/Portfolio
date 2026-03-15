@@ -1703,4 +1703,26 @@ main.main-content.project-intro-section {
   .main-content.center-flex[style*="gap: 2rem;"] {
     margin-top: 1rem !important;
   }
+
+  .igrad-screenshot {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  .igrad-screenshot .image-link {
+    display: flex !important;
+    justify-content: center !important;
+  }
+
+  .igrad-screenshot img {
+    max-width: 50% !important;
+    height: auto !important;
+  }
+
+  .igrad-screenshot .caption {
+    text-align: center !important;
+    margin-left: 0 !important;
+  }
 }
