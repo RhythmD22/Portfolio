@@ -1275,6 +1275,19 @@ main.main-content.project-intro-section {
     max-width: 100% !important;
     margin: 1rem 0 !important;
   }
+
+  .problem-statement-section {
+    margin: 2rem auto !important;
+    position: static !important;
+  }
+
+  .research-header {
+    margin-bottom: 0 !important;
+  }
+
+  .competitor-analysis-container {
+    margin-top: 2rem !important;
+  }
 }
 
 @media screen and (max-width: 480px) {
