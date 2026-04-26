@@ -84,16 +84,24 @@ function playLottieAnimation(element) {
     if (!headingElement || !paragraphElement) return;
 
     if (!sessionStorage.getItem('typingEffectCompleted')) {
-      paragraphElement.classList.add('typing-text');
+      headingElement.textContent = '';
+      headingElement.classList.add('typing-text');
 
-      typeText(headingElement, INTRO_HEADING, function () {
-        typeText(paragraphElement, INTRO_PARAGRAPH, function () {
-          sessionStorage.setItem('typingEffectCompleted', 'true');
+      // Wait 2 seconds (two full blink cycles) before starting to type
+      setTimeout(() => {
+        typeText(headingElement, INTRO_HEADING, function () {
+          headingElement.classList.add('typed');
+          paragraphElement.classList.add('typing-text');
+          typeText(paragraphElement, INTRO_PARAGRAPH, function () {
+            // Paragraph cursor remains blinking
+            sessionStorage.setItem('typingEffectCompleted', 'true');
+          });
         });
-      });
+      }, 1400);
     } else {
       headingElement.textContent = INTRO_HEADING;
       paragraphElement.textContent = INTRO_PARAGRAPH;
+      headingElement.classList.add('typing-text', 'typed');
       paragraphElement.classList.add('typing-text');
     }
   }
@@ -111,7 +119,10 @@ function playLottieAnimation(element) {
         element.classList.add('typing-text');
 
         typeText(element, text, function () {
-          element.classList.add('typed');
+          // Only add 'typed' class to hide cursor if it's not a paragraph
+          if (element.tagName.toLowerCase() !== 'p') {
+            element.classList.add('typed');
+          }
         });
         observer.unobserve(element);
       });
