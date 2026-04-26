@@ -19,18 +19,21 @@
 }
 
 .work-summary h2.typing-text::after,
-.work-summary h2.typing-text.typed::after,
 .work-summary p.typing-text::after {
-  content: "_";
-  animation: blink 1s infinite;
-  margin-left: 2px;
-  opacity: 1;
+  content: "";
   display: inline-block;
-  width: 8px;
+  width: 10px;
   height: 1.2em;
-  vertical-align: bottom;
+  background-color: currentColor;
+  animation: blink 1s infinite;
+  margin-left: 4px;
+  vertical-align: middle;
   position: relative;
   top: -1px;
+}
+
+.work-summary h2.typed::after {
+  display: none;
 }
 
 @keyframes blink {
