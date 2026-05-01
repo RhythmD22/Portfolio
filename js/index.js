@@ -75,7 +75,7 @@ function playLottieAnimation(element) {
 
 (function () {
   const INTRO_HEADING = "Rhythm Desai";
-  const INTRO_PARAGRAPH = "Designing clean interfaces and immersive experiences that bring together form and function.";
+  const INTRO_PARAGRAPH = "Designing clean interfaces and immersive experiences where form meets function.";
 
   function initIntroTyping() {
     const headingElement = document.querySelector('.intro-heading');
