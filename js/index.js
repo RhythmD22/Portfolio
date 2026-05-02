@@ -109,6 +109,20 @@ function playLottieAnimation(element) {
   function initSectionTyping() {
     const sectionHeadings = document.querySelectorAll('.work-summary h2[data-text]');
     const sectionDescriptions = document.querySelectorAll('.work-summary p[data-text]');
+    const isCompleted = sessionStorage.getItem('typingEffectCompleted') === 'true';
+
+    if (isCompleted) {
+      [...sectionHeadings, ...sectionDescriptions].forEach(element => {
+        element.textContent = element.getAttribute('data-text');
+        element.classList.add('typing-text');
+        if (element.tagName.toLowerCase() !== 'p') {
+          element.classList.add('typed');
+          const pill = element.parentElement.querySelector('.contact-pill');
+          if (pill) pill.classList.add('reveal');
+        }
+      });
+      return;
+    }
 
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
@@ -122,6 +136,10 @@ function playLottieAnimation(element) {
           // Only add 'typed' class to hide cursor if it's not a paragraph
           if (element.tagName.toLowerCase() !== 'p') {
             element.classList.add('typed');
+
+            // Trigger contact pill reveal if it exists in the same section
+            const pill = element.parentElement.querySelector('.contact-pill');
+            if (pill) pill.classList.add('reveal');
           }
         });
         observer.unobserve(element);
