@@ -2,6 +2,9 @@
   flex: 1 1 340px;
   max-width: 340px;
   margin-top: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .work-summary h2 {
@@ -58,6 +61,50 @@
 .work-summary p.typing-text {
   position: relative;
   display: inline-block;
+}
+
+.contact-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.5rem 1.25rem;
+  border-radius: 50px;
+  border: 1.5px solid var(--cta-border-color);
+  text-decoration: none;
+  font-size: clamp(1rem, 3vw, 1.05rem);
+  line-height: 1.5;
+  color: var(--text-color);
+  transition: all 0.3s ease, opacity 0.6s ease, transform 0.6s ease;
+  font-weight: 300;
+  margin-top: 0.5rem;
+  opacity: 0;
+  transform: translateY(10px);
+  pointer-events: none;
+}
+
+.contact-pill.reveal {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.contact-pill i {
+  font-size: 0.85rem;
+  transition: transform 0.3s ease;
+}
+
+.contact-pill:hover {
+  background-color: var(--text-color);
+  color: var(--background-color);
+  border-color: var(--text-color);
+}
+
+.contact-pill:hover i {
+  transform: translateX(3px) translateY(-2px);
+}
+
+[data-theme="dark"] .contact-pill {
+  border-color: var(--cta-border-color);
 }
 
 .projects-section {
@@ -305,6 +352,10 @@ button[onclick*="scrollTo"] svg {
 
   .main-content.work-section .work-summary h2 {
     margin-bottom: 0;
+  }
+
+  .work-summary .contact-pill {
+    margin-top: 1.5rem;
   }
 
   .main-content.other-designs .work-summary {
