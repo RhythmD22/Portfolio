@@ -85,6 +85,7 @@ function playLottieAnimation(element) {
 
     if (!sessionStorage.getItem('typingEffectCompleted')) {
       headingElement.textContent = '';
+      paragraphElement.textContent = '';
       headingElement.classList.add('typing-text');
 
       // Wait 2 seconds (two full blink cycles) before starting to type
