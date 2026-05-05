@@ -147,6 +147,18 @@ body {
   margin: 0 0 1rem;
 }
 
+.intro-heading,
+.intro-paragraph,
+[data-text] {
+  visibility: hidden;
+}
+
+.intro-heading.typing-text,
+.intro-paragraph.typing-text,
+[data-text].typing-text {
+  visibility: visible;
+}
+
 .typing-text {
   position: relative;
   display: inline-block;
