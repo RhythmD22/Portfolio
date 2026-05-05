@@ -74,34 +74,34 @@ function playLottieAnimation(element) {
 })();
 
 (function () {
-  const INTRO_HEADING = "Rhythm Desai";
-  const INTRO_PARAGRAPH = "Designing clean interfaces and immersive experiences where form meets function.";
-
   function initIntroTyping() {
     const headingElement = document.querySelector('.intro-heading');
     const paragraphElement = document.querySelector('.intro-paragraph');
 
     if (!headingElement || !paragraphElement) return;
 
+    const introHeading = headingElement.getAttribute('data-text');
+    const introParagraph = paragraphElement.getAttribute('data-text');
+
     if (!sessionStorage.getItem('typingEffectCompleted')) {
       headingElement.textContent = '';
       paragraphElement.textContent = '';
       headingElement.classList.add('typing-text');
 
-      // Wait 2 seconds (two full blink cycles) before starting to type
+      // Wait 1.4 seconds (two full blink cycles) before starting to type
       setTimeout(() => {
-        typeText(headingElement, INTRO_HEADING, function () {
+        typeText(headingElement, introHeading, function () {
           headingElement.classList.add('typed');
           paragraphElement.classList.add('typing-text');
-          typeText(paragraphElement, INTRO_PARAGRAPH, function () {
+          typeText(paragraphElement, introParagraph, function () {
             // Paragraph cursor remains blinking
             sessionStorage.setItem('typingEffectCompleted', 'true');
           });
         });
       }, 1400);
     } else {
-      headingElement.textContent = INTRO_HEADING;
-      paragraphElement.textContent = INTRO_PARAGRAPH;
+      headingElement.textContent = introHeading;
+      paragraphElement.textContent = introParagraph;
       headingElement.classList.add('typing-text', 'typed');
       paragraphElement.classList.add('typing-text');
     }
@@ -124,6 +124,11 @@ function playLottieAnimation(element) {
       });
       return;
     }
+
+    // Clear text content immediately to prevent flashing before observer triggers
+    [...sectionHeadings, ...sectionDescriptions].forEach(element => {
+      element.textContent = '';
+    });
 
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
