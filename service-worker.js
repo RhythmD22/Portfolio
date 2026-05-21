@@ -38,6 +38,7 @@ const urlsToCache = [
   '/Portfolio/android-chrome-512x512.png',
   '/Portfolio/dark-android-chrome-512x512.png',
   '/Portfolio/images/Archibald%20and%20the%20Steel%20Monolith.png',
+  '/Portfolio/images/About.png',
   '/Portfolio/images/Banner%201.png',
   '/Portfolio/images/Banner%202.png',
   '/Portfolio/images/Banner%203.png',
