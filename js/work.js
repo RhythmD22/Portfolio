@@ -1,4 +1,4 @@
-Fancybox.bind('[data-fancybox="other-designs"]', {
+Fancybox.bind('[data-fancybox="graphic-gallery"]', {
   Carousel: {
     Toolbar: {
       display: {

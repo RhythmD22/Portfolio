@@ -136,18 +136,14 @@ function playLottieAnimation(element) {
 
         const element = entry.target;
         const text = element.getAttribute('data-text');
-        element.classList.add('typing-text');
-
-        typeText(element, text, function () {
-          // Only add 'typed' class to hide cursor if it's not a paragraph
-          if (element.tagName.toLowerCase() !== 'p') {
-            element.classList.add('typed');
-
-            // Trigger contact pill reveal if it exists in the same section
-            const pill = element.parentElement.querySelector('.contact-pill');
-            if (pill) pill.classList.add('reveal');
-          }
-        });
+        
+        element.textContent = text;
+        element.classList.add('typing-text', 'typed');
+        
+        if (element.tagName.toLowerCase() !== 'p') {
+          const pill = element.parentElement.querySelector('.contact-pill');
+          if (pill) pill.classList.add('reveal');
+        }
         observer.unobserve(element);
       });
     }, { threshold: OBSERVER_THRESHOLD });

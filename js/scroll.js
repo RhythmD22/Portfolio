@@ -1,8 +1,31 @@
 document.addEventListener('DOMContentLoaded', function () {
+  // --- Smooth scroll anchor fix ---
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      const targetId = this.getAttribute('href');
+      if (targetId.length > 1) {
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+          e.preventDefault();
+          requestAnimationFrame(() => {
+            const headerOffset = window.innerWidth <= 768 ? 70 : 150;
+            const elementPosition = targetElement.getBoundingClientRect().top;
+            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+            window.scrollTo({
+              top: offsetPosition,
+              behavior: "smooth"
+            });
+          });
+        }
+      }
+    });
+  });
+
   const scrollButton = document.querySelector('button[onclick*="scrollTo"], .scroll-btn, .scroll-top-btn');
 
   if (!scrollButton) return;
-
+// ... (rest of the file)
   const isProjectPage = !(
     window.location.pathname.includes('index.html') ||
     window.location.pathname.endsWith('/') ||
