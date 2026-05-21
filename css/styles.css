@@ -4,21 +4,13 @@
   navigation: auto;
 }
 
-/* View Transition Animations */
-::view-transition-group(project-financier),
-::view-transition-group(project-smartshuttle),
-::view-transition-group(project-clashroyale),
-::view-transition-group(project-twine) {
-  animation-duration: 0.6s;
-  animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-}
-
+/* Smooth Global Page Transitions */
 ::view-transition-old(root) {
-  animation: 300ms cubic-bezier(0.4, 0, 1, 1) both fade-out;
+  animation: 200ms cubic-bezier(0.4, 0, 1, 1) both fade-out;
 }
 
 ::view-transition-new(root) {
-  animation: 300ms cubic-bezier(0, 0, 0.2, 1) both fade-in;
+  animation: 200ms cubic-bezier(0, 0, 0.2, 1) both fade-in;
 }
 
 @keyframes fade-in {
