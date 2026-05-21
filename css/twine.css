@@ -15,7 +15,6 @@ body {
   display: flex;
   justify-content: center;
   margin-top: -2rem;
-  view-transition-name: project-twine;
 }
 
 @media (min-width: 769px) {

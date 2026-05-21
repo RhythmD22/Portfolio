@@ -194,22 +194,6 @@
   position: relative;
 }
 
-.main-content:not(.other-designs) .projects-section .project:nth-child(1) .project-thumbnail-wrapper {
-  view-transition-name: project-financier;
-}
-
-.main-content:not(.other-designs) .projects-section .project:nth-child(2) .project-thumbnail-wrapper {
-  view-transition-name: project-smartshuttle;
-}
-
-.main-content:not(.other-designs) .projects-section .project:nth-child(3) .project-thumbnail-wrapper {
-  view-transition-name: project-clashroyale;
-}
-
-.main-content:not(.other-designs) .projects-section .project:nth-child(4) .project-thumbnail-wrapper {
-  view-transition-name: project-twine;
-}
-
 .main-content:not(.other-designs) .projects-section .project .project-thumbnail-wrapper .project-thumbnail {
   position: absolute;
   inset: 0;
