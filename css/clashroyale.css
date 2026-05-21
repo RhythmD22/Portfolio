@@ -4,6 +4,12 @@ body {
   padding-top: 34px;
 }
 
+@media (min-width: 769px) {
+  body {
+    padding-top: 90px;
+  }
+}
+
 .container {
   max-width: 100%;
   overflow-x: hidden;
@@ -14,6 +20,7 @@ body {
   margin: 0;
   overflow: hidden;
   padding: 0;
+  view-transition-name: project-clashroyale;
 }
 
 .banner-image {

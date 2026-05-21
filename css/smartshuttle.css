@@ -5,11 +5,19 @@ body {
   padding-top: 34px;
 }
 
+@media (min-width: 769px) {
+  body {
+    padding-top: 90px;
+  }
+}
+
+
 .banner-container {
   width: 100%;
   margin: 0;
   overflow: hidden;
   padding: 0;
+  view-transition-name: project-smartshuttle;
 }
 
 .banner-image {

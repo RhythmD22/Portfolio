@@ -24,22 +24,26 @@ body {
   flex: 1 0 auto;
   margin-bottom: 3rem;
   min-height: 57vh;
-  margin-top: 6rem;
+  margin-top: 0rem;
 }
 
 .intro {
   display: flex;
-  align-items: flex-start;
-  gap: 4rem;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
   width: 100%;
+  position: relative;
+  text-align: center;
 }
 
 .profile-container {
   position: relative;
-  display: inline-block;
-  margin-right: auto;
-  margin-left: 7rem;
-  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 2rem auto;
   flex-shrink: 0;
   width: max-content;
 }
@@ -131,6 +135,9 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  align-items: center;
+  text-align: center;
+  min-height: 130px;
 }
 
 .intro-heading {
@@ -177,6 +184,11 @@ body {
   top: -1px;
 }
 
+/* Disable cursor for work sections */
+.work-summary .typing-text::after {
+  display: none !important;
+}
+
 .intro-heading.typed::after {
   display: none;
 }
@@ -206,6 +218,10 @@ body {
 }
 
 @media (min-width: 901px) {
+  .profile-container {
+    margin-left: 41rem;
+  }
+
   .profile-animation {
     width: 415px !important;
     height: 415px !important;
@@ -252,6 +268,7 @@ body {
     min-height: auto;
     padding-top: 6rem;
     padding-bottom: 2rem;
+    margin-top: 6rem;
   }
 
   .profile-container {

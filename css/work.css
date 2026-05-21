@@ -194,6 +194,22 @@
   position: relative;
 }
 
+.main-content:not(.other-designs) .projects-section .project:nth-child(1) .project-thumbnail-wrapper {
+  view-transition-name: project-financier;
+}
+
+.main-content:not(.other-designs) .projects-section .project:nth-child(2) .project-thumbnail-wrapper {
+  view-transition-name: project-smartshuttle;
+}
+
+.main-content:not(.other-designs) .projects-section .project:nth-child(3) .project-thumbnail-wrapper {
+  view-transition-name: project-clashroyale;
+}
+
+.main-content:not(.other-designs) .projects-section .project:nth-child(4) .project-thumbnail-wrapper {
+  view-transition-name: project-twine;
+}
+
 .main-content:not(.other-designs) .projects-section .project .project-thumbnail-wrapper .project-thumbnail {
   position: absolute;
   inset: 0;
@@ -244,55 +260,6 @@
 
 .main-content:not(.other-designs) .projects-section .project:nth-child(4) a:hover .project-thumbnail {
   transform: scale(1.05);
-}
-
-.main-content.other-designs {
-  margin-top: 16rem;
-}
-
-.main-content.other-designs .projects-section {
-  display: grid;
-  grid-template-columns: 290px 290px;
-  grid-auto-rows: auto;
-  grid-column-gap: 24px;
-  grid-row-gap: 24px;
-  justify-content: start;
-  width: 604px;
-  max-width: 604px;
-  margin-left: calc(10rem + 35px);
-  box-sizing: border-box;
-}
-
-.main-content.other-designs .projects-section .project-thumbnail {
-  cursor: zoom-in;
-  margin-bottom: 0;
-}
-
-.main-content.other-designs .projects-section .project-thumbnail-wrapper {
-  margin-bottom: 0;
-  pointer-events: none;
-}
-
-.main-content.other-designs .projects-section .project-thumbnail-wrapper a {
-  pointer-events: auto;
-}
-
-.main-content.other-designs .projects-section .project-thumbnail-wrapper .project-thumbnail {
-  position: static;
-  height: auto;
-  width: 100%;
-  max-width: 100%;
-  object-fit: contain;
-}
-
-.main-content.other-designs .project-thumbnail-wrapper:hover {
-  box-shadow: none;
-}
-
-.main-content.other-designs .project-thumbnail-wrapper a:focus,
-.main-content.other-designs .project-thumbnail-wrapper a:active {
-  outline: none;
-  box-shadow: none;
 }
 
 button[onclick*="scrollTo"] svg {

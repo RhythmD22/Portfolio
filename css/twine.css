@@ -4,12 +4,26 @@ body {
   overflow-x: hidden;
 }
 
+@media (min-width: 769px) {
+  body {
+    padding-top: 124px;
+  }
+}
+
 .banner-container {
   width: 100%;
   display: flex;
   justify-content: center;
   margin-top: -2rem;
+  view-transition-name: project-twine;
 }
+
+@media (min-width: 769px) {
+  .banner-container {
+    margin-top: 0;
+  }
+}
+
 
 .banner-image {
   width: 100%;

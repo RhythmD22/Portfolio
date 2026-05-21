@@ -13,6 +13,12 @@ body {
   padding-top: 60px;
 }
 
+@media (min-width: 769px) {
+  body {
+    padding-top: 124px;
+  }
+}
+
 .container {
   max-width: 100%;
   overflow-x: hidden;
@@ -23,6 +29,7 @@ body {
   margin: 0;
   overflow: hidden;
   padding: 0;
+  view-transition-name: project-financier;
 }
 
 .banner-image {
