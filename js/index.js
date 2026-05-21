@@ -108,6 +108,14 @@ function playLottieAnimation(element) {
   }
 
   function initSectionTyping() {
+    const isIndexPage = window.location.pathname.includes('index.html') || window.location.pathname === '' || window.location.pathname.endsWith('/');
+    const contactPillRevealed = sessionStorage.getItem('contactPillRevealed') === 'true';
+
+    // Ensure contact pill is visible statically if already revealed or if not on index
+    if (contactPillRevealed || !isIndexPage) {
+      document.querySelectorAll('.contact-pill').forEach(pill => pill.classList.add('static-pill'));
+    }
+
     const sectionHeadings = document.querySelectorAll('.work-summary h2[data-text]');
     const sectionDescriptions = document.querySelectorAll('.work-summary p[data-text]');
     const isCompleted = sessionStorage.getItem('typingEffectCompleted') === 'true';
@@ -119,7 +127,7 @@ function playLottieAnimation(element) {
         if (element.tagName.toLowerCase() !== 'p') {
           element.classList.add('typed');
           const pill = element.parentElement.querySelector('.contact-pill');
-          if (pill) pill.classList.add('reveal');
+          if (pill) pill.classList.add('static-pill');
         }
       });
       return;
@@ -136,13 +144,24 @@ function playLottieAnimation(element) {
 
         const element = entry.target;
         const text = element.getAttribute('data-text');
-        
-        element.textContent = text;
-        element.classList.add('typing-text', 'typed');
-        
+
+        // Only apply typing animation to non-paragraph elements (h2)
         if (element.tagName.toLowerCase() !== 'p') {
-          const pill = element.parentElement.querySelector('.contact-pill');
-          if (pill) pill.classList.add('reveal');
+          element.classList.add('typing-text'); // Add typing-text class immediately for the cursor
+          typeText(element, text, function () {
+            element.classList.add('typed'); // Add typed class to remove cursor after typing
+            const pill = element.parentElement.querySelector('.contact-pill');
+            if (pill) {
+              pill.classList.add('reveal');
+              // Mark that the pill has been revealed for this session
+              sessionStorage.setItem('contactPillRevealed', 'true');
+            }
+            sessionStorage.setItem('workSectionTypingCompleted', 'true'); // Set new flag here
+          });
+        } else {
+          // For paragraphs, revert to instant appearance but still add typing-text for cursor
+          element.textContent = text;
+          element.classList.add('typing-text');
         }
         observer.unobserve(element);
       });
