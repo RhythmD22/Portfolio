@@ -121,13 +121,88 @@ function initializeHamburgerMenu() {
 
 function updateNavigationLinks() {
   document.addEventListener('headerLoaded', function () {
-    const desktopWorkLink = document.querySelector('.header-nav a[href="#selected-work"]');
+    const desktopWorkLink = document.querySelector('.header-nav-left a[href="#selected-work"]');
     const mobileWorkLink = document.querySelector('#mobile-work-link');
-    const isIndexPage = window.location.pathname.includes('index') || window.location.pathname === '';
-    const href = isIndexPage ? '#selected-work' : 'index.html#selected-work';
+    const isIndexPage = window.location.pathname.includes('index.html') || window.location.pathname === '' || window.location.pathname.endsWith('/');
+    const isAboutPage = window.location.pathname.includes('About.html');
+    
+    // Project name detection
+    let projectName = '';
+    const path = window.location.pathname.toLowerCase();
+    if (path.includes('financier')) projectName = 'financier';
+    else if (path.includes('smartshuttle')) projectName = 'smartshuttle';
+    else if (path.includes('clash')) projectName = 'clashroyale';
+    else if (path.includes('twine')) projectName = 'twine';
 
-    if (desktopWorkLink) desktopWorkLink.href = href;
-    if (mobileWorkLink) mobileWorkLink.href = href;
+    // Set correct href for Work link
+    let workHref = '#selected-work';
+    if (!isIndexPage) {
+      if (projectName) {
+        workHref = `index.html?transition=${projectName}#selected-work`;
+      } else {
+        workHref = 'index.html#selected-work';
+      }
+    }
+
+    if (desktopWorkLink) {
+      desktopWorkLink.href = workHref;
+      desktopWorkLink.style.opacity = '1';
+      desktopWorkLink.style.pointerEvents = 'auto';
+    }
+    if (mobileWorkLink) {
+      mobileWorkLink.href = workHref;
+      mobileWorkLink.style.opacity = '1';
+      mobileWorkLink.style.pointerEvents = 'auto';
+    }
+
+    // Handle View Transitions
+    if ('viewTransition' in document || window.matchMedia('(prefers-reduced-motion: no-preference)').matches) {
+      // 1. From Index: Set names only when a card is clicked
+      if (isIndexPage) {
+        // Check for incoming transition from project page
+        const urlParams = new URLSearchParams(window.location.search);
+        const transitionTarget = urlParams.get('transition');
+        if (transitionTarget) {
+          const projectCards = document.querySelectorAll('.project');
+          let targetIndex = -1;
+          if (transitionTarget === 'financier') targetIndex = 0;
+          else if (transitionTarget === 'smartshuttle') targetIndex = 1;
+          else if (transitionTarget === 'clashroyale') targetIndex = 2;
+          else if (transitionTarget === 'twine') targetIndex = 3;
+
+          if (targetIndex !== -1 && projectCards[targetIndex]) {
+            const wrapper = projectCards[targetIndex].querySelector('.project-thumbnail-wrapper');
+            if (wrapper) wrapper.style.viewTransitionName = `project-${transitionTarget}`;
+          }
+        }
+
+        // Set names on outgoing click
+        const projects = document.querySelectorAll('.project');
+        projects.forEach(project => {
+          const link = project.querySelector('a');
+          const wrapper = project.querySelector('.project-thumbnail-wrapper');
+          if (link && wrapper) {
+            link.addEventListener('click', () => {
+              const href = link.getAttribute('href').toLowerCase();
+              let name = '';
+              if (href.includes('financier')) name = 'project-financier';
+              else if (href.includes('smartshuttle')) name = 'project-smartshuttle';
+              else if (href.includes('clash')) name = 'project-clashroyale';
+              else if (href.includes('twine')) name = 'project-twine';
+              if (name) wrapper.style.viewTransitionName = name;
+            });
+          }
+        });
+      }
+
+      // 2. On Project Page: Always name the banner
+      if (projectName) {
+        const banner = document.querySelector('.banner-container');
+        if (banner) {
+          banner.style.viewTransitionName = `project-${projectName}`;
+        }
+      }
+    }
   });
 }
 
