@@ -1,7 +1,7 @@
 // Force instant jump if arriving at the work section from an external page
 (function () {
   const isIndexPage = window.location.pathname.includes('index.html') || window.location.pathname === '' || window.location.pathname.endsWith('/');
-  if (isIndexPage && window.location.hash === '#selected-work') {
+  if (isIndexPage && window.location.hash === '#work') {
     // Override the CSS smooth scroll temporarily for the initial jump
     document.documentElement.style.scrollBehavior = 'auto';
 
@@ -25,8 +25,6 @@ function initializeHamburgerMenu() {
   const backdrop = document.createElement('div');
   backdrop.className = 'sidebar-backdrop';
   document.body.appendChild(backdrop);
-
-  const navLinks = sidebar.querySelectorAll('.nav-link');
 
   function toggleSidebar() {
     const isActive = sidebar.classList.contains('active');
@@ -55,115 +53,163 @@ function initializeHamburgerMenu() {
   hamburger.addEventListener('click', toggleSidebar);
   backdrop.addEventListener('click', closeSidebar);
 
-  navLinks.forEach(link => {
-    link.addEventListener('click', () => {
-      setTimeout(closeSidebar, 150);
-    });
-  });
+  // Expose closeSidebar for SPA logic
+  window.closeSidebar = closeSidebar;
 
-  const workSection = document.getElementById('selected-work');
+  const workSection = document.getElementById('work');
   let workSectionTop = workSection ? workSection.offsetTop : 0;
   const isIndexPage = window.location.pathname.includes('index') || window.location.pathname === '' || window.location.pathname.endsWith('/');
   const workLink = document.querySelector('#mobile-work-link');
 
-  let ticking = false;
-
-  function setActiveLink() {
-    const currentPage = window.location.pathname.split('/').pop().toLowerCase();
-    navLinks.forEach(link => link.classList.remove('active'));
-
-    let activeLink = null;
-
-    if (currentPage.includes('about')) {
-      activeLink = document.querySelector('#mobile-about-link');
-    } else if (isIndexPage && workSection) {
-      const currentScroll = window.scrollY || window.pageYOffset;
-      if (window.location.hash === '#selected-work' || currentScroll >= workSectionTop - 100) {
-        activeLink = workLink;
-      }
-    } else if (currentPage.includes('financier') ||
-      currentPage.includes('smartshuttle') ||
-      currentPage.includes('clash') ||
-      currentPage.includes('twine')) {
-      activeLink = workLink;
-    }
-
-    if (activeLink) {
-      activeLink.classList.add('active');
-    }
-  }
+  let scrollThrottle = false;
+  window.isNavigating = false;
 
   function handleScroll() {
-    if (!isIndexPage || !workSection) return;
+    if (!isIndexPage || !workSection || window.isNavigating) return;
+
+    // Disable auto-active on scroll when using SPA nav to prevent UI conflict
+    const isSPAActive = window.location.hash === '#resume' || window.location.hash === '#about';
+    if (isSPAActive) return;
 
     workSectionTop = workSection.offsetTop;
     const currentScroll = window.scrollY || window.pageYOffset;
 
-    if (currentScroll >= workSectionTop - 100) {
+    const shouldBeWork = currentScroll >= workSectionTop - 100;
+    const isCurrentlyWork = window.location.hash === '#work';
+
+    if (shouldBeWork) {
       if (workLink && !workLink.classList.contains('active')) {
         workLink.classList.add('active');
+      }
+      if (!isCurrentlyWork && !scrollThrottle) {
+        history.replaceState(null, '', '#work');
+        scrollThrottle = true;
+        setTimeout(() => scrollThrottle = false, 500);
       }
     } else {
       if (workLink && workLink.classList.contains('active')) {
         workLink.classList.remove('active');
       }
+      if (isCurrentlyWork && !scrollThrottle) {
+        history.replaceState(null, '', '#home');
+        scrollThrottle = true;
+        setTimeout(() => scrollThrottle = false, 500);
+      }
     }
   }
 
   if (isIndexPage) {
-    window.addEventListener('scroll', function () {
-      if (!ticking) {
-        requestAnimationFrame(() => {
-          handleScroll();
-          ticking = false;
-        });
-        ticking = true;
-      }
-    });
+    window.addEventListener('scroll', handleScroll);
     handleScroll();
   }
 
   hamburger.addEventListener('click', function () {
     if (isIndexPage) {
       setTimeout(handleScroll, 50);
-    } else {
-      setTimeout(setActiveLink, 50);
     }
   });
 
-  setTimeout(setActiveLink, 100);
   return true;
 }
 
-function updateNavigationLinks() {
-  document.addEventListener('headerLoaded', function () {
-    const desktopWorkLink = document.querySelector('.header-nav-left a[href="#selected-work"]');
-    const mobileWorkLink = document.querySelector('#mobile-work-link');
-    const isIndexPage = window.location.pathname.includes('index.html') || window.location.pathname === '' || window.location.pathname.endsWith('/');
+function setupSPA() {
+  const navLinks = document.querySelectorAll('.nav-item-link, .nav-link:not(.download-link), .portfolio-icon-link');
+  const homeSection = document.getElementById('home');
+  const workSection = document.getElementById('work');
+  const aboutSection = document.getElementById('about');
+  const resumeSection = document.getElementById('resume');
 
-    // Set correct href for Work link
-    // Always point to index.html#selected-work if not on the index page
-    const href = isIndexPage ? '#selected-work' : 'index.html#selected-work';
+  function switchSection(target) {
+    const targetHash = target === '#' || target === '' ? '#home' : target;
+    const isHome = targetHash === '#home';
+    const isAbout = targetHash === '#about';
+    const isResume = targetHash === '#resume';
+    const isWork = targetHash === '#work';
 
-    if (desktopWorkLink) desktopWorkLink.href = href;
-    if (mobileWorkLink) mobileWorkLink.href = href;
+    // Work and Home are always visible as the main page content. 
+    // About and Resume are toggled as SPA pages.
+    if (homeSection) homeSection.style.display = (isAbout || isResume) ? 'none' : 'block';
+    if (workSection) workSection.style.display = (isAbout || isResume) ? 'none' : 'flex';
+    if (aboutSection) aboutSection.style.display = isAbout ? 'block' : 'none';
+    if (resumeSection) resumeSection.style.display = isResume ? 'block' : 'none';
+
+    // Update active class
+    navLinks.forEach(link => {
+      const href = link.getAttribute('href');
+      if (isHome) {
+        link.classList.toggle('active', link.classList.contains('portfolio-icon-link'));
+      } else {
+        // Match specific hash to avoid 'work' being active when on 'resume'
+        link.classList.toggle('active', href.endsWith(targetHash));
+      }
+    });
+
+    // Trigger bubble update
+    if (typeof updateBubble === 'function') {
+      setTimeout(() => {
+        const pill = document.querySelector('.header-content-pill');
+        let activeLink;
+        if (isHome) {
+          activeLink = pill ? pill.querySelector('.portfolio-icon-link.active') : document.querySelector('.portfolio-icon-link.active');
+        } else {
+          activeLink = pill ? pill.querySelector(`.nav-item-link.active[href*="${targetHash}"]`) : document.querySelector(`.nav-item-link.active[href*="${targetHash}"]`);
+        }
+        if (activeLink) updateBubble(activeLink, true);
+      }, 50);
+    }
+  }
+
+  // Initialize state
+  const currentHash = window.location.hash || '#home';
+  switchSection(currentHash);
+
+  navLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+      const href = link.getAttribute('href');
+      if (href.startsWith('http')) return;
+
+      if (href.includes('#')) {
+        const parts = href.split('#');
+        const path = parts[0];
+        const hash = '#' + (parts[1] || '');
+        const currentPath = window.location.pathname.split('/').pop() || 'index.html';
+        const isIndex = currentPath === 'index.html' || currentPath === '' || currentPath === 'index';
+
+        if (isIndex && (path === '' || path === 'index.html')) {
+          e.preventDefault();
+          window.isNavigating = true;
+          const targetHash = (hash === '#' || hash === '') ? '#home' : hash;
+          history.pushState(null, '', targetHash);
+          switchSection(targetHash);
+
+          if (typeof window.closeSidebar === 'function') {
+            setTimeout(window.closeSidebar, 150);
+          }
+
+          if (targetHash === '#work') {
+            const targetElement = document.querySelector(targetHash);
+            if (targetElement) {
+              const headerOffset = window.innerWidth <= 768 ? 70 : 150;
+              const elementPosition = targetElement.getBoundingClientRect().top;
+              const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+              window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+            }
+          } else {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          }
+
+          setTimeout(() => {
+            window.isNavigating = false;
+          }, 1000); // Wait for the scroll animation to finish
+        }
+      }
+    });
   });
 }
-if (document.readyState !== 'loading') {
-  initializeHamburgerMenu();
-  updateNavigationLinks();
-}
 
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('headerLoaded', () => {
   initializeHamburgerMenu();
-  updateNavigationLinks();
-});
-
-document.addEventListener('headerLoaded', function () {
-  setTimeout(function () {
-    initializeHamburgerMenu();
-    updateNavigationLinks();
-  }, 100);
+  setupSPA();
 });
 
 if ('serviceWorker' in navigator) {

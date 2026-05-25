@@ -1,11 +1,18 @@
 document.addEventListener('DOMContentLoaded', function () {
-  // --- Smooth scroll anchor fix ---
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-      const targetId = this.getAttribute('href');
-      if (targetId.length > 1) {
-        const targetElement = document.querySelector(targetId);
-        if (targetElement) {
+  // --- Smooth scroll anchor fix using event delegation ---
+  document.addEventListener('click', function (e) {
+    const anchor = e.target.closest('a[href^="#"]');
+    if (!anchor) return;
+
+    const targetId = anchor.getAttribute('href');
+    if (targetId.length > 1) {
+      const targetElement = document.querySelector(targetId);
+      if (targetElement) {
+        // Only prevent default if navigation.js isn't already handling it as an SPA link
+        // SPA links have .nav-item-link or .nav-link classes
+        const isSPALink = anchor.classList.contains('nav-item-link') || anchor.classList.contains('nav-link');
+
+        if (!isSPALink) {
           e.preventDefault();
           requestAnimationFrame(() => {
             const headerOffset = window.innerWidth <= 768 ? 70 : 150;
@@ -19,13 +26,13 @@ document.addEventListener('DOMContentLoaded', function () {
           });
         }
       }
-    });
+    }
   });
 
   const scrollButton = document.querySelector('button[onclick*="scrollTo"], .scroll-btn, .scroll-top-btn');
 
   if (!scrollButton) return;
-// ... (rest of the file)
+  // ... (rest of the file)
   const isProjectPage = !(
     window.location.pathname.includes('index.html') ||
     window.location.pathname.endsWith('/') ||
