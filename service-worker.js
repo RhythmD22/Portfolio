@@ -1,5 +1,5 @@
 // Service Worker for Rhythm Desai's Portfolio
-const CACHE_NAME = 'portfolio-v1.0';
+const CACHE_NAME = 'portfolio-v2.0';
 const urlsToCache = [
   '/Portfolio/',
   '/Portfolio/manifest.json',
@@ -8,7 +8,6 @@ const urlsToCache = [
   '/Portfolio/SmartShuttle.html',
   '/Portfolio/Twine.html',
   '/Portfolio/Clash%20Royale%20Wireframe.html',
-  '/Portfolio/About.html',
   '/Portfolio/header.html',
   '/Portfolio/footer.html',
   '/Portfolio/css/styles.css',
@@ -19,6 +18,7 @@ const urlsToCache = [
   '/Portfolio/css/smartshuttle.css',
   '/Portfolio/css/clashroyale.css',
   '/Portfolio/css/twine.css',
+  '/Portfolio/css/resume.css',
   '/Portfolio/js/index.js',
   '/Portfolio/js/work.js',
   '/Portfolio/js/financier.js',
@@ -27,7 +27,9 @@ const urlsToCache = [
   '/Portfolio/js/dark-mode.js',
   '/Portfolio/js/templates.js',
   '/Portfolio/js/navigation.js',
+  '/Portfolio/js/nav-bubble.js',
   '/Portfolio/js/scroll.js',
+  '/Portfolio/js/clock.js',
   '/Portfolio/favicon.ico',
   '/Portfolio/portfolio-light.png',
   '/Portfolio/portfolio-dark.png',
