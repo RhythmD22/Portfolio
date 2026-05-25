@@ -11,22 +11,21 @@
 <!-- Sidebar navigation menu -->
 <div class="sidebar" id="sidebar" role="navigation" aria-label="Main navigation">
   <div class="nav-item">
-    <a href="#selected-work" class="nav-link" id="mobile-work-link">
+    <a href="index.html#work" class="nav-link" id="mobile-work-link">
       <span class="nav-text">WORK</span>
     </a>
   </div>
-  <div class="nav-item resume-flex-container">
-    <a href="https://docs.google.com/document/d/1Um0AgUWUdk33FvDa_wgQH5yh4F4L9n4_vvsffXUKhno/preview"
-      class="nav-link resume-text-link" target="_blank">
+  <div class="nav-item">
+    <a href="index.html#resume" class="nav-link resume-nav-link">
       <span class="nav-text">RESUME</span>
     </a>
     <a href="https://docs.google.com/document/d/1Um0AgUWUdk33FvDa_wgQH5yh4F4L9n4_vvsffXUKhno/export?format=pdf"
-      class="nav-link download-link" download aria-label="Download Resume">
+      class="download-link" download aria-label="Download Resume">
       <i class="fas fa-download nav-icon"></i>
     </a>
   </div>
   <div class="nav-item">
-    <a href="About.html" class="nav-link" id="mobile-about-link">
+    <a href="index.html#about" class="nav-link" id="mobile-about-link">
       <span class="nav-text">ABOUT</span>
     </a>
   </div>
@@ -37,7 +36,7 @@
 <header class="site-header">
   <div class="header-left">
     <h1 class="header-name fw-medium">
-      <a href="index.html" class="portfolio-icon-link">
+      <a href="index.html#" class="portfolio-icon-link">
         <img src="portfolio-light.png" alt="Portfolio Icon" class="portfolio-icon portfolio-icon-light">
         <img src="portfolio-dark.png" alt="Portfolio Icon" class="portfolio-icon portfolio-icon-dark">
       </a>
@@ -46,21 +45,21 @@
 
   <!-- Desktop Pill Header Content -->
   <div class="header-content-pill">
+    <div class="nav-bubble"></div>
     <div class="header-nav-left">
-      <a href="#selected-work">Work</a>
+      <a href="index.html#work" class="nav-item-link">Work</a>
       <div class="resume-links">
-        <a href="https://docs.google.com/document/d/1Um0AgUWUdk33FvDa_wgQH5yh4F4L9n4_vvsffXUKhno/preview"
-          target="_blank">Resume</a>
+        <a href="index.html#resume" class="nav-item-link">Resume</a>
         <a href="https://docs.google.com/document/d/1Um0AgUWUdk33FvDa_wgQH5yh4F4L9n4_vvsffXUKhno/export?format=pdf"
           download class="download-icon" aria-label="Download Resume">
           <i class="fas fa-download"></i>
         </a>
       </div>
     </div>
-    
+
     <div class="header-nav-center">
       <h1 class="header-name fw-medium">
-        <a href="index.html" class="portfolio-icon-link">
+        <a href="index.html#" class="portfolio-icon-link nav-item-link">
           <img src="portfolio-light.png" alt="Portfolio Icon" class="portfolio-icon portfolio-icon-light">
           <img src="portfolio-dark.png" alt="Portfolio Icon" class="portfolio-icon portfolio-icon-dark">
         </a>
@@ -68,7 +67,7 @@
     </div>
 
     <div class="header-nav-right">
-      <a href="About.html">About</a>
+      <a href="index.html#about" class="nav-item-link">About</a>
       <button id="dark-mode-toggle" class="dark-mode-toggle" aria-label="Toggle dark mode">
         <i class="fas fa-moon"></i>
       </button>

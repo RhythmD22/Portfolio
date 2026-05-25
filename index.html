@@ -33,23 +33,23 @@
   <link rel="preconnect" href="https://cdn.jsdelivr.net">
   <link rel="preconnect" href="https://cdnjs.cloudflare.com">
 
-  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100..900;1,100..900&display=swap"
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100..900;1,100..900&family=VT323&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
   <link rel="stylesheet" href="css/index.css">
   <link rel="stylesheet" href="css/work.css">
+  <link rel="stylesheet" href="css/about.css">
+  <link rel="stylesheet" href="css/resume.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@6.1/dist/fancybox/fancybox.min.css">
   <script src="js/dark-mode.js"></script>
   <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.8.5/dist/dotlottie-wc.js" type="module"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@6.1/dist/fancybox/fancybox.umd.min.js"></script>
 </head>
 
 <body>
   <div class="container">
     <div id="header-placeholder"></div>
 
-    <div class="description-container">
+    <div class="description-container intro-container" id="home">
       <section class="intro">
         <div class="intro-text">
           <h1 class="intro-heading" data-text="Rhythm Desai">Rhythm Desai <span class="sr-only">- Product
@@ -68,7 +68,7 @@
       </section>
     </div>
 
-    <main class="main-content work-section" id="selected-work">
+    <main class="main-content work-section" id="work">
       <section class="work-summary">
         <h2 data-text="Selected Work">Selected Work</h2>
         <a href="mailto:rhythmdesai22@gmail.com" class="contact-pill">Get in touch <i
@@ -117,6 +117,50 @@
       </div>
     </main>
 
+    <section id="about" style="display: none;">
+      <div class="description-container">
+        <div class="intro-text">
+          <h1 class="about-heading">Hey, I'm Rhythm - <span class="mobile-break">I&nbsp;like to build what
+              I&nbsp;imagine</span></h1>
+          <div class="intro-content">
+            <div class="img-container">
+              <img src="images/About.png" alt="Rhythm Desai" decoding="async">
+              <p class="image-caption">On a hike with my family<br>(my sister's&nbsp;behind&nbsp;the&nbsp;camera)</p>
+            </div>
+            <p class="intro-paragraph">As a kid, video games sparked my interest in interactive experiences. While
+              studying
+              video game design in Pittsburgh, I discovered a deeper passion for the user-centered problem-solving
+              inherent
+              in product design, where I could directly impact how people interact with digital products.<br><br>
+
+              Now, with a B.S. in Digital Narrative and Interactive Design, I apply user-centered design principles to
+              create intuitive and impactful experiences. My work focuses on ensuring every interaction serves a purpose
+              and
+              enhances the overall user journey, often leveraging tools like Figma and my understanding of front-end
+              development (HTML, CSS, JS).<br><br>
+
+              Currently, I'm reading Refactoring UI by Adam Wathan & Steve Schoger and learning more about front-end
+              development to better bridge the gap between design and implementation.<br><br>
+
+              I'm always eager to connect on interesting projects and conversations about design. Feel free to reach out
+              to collaborate or discuss opportunities at <a
+                href="mailto:rhythmdesai22@gmail.com">rhythmdesai22@gmail.com</a>.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="resume" style="display: none;">
+      <div class="description-container">
+        <div class="resume-wrapper">
+          <a href="https://docs.google.com/document/d/1Um0AgUWUdk33FvDa_wgQH5yh4F4L9n4_vvsffXUKhno/export?format=pdf"
+            class="cta-button" download>Download PDF <i class="fas fa-download"></i></a>
+          <iframe src="https://docs.google.com/document/d/1Um0AgUWUdk33FvDa_wgQH5yh4F4L9n4_vvsffXUKhno/preview"
+            class="resume-frame"></iframe>
+        </div>
+      </div>
+    </section>
+
     <div id="footer-placeholder"></div>
   </div>
 
@@ -132,6 +176,8 @@
   <script src="js/navigation.js"></script>
   <script src="js/index.js"></script>
   <script src="js/work.js"></script>
+  <script src="js/nav-bubble.js"></script>
+  <script src="js/clock.js"></script>
 </body>
 
 </html>
