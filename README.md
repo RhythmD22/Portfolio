@@ -22,6 +22,7 @@ This repository contains Rhythm Desai's personal portfolio website. It showcases
   - **clashroyale.css** – Specific styling for the Clash Royale project page.
   - **financier.css** – Specific styling for the Financier project page.
   - **index.css** – Specific styling for the home page.
+  - **resume.css** – Specific styling for the resume page.
   - **smartshuttle.css** – Specific styling for the SmartShuttle project page.
   - **styles.css** – Shared styling for all pages.
   - **twine.css** – Specific styling for the Twine project page.
@@ -34,9 +35,11 @@ This repository contains Rhythm Desai's personal portfolio website. It showcases
 - **index.html** – Home page with a short bio and site navigation.
 - **js/** – Directory containing all JavaScript files.
   - **clashroyale.js** – Specific JavaScript for the Clash Royale project page.
+  - **clock.js** – Displays a real-time clock in the footer.
   - **dark-mode.js** – Implements dark mode functionality across the site.
   - **financier.js** – Specific JavaScript for the Financier project page.
   - **index.js** – Specific JavaScript for the home page.
+  - **nav-bubble.js** – Implements the navigation pill bubble effect.
   - **navigation.js** – Implements shared navigation functionality including mobile menu, link updates, and service worker registration for PWA functionality.
   - **scroll.js** – Implements shared scroll functionality across project pages.
   - **smartshuttle.js** – Specific JavaScript for the SmartShuttle project page.
