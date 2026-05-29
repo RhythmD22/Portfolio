@@ -19,6 +19,8 @@ const urlsToCache = [
   '/Portfolio/css/clashroyale.css',
   '/Portfolio/css/twine.css',
   '/Portfolio/css/resume.css',
+  '/Portfolio/css/apps.css',
+  '/Portfolio/js/apps.js',
   '/Portfolio/js/index.js',
   '/Portfolio/js/work.js',
   '/Portfolio/js/financier.js',
@@ -102,6 +104,7 @@ const urlsToCache = [
   '/Portfolio/images/Transactions.mov',
   '/Portfolio/Twine/Archibald%20and%20the%20Steel%20Monolith.html',
   '/Portfolio/Twine/The%20Guardian\'s%20Legacy.html',
+  '/Portfolio/Pokemon%20GB.ttf',
 ];
 
 self.addEventListener('install', event => {
