@@ -22,10 +22,10 @@
   <meta name="apple-mobile-web-app-title" content="Portfolio">
 
   <title>Portfolio - Rhythm Desai</title>
-  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link rel="icon" href="images/favicon.ico" type="image/x-icon">
   <link rel="manifest" href="manifest.json">
-  <link rel="apple-touch-icon" href="apple-touch-icon.png">
-  <link rel="apple-touch-icon" media="(prefers-color-scheme: dark)" href="dark-apple-touch-icon.png">
+  <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+  <link rel="apple-touch-icon" media="(prefers-color-scheme: dark)" href="images/dark-apple-touch-icon.png">
 
   <!-- Preconnect for external resources -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -38,8 +38,9 @@
   <link rel="stylesheet" href="css/styles.css">
   <link rel="stylesheet" href="css/index.css">
   <link rel="stylesheet" href="css/work.css">
-  <link rel="stylesheet" href="css/about.css">
+  <link rel="stylesheet" href="css/apps.css">
   <link rel="stylesheet" href="css/resume.css">
+  <link rel="stylesheet" href="css/about.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css">
   <script src="js/dark-mode.js"></script>
   <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.8.5/dist/dotlottie-wc.js" type="module"></script>
@@ -116,6 +117,123 @@
         </div>
       </div>
     </main>
+
+    <section id="apps" style="display: none;">
+      <div class="description-container">
+        <h1 class="apps-heading sr-only">Apps</h1>
+        <div class="card-container">
+          <div class="app-card" onclick="expandCard(this)">
+            <a href="https://rhythmd22.github.io/Financier/" target="_blank" class="app-link"
+              onclick="event.stopPropagation()">
+              <i class="fas fa-external-link-alt"></i>
+            </a>
+            <img src="images/Apps/Financier%20App.png" alt="Financier" class="app-icon">
+            <div class="app-name-in-card">No. 001 Financier</div>
+            <div class="app-attributes">
+              <div class="attribute"><strong>TYPE:</strong> WEB APP / PWA</div>
+              <div class="attribute"><strong>ROLE:</strong> DESIGN & DEVELOPMENT</div>
+              <div class="attribute"><strong>TECH:</strong> HTML, CSS, JS, CHART.JS, LOCALSTORAGE</div>
+            </div>
+            <h3><span class="app-title">Financier</span><span class="app-desc"> - College Budgeting Web App</span></h3>
+            <div class="content">A student-focused budgeting tool designed to help manage expenses, set financial goals,
+              and track income with browser-based persistence. It features transaction logging, visual analytics with
+              Chart.js, and a unique meal plan deduction system. The app uses localStorage for zero-server persistence
+              and is installable as a mobile PWA.</div>
+          </div>
+          <div class="app-card" onclick="expandCard(this)">
+            <a href="https://rhythmd22.github.io/Magnate/" target="_blank" class="app-link"
+              onclick="event.stopPropagation()">
+              <i class="fas fa-external-link-alt"></i>
+            </a>
+            <img src="images/Apps/Magnate%20App.png" alt="Magnate" class="app-icon">
+            <div class="app-name-in-card">No. 002 Magnate</div>
+            <div class="app-attributes">
+              <div class="attribute"><strong>TYPE:</strong> WEB APP / PWA</div>
+              <div class="attribute"><strong>ROLE:</strong> DESIGN & DEVELOPMENT</div>
+              <div class="attribute"><strong>TECH:</strong> HTML, CSS, JS, EASYMDE, CHART.JS, LOCALSTORAGE</div>
+            </div>
+            <h3><span class="app-title">Magnate</span><span class="app-desc"> - Budgeting Web App</span></h3>
+            <div class="content">The next evolution of Financier, introducing Transaction Groups and markdown-supported
+              notes via EasyMDE. This version prioritizes WCAG compliance, mobile-optimized spacing, and refined UI
+              consistency. It replaces the meal plan system with flexible groups for a more mature personal finance
+              experience.</div>
+          </div>
+          <div class="app-card smartshuttle-card" onclick="expandCard(this)">
+            <a href="https://smartshuttle.vercel.app" target="_blank" class="app-link"
+              onclick="event.stopPropagation()">
+              <i class="fas fa-external-link-alt"></i>
+            </a>
+            <img src="images/Apps/SmartShuttle%20App.png" alt="SmartShuttle" class="app-icon">
+            <div class="app-name-in-card">No. 003 SmartShuttle</div>
+            <div class="app-attributes">
+              <div class="attribute"><strong>TYPE:</strong> WEB APP / PWA</div>
+              <div class="attribute"><strong>ROLE:</strong> DESIGN & DEVELOPMENT</div>
+              <div class="attribute"><strong>TECH:</strong> HTML, CSS, JS, LEAFLET.JS, TRANSIT API</div>
+            </div>
+            <h3><span class="app-title">SmartShuttle</span><span class="app-desc"> - Live Shuttle Tracker</span></h3>
+            <div class="content">A real-time campus shuttle tracker providing live GPS locations, estimated arrival
+              times, and vehicle occupancy data. Built with Leaflet.js and the Transit API, it includes a feedback
+              collection system with GitHub Issues integration and is fully installable as a mobile PWA.</div>
+          </div>
+          <div class="app-card" onclick="expandCard(this)">
+            <a href="https://ai-debate-club.streamlit.app/" target="_blank" class="app-link"
+              onclick="event.stopPropagation()">
+              <i class="fas fa-external-link-alt"></i>
+            </a>
+            <img src="images/Apps/AI%20Debate%20Club%20App.png" alt="AI Debate Club" class="app-icon">
+            <div class="app-name-in-card">No. 004<br>AI Debate Club</div>
+            <div class="app-attributes">
+              <div class="attribute"><strong>TYPE:</strong> AI SIMULATOR</div>
+              <div class="attribute"><strong>ROLE:</strong> DESIGN & DEVELOPMENT</div>
+              <div class="attribute"><strong>TECH:</strong> STREAMLIT, CSS, PYTHON, GEMINI API</div>
+            </div>
+            <h3><span class="app-title">AI Debate Club</span><span class="app-desc"> - Multi-Persona Debate
+                Simulator</span></h3>
+            <div class="content">A high-fidelity simulator that orchestrates structured intellectual discourse between
+              contemporary figures using the Google Gemini 2026 SDK. It features a unique stage-based
+              moderation engine (Opening, Rebuttals, Closing).</div>
+          </div>
+          <div class="app-card twine-card" onclick="expandCard(this)">
+            <a href="Twine/Archibald%20and%20the%20Steel%20Monolith.html" target="_blank" class="app-link"
+              onclick="event.stopPropagation()">
+              <i class="fas fa-external-link-alt"></i>
+            </a>
+            <img src="images/Apps/Archibald%20and%20the%20Steel%20Monolith%20App.png"
+              alt="Archibald and the Steel Monolith" class="app-icon">
+            <div class="app-name-in-card">No. 005<br>Archibald and the Steel Monolith</div>
+            <div class="app-attributes">
+              <div class="attribute"><strong>TYPE:</strong> TWINE GAME</div>
+              <div class="attribute"><strong>ROLE:</strong> NARRATIVE, DESIGN, & DEVELOPMENT</div>
+              <div class="attribute"><strong>TECH:</strong> TWINE, CSS, JS</div>
+            </div>
+            <h3><span class="app-title">Archibald and the Steel Monolith</span><span class="app-desc"> - Fantasy and
+                Sci-fi Twine Game</span></h3>
+            <div class="content">A genre-blending interactive fiction game where a knight navigates a
+              corporate-dystopian future across different timelines. It pushes Twine's limits with custom-programmed
+              combat and escape minigames, testing the player's duty, honor, and adaptability.</div>
+          </div>
+          <div class="app-card twine-card" onclick="expandCard(this)">
+            <a href="Twine/The%20Guardian's%20Legacy.html" target="_blank" class="app-link"
+              onclick="event.stopPropagation()">
+              <i class="fas fa-external-link-alt"></i>
+            </a>
+            <img src="images/Apps/The%20Guardian's%20Legacy%20App.png" alt="The Guardian's Legacy" class="app-icon">
+            <div class="app-name-in-card">No. 006<br>The Guardian's Legacy</div>
+            <div class="app-attributes">
+              <div class="attribute"><strong>TYPE:</strong> TWINE GAME</div>
+              <div class="attribute"><strong>ROLE:</strong> NARRATIVE, DESIGN, & DEVELOPMENT</div>
+              <div class="attribute"><strong>TECH:</strong> TWINE, CSS, JS</div>
+            </div>
+            <h3><span class="app-title">The Guardian's Legacy</span><span class="app-desc"> - Fantasy Twine Game</span>
+            </h3>
+            <div class="content">A choice-driven interactive fantasy following a hero's quest for the Luminous Artifact.
+              The story features dynamic encounters with sorcerers and guardians, adapting based on weapon choices and
+              moral dilemmas to provide multiple unique branching outcomes.</div>
+          </div>
+        </div>
+      </div>
+      <script src="js/apps.js"></script>
+    </section>
 
     <section id="about" style="display: none;">
       <div class="description-container">
