@@ -37,7 +37,7 @@ This repository contains Rhythm Desai's personal portfolio website. It showcases
   - Global icons and branding images (favicon, touch icons, profile images).
 - **index.html** – Home page with a short bio and site navigation.
 - **js/** – Directory containing all JavaScript files.
-  - **apps.js** – Specific JavaScript for the apps page.
+  - **apps.js** – Specific JavaScript for the Apps page.
   - **clashroyale.js** – Specific JavaScript for the Clash Royale project page.
   - **clock.js** – Displays a real-time clock in the footer.
   - **dark-mode.js** – Implements dark mode functionality across the site.
