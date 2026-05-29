@@ -17,14 +17,16 @@ function expandCard(element) {
       container.style.paddingRight = '140px';
 
       setTimeout(() => {
-        const containerRect = container.getBoundingClientRect();
-        const cardRect = element.getBoundingClientRect();
-        const expandedWidth = window.innerWidth - 40;
+        const cardIndex = Array.from(cards).indexOf(element);
 
-        // Mobile-only nudge to prevent right-side cutoff
+        // Exact stride calculation for mobile:
+        // 200px (flex-basis) + 30px (total padding) + 2px (total border) + 10px (gap) = 242px
+        const stride = 242;
         const nudge = 16;
-        const currentCardLeftRelative = container.scrollLeft + (cardRect.left - containerRect.left);
-        const scrollOffset = currentCardLeftRelative - (containerRect.width / 2) + (expandedWidth / 2) + nudge;
+
+        // Calculate the final scroll position based on the card's index and the calculated stride.
+        // This ensures the expanded card is perfectly centered regardless of its index.
+        const scrollOffset = (cardIndex * stride) + nudge;
 
         container.scrollTo({
           left: scrollOffset,
