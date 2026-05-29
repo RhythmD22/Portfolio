@@ -7,6 +7,8 @@ document.addEventListener('headerLoaded', () => {
   // Scope all selectors to inside the pill so we never accidentally
   // target the mobile header-left logo (which is display:none on desktop)
   const navLinks = pill.querySelectorAll('.nav-item-link, .portfolio-icon-link');
+  const firstNavLink = pill.querySelector('.header-nav-left .nav-item-link:first-child');
+  const lastNavLink = pill.querySelector('.header-nav-right .nav-item-link:last-child');
   const logoLink = pill.querySelector('.portfolio-icon-link');
 
   function updateBubble(targetLink, animated = true) {
@@ -17,13 +19,28 @@ document.addEventListener('headerLoaded', () => {
 
     if (linkRect.width === 0) return;
 
-    const isLogo = targetLink.classList.contains('portfolio-icon-link');
-    const padding = isLogo ? 8 : 0;
-    // Keep logo offset at -2px, apply -8px offset to standard links
-    const offset = isLogo ? -2 : -2;
+    const isFirst = targetLink === firstNavLink;
+    const isLast = targetLink === lastNavLink;
 
-    bubble.style.width = `${linkRect.width + padding}px`;
-    bubble.style.left = `${linkRect.left - pillRect.left - (padding / 2) + offset}px`;
+    // Account for the pill's 1px border and the bubble's own 1px border
+    const innerPillWidth = pill.clientWidth;
+    const pillPaddingOffset = 1;
+
+    let left, width;
+
+    if (isFirst) {
+      left = 0;
+      width = linkRect.right - pillRect.left - pillPaddingOffset;
+    } else if (isLast) {
+      left = linkRect.left - pillRect.left - pillPaddingOffset + 0.5;
+      width = innerPillWidth - left - 1.5;
+    } else {
+      left = linkRect.left - pillRect.left - pillPaddingOffset;
+      width = linkRect.width;
+    }
+
+    bubble.style.width = `${width}px`;
+    bubble.style.left = `${left}px`;
     bubble.style.opacity = '1';
   }
 

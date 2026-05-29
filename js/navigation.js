@@ -68,7 +68,7 @@ function initializeHamburgerMenu() {
     if (!isIndexPage || !workSection || window.isNavigating) return;
 
     // Disable auto-active on scroll when using SPA nav to prevent UI conflict
-    const isSPAActive = window.location.hash === '#resume' || window.location.hash === '#about';
+    const isSPAActive = window.location.hash === '#resume' || window.location.hash === '#about' || window.location.hash === '#apps';
     if (isSPAActive) return;
 
     workSectionTop = workSection.offsetTop;
@@ -116,22 +116,27 @@ function setupSPA() {
   const navLinks = document.querySelectorAll('.nav-item-link, .nav-link:not(.download-link), .portfolio-icon-link');
   const homeSection = document.getElementById('home');
   const workSection = document.getElementById('work');
+  const appsSection = document.getElementById('apps');
   const aboutSection = document.getElementById('about');
   const resumeSection = document.getElementById('resume');
 
   function switchSection(target) {
     const targetHash = target === '#' || target === '' ? '#home' : target;
     const isHome = targetHash === '#home';
+    const isApps = targetHash === '#apps';
     const isAbout = targetHash === '#about';
     const isResume = targetHash === '#resume';
     const isWork = targetHash === '#work';
 
     // Work and Home are always visible as the main page content. 
-    // About and Resume are toggled as SPA pages.
-    if (homeSection) homeSection.style.display = (isAbout || isResume) ? 'none' : 'block';
-    if (workSection) workSection.style.display = (isAbout || isResume) ? 'none' : 'flex';
+    // Apps, About and Resume are toggled as SPA pages.
+    if (homeSection) homeSection.style.display = (isApps || isAbout || isResume) ? 'none' : 'block';
+    if (workSection) workSection.style.display = (isApps || isAbout || isResume) ? 'none' : 'flex';
+    if (appsSection) appsSection.style.display = isApps ? 'block' : 'none';
     if (aboutSection) aboutSection.style.display = isAbout ? 'block' : 'none';
     if (resumeSection) resumeSection.style.display = isResume ? 'block' : 'none';
+
+    document.body.classList.toggle('apps-page', isApps);
 
     // Update active class
     navLinks.forEach(link => {
@@ -143,6 +148,10 @@ function setupSPA() {
         link.classList.toggle('active', href.endsWith(targetHash));
       }
     });
+
+    // Reset expanded cards when navigating
+    const cards = document.querySelectorAll('.app-card');
+    cards.forEach(card => card.classList.remove('expanded'));
 
     // Trigger bubble update
     if (typeof updateBubble === 'function') {
