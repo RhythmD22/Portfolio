@@ -329,6 +329,10 @@ button[onclick*="scrollTo"] svg {
     margin-bottom: 0;
   }
 
+  .projects-section .project:nth-child(4) {
+    margin-bottom: 6.5rem;
+  }
+
   .work-summary .contact-pill {
     margin-top: 1.5rem;
   }
