@@ -13,7 +13,7 @@
     height: 500px;
     padding: 20px 100px 80px 100px;
     overflow-x: auto;
-    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
     font-family: 'Pokemon GB', sans-serif;
 }
 
