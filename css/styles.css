@@ -790,9 +790,9 @@ p {
     /* Position to the left of the hamburger menu in the top right */
     z-index: 1002;
     /* Higher than hamburger but below sidebar */
-    background-color: rgba(250, 239, 216, 0.8);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    background-color: transparent;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
     border: 1px solid var(--dark-mode-toggle-hover);
     border-radius: 50%;
     color: var(--dark-mode-toggle-hover);
@@ -818,6 +818,7 @@ p {
   [data-theme="dark"] .mobile-dark-mode-toggle {
     border: 1px solid var(--hover-color) !important;
     color: var(--hover-color) !important;
+    background-color: transparent !important;
   }
 
   .hamburger {
