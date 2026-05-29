@@ -342,37 +342,37 @@ body.apps-page .site-footer {
     }
 
     .app-card.expanded .app-icon {
-        width: 110px;
-        height: 110px;
+        width: 125px;
+        height: 125px;
         left: 20px;
-        top: 45px;
+        top: 35px;
     }
 
     .app-card.expanded .app-name-in-card {
-        top: 155px;
+        top: 165px;
         left: 20px;
-        width: 110px;
-        font-size: 0.5rem;
+        width: 125px;
+        font-size: 0.55rem;
     }
 
     /* Adjust specific positioning for mobile */
     .app-card.smartshuttle-card.expanded .app-name-in-card {
-        top: 165px;
+        top: 175px;
     }
 
     .app-card.twine-card.expanded .app-name-in-card {
-        top: 150px;
+        top: 160px;
     }
 
     .app-card.expanded .app-attributes {
-        width: calc(100% - 140px);
+        width: calc(100% - 165px);
         height: 45%;
-        padding-left: 10px;
-        gap: 8px;
+        padding-left: 40px;
+        gap: 12px;
     }
 
     .attribute {
-        font-size: 0.45rem;
+        font-size: 0.5rem;
     }
 
     .attribute strong {
@@ -399,8 +399,8 @@ body.apps-page .site-footer {
     }
 
     .app-link {
-        top: 15px;
-        right: 15px;
-        font-size: 0.9rem;
+        top: 12px;
+        right: 12px;
+        font-size: 1.1rem;
     }
 }
