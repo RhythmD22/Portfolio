@@ -1,0 +1,406 @@
+@font-face {
+    font-family: 'Pokemon GB';
+    src: url('../Pokemon GB.ttf') format('truetype');
+}
+
+:root {
+    --apps-footer-margin: 10vh;
+}
+
+.card-container {
+    display: flex;
+    gap: 10px;
+    height: 500px;
+    padding: 20px 100px 80px 100px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    font-family: 'Pokemon GB', sans-serif;
+}
+
+/* Push footer down when apps section is visible */
+body.apps-page .site-footer {
+    margin-top: var(--apps-footer-margin);
+}
+
+.card-container .app-card:first-child {
+    background-image: linear-gradient(to right, #1e40af, #3b82f6) !important;
+    background-color: #1e40af;
+    color: white;
+}
+
+.card-container .app-card:nth-child(2) {
+    background-image: linear-gradient(to right, #172554, #2952c2) !important;
+    background-color: #172554;
+    color: white;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.card-container .app-card:nth-child(3) {
+    background-image: linear-gradient(to right, #4338ca, #6863e6) !important;
+    background-color: #4338ca;
+    color: white;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.card-container .app-card:nth-child(4) {
+    background-image: linear-gradient(to right, #475569, #064e3b) !important;
+    background-color: #475569;
+    color: white;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.card-container .app-card:nth-child(5) {
+    background-image: linear-gradient(to right, #475569, #38bdf8) !important;
+    background-color: #475569;
+    color: white;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.card-container .app-card:nth-child(6) {
+    background-image: linear-gradient(to right, #881337, #f59e0b) !important;
+    background-color: #881337;
+    color: white;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.app-card {
+    flex: 0 0 250px;
+    background: rgba(0, 0, 0, 0.05);
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    transition: flex 0.5s ease, background 0.3s ease;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    overflow: visible;
+    text-align: center;
+    font-family: 'Pokemon GB', sans-serif;
+    position: relative;
+}
+
+.app-link {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    color: white;
+    font-size: 1rem;
+    z-index: 20;
+    transition: transform 0.3s ease, color 0.3s ease;
+    text-decoration: none;
+}
+
+.app-link:hover {
+    transform: scale(1.2);
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.app-icon {
+    width: 200px;
+    height: 200px;
+    object-fit: contain;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.app-name-in-card {
+    display: none;
+}
+
+.app-card.expanded .app-name-in-card {
+    display: block;
+    position: absolute;
+    top: 195px;
+    /* Moved up from 210px to be closer to the icon */
+    left: 45px;
+    width: 180px;
+    text-align: center;
+    font-size: 0.6rem;
+    color: white;
+    font-family: 'Pokemon GB', sans-serif;
+    pointer-events: none;
+    line-height: 1.4;
+    z-index: 5;
+}
+
+/* Specific positioning for SmartShuttle name */
+.app-card.smartshuttle-card.expanded .app-name-in-card {
+    top: 205px;
+}
+
+/* Specific positioning for Twine game names - moved slightly further up */
+.app-card.twine-card.expanded .app-name-in-card {
+    top: 185px;
+}
+
+.app-card.expanded .app-icon {
+    position: absolute;
+    top: 20px;
+    left: 45px;
+    width: 180px;
+    height: 180px;
+    display: block;
+}
+
+.app-attributes {
+    display: none;
+}
+
+.app-card.expanded .app-attributes {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 350px;
+    /* Occupies the right side space */
+    height: 50%;
+    /* Matches the gradient height */
+    text-align: left;
+    gap: 15px;
+    padding-left: 40px;
+    /* Offset to center the content block better */
+}
+
+.attribute {
+    font-size: 0.6rem;
+    color: white;
+    line-height: 1.5;
+    text-transform: uppercase;
+}
+
+.attribute strong {
+    color: rgba(255, 255, 255, 0.7);
+    display: block;
+    margin-bottom: 2px;
+}
+
+.app-card h3 {
+    margin: 0;
+    position: absolute;
+    top: calc(100% + 15px);
+    /* Restored original position */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 95%;
+    color: var(--text-color) !important;
+    font-size: 0.80rem;
+    transition: color 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    white-space: nowrap;
+    pointer-events: none;
+    padding: 2px 0;
+    /* Minimal padding to restore proximity */
+    overflow: visible;
+    text-align: center;
+    line-height: 1.8;
+}
+
+.app-card.expanded h3 {
+    width: 570px;
+    /* Fixed width matching 95% of 600px to prevent jitter during transition */
+    display: flex;
+    /* Restored visibility */
+    white-space: normal;
+    flex-wrap: wrap;
+    align-items: flex-start;
+}
+
+
+.app-title {
+    display: inline-block;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    line-height: 1.8;
+    /* Matching line height */
+}
+
+.app-card.expanded .app-title {
+    max-width: 100%;
+    text-overflow: clip;
+    white-space: normal;
+    /* Allow wrapping when expanded */
+}
+
+.app-desc {
+    max-width: 0;
+    opacity: 0;
+    visibility: hidden;
+    overflow: hidden;
+    white-space: nowrap;
+    font-weight: normal;
+    transition: max-width 0.5s ease, opacity 0.3s ease, visibility 0.3s;
+    line-height: 1.8;
+    /* Matching line height */
+}
+
+/* Allow description to wrap when expanded */
+.app-card.expanded .app-desc {
+    max-width: 600px;
+    opacity: 1;
+    visibility: visible;
+    transition: max-width 0.5s ease, opacity 0.4s ease 0.1s, visibility 0s;
+    margin-left: 5px;
+    white-space: normal;
+    /* Allow wrapping when expanded */
+}
+
+.app-card .content {
+    display: none;
+}
+
+.app-card.expanded .content {
+    display: block;
+    position: absolute;
+    top: 55%;
+    /* Moved down slightly from 52% */
+    left: 45px;
+    right: 45px;
+    bottom: 25px;
+    /* Ensures padding at the very bottom */
+    overflow-y: auto;
+    color: #1a1a1a;
+    font-size: 0.75rem;
+    /* Increased from 0.6rem */
+    line-height: 1.6;
+    text-align: left;
+    z-index: 10;
+}
+
+.app-card.expanded {
+    flex: 0 0 600px;
+    background-color: #ffffff !important;
+    background-size: 100% 50% !important;
+    background-position: top left !important;
+    background-origin: border-box !important;
+    background-repeat: no-repeat !important;
+    z-index: 5;
+}
+
+/* Redefine gradients to support the background-size/position trick */
+.card-container .app-card:first-child.expanded {
+    background-image: linear-gradient(to right, #1e40af, #3b82f6) !important;
+}
+
+.card-container .app-card:nth-child(2).expanded {
+    background-image: linear-gradient(to right, #172554, #2952c2) !important;
+}
+
+.card-container .app-card:nth-child(3).expanded {
+    background-image: linear-gradient(to right, #4338ca, #6863e6) !important;
+}
+
+.card-container .app-card:nth-child(4).expanded {
+    background-image: linear-gradient(to right, #0f766e, #064e3b) !important;
+}
+
+.card-container .app-card:nth-child(5).expanded {
+    background-image: linear-gradient(to right, #475569, #38bdf8) !important;
+}
+
+.card-container .app-card:nth-child(6).expanded {
+    background-image: linear-gradient(to right, #881337, #f59e0b) !important;
+}
+
+[data-theme="dark"] .app-card {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+[data-theme="dark"] .app-card.expanded {
+    /* Maintain Pokedex white bottom in dark mode */
+    background-color: #ffffff !important;
+}
+
+/* Mobile Responsiveness for Apps Section */
+@media (max-width: 768px) {
+    .card-container {
+        padding: 20px 20px 80px 20px;
+        height: 540px;
+        overflow-y: hidden;
+    }
+
+    .app-card {
+        flex: 0 0 200px;
+        border-radius: 15px;
+        padding: 15px;
+    }
+
+    .app-card.expanded {
+        flex: 0 0 calc(100vw - 40px);
+        background-size: 100% 45% !important;
+    }
+
+    .app-icon {
+        width: 150px;
+        height: 150px;
+    }
+
+    .app-card.expanded .app-icon {
+        width: 110px;
+        height: 110px;
+        left: 20px;
+        top: 45px;
+    }
+
+    .app-card.expanded .app-name-in-card {
+        top: 155px;
+        left: 20px;
+        width: 110px;
+        font-size: 0.5rem;
+    }
+
+    /* Adjust specific positioning for mobile */
+    .app-card.smartshuttle-card.expanded .app-name-in-card {
+        top: 165px;
+    }
+
+    .app-card.twine-card.expanded .app-name-in-card {
+        top: 150px;
+    }
+
+    .app-card.expanded .app-attributes {
+        width: calc(100% - 140px);
+        height: 45%;
+        padding-left: 10px;
+        gap: 8px;
+    }
+
+    .attribute {
+        font-size: 0.45rem;
+    }
+
+    .attribute strong {
+        margin-bottom: 0;
+    }
+
+    .app-card h3 {
+        font-size: 0.7rem;
+        line-height: 1.4;
+    }
+
+    .app-card.expanded h3 {
+        width: 90%;
+        top: calc(100% + 5px);
+    }
+
+    .app-card.expanded .content {
+        top: 50%;
+        left: 20px;
+        right: 20px;
+        bottom: 20px;
+        font-size: 0.7rem;
+        line-height: 1.5;
+    }
+
+    .app-link {
+        top: 15px;
+        right: 15px;
+        font-size: 0.9rem;
+    }
+}
