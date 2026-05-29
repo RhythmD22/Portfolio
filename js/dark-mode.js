@@ -32,15 +32,16 @@ document.addEventListener('DOMContentLoaded', function () {
       return;
     }
 
+    const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
     if (desktopToggleButton) {
-      updateToggleIcon(desktopToggleButton, localStorage.getItem('theme') || 'light');
+      updateToggleIcon(desktopToggleButton, currentTheme);
       desktopToggleButton.addEventListener('click', () => {
         toggleDarkMode(desktopToggleButton.querySelector('i'));
       });
     }
 
     if (mobileToggleButton) {
-      updateToggleIcon(mobileToggleButton, localStorage.getItem('theme') || 'light');
+      updateToggleIcon(mobileToggleButton, currentTheme);
       mobileToggleButton.addEventListener('click', () => {
         toggleDarkMode(mobileToggleButton.querySelector('i'));
       });
