@@ -1012,8 +1012,12 @@ p {
 
 /* Active/inactive link styles for mobile menu */
 .nav-link:not(.active) {
+  color: #757575;
+  /* Grayed out inactive links in light mode */
+}
+
+[data-theme="dark"] .nav-link:not(.active) {
   opacity: 0.6;
-  /* Grayed out inactive links */
   color: inherit;
 }
 
