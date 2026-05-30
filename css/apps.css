@@ -369,6 +369,10 @@ body.apps-page .site-footer {
         font-size: 0.55rem;
     }
 
+    .app-card.magnate-card.expanded .app-name-in-card {
+        white-space: nowrap;
+    }
+
     /* Adjust specific positioning for mobile */
     .app-card.smartshuttle-card.expanded .app-name-in-card {
         top: 175px;
@@ -400,7 +404,74 @@ body.apps-page .site-footer {
 
     .app-card.expanded h3 {
         width: 90%;
-        top: calc(100% + 5px);
+        top: calc(100% + 15px);
+        white-space: normal;
+        /* Allow wrapping on mobile when expanded */
+        flex-wrap: wrap;
+    }
+
+    /* Magnate card specific fix to prevent text jitter during expansion */
+    .app-card.magnate-card.expanded h3 {
+        width: calc(90vw - 36px);
+        white-space: nowrap;
+        flex-wrap: nowrap;
+    }
+
+    .app-card.magnate-card.expanded .app-title,
+    .app-card.magnate-card.expanded .app-desc {
+        white-space: nowrap;
+    }
+
+    /* Financier card specific fix to prevent text jitter during expansion */
+    .app-card.financier-card.expanded h3 {
+        width: calc(100vw - 40px);
+        white-space: normal;
+        flex-wrap: wrap;
+    }
+
+    .app-card.financier-card.expanded .app-title,
+    .app-card.financier-card.expanded .app-desc {
+        max-width: none;
+        flex-shrink: 0;
+    }
+
+    .app-card.financier-card.expanded .app-desc {
+        transition: opacity 0.4s ease 0.1s, visibility 0s;
+    }
+
+    /* Guardian card specific fix to prevent text jitter during expansion */
+    .app-card.guardian-card.expanded h3 {
+        width: calc(100vw - 40px);
+        white-space: normal;
+        flex-wrap: wrap;
+    }
+
+    .app-card.guardian-card.expanded .app-title,
+    .app-card.guardian-card.expanded .app-desc {
+        max-width: none;
+        flex-shrink: 0;
+    }
+
+    .app-card.guardian-card.expanded .app-desc {
+        transition: opacity 0.4s ease 0.1s, visibility 0s;
+    }
+
+    /* Archibald card specific fix to prevent text jitter during expansion */
+    .app-card.archibald-card.expanded h3 {
+        width: calc(100vw - 40px);
+        /* Increased from 90vw - 36px to pull 'Game' to 3rd line */
+        white-space: normal;
+        flex-wrap: wrap;
+    }
+
+    .app-card.archibald-card.expanded .app-title,
+    .app-card.archibald-card.expanded .app-desc {
+        max-width: none;
+        flex-shrink: 0;
+    }
+
+    .app-card.archibald-card.expanded .app-desc {
+        transition: opacity 0.4s ease 0.1s, visibility 0s;
     }
 
     .app-card.expanded .content {
