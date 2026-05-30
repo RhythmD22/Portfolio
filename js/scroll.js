@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if (!isSPALink) {
           e.preventDefault();
           requestAnimationFrame(() => {
-            const headerOffset = window.innerWidth <= 768 ? 70 : 150;
+            const headerOffset = window.innerWidth <= 768 ? 90 : 87;
             const elementPosition = targetElement.getBoundingClientRect().top;
             const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
 
