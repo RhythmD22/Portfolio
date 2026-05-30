@@ -4,7 +4,13 @@
 }
 
 :root {
-    --apps-footer-margin: 10vh;
+    --apps-footer-margin: 6.2vh;
+}
+
+@media (min-width: 769px) {
+    #apps {
+        padding-top: 0.35rem;
+    }
 }
 
 .card-container {
@@ -319,6 +325,14 @@ body.apps-page .site-footer {
 
 /* Mobile Responsiveness for Apps Section */
 @media (max-width: 768px) {
+    #apps {
+        padding-top: 0.4rem;
+    }
+
+    body.apps-page .site-footer {
+        margin-top: -2.8vh;
+    }
+
     .card-container {
         padding: 20px 20px 80px 20px;
         height: 540px;
@@ -337,8 +351,8 @@ body.apps-page .site-footer {
     }
 
     .app-icon {
-        width: 150px;
-        height: 150px;
+        width: 180px;
+        height: 180px;
     }
 
     .app-card.expanded .app-icon {

@@ -1,11 +1,19 @@
+:root {
+    --about-footer-margin: -3.5rem;
+}
+
 .nowrap {
     white-space: nowrap;
     display: inline-block;
     vertical-align: bottom;
 }
 
+#about {
+    margin-bottom: var(--about-footer-margin);
+}
+
 #about .description-container {
-    padding-top: 16vh;
+    padding-top: 12.9vh;
 }
 
 #about .intro-text {
@@ -85,8 +93,14 @@
 
 /* Media queries for #about */
 @media (max-width: 900px) {
+    #about {
+        padding-bottom: 0;
+        margin-bottom: -3.3rem !important;
+    }
+
+
     #about .description-container {
-        padding-top: 4vh;
+        padding-top: 2.7vh;
     }
 
     #about .about-heading {

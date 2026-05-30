@@ -753,8 +753,8 @@ p {
 }
 
 /* Offset for anchor links to account for fixed header */
-#selected-work {
-  scroll-margin-top: 150px;
+#work {
+  scroll-margin-top: 87px;
 }
 
 /* ===== Hamburger Menu Styles ===== */
@@ -1126,8 +1126,8 @@ p {
     padding: 0;
   }
 
-  #selected-work {
-    scroll-margin-top: 70px;
+  #work {
+    scroll-margin-top: 90px;
   }
 }
 

@@ -798,7 +798,7 @@ body {
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
   padding: 2rem;
   max-width: 800px;
-  margin: 0 auto 8rem;
+  margin: 0 auto 6rem;
   display: inline-block;
   text-align: center;
   z-index: 0;
@@ -1698,9 +1698,17 @@ main.main-content.project-intro-section {
     padding-top: 31px !important;
   }
 
+  .main-content {
+    margin-bottom: -1rem !important;
+  }
+
   .moneyhelper-screenshot .caption,
   .voya-screenshot .caption {
     margin-top: 0.5rem !important;
+  }
+
+  .neon-border-card {
+    margin-bottom: 3.8rem !important;
   }
 }
 

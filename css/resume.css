@@ -1,3 +1,7 @@
+:root {
+  --resume-footer-margin: 1.25rem;
+}
+
 .resume-wrapper {
   display: flex;
   flex-direction: column;
@@ -5,6 +9,16 @@
   gap: 1.5rem;
   padding: 2rem 0;
   width: 100%;
+}
+
+@media (min-width: 768px) {
+  #resume {
+    margin-bottom: var(--resume-footer-margin);
+  }
+
+  #resume .description-container {
+    padding-top: 14.2vh;
+  }
 }
 
 .resume-frame {
@@ -19,6 +33,11 @@
   .resume-frame {
     height: 80vh;
     width: 95%;
+  }
+
+  #resume {
+    padding-bottom: 0;
+    margin-bottom: -3rem !important;
   }
 }
 

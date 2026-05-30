@@ -361,7 +361,7 @@ body {
   box-sizing: border-box;
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
   border-radius: 8px;
-  margin: 8rem auto;
+  margin: 4rem auto 6.3rem;
   text-align: left;
   border: 4px solid #dc3e3d !important;
 }
@@ -724,6 +724,10 @@ body {
 
   .project-showcase div[style*="background: #ffffff"][style*="padding: 2rem"] {
     margin-top: -1rem !important;
+  }
+
+  .reflection-card {
+    margin-bottom: 4rem !important;
   }
 
   #user-flow-section div[style*="display: flex"] {
