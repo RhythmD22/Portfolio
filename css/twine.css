@@ -8,6 +8,10 @@ body {
   body {
     padding-top: 124px;
   }
+
+  .site-footer {
+    margin-top: 1.9rem;
+  }
 }
 
 .banner-container {
@@ -22,7 +26,6 @@ body {
     margin-top: 0;
   }
 }
-
 
 .banner-image {
   width: 100%;
@@ -135,6 +138,10 @@ body {
   body {
     font-size: 16px;
     padding-top: 50px !important;
+  }
+
+  .site-footer {
+    margin-top: -4.1rem;
   }
 
   .page-title {
