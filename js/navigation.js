@@ -1,11 +1,10 @@
-// Force instant jump if arriving at the work section from an external page
-(function () {
-  const isIndexPage = window.location.pathname.includes('index.html') || window.location.pathname === '' || window.location.pathname.endsWith('/');
-  if (isIndexPage && window.location.hash === '#work') {
-    // Override the CSS smooth scroll temporarily for the initial jump
-    document.documentElement.style.scrollBehavior = 'auto';
+window.isIndexPage = ['index.html', '', '/', 'index'].some(path =>
+  window.location.pathname.endsWith(path) || (path === '' && window.location.pathname === '/')
+);
 
-    // Restore the CSS behavior once the page has settled
+(function () {
+  if (window.isIndexPage && window.location.hash === '#work') {
+    document.documentElement.style.scrollBehavior = 'auto';
     window.addEventListener('load', () => {
       setTimeout(() => {
         document.documentElement.style.scrollBehavior = '';
@@ -17,17 +16,14 @@
 function initializeHamburgerMenu() {
   const hamburger = document.getElementById('hamburger');
   const sidebar = document.getElementById('sidebar');
-
-  if (!hamburger || !sidebar) {
-    return false;
-  }
+  if (!hamburger || !sidebar) return false;
 
   const backdrop = document.createElement('div');
   backdrop.className = 'sidebar-backdrop';
   document.body.appendChild(backdrop);
 
-  function toggleSidebar() {
-    const isActive = sidebar.classList.contains('active');
+  const toggleSidebar = (forceClose = false) => {
+    const isActive = forceClose ? true : sidebar.classList.contains('active');
 
     if (!isActive) {
       sidebar.classList.add('animated');
@@ -37,59 +33,39 @@ function initializeHamburgerMenu() {
       setTimeout(() => sidebar.classList.remove('animated'), 300);
     }
 
-    hamburger.classList.toggle('active');
-    backdrop.classList.toggle('active');
+    hamburger.classList.toggle('active', !isActive);
+    backdrop.classList.toggle('active', !isActive);
     hamburger.setAttribute('aria-expanded', !isActive);
-  }
+  };
 
-  function closeSidebar() {
-    sidebar.classList.remove('active');
-    setTimeout(() => sidebar.classList.remove('animated'), 300);
-    hamburger.classList.remove('active');
-    backdrop.classList.remove('active');
-    hamburger.setAttribute('aria-expanded', 'false');
-  }
-
-  hamburger.addEventListener('click', toggleSidebar);
-  backdrop.addEventListener('click', closeSidebar);
-
-  // Expose closeSidebar for SPA logic
-  window.closeSidebar = closeSidebar;
+  hamburger.addEventListener('click', () => toggleSidebar());
+  backdrop.addEventListener('click', () => toggleSidebar(true));
+  window.closeSidebar = () => toggleSidebar(true);
 
   const workSection = document.getElementById('work');
-  let workSectionTop = workSection ? workSection.offsetTop : 0;
-  const isIndexPage = window.location.pathname.includes('index') || window.location.pathname === '' || window.location.pathname.endsWith('/');
   const workLink = document.querySelector('#mobile-work-link');
-
   let scrollThrottle = false;
   window.isNavigating = false;
 
   function handleScroll() {
-    if (!isIndexPage || !workSection || window.isNavigating) return;
+    if (!window.isIndexPage || !workSection || window.isNavigating) return;
 
-    // Disable auto-active on scroll when using SPA nav to prevent UI conflict
-    const isSPAActive = window.location.hash === '#resume' || window.location.hash === '#about' || window.location.hash === '#apps';
+    const isSPAActive = ['#resume', '#about', '#apps'].includes(window.location.hash);
     if (isSPAActive) return;
 
-    workSectionTop = workSection.offsetTop;
     const currentScroll = window.scrollY || window.pageYOffset;
-
-    const shouldBeWork = currentScroll >= workSectionTop - 87;
+    const shouldBeWork = currentScroll >= workSection.offsetTop - 87;
     const isCurrentlyWork = window.location.hash === '#work';
 
     if (shouldBeWork) {
-      if (workLink && !workLink.classList.contains('active')) {
-        workLink.classList.add('active');
-      }
+      workLink?.classList.add('active');
       if (!isCurrentlyWork && !scrollThrottle) {
         history.replaceState(null, '', '#work');
         scrollThrottle = true;
         setTimeout(() => scrollThrottle = false, 500);
       }
     } else {
-      if (workLink && workLink.classList.contains('active')) {
-        workLink.classList.remove('active');
-      }
+      workLink?.classList.remove('active');
       if (isCurrentlyWork && !scrollThrottle) {
         history.replaceState(null, '', '#home');
         scrollThrottle = true;
@@ -98,119 +74,93 @@ function initializeHamburgerMenu() {
     }
   }
 
-  if (isIndexPage) {
+  if (window.isIndexPage) {
     window.addEventListener('scroll', handleScroll);
     handleScroll();
+    hamburger.addEventListener('click', () => setTimeout(handleScroll, 50));
   }
-
-  hamburger.addEventListener('click', function () {
-    if (isIndexPage) {
-      setTimeout(handleScroll, 50);
-    }
-  });
 
   return true;
 }
 
 function setupSPA() {
   const navLinks = document.querySelectorAll('.nav-item-link, .nav-link:not(.download-link), .portfolio-icon-link');
-  const homeSection = document.getElementById('home');
-  const workSection = document.getElementById('work');
-  const appsSection = document.getElementById('apps');
-  const aboutSection = document.getElementById('about');
-  const resumeSection = document.getElementById('resume');
+  const sections = {
+    home: document.getElementById('home'),
+    work: document.getElementById('work'),
+    apps: document.getElementById('apps'),
+    about: document.getElementById('about'),
+    resume: document.getElementById('resume')
+  };
 
   function switchSection(target) {
     const targetHash = target === '#' || target === '' ? '#home' : target;
-    const isHome = targetHash === '#home';
-    const isApps = targetHash === '#apps';
-    const isAbout = targetHash === '#about';
-    const isResume = targetHash === '#resume';
-    const isWork = targetHash === '#work';
+    const spaHashes = ['#apps', '#about', '#resume'];
+    const isSPA = spaHashes.includes(targetHash);
 
-    // Work and Home are always visible as the main page content. 
-    // Apps, About and Resume are toggled as SPA pages.
-    if (homeSection) homeSection.style.display = (isApps || isAbout || isResume) ? 'none' : 'block';
-    if (workSection) workSection.style.display = (isApps || isAbout || isResume) ? 'none' : 'flex';
-    if (appsSection) appsSection.style.display = isApps ? 'block' : 'none';
-    if (aboutSection) aboutSection.style.display = isAbout ? 'block' : 'none';
-    if (resumeSection) resumeSection.style.display = isResume ? 'block' : 'none';
+    if (sections.home) sections.home.style.display = isSPA ? 'none' : 'block';
+    if (sections.work) sections.work.style.display = isSPA ? 'none' : 'flex';
 
-    document.body.classList.toggle('apps-page', isApps);
-
-    // Update active class
-    navLinks.forEach(link => {
-      const href = link.getAttribute('href');
-      if (isHome) {
-        link.classList.toggle('active', link.classList.contains('portfolio-icon-link'));
-      } else {
-        // Match specific hash to avoid 'work' being active when on 'resume'
-        link.classList.toggle('active', href.endsWith(targetHash));
+    spaHashes.forEach(hash => {
+      const sectionName = hash.slice(1);
+      if (sections[sectionName]) {
+        sections[sectionName].style.display = targetHash === hash ? 'block' : 'none';
       }
     });
 
-    // Reset expanded cards when navigating
-    const cards = document.querySelectorAll('.app-card');
-    cards.forEach(card => card.classList.remove('expanded'));
+    document.body.classList.toggle('apps-page', targetHash === '#apps');
 
-    // Trigger bubble update
+    navLinks.forEach(link => {
+      const href = link.getAttribute('href');
+      const isActive = targetHash === '#home' ? link.classList.contains('portfolio-icon-link') : href.endsWith(targetHash);
+      link.classList.toggle('active', isActive);
+    });
+
+    document.querySelectorAll('.app-card').forEach(card => card.classList.remove('expanded'));
+
     if (typeof updateBubble === 'function') {
       setTimeout(() => {
         const pill = document.querySelector('.header-content-pill');
-        let activeLink;
-        if (isHome) {
-          activeLink = pill ? pill.querySelector('.portfolio-icon-link.active') : document.querySelector('.portfolio-icon-link.active');
-        } else {
-          activeLink = pill ? pill.querySelector(`.nav-item-link.active[href*="${targetHash}"]`) : document.querySelector(`.nav-item-link.active[href*="${targetHash}"]`);
-        }
+        const selector = targetHash === '#home' ? '.portfolio-icon-link.active' : `.nav-item-link.active[href*="${targetHash}"]`;
+        const activeLink = (pill || document).querySelector(selector);
         if (activeLink) updateBubble(activeLink, true);
       }, 50);
     }
   }
 
-  // Initialize state
-  const currentHash = window.location.hash || '#home';
-  switchSection(currentHash);
+  switchSection(window.location.hash || '#home');
 
   navLinks.forEach(link => {
     link.addEventListener('click', (e) => {
       const href = link.getAttribute('href');
-      if (href.startsWith('http')) return;
+      if (href.startsWith('http') || !href.includes('#')) return;
 
-      if (href.includes('#')) {
-        const parts = href.split('#');
-        const path = parts[0];
-        const hash = '#' + (parts[1] || '');
-        const currentPath = window.location.pathname.split('/').pop() || 'index.html';
-        const isIndex = currentPath === 'index.html' || currentPath === '' || currentPath === 'index';
+      const [path, hashPart] = href.split('#');
+      const hash = '#' + (hashPart || '');
+      const currentPath = window.location.pathname.split('/').pop() || 'index.html';
+      const isCurrentIndex = ['index.html', '', 'index'].includes(currentPath);
 
-        if (isIndex && (path === '' || path === 'index.html')) {
-          e.preventDefault();
-          window.isNavigating = true;
-          const targetHash = (hash === '#' || hash === '') ? '#home' : hash;
-          history.pushState(null, '', targetHash);
-          switchSection(targetHash);
+      if (isCurrentIndex && (path === '' || path === 'index.html')) {
+        e.preventDefault();
+        window.isNavigating = true;
+        const targetHash = (hash === '#' || hash === '') ? '#home' : hash;
 
-          if (typeof window.closeSidebar === 'function') {
-            setTimeout(window.closeSidebar, 150);
+        history.pushState(null, '', targetHash);
+        switchSection(targetHash);
+        setTimeout(() => window.closeSidebar?.(), 150);
+
+        if (targetHash === '#work') {
+          const targetElement = document.querySelector(targetHash);
+          if (targetElement) {
+            const headerOffset = window.innerWidth <= 768 ? 90 : 87;
+            const offsetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerOffset;
+            window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
           }
-
-          if (targetHash === '#work') {
-            const targetElement = document.querySelector(targetHash);
-            if (targetElement) {
-              const headerOffset = window.innerWidth <= 768 ? 90 : 87;
-              const elementPosition = targetElement.getBoundingClientRect().top;
-              const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-              window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
-            }
-          } else {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-          }
-
-          setTimeout(() => {
-            window.isNavigating = false;
-          }, 1000); // Wait for the scroll animation to finish
+        } else {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
         }
+
+        setTimeout(() => window.isNavigating = false, 1000);
       }
     });
   });
@@ -222,13 +172,9 @@ document.addEventListener('headerLoaded', () => {
 });
 
 if ('serviceWorker' in navigator) {
-  window.addEventListener('load', function () {
+  window.addEventListener('load', () => {
     navigator.serviceWorker.register('service-worker.js')
-      .then(function (registration) {
-        console.log('ServiceWorker registration successful with scope: ', registration.scope);
-      })
-      .catch(function (err) {
-        console.log('ServiceWorker registration failed: ', err);
-      });
+      .then(reg => console.log('ServiceWorker registration successful with scope: ', reg.scope))
+      .catch(err => console.log('ServiceWorker registration failed: ', err));
   });
 }

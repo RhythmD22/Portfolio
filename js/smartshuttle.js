@@ -1,148 +1,86 @@
-const problemsData = {
-  labels: ['Shuttle Unreliability', 'Shuttle Overcrowding', 'Parking Issues', 'Walking Distance/Hills'],
-  datasets: [{
-    label: 'Number of Mentions',
-    data: [3, 2, 1, 1],
-    backgroundColor: ['rgba(220, 53, 69, 0.7)', 'rgba(220, 53, 69, 0.5)', 'rgba(255, 193, 7, 0.7)', 'rgba(255, 193, 7, 0.5)'],
-    borderColor: ['rgba(220, 53, 69, 1)', 'rgba(220, 53, 69, 1)', 'rgba(255, 193, 7, 1)', 'rgba(255, 193, 7, 1)'],
-    borderWidth: 1
-  }]
-};
+const getChartOptions = (isDark) => {
+  const textColor = isDark ? '#f0f0f0' : '#333';
+  const gridColor = isDark ? 'rgba(255, 255, 255, 0.2)' : 'rgba(0, 0, 0, 0.1)';
+  const tickColor = isDark ? '#f0f0f0' : '#666';
 
-const commuteData = {
-  labels: ['Shuttle', 'Walking', 'Car'],
-  datasets: [{
-    label: 'Number of Users',
-    data: [3, 1, 1],
-    backgroundColor: ['rgba(153, 102, 255, 0.7)', 'rgba(199, 199, 199, 0.7)', 'rgba(255, 159, 64, 0.7)'],
-    borderColor: ['rgba(153, 102, 255, 1)', 'rgba(199, 199, 199, 1)', 'rgba(255, 159, 64, 1)'],
-    borderWidth: 1
-  }]
-};
-
-const techData = {
-  labels: ['Real-time Updates', 'Parking Info', 'Alternative Transport'],
-  datasets: [{
-    label: 'Number of Requests',
-    data: [3, 1, 1],
-    backgroundColor: ['rgba(40, 167, 69, 0.7)', 'rgba(40, 167, 69, 0.5)', 'rgba(40, 167, 69, 0.3)'],
-    borderColor: ['rgba(40, 167, 69, 1)', 'rgba(40, 167, 69, 1)', 'rgba(40, 167, 69, 1)'],
-    borderWidth: 1
-  }]
-};
-
-function getThemeOptions(isDarkMode) {
-  const textColor = isDarkMode ? '#f0f0f0' : '#333';
-  const gridColor = isDarkMode ? 'rgba(255, 255, 255, 0.2)' : 'rgba(0, 0, 0, 0.1)';
-  const tickColor = isDarkMode ? '#f0f0f0' : '#666';
-
-  return {
-    barOptions: {
-      responsive: true,
-      maintainAspectRatio: true,
-      plugins: {
-        legend: {
-          position: 'top',
-          labels: { color: textColor, font: { size: 14 } }
-        },
-        title: { display: false }
-      },
-      scales: {
-        y: {
-          beginAtZero: true,
-          ticks: { stepSize: 1, color: tickColor, font: { size: 12 } },
-          grid: { color: gridColor }
-        },
-        x: {
-          ticks: { maxRotation: 45, minRotation: 0, color: tickColor, font: { size: 12 } },
-          grid: { color: gridColor }
-        }
-      }
-    },
-    doughnutOptions: {
-      responsive: true,
-      maintainAspectRatio: true,
-      plugins: {
-        legend: {
-          position: 'top',
-          labels: { color: textColor, font: { size: 14 } }
-        },
-        title: { display: false }
-      }
+  const base = {
+    responsive: true,
+    maintainAspectRatio: true,
+    plugins: {
+      legend: { position: 'top', labels: { color: textColor, font: { size: 14 } } },
+      title: { display: false }
     }
   };
-}
 
-function updateChartTheme() {
-  const isDarkMode = document.documentElement.getAttribute('data-theme') === 'dark';
-  const { barOptions, doughnutOptions } = getThemeOptions(isDarkMode);
+  return {
+    bar: {
+      ...base,
+      scales: {
+        y: { beginAtZero: true, ticks: { stepSize: 1, color: tickColor, font: { size: 12 } }, grid: { color: gridColor } },
+        x: { ticks: { maxRotation: 45, minRotation: 0, color: tickColor, font: { size: 12 } }, grid: { color: gridColor } }
+      }
+    },
+    doughnut: base
+  };
+};
 
-  if (window.problemsChart) {
-    window.problemsChart.options = barOptions;
-    window.problemsChart.update();
-  }
-  if (window.commuteChart) {
-    window.commuteChart.options = doughnutOptions;
-    window.commuteChart.update();
-  }
-  if (window.techChart) {
-    window.techChart.options = barOptions;
-    window.techChart.update();
-  }
+function updateCharts() {
+  const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+  const { bar, doughnut } = getChartOptions(isDark);
+  if (window.problemsChart) { window.problemsChart.options = bar; window.problemsChart.update(); }
+  if (window.commuteChart) { window.commuteChart.options = doughnut; window.commuteChart.update(); }
+  if (window.techChart) { window.techChart.options = bar; window.techChart.update(); }
 }
 
 function initCharts() {
-  const isDarkMode = document.documentElement.getAttribute('data-theme') === 'dark';
-  const { barOptions, doughnutOptions } = getThemeOptions(isDarkMode);
+  const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+  const { bar, doughnut } = getChartOptions(isDark);
 
-  if (document.getElementById('problemsChart')) {
-    window.problemsChart = new Chart(
-      document.getElementById('problemsChart').getContext('2d'),
-      {
-        type: 'bar',
-        data: problemsData,
-        options: barOptions
-      }
-    );
-  }
+  const createChart = (id, type, data, options) => {
+    const el = document.getElementById(id);
+    if (el) return new Chart(el.getContext('2d'), { type, data, options });
+  };
 
-  if (document.getElementById('commuteChart')) {
-    window.commuteChart = new Chart(
-      document.getElementById('commuteChart').getContext('2d'),
-      {
-        type: 'doughnut',
-        data: commuteData,
-        options: doughnutOptions
-      }
-    );
-  }
+  window.problemsChart = createChart('problemsChart', 'bar', {
+    labels: ['Shuttle Unreliability', 'Shuttle Overcrowding', 'Parking Issues', 'Walking Distance/Hills'],
+    datasets: [{
+      label: 'Number of Mentions',
+      data: [3, 2, 1, 1],
+      backgroundColor: ['rgba(220, 53, 69, 0.7)', 'rgba(220, 53, 69, 0.5)', 'rgba(255, 193, 7, 0.7)', 'rgba(255, 193, 7, 0.5)'],
+      borderColor: ['rgba(220, 53, 69, 1)', 'rgba(220, 53, 69, 1)', 'rgba(255, 193, 7, 1)', 'rgba(255, 193, 7, 1)'],
+      borderWidth: 1
+    }]
+  }, bar);
 
-  if (document.getElementById('techChart')) {
-    window.techChart = new Chart(
-      document.getElementById('techChart').getContext('2d'),
-      {
-        type: 'bar',
-        data: techData,
-        options: barOptions
-      }
-    );
-  }
+  window.commuteChart = createChart('commuteChart', 'doughnut', {
+    labels: ['Shuttle', 'Walking', 'Car'],
+    datasets: [{
+      label: 'Number of Users',
+      data: [3, 1, 1],
+      backgroundColor: ['rgba(153, 102, 255, 0.7)', 'rgba(199, 199, 199, 0.7)', 'rgba(255, 159, 64, 0.7)'],
+      borderColor: ['rgba(153, 102, 255, 1)', 'rgba(199, 199, 199, 1)', 'rgba(255, 159, 64, 1)'],
+      borderWidth: 1
+    }]
+  }, doughnut);
+
+  window.techChart = createChart('techChart', 'bar', {
+    labels: ['Real-time Updates', 'Parking Info', 'Alternative Transport'],
+    datasets: [{
+      label: 'Number of Requests',
+      data: [3, 1, 1],
+      backgroundColor: ['rgba(40, 167, 69, 0.7)', 'rgba(40, 167, 69, 0.5)', 'rgba(40, 167, 69, 0.3)'],
+      borderColor: ['rgba(40, 167, 69, 1)', 'rgba(40, 167, 69, 1)', 'rgba(40, 167, 69, 1)'],
+      borderWidth: 1
+    }]
+  }, bar);
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  Fancybox.bind(
-    '[data-fancybox="smartshuttle-outline-1"], [data-fancybox="smartshuttle-outline-2"], [data-fancybox="smartshuttle-outline-3"]',
-    {
-      Carousel: {
-        Toolbar: {
-          display: {
-            left: ["counter"],
-            right: ["zoomIn", "zoomOut", "autoplay", "thumbs", "close"]
-          }
-        }
-      }
-    }
-  );
+  if (typeof Fancybox !== 'undefined') {
+    Fancybox.bind('[data-fancybox^="smartshuttle-outline"]', {
+      Carousel: { Toolbar: { display: { left: ["counter"], right: ["zoomIn", "zoomOut", "autoplay", "thumbs", "close"] } } }
+    });
+  }
 
   const video = document.getElementById('smartshuttle-video');
   if (video) {
@@ -152,16 +90,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   initCharts();
 
-  const observer = new MutationObserver((mutations) => {
-    mutations.forEach((mutation) => {
-      if (mutation.type === 'attributes' && mutation.attributeName === 'data-theme') {
-        updateChartTheme();
-      }
-    });
-  });
-
-  observer.observe(document.documentElement, {
-    attributes: true,
-    attributeFilter: ['data-theme']
-  });
+  new MutationObserver(mutations => {
+    if (mutations.some(m => m.attributeName === 'data-theme')) updateCharts();
+  }).observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
 });

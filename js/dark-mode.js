@@ -1,18 +1,11 @@
-function initializeDarkMode() {
-  const storedTheme = localStorage.getItem('theme');
-  const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-  const theme = storedTheme || (systemPrefersDark ? 'dark' : 'light');
-
+(function initializeDarkMode() {
+  const theme = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
   document.documentElement.setAttribute('data-theme', theme);
-}
-
-initializeDarkMode();
-
-let darkModeToggleInitialized = false;
+})();
 
 function toggleDarkMode(icon) {
-  const currentTheme = document.documentElement.getAttribute('data-theme');
-  const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+  const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+  const newTheme = isDark ? 'light' : 'dark';
 
   document.documentElement.setAttribute('data-theme', newTheme);
   localStorage.setItem('theme', newTheme);
@@ -23,42 +16,21 @@ function toggleDarkMode(icon) {
   }
 }
 
-document.addEventListener('DOMContentLoaded', function () {
-  function initDarkModeToggle() {
-    const desktopToggleButton = document.getElementById('dark-mode-toggle');
-    const mobileToggleButton = document.getElementById('mobile-dark-mode-toggle');
+function initDarkModeToggle() {
+  const toggles = [document.getElementById('dark-mode-toggle'), document.getElementById('mobile-dark-mode-toggle')].filter(Boolean);
+  const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
 
-    if ((!desktopToggleButton && !mobileToggleButton) || darkModeToggleInitialized) {
-      return;
+  toggles.forEach(toggle => {
+    const icon = toggle.querySelector('i');
+    if (icon) {
+      icon.classList.toggle('fa-sun', currentTheme === 'dark');
+      icon.classList.toggle('fa-moon', currentTheme === 'light');
     }
+    toggle.onclick = () => toggleDarkMode(toggle.querySelector('i'));
+  });
+}
 
-    const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
-    if (desktopToggleButton) {
-      updateToggleIcon(desktopToggleButton, currentTheme);
-      desktopToggleButton.addEventListener('click', () => {
-        toggleDarkMode(desktopToggleButton.querySelector('i'));
-      });
-    }
-
-    if (mobileToggleButton) {
-      updateToggleIcon(mobileToggleButton, currentTheme);
-      mobileToggleButton.addEventListener('click', () => {
-        toggleDarkMode(mobileToggleButton.querySelector('i'));
-      });
-    }
-
-    darkModeToggleInitialized = true;
-  }
-
-  function updateToggleIcon(toggleButton, currentTheme) {
-    const icon = toggleButton.querySelector('i');
-    if (!icon) return;
-
-    icon.classList.toggle('fa-sun', currentTheme === 'dark');
-    icon.classList.toggle('fa-moon', currentTheme === 'light');
-  }
-
+document.addEventListener('DOMContentLoaded', () => {
   initDarkModeToggle();
   document.addEventListener('headerLoaded', initDarkModeToggle);
-  setTimeout(initDarkModeToggle, 100);
 });

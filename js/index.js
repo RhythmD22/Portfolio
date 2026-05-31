@@ -6,23 +6,16 @@ const OBSERVER_THRESHOLD = 0.3;
 function typeText(element, text, callback) {
   let i = 0;
   element.textContent = '';
-
-  function type() {
+  const type = () => {
     if (i < text.length) {
-      element.textContent += text.charAt(i);
-      i++;
+      element.textContent += text.charAt(i++);
       setTimeout(type, TYPING_SPEED);
-    } else if (callback) {
-      callback();
-    }
-  }
-
+    } else callback?.();
+  };
   type();
 }
 
-function getLottieInstance(element) {
-  return element?._dotLottieInstance || element?.dotLottie || null;
-}
+const getLottieInstance = el => el?._dotLottieInstance || el?.dotLottie || null;
 
 function playLottieAnimation(element) {
   const instance = getLottieInstance(element);
@@ -32,7 +25,6 @@ function playLottieAnimation(element) {
   instance.setFrame(0);
   instance.setSpeed(1);
   instance.play();
-
   element.classList.remove('animation-completed');
 
   setTimeout(() => {
@@ -44,6 +36,7 @@ function playLottieAnimation(element) {
   }, ANIMATION_DURATION);
 }
 
+// Mobile viewport and scroll fix
 (function () {
   if (window.innerWidth > 900) return;
 
@@ -58,218 +51,153 @@ function playLottieAnimation(element) {
     const deltaY = touchStartY - e.touches[0].clientY;
     const isAtTop = window.pageYOffset <= 0 && deltaY < 0;
     const isAtBottom = (window.innerHeight + window.pageYOffset) >= document.body.offsetHeight && deltaY > 0;
-
-    if (isAtTop || isAtBottom) {
-      e.preventDefault();
-    }
+    if (isAtTop || isAtBottom) e.preventDefault();
   }, { passive: false });
 
-  function setViewportHeight() {
-    document.documentElement.style.setProperty('--vh', `${window.innerHeight * 0.01}px`);
-  }
-
-  setViewportHeight();
-  window.addEventListener('resize', setViewportHeight);
-  window.addEventListener('orientationchange', setViewportHeight);
+  const setVH = () => document.documentElement.style.setProperty('--vh', `${window.innerHeight * 0.01}px`);
+  setVH();
+  window.addEventListener('resize', setVH);
+  window.addEventListener('orientationchange', setVH);
 })();
 
-(function () {
-  function initIntroTyping() {
-    const headingElement = document.querySelector('.intro-heading');
-    const paragraphElement = document.querySelector('.intro-paragraph');
+function initIntroTyping() {
+  const heading = document.querySelector('.intro-heading');
+  const paragraph = document.querySelector('.intro-paragraph');
+  if (!heading || !paragraph) return;
 
-    if (!headingElement || !paragraphElement) return;
+  const textH = heading.getAttribute('data-text');
+  const textP = paragraph.getAttribute('data-text');
 
-    const introHeading = headingElement.getAttribute('data-text');
-    const introParagraph = paragraphElement.getAttribute('data-text');
+  if (!sessionStorage.getItem('typingEffectCompleted')) {
+    heading.textContent = '';
+    paragraph.textContent = '';
+    heading.classList.add('typing-text');
+    setTimeout(() => {
+      typeText(heading, textH, () => {
+        heading.classList.add('typed');
+        paragraph.classList.add('typing-text');
+        typeText(paragraph, textP, () => sessionStorage.setItem('typingEffectCompleted', 'true'));
+      });
+    }, 1400);
+  } else {
+    heading.textContent = textH;
+    paragraph.textContent = textP;
+    heading.classList.add('typing-text', 'typed');
+    paragraph.classList.add('typing-text');
+  }
+}
 
-    if (!sessionStorage.getItem('typingEffectCompleted')) {
-      headingElement.textContent = '';
-      paragraphElement.textContent = '';
-      headingElement.classList.add('typing-text');
-
-      // Wait 1.4 seconds (two full blink cycles) before starting to type
-      setTimeout(() => {
-        typeText(headingElement, introHeading, function () {
-          headingElement.classList.add('typed');
-          paragraphElement.classList.add('typing-text');
-          typeText(paragraphElement, introParagraph, function () {
-            // Paragraph cursor remains blinking
-            sessionStorage.setItem('typingEffectCompleted', 'true');
-          });
-        });
-      }, 1400);
-    } else {
-      headingElement.textContent = introHeading;
-      paragraphElement.textContent = introParagraph;
-      headingElement.classList.add('typing-text', 'typed');
-      paragraphElement.classList.add('typing-text');
-    }
+function initSectionTyping() {
+  const revealed = sessionStorage.getItem('contactPillRevealed') === 'true';
+  if (revealed || !window.isIndexPage) {
+    document.querySelectorAll('.contact-pill').forEach(pill => pill.classList.add('static-pill'));
   }
 
-  function initSectionTyping() {
-    const isIndexPage = window.location.pathname.includes('index.html') || window.location.pathname === '' || window.location.pathname.endsWith('/');
-    const contactPillRevealed = sessionStorage.getItem('contactPillRevealed') === 'true';
+  const headings = document.querySelectorAll('.work-summary h2[data-text]');
+  const descriptions = document.querySelectorAll('.work-summary p[data-text]');
+  const isCompleted = sessionStorage.getItem('typingEffectCompleted') === 'true';
 
-    // Ensure contact pill is visible statically if already revealed or if not on index
-    if (contactPillRevealed || !isIndexPage) {
-      document.querySelectorAll('.contact-pill').forEach(pill => pill.classList.add('static-pill'));
-    }
-
-    const sectionHeadings = document.querySelectorAll('.work-summary h2[data-text]');
-    const sectionDescriptions = document.querySelectorAll('.work-summary p[data-text]');
-    const isCompleted = sessionStorage.getItem('typingEffectCompleted') === 'true';
-
-    if (isCompleted) {
-      [...sectionHeadings, ...sectionDescriptions].forEach(element => {
-        element.textContent = element.getAttribute('data-text');
-        element.classList.add('typing-text');
-        if (element.tagName.toLowerCase() !== 'p') {
-          element.classList.add('typed');
-          const pill = element.parentElement.querySelector('.contact-pill');
-          if (pill) pill.classList.add('static-pill');
-        }
-      });
-      return;
-    }
-
-    // Clear text content immediately to prevent flashing before observer triggers
-    [...sectionHeadings, ...sectionDescriptions].forEach(element => {
-      element.textContent = '';
-    });
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (!entry.isIntersecting || entry.target.classList.contains('typed')) return;
-
-        const element = entry.target;
-        const text = element.getAttribute('data-text');
-
-        // Only apply typing animation to non-paragraph elements (h2)
-        if (element.tagName.toLowerCase() !== 'p') {
-          element.classList.add('typing-text'); // Add typing-text class immediately for the cursor
-          typeText(element, text, function () {
-            element.classList.add('typed'); // Add typed class to remove cursor after typing
-            const pill = element.parentElement.querySelector('.contact-pill');
-            if (pill) {
-              pill.classList.add('reveal');
-              // Mark that the pill has been revealed for this session
-              sessionStorage.setItem('contactPillRevealed', 'true');
-            }
-            sessionStorage.setItem('workSectionTypingCompleted', 'true'); // Set new flag here
-          });
-        } else {
-          // For paragraphs, revert to instant appearance but still add typing-text for cursor
-          element.textContent = text;
-          element.classList.add('typing-text');
-        }
-        observer.unobserve(element);
-      });
-    }, { threshold: OBSERVER_THRESHOLD });
-
-    sectionHeadings.forEach(heading => observer.observe(heading));
-    sectionDescriptions.forEach(description => observer.observe(description));
-  }
-
-  document.addEventListener('DOMContentLoaded', function () {
-    initIntroTyping();
-    initSectionTyping();
-  });
-})();
-
-(function () {
-  function setupAnimationEvents(profileAnimation) {
-    if (!profileAnimation) return;
-
-    profileAnimation.addEventListener('ready', function () {
-      const dotLottie = this.dotLottie;
-      if (dotLottie) {
-        this._dotLottieInstance = dotLottie;
-        dotLottie.setFrame(0);
-        dotLottie.pause();
+  if (isCompleted) {
+    [...headings, ...descriptions].forEach(el => {
+      el.textContent = el.getAttribute('data-text');
+      el.classList.add('typing-text');
+      if (el.tagName !== 'P') {
+        el.classList.add('typed');
+        el.parentElement.querySelector('.contact-pill')?.classList.add('static-pill');
       }
     });
+    return;
+  }
 
-    profileAnimation.addEventListener('mouseenter', function () {
-      playLottieAnimation(this);
-    });
+  [...headings, ...descriptions].forEach(el => el.textContent = '');
 
-    let touchStartTime = 0;
-    let longPressTimer = null;
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting || entry.target.classList.contains('typed')) return;
+      const el = entry.target;
+      const text = el.getAttribute('data-text');
 
-    profileAnimation.addEventListener('touchstart', function (e) {
-      e.preventDefault();
-
-      if (this._isPlayingOnMobile) return;
-      this._isPlayingOnMobile = true;
-
-      const instance = getLottieInstance(this);
-      if (instance) {
-        instance.pause();
-        instance.setFrame(0);
-        instance.setSpeed(1);
-        instance.play();
-
-        setTimeout(() => {
-          const inst = getLottieInstance(this);
-          if (inst && this._isPlayingOnMobile) {
-            inst.pause();
-            inst.setFrame(0);
-            this._isPlayingOnMobile = false;
+      if (el.tagName !== 'P') {
+        el.classList.add('typing-text');
+        typeText(el, text, () => {
+          el.classList.add('typed');
+          const pill = el.parentElement.querySelector('.contact-pill');
+          if (pill) {
+            pill.classList.add('reveal');
+            sessionStorage.setItem('contactPillRevealed', 'true');
           }
-        }, ANIMATION_DURATION);
-      }
-
-      touchStartTime = Date.now();
-      longPressTimer = setTimeout(() => {
-        this.classList.add('hide');
-      }, LONG_PRESS_DURATION);
-    });
-
-    profileAnimation.addEventListener('touchend', function () {
-      if (longPressTimer) {
-        clearTimeout(longPressTimer);
-        longPressTimer = null;
-      }
-
-      if (Date.now() - touchStartTime >= LONG_PRESS_DURATION) {
-        this.classList.toggle('hide');
-      }
-    });
-
-    profileAnimation.addEventListener('touchcancel', function () {
-      if (longPressTimer) {
-        clearTimeout(longPressTimer);
-        longPressTimer = null;
-      }
-      this.classList.remove('hide');
-    });
-  }
-
-  function initProfileAnimations() {
-    const profileImage = document.querySelector('.profile-image');
-    const profileAnimation = document.querySelector('.profile-animation');
-
-    if (profileImage) {
-      profileImage.addEventListener('click', function () {
-        this.classList.toggle('hide');
-      });
-    }
-
-    if (profileAnimation) {
-      profileAnimation.addEventListener('click', function () {
-        this.classList.toggle('hide');
-      });
-
-      if (customElements.get('dotlottie-wc')) {
-        setupAnimationEvents(profileAnimation);
-      } else {
-        customElements.whenDefined('dotlottie-wc').then(() => {
-          setTimeout(() => setupAnimationEvents(profileAnimation), 100);
+          sessionStorage.setItem('workSectionTypingCompleted', 'true');
         });
+      } else {
+        el.textContent = text;
+        el.classList.add('typing-text');
       }
-    }
-  }
+      observer.unobserve(el);
+    });
+  }, { threshold: OBSERVER_THRESHOLD });
 
-  document.addEventListener('DOMContentLoaded', initProfileAnimations);
-})();
+  headings.forEach(h => observer.observe(h));
+  descriptions.forEach(d => observer.observe(d));
+}
+
+function setupAnimationEvents(profileAnimation) {
+  if (!profileAnimation) return;
+
+  profileAnimation.addEventListener('ready', function () {
+    this._dotLottieInstance = this.dotLottie;
+    this._dotLottieInstance?.setFrame(0);
+    this._dotLottieInstance?.pause();
+  });
+
+  profileAnimation.addEventListener('mouseenter', function () { playLottieAnimation(this); });
+
+  let touchStartTime = 0, longPressTimer = null;
+
+  profileAnimation.addEventListener('touchstart', function (e) {
+    e.preventDefault();
+    if (this._isPlayingOnMobile) return;
+    this._isPlayingOnMobile = true;
+
+    const instance = getLottieInstance(this);
+    if (instance) {
+      instance.pause();
+      instance.setFrame(0);
+      instance.play();
+      setTimeout(() => {
+        if (this._isPlayingOnMobile) {
+          getLottieInstance(this)?.pause();
+          getLottieInstance(this)?.setFrame(0);
+          this._isPlayingOnMobile = false;
+        }
+      }, ANIMATION_DURATION);
+    }
+
+    touchStartTime = Date.now();
+    longPressTimer = setTimeout(() => this.classList.add('hide'), LONG_PRESS_DURATION);
+  });
+
+  profileAnimation.addEventListener('touchend', function () {
+    clearTimeout(longPressTimer);
+    if (Date.now() - touchStartTime >= LONG_PRESS_DURATION) this.classList.toggle('hide');
+  });
+
+  profileAnimation.addEventListener('touchcancel', () => {
+    clearTimeout(longPressTimer);
+    profileAnimation.classList.remove('hide');
+  });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  initIntroTyping();
+  initSectionTyping();
+
+  const profileImg = document.querySelector('.profile-image');
+  const profileAnim = document.querySelector('.profile-animation');
+
+  profileImg?.addEventListener('click', () => profileImg.classList.toggle('hide'));
+  if (profileAnim) {
+    profileAnim.addEventListener('click', () => profileAnim.classList.toggle('hide'));
+    if (customElements.get('dotlottie-wc')) setupAnimationEvents(profileAnim);
+    else customElements.whenDefined('dotlottie-wc').then(() => setTimeout(() => setupAnimationEvents(profileAnim), 100));
+  }
+});

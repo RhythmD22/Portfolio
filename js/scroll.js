@@ -1,70 +1,48 @@
-document.addEventListener('DOMContentLoaded', function () {
-  // --- Smooth scroll anchor fix using event delegation ---
-  document.addEventListener('click', function (e) {
+document.addEventListener('DOMContentLoaded', () => {
+  // Smooth scroll anchor fix
+  document.addEventListener('click', (e) => {
     const anchor = e.target.closest('a[href^="#"]');
-    if (!anchor) return;
+    if (!anchor || anchor.hash.length <= 1) return;
 
-    const targetId = anchor.getAttribute('href');
-    if (targetId.length > 1) {
-      const targetElement = document.querySelector(targetId);
-      if (targetElement) {
-        // Only prevent default if navigation.js isn't already handling it as an SPA link
-        // SPA links have .nav-item-link or .nav-link classes
-        const isSPALink = anchor.classList.contains('nav-item-link') || anchor.classList.contains('nav-link');
+    const target = document.querySelector(anchor.hash);
+    const isSPA = anchor.classList.contains('nav-item-link') || anchor.classList.contains('nav-link');
 
-        if (!isSPALink) {
-          e.preventDefault();
-          requestAnimationFrame(() => {
-            const headerOffset = window.innerWidth <= 768 ? 90 : 87;
-            const elementPosition = targetElement.getBoundingClientRect().top;
-            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-
-            window.scrollTo({
-              top: offsetPosition,
-              behavior: "smooth"
-            });
-          });
-        }
-      }
+    if (target && !isSPA) {
+      e.preventDefault();
+      const offset = window.innerWidth <= 768 ? 90 : 87;
+      const top = target.getBoundingClientRect().top + window.pageYOffset - offset;
+      window.scrollTo({ top, behavior: "smooth" });
     }
   });
 
-  const scrollButton = document.querySelector('button[onclick*="scrollTo"], .scroll-btn, .scroll-top-btn');
+  const btn = document.querySelector('button[onclick*="scrollTo"], .scroll-btn, .scroll-top-btn');
+  if (!btn) return;
 
-  if (!scrollButton) return;
-  // ... (rest of the file)
-  const isProjectPage = !(
-    window.location.pathname.includes('index.html') ||
-    window.location.pathname.endsWith('/') ||
-    window.location.pathname.includes('About.html')
-  );
+  const isProjectPage = ['Financier', 'SmartShuttle', 'Clash', 'Twine'].some(p => window.location.pathname.includes(p));
 
-  function setArrowDirection(direction) {
-    const polyline = scrollButton.querySelector('svg polyline');
-    if (polyline) {
-      polyline.setAttribute('points', direction === 'up' ? '18 15 12 9 6 15' : '6 9 12 15 18 9');
-    }
-  }
+  const setDirection = (dir) => {
+    const poly = btn.querySelector('svg polyline');
+    if (poly) poly.setAttribute('points', dir === 'up' ? '18 15 12 9 6 15' : '6 9 12 15 18 9');
+  };
 
-  function updateScrollButton() {
+  function updateBtn() {
     const scrolled = window.scrollY > 100;
-
     if (scrolled) {
-      scrollButton.style.display = 'block';
-      scrollButton.onclick = () => window.scrollTo({ top: 0, behavior: 'smooth' });
-      scrollButton.setAttribute('aria-label', 'Scroll to top');
-      setArrowDirection('up');
+      btn.style.display = 'block';
+      btn.onclick = () => window.scrollTo({ top: 0, behavior: 'smooth' });
+      btn.setAttribute('aria-label', 'Scroll to top');
+      setDirection('up');
     } else if (isProjectPage) {
-      scrollButton.style.display = 'block';
-      scrollButton.onclick = () => window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
-      scrollButton.setAttribute('aria-label', 'Scroll to bottom');
-      setArrowDirection('down');
+      btn.style.display = 'block';
+      btn.onclick = () => window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+      btn.setAttribute('aria-label', 'Scroll to bottom');
+      setDirection('down');
     } else {
-      scrollButton.style.display = 'none';
+      btn.style.display = 'none';
     }
   }
 
-  updateScrollButton();
-  window.addEventListener('scroll', updateScrollButton);
-  window.addEventListener('resize', updateScrollButton);
+  updateBtn();
+  window.addEventListener('scroll', updateBtn);
+  window.addEventListener('resize', updateBtn);
 });
