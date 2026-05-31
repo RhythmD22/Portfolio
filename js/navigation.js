@@ -3,13 +3,23 @@ window.isIndexPage = ['index.html', '', '/', 'index'].some(path =>
 );
 
 (function () {
-  if (window.isIndexPage && window.location.hash === '#work') {
-    document.documentElement.style.scrollBehavior = 'auto';
-    window.addEventListener('load', () => {
-      setTimeout(() => {
-        document.documentElement.style.scrollBehavior = '';
-      }, 100);
-    });
+  if (window.isIndexPage) {
+    if (window.location.hash === '#work') {
+      document.documentElement.style.scrollBehavior = 'auto';
+      window.addEventListener('load', () => {
+        setTimeout(() => {
+          document.documentElement.style.scrollBehavior = '';
+        }, 100);
+      });
+    } else if (!window.location.hash || window.location.hash === '#home' || window.location.hash === '#') {
+      // Force scroll to top on fresh load/refresh to prevent browser scroll restoration bugs during typing animation
+      if ('scrollRestoration' in window.history) {
+        window.history.scrollRestoration = 'manual';
+      }
+      window.addEventListener('load', () => {
+        window.scrollTo(0, 0);
+      });
+    }
   }
 })();
 
