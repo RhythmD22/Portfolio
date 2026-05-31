@@ -143,6 +143,12 @@ function initSectionTyping() {
 function setupAnimationEvents(profileAnimation) {
   if (!profileAnimation) return;
 
+  if (profileAnimation.dotLottie) {
+    profileAnimation._dotLottieInstance = profileAnimation.dotLottie;
+    profileAnimation._dotLottieInstance.setFrame(0);
+    profileAnimation._dotLottieInstance.pause();
+  }
+
   profileAnimation.addEventListener('ready', function () {
     this._dotLottieInstance = this.dotLottie;
     this._dotLottieInstance?.setFrame(0);
@@ -158,19 +164,10 @@ function setupAnimationEvents(profileAnimation) {
     if (this._isPlayingOnMobile) return;
     this._isPlayingOnMobile = true;
 
-    const instance = getLottieInstance(this);
-    if (instance) {
-      instance.pause();
-      instance.setFrame(0);
-      instance.play();
-      setTimeout(() => {
-        if (this._isPlayingOnMobile) {
-          getLottieInstance(this)?.pause();
-          getLottieInstance(this)?.setFrame(0);
-          this._isPlayingOnMobile = false;
-        }
-      }, ANIMATION_DURATION);
-    }
+    playLottieAnimation(this);
+    setTimeout(() => {
+      this._isPlayingOnMobile = false;
+    }, ANIMATION_DURATION);
 
     touchStartTime = Date.now();
     longPressTimer = setTimeout(() => this.classList.add('hide'), LONG_PRESS_DURATION);
