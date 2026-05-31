@@ -323,6 +323,17 @@ body.apps-page .site-footer {
     background-color: #ffffff !important;
 }
 
+/* Desktop-only fix to prevent text jitter during expansion */
+@media (min-width: 769px) {
+
+    .app-card.debate-card.expanded .app-title,
+    .app-card.debate-card.expanded .app-desc,
+    .app-card.archibald-card.expanded .app-title,
+    .app-card.archibald-card.expanded .app-desc {
+        white-space: nowrap;
+    }
+}
+
 /* Mobile Responsiveness for Apps Section */
 @media (max-width: 768px) {
     #apps {
