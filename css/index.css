@@ -263,6 +263,15 @@ body {
 }
 
 @media (min-width: 901px) {
+  .description-container.intro-container {
+    padding-top: 11.7vh;
+    margin-bottom: 0rem;
+  }
+
+  .main-content.work-section {
+    padding-top: 0rem;
+  }
+
   .profile-container {
     margin-left: 41rem;
   }
