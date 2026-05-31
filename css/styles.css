@@ -195,6 +195,7 @@ body {
   .site-header {
     justify-content: space-between;
     padding: 0;
+    height: 56px;
     background-color: rgba(250, 239, 216, 0.8);
     backdrop-filter: blur(10px);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -592,7 +593,7 @@ p {
   body {
     overflow-y: auto;
     overscroll-behavior-y: contain;
-    padding-top: 90px;
+    padding-top: 56px;
     /* Ensure mobile also has space for fixed header */
   }
 
@@ -785,7 +786,7 @@ p {
 @media (max-width: 768px) {
   .mobile-dark-mode-toggle {
     position: fixed;
-    top: 11px;
+    top: 12px;
     right: 56px;
     /* Position to the left of the hamburger menu in the top right */
     z-index: 1002;
@@ -797,14 +798,14 @@ p {
     border-radius: 50%;
     color: var(--dark-mode-toggle-hover);
     cursor: pointer;
-    font-size: 0.8rem;
+    font-size: 0.95rem;
     display: inline-flex;
     align-items: center;
     justify-content: center;
     padding: 0;
     margin: 0;
-    width: 1.7rem;
-    height: 1.7rem;
+    width: 2rem;
+    height: 2rem;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
   }
@@ -823,7 +824,7 @@ p {
 
   .hamburger {
     position: fixed;
-    top: 12px;
+    top: 16px;
     right: 20px;
     /* Position in the top right corner */
     z-index: 1001;
@@ -1131,7 +1132,7 @@ p {
   }
 
   #work {
-    scroll-margin-top: 90px;
+    scroll-margin-top: 56px;
   }
 }
 
