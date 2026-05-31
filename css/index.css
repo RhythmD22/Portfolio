@@ -264,7 +264,7 @@ body {
 
 @media (min-width: 901px) {
   .description-container.intro-container {
-    padding-top: 11.7vh;
+    padding-top: 8.5vh;
     margin-bottom: 0rem;
   }
 
@@ -274,6 +274,7 @@ body {
 
   .profile-container {
     margin-left: 41rem;
+    transform: translateY(-28px);
   }
 
   .profile-animation {
