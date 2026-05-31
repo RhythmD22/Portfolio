@@ -22,7 +22,6 @@ const urlsToCache = [
   '/Portfolio/css/apps.css',
   '/Portfolio/js/apps.js',
   '/Portfolio/js/index.js',
-  '/Portfolio/js/work.js',
   '/Portfolio/js/financier.js',
   '/Portfolio/js/smartshuttle.js',
   '/Portfolio/js/clashroyale.js',
