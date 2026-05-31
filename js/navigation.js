@@ -54,7 +54,7 @@ function initializeHamburgerMenu() {
     if (isSPAActive) return;
 
     const currentScroll = window.scrollY || window.pageYOffset;
-    const shouldBeWork = currentScroll >= workSection.offsetTop - 143;
+    const shouldBeWork = currentScroll >= workSection.offsetTop - 142;
     const isCurrentlyWork = window.location.hash === '#work';
 
     if (shouldBeWork) {
@@ -152,7 +152,7 @@ function setupSPA() {
         if (targetHash === '#work') {
           const targetElement = document.querySelector(targetHash);
           if (targetElement) {
-            const headerOffset = window.innerWidth <= 768 ? 90 : 143;
+            const headerOffset = window.innerWidth <= 768 ? 90 : 142;
             const offsetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerOffset;
             window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
           }
