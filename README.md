@@ -48,8 +48,7 @@ This repository contains Rhythm Desai's personal portfolio website. It showcases
   - **scroll.js** – Implements shared scroll functionality across project pages.
   - **smartshuttle.js** – Specific JavaScript for the SmartShuttle project page.
   - **templates.js** – Injects the shared header and footer into each page.
-  - **work.js** – Specific JavaScript for the work page.
-- **manifest.json** – Web app manifest file for PWA features.
+  - **manifest.json** – Web app manifest file for PWA features.
 - **Pokemon GB.ttf** – Custom font file.
 - **service-worker.js** – Service worker for offline functionality.
 - **SmartShuttle.html** – Project page for a campus shuttle tracking concept.
