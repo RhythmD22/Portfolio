@@ -25,20 +25,54 @@ body {
 }
 
 .banner-container {
+  position: relative;
   width: 100%;
+  height: 570px;
   margin: 0;
-  overflow: hidden;
+  overflow: visible;
   padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #000;
+}
+
+.banner-blur-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.banner-blur-bg {
+  position: absolute;
+  top: -30px;
+  left: -30px;
+  right: -30px;
+  bottom: -30px;
+  background-size: cover;
+  background-position: center center;
+  filter: blur(30px) brightness(0.7);
+  opacity: 0.85;
+  z-index: 1;
+  pointer-events: none;
 }
 
 .banner-image {
+  position: relative;
+  max-width: 100%;
   width: 100%;
-  height: 610px;
-  object-fit: cover;
+  height: 100%;
+  object-fit: contain;
+  object-position: center center;
   display: block;
-  margin: 0;
+  margin: 0 auto;
   padding: 0;
-  margin-bottom: 1rem;
+  z-index: 2;
 }
 
 .project-intro-section {
@@ -1174,9 +1208,29 @@ main.main-content.project-intro-section {
     margin: 1rem 0 !important;
   }
 
-  .banner-image {
-    height: 300px !important;
-    object-fit: cover;
+  @media screen and (max-width: 768px) {
+    .banner-container {
+      height: 300px !important;
+      margin-bottom: -0.01rem !important;
+    }
+
+    .banner-image {
+      height: 100% !important;
+      object-fit: contain !important;
+      object-position: center center !important;
+    }
+  }
+
+  @media screen and (max-width: 480px) {
+    .banner-container {
+      height: 200px !important;
+    }
+
+    .banner-image {
+      height: 100% !important;
+      object-fit: contain !important;
+      object-position: center center !important;
+    }
   }
 
   .project-intro-section {
@@ -1315,10 +1369,15 @@ main.main-content.project-intro-section {
     font-size: 1rem !important;
   }
 
-  .banner-image {
-    margin-top: -50px !important;
+  .banner-container {
     height: 200px !important;
-    object-fit: cover;
+  }
+
+  .banner-image {
+    margin-top: 0 !important;
+    height: 100% !important;
+    object-fit: contain !important;
+    object-position: center center !important;
   }
 }
 
@@ -1690,12 +1749,17 @@ main.main-content.project-intro-section {
     margin-bottom: 1rem !important;
   }
 
-  .site-header {
-    padding-bottom: 1.1rem !important;
-  }
+
 
   .banner-container {
-    padding-top: 31px !important;
+    height: 300px !important;
+    padding: 0 !important;
+  }
+
+  .banner-image {
+    height: 100% !important;
+    object-fit: contain !important;
+    object-position: center center !important;
   }
 
   .main-content {
@@ -1713,14 +1777,15 @@ main.main-content.project-intro-section {
 }
 
 @media screen and (max-width: 768px) and (orientation: landscape) {
-  .banner-image {
+  .banner-container {
     height: 400px !important;
-    object-fit: cover !important;
-    object-position: center top !important;
+    padding: 0 !important;
   }
 
-  .banner-container {
-    padding-top: 5px !important;
+  .banner-image {
+    height: 100% !important;
+    object-fit: contain !important;
+    object-position: center center !important;
   }
 
   .project-intro-section {
@@ -1751,5 +1816,20 @@ main.main-content.project-intro-section {
   .igrad-screenshot .caption {
     text-align: center !important;
     margin-left: 0 !important;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .banner-container {
+    height: 200px !important;
+    padding: 0 !important;
+    margin-top: -10px !important
+  }
+
+  .banner-image {
+    margin-top: 0 !important;
+    height: 100% !important;
+    object-fit: contain !important;
+    object-position: center center !important;
   }
 }

@@ -15,10 +15,16 @@ body {
 }
 
 .banner-container {
+  position: relative;
   width: 100%;
+  height: 570px;
+  margin: 0;
+  margin-bottom: 2rem;
+  overflow: visible;
   display: flex;
   justify-content: center;
-  margin-top: -2rem;
+  align-items: center;
+  background-color: #000;
 }
 
 @media (min-width: 769px) {
@@ -27,13 +33,42 @@ body {
   }
 }
 
+.banner-blur-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.banner-blur-bg {
+  position: absolute;
+  top: -30px;
+  left: -30px;
+  right: -30px;
+  bottom: -30px;
+  background-size: cover;
+  background-position: center center;
+  filter: blur(30px) brightness(0.7);
+  opacity: 0.85;
+  z-index: 1;
+  pointer-events: none;
+}
+
 .banner-image {
-  width: 100%;
-  height: 600px;
-  object-fit: cover;
-  object-position: center;
+  position: relative;
+  max-width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center center;
   display: block;
-  margin-bottom: 4rem;
+  margin: 0 auto;
+  padding: 0;
+  margin-bottom: 0;
+  z-index: 2;
 }
 
 .main-content {
@@ -158,11 +193,14 @@ body {
   }
 
   .banner-container {
-    margin-top: -1rem;
+    height: 300px !important;
+    margin-bottom: -0.2rem !important;
   }
 
   .banner-image {
-    height: 300px !important;
+    height: 100% !important;
+    object-fit: contain !important;
+    object-position: center center !important;
     margin-bottom: 0 !important;
   }
 
@@ -217,6 +255,17 @@ body {
 @media screen and (max-width: 480px) {
   body {
     font-size: 14px;
+  }
+
+  .banner-container {
+    height: 200px !important;
+    margin-top: 6px !important;
+  }
+
+  .banner-image {
+    height: 100% !important;
+    object-fit: contain !important;
+    object-position: center center !important;
   }
 
   .page-title {
