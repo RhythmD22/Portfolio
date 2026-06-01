@@ -39,8 +39,8 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@6.1/dist/fancybox/fancybox.min.css">
   <script src="js/dark-mode.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@6.1/dist/fancybox/fancybox.umd.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@6.1/dist/fancybox/fancybox.umd.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
 </head>
 
 <body>
@@ -48,6 +48,9 @@
     <div id="header-placeholder"></div>
 
     <div class="banner-container">
+      <div class="banner-blur-container">
+        <div class="banner-blur-bg" style="background-image: url('images/SmartShuttle/Banner 2.png');"></div>
+      </div>
       <img src="images/SmartShuttle/Banner%202.png" alt="SmartShuttle Banner" class="banner-image" loading="eager"
         decoding="async">
     </div>
