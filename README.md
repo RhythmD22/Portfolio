@@ -1,6 +1,6 @@
 # Portfolio
 
-This repository contains Rhythm Desai's personal portfolio website. It showcases design and front-end projects along with interactive fiction built in Twine.
+This repository contains Rhythm Desai's personal portfolio website. It showcases design and front-end projects.
 
 ## Getting Started
 
@@ -22,7 +22,6 @@ This repository contains Rhythm Desai's personal portfolio website. It showcases
   - **resume.css** – Specific styling for the resume page.
   - **smartshuttle.css** – Specific styling for the SmartShuttle project page.
   - **styles.css** – Shared styling for all pages.
-  - **twine.css** – Specific styling for the Twine project page.
   - **work.css** – Specific styling for the work page.
 - **favicon_io/** – Icon assets.
 - **Financier.html** – Project page for a college budgeting web app.
@@ -33,7 +32,6 @@ This repository contains Rhythm Desai's personal portfolio website. It showcases
   - **Clash Royale/** – Project assets for Clash Royale Redesign.
   - **Financier/** – Project assets for Financier.
   - **SmartShuttle/** – Project assets for SmartShuttle.
-  - **Twine/** – Project assets for Twine interactive fiction.
   - Global icons and branding images (favicon, touch icons, profile images).
 - **index.html** – Home page with a short bio and site navigation.
 - **js/** – Directory containing all JavaScript files.
@@ -53,4 +51,3 @@ This repository contains Rhythm Desai's personal portfolio website. It showcases
 - **service-worker.js** – Service worker for offline functionality.
 - **SmartShuttle.html** – Project page for a campus shuttle tracking concept.
 - **Twine/** – Published Twine HTML stories.
-- **Twine.html** – Landing page introducing the Twine interactive fiction projects.
