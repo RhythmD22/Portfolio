@@ -305,7 +305,7 @@ body {
 
   body {
     overflow-y: auto;
-    overscroll-behavior-y: contain;
+    overscroll-behavior-y: auto;
   }
 
   .container {
@@ -315,7 +315,7 @@ body {
 
   .site-header,
   .site-footer {
-    overscroll-behavior: contain;
+    overscroll-behavior: auto;
   }
 
   .description-container {
