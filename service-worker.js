@@ -76,6 +76,7 @@ const urlsToCache = [
   '/Portfolio/images/undraw_sorting-thoughts.png',
   '/Portfolio/images/Voya%20Logo.png',
   '/Portfolio/images/Voya.png',
+  '/Portfolio/images/Apps/right_arrow.svg',
   '/Portfolio/images/Chests/1%20-%20Wooden%20Chest.png',
   '/Portfolio/images/Chests/2%20-%20Silver%20Chest.png',
   '/Portfolio/images/Chests/3%20-%20Golden%20Chest.png',
