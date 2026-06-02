@@ -31,7 +31,7 @@ document.addEventListener('headerLoaded', () => {
 
   window.updateBubble = updateBubble;
 
-  const isProjectPage = () => ['Financier', 'SmartShuttle', 'Clash', 'Twine'].some(p => window.location.pathname.includes(p));
+  const isProjectPage = () => ['Financier', 'SmartShuttle', 'Clash'].some(p => window.location.pathname.includes(p));
 
   function resetBubble() {
     const workLink = pill.querySelector('a[href*="index.html#work"]');

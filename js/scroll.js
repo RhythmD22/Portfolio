@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const btn = document.querySelector('button[onclick*="scrollTo"], .scroll-btn, .scroll-top-btn');
   if (!btn) return;
 
-  const isProjectPage = ['Financier', 'SmartShuttle', 'Clash', 'Twine'].some(p => window.location.pathname.includes(p));
+  const isProjectPage = ['Financier', 'SmartShuttle', 'Clash'].some(p => window.location.pathname.includes(p));
 
   const setDirection = (dir) => {
     const poly = btn.querySelector('svg polyline');

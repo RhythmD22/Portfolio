@@ -40,20 +40,6 @@ function playLottieAnimation(element) {
 (function () {
   if (window.innerWidth > 900) return;
 
-  document.body.classList.add('mobile-scroll-fix');
-  let touchStartY = 0;
-
-  document.addEventListener('touchstart', (e) => {
-    touchStartY = e.touches[0].clientY;
-  }, { passive: true });
-
-  document.addEventListener('touchmove', (e) => {
-    const deltaY = touchStartY - e.touches[0].clientY;
-    const isAtTop = window.pageYOffset <= 0 && deltaY < 0;
-    const isAtBottom = (window.innerHeight + window.pageYOffset) >= document.body.offsetHeight && deltaY > 0;
-    if (isAtTop || isAtBottom) e.preventDefault();
-  }, { passive: false });
-
   const setVH = () => document.documentElement.style.setProperty('--vh', `${window.innerHeight * 0.01}px`);
   setVH();
   window.addEventListener('resize', setVH);
