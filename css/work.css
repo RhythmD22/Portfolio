@@ -235,6 +235,12 @@ video.project-thumbnail.is-playing {
   opacity: 1;
 }
 
+/* Hide Safari's native play overlay button if autoplay is delayed/blocked */
+video.project-thumbnail::-webkit-media-controls-start-playback-button {
+  display: none !important;
+  -webkit-appearance: none;
+}
+
 /* Specific fade-in for when video first starts if needed */
 /* Removed opacity: 0 to ensure frame 0 is always visible immediately */
 
