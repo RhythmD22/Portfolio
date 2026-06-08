@@ -253,19 +253,53 @@ function initVideoHoverControl() {
       threshold: 0.2
     };
 
+    const intersectingProjects = new Set();
+
+    const updateActiveMobileProject = () => {
+      if (intersectingProjects.size > 0) {
+        let closestProject = null;
+        let minDistance = Infinity;
+        const centerY = window.innerHeight / 2;
+
+        intersectingProjects.forEach(project => {
+          const rect = project.getBoundingClientRect();
+          const projectCenterY = rect.top + rect.height / 2;
+          const distance = Math.abs(projectCenterY - centerY);
+          if (distance < minDistance) {
+            minDistance = distance;
+            closestProject = project;
+          }
+        });
+
+        if (activeMobileProject !== closestProject) {
+          activeMobileProject = closestProject;
+          updateMedia();
+        }
+      } else if (activeMobileProject !== null) {
+        activeMobileProject = null;
+        updateMedia();
+      }
+    };
+
     const mobileObserver = new IntersectionObserver((entries) => {
       if (window.innerWidth > 900) return;
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          activeMobileProject = entry.target;
-        } else if (activeMobileProject === entry.target) {
-          activeMobileProject = null;
+          intersectingProjects.add(entry.target);
+        } else {
+          intersectingProjects.delete(entry.target);
         }
       });
-      updateMedia();
+      updateActiveMobileProject();
     }, observerOptions);
 
     document.querySelectorAll('.project').forEach(p => mobileObserver.observe(p));
+
+    window.addEventListener('scroll', () => {
+      if (window.innerWidth <= 900) {
+        updateActiveMobileProject();
+      }
+    }, { passive: true });
 
     updateMedia();
   }
