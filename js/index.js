@@ -194,11 +194,19 @@ function initVideoHoverControl() {
 
       if (el.tagName === 'VIDEO') {
         if (active) {
+          if (el._playTimeout) {
+            clearTimeout(el._playTimeout);
+            el._playTimeout = null;
+          }
           if (el.paused) {
             el.play().catch(() => { });
             el.classList.add('is-playing');
           }
         } else {
+          if (el._playTimeout) {
+            clearTimeout(el._playTimeout);
+            el._playTimeout = null;
+          }
           if (!el.paused) {
             el.pause();
           }
@@ -228,7 +236,17 @@ function initVideoHoverControl() {
       el.addEventListener('ended', () => {
         const project = el.closest('.project');
         if (isProjectActive(project)) {
-          el.play();
+          if (el.src.includes('Financier')) {
+            if (el._playTimeout) clearTimeout(el._playTimeout);
+            el._playTimeout = setTimeout(() => {
+              el._playTimeout = null;
+              if (isProjectActive(project)) {
+                el.play().catch(() => { });
+              }
+            }, 2000); // 2 second delay to spread out loops for Financier only
+          } else {
+            el.play().catch(() => { });
+          }
         } else {
           el.pause();
           el.classList.remove('is-playing');
