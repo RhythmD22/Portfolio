@@ -262,9 +262,9 @@ video.project-thumbnail.is-playing {
   position: absolute;
   inset: 0;
   background-image:
-    url('../images/SmartShuttle/SmartShuttle.svg'),
-    url('../images/SmartShuttle/SmartShuttle.svg'),
-    url('../images/SmartShuttle/SmartShuttle.svg');
+    url('../images/SmartShuttle/SmartShuttle.png'),
+    url('../images/SmartShuttle/SmartShuttle.png'),
+    url('../images/SmartShuttle/SmartShuttle.png');
   background-size: 850px auto;
   background-repeat: no-repeat;
   background-position:
