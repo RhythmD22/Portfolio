@@ -90,7 +90,7 @@ const urlsToCache = [
   '/Portfolio/images/Financier/Transactions.mov',
   '/Portfolio/images/Financier/Voya%20Logo.png',
   '/Portfolio/images/Financier/Voya.png',
-  '/Portfolio/images/SmartShuttle/SmartShuttle.svg',
+  '/Portfolio/images/SmartShuttle/SmartShuttle.png',
   '/Portfolio/images/SmartShuttle/Banner%202.png',
   '/Portfolio/images/SmartShuttle/Phase%201.png',
   '/Portfolio/images/SmartShuttle/Phase%201-2.png',
