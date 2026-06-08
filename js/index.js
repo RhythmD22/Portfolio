@@ -198,9 +198,9 @@ function initVideoHoverControl() {
             clearTimeout(el._playTimeout);
             el._playTimeout = null;
           }
+          el.classList.add('is-playing');
           if (el.paused) {
             el.play().catch(() => { });
-            el.classList.add('is-playing');
           }
         } else {
           if (el._playTimeout) {
