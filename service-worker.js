@@ -69,6 +69,14 @@ self.addEventListener('install', event => {
 });
 
 self.addEventListener('fetch', event => {
+  // Skip cross-origin requests
+  if (!event.request.url.startsWith(self.location.origin)) return;
+
+  // Skip media files and range requests to prevent Safari "reloaded because a problem occurred" error
+  if (event.request.url.match(/\.(mp4|mov|webm|ogg|mp3|wav|flac|aac)$/i) || event.request.headers.get('range')) {
+    return;
+  }
+
   event.respondWith(
     caches.match(event.request)
       .then(response => {
