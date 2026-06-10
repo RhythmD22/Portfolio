@@ -129,17 +129,50 @@ function initSectionTyping() {
 function setupAnimationEvents(profileAnimation) {
   if (!profileAnimation) return;
 
+  const handleResize = () => {
+    const instance = getLottieInstance(profileAnimation);
+    if (instance && typeof instance.resize === 'function') {
+      instance.resize();
+    }
+  };
+
   if (profileAnimation.dotLottie) {
     profileAnimation._dotLottieInstance = profileAnimation.dotLottie;
     profileAnimation._dotLottieInstance.setFrame(0);
     profileAnimation._dotLottieInstance.pause();
+    setTimeout(handleResize, 100);
   }
 
   profileAnimation.addEventListener('ready', function () {
     this._dotLottieInstance = this.dotLottie;
     this._dotLottieInstance?.setFrame(0);
     this._dotLottieInstance?.pause();
+    setTimeout(handleResize, 100);
   });
+
+  window.addEventListener('resize', handleResize);
+  document.addEventListener('visibilitychange', () => {
+    if (document.visibilityState === 'visible') {
+      setTimeout(handleResize, 10);
+    }
+  });
+
+  // Handle SPA navigation visibility
+  const observer = new MutationObserver((mutations) => {
+    mutations.forEach((mutation) => {
+      if (mutation.attributeName === 'style' || mutation.attributeName === 'class') {
+        const homeSection = document.getElementById('home');
+        if (homeSection && homeSection.style.display !== 'none') {
+          setTimeout(handleResize, 50);
+        }
+      }
+    });
+  });
+
+  const homeSection = document.getElementById('home');
+  if (homeSection) {
+    observer.observe(homeSection, { attributes: true });
+  }
 
   profileAnimation.addEventListener('mouseenter', function () { playLottieAnimation(this); });
 
