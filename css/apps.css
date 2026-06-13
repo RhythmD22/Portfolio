@@ -23,7 +23,6 @@
     font-family: 'Pokemon GB', sans-serif;
 }
 
-/* Push footer down when apps section is visible */
 body.apps-page .site-footer {
     margin-top: var(--apps-footer-margin);
 }
@@ -118,7 +117,6 @@ body.apps-page .site-footer {
     display: block;
     position: absolute;
     top: 195px;
-    /* Moved up from 210px to be closer to the icon */
     left: 45px;
     width: 180px;
     text-align: center;
@@ -130,12 +128,14 @@ body.apps-page .site-footer {
     z-index: 5;
 }
 
-/* Specific positioning for SmartShuttle name */
 .app-card.smartshuttle-card.expanded .app-name-in-card {
     top: 205px;
 }
 
-/* Pixel arrow and Multi-page logic for Archibald card */
+.app-card.smartshuttle-card .app-icon {
+    transform: scale(1.1);
+}
+
 .pixel-arrow {
     display: none;
     position: absolute;
@@ -170,7 +170,6 @@ body.apps-page .site-footer {
     width: 100%;
     height: 100%;
     background-color: #ffffff;
-    /* Same as expanded background */
     border-radius: 20px;
     padding: 45px;
     box-sizing: border-box;
@@ -212,7 +211,6 @@ body.apps-page .site-footer {
     display: block;
 }
 
-/* Specific positioning for Twine game names - moved slightly further up */
 .app-card.twine-card.expanded .app-name-in-card {
     top: 185px;
 }
@@ -238,13 +236,10 @@ body.apps-page .site-footer {
     top: 0;
     right: 0;
     width: 350px;
-    /* Occupies the right side space */
     height: 50%;
-    /* Matches the gradient height */
     text-align: left;
     gap: 15px;
     padding-left: 40px;
-    /* Offset to center the content block better */
 }
 
 .attribute {
@@ -264,7 +259,6 @@ body.apps-page .site-footer {
     margin: 0;
     position: absolute;
     top: calc(100% + 15px);
-    /* Restored original position */
     left: 50%;
     transform: translateX(-50%);
     width: 95%;
@@ -277,7 +271,6 @@ body.apps-page .site-footer {
     white-space: nowrap;
     pointer-events: none;
     padding: 2px 0;
-    /* Minimal padding to restore proximity */
     overflow: visible;
     text-align: center;
     line-height: 1.8;
@@ -285,9 +278,7 @@ body.apps-page .site-footer {
 
 .app-card.expanded h3 {
     width: 570px;
-    /* Fixed width matching 95% of 600px to prevent jitter during transition */
     display: flex;
-    /* Restored visibility */
     white-space: normal;
     flex-wrap: wrap;
     align-items: flex-start;
@@ -301,14 +292,12 @@ body.apps-page .site-footer {
     text-overflow: ellipsis;
     white-space: nowrap;
     line-height: 1.8;
-    /* Matching line height */
 }
 
 .app-card.expanded .app-title {
     max-width: 100%;
     text-overflow: clip;
     white-space: normal;
-    /* Allow wrapping when expanded */
 }
 
 .app-desc {
@@ -320,10 +309,8 @@ body.apps-page .site-footer {
     font-weight: normal;
     transition: max-width 0.5s ease, opacity 0.3s ease, visibility 0.3s;
     line-height: 1.8;
-    /* Matching line height */
 }
 
-/* Allow description to wrap when expanded */
 .app-card.expanded .app-desc {
     max-width: 600px;
     opacity: 1;
@@ -331,7 +318,6 @@ body.apps-page .site-footer {
     transition: max-width 0.5s ease, opacity 0.4s ease 0.1s, visibility 0s;
     margin-left: 5px;
     white-space: normal;
-    /* Allow wrapping when expanded */
 }
 
 .app-card .content {
@@ -342,15 +328,12 @@ body.apps-page .site-footer {
     display: block;
     position: absolute;
     top: 55%;
-    /* Moved down slightly from 52% */
     left: 45px;
     right: 45px;
     bottom: 25px;
-    /* Ensures padding at the very bottom */
     overflow-y: auto;
     color: #1a1a1a;
     font-size: 0.75rem;
-    /* Increased from 0.6rem */
     line-height: 1.6;
     text-align: left;
     z-index: 10;
@@ -366,7 +349,6 @@ body.apps-page .site-footer {
     z-index: 5;
 }
 
-/* Redefine gradients to support the background-size/position trick */
 .card-container .app-card:first-child.expanded {
     background-image: linear-gradient(to right, #1e40af, #3b82f6) !important;
 }
@@ -396,11 +378,9 @@ body.apps-page .site-footer {
 }
 
 [data-theme="dark"] .app-card.expanded {
-    /* Maintain Pokedex white bottom in dark mode */
     background-color: #ffffff !important;
 }
 
-/* Desktop-only fix to prevent text jitter during expansion */
 @media (min-width: 769px) {
 
     .app-card.debate-card.expanded .app-title,
@@ -466,7 +446,6 @@ body.apps-page .site-footer {
         white-space: nowrap;
     }
 
-    /* Adjust specific positioning for mobile */
     .app-card.smartshuttle-card.expanded .app-name-in-card {
         top: 175px;
     }
@@ -499,11 +478,9 @@ body.apps-page .site-footer {
         width: 90%;
         top: calc(100% + 15px);
         white-space: normal;
-        /* Allow wrapping on mobile when expanded */
         flex-wrap: wrap;
     }
 
-    /* Magnate card specific fix to prevent text jitter during expansion */
     .app-card.magnate-card.expanded h3 {
         width: calc(90vw - 36px);
         white-space: nowrap;
@@ -515,7 +492,6 @@ body.apps-page .site-footer {
         white-space: nowrap;
     }
 
-    /* Financier card specific fix to prevent text jitter during expansion */
     .app-card.financier-card.expanded h3 {
         width: calc(100vw - 40px);
         white-space: normal;
@@ -532,7 +508,6 @@ body.apps-page .site-footer {
         transition: opacity 0.4s ease 0.1s, visibility 0s;
     }
 
-    /* Guardian card specific fix to prevent text jitter during expansion */
     .app-card.guardian-card.expanded h3 {
         width: calc(100vw - 40px);
         white-space: normal;
@@ -549,10 +524,8 @@ body.apps-page .site-footer {
         transition: opacity 0.4s ease 0.1s, visibility 0s;
     }
 
-    /* Archibald card specific fix to prevent text jitter during expansion */
     .app-card.archibald-card.expanded h3 {
         width: calc(100vw - 40px);
-        /* Increased from 90vw - 36px to pull 'Game' to 3rd line */
         white-space: normal;
         flex-wrap: wrap;
     }
