@@ -54,6 +54,8 @@ function initializeHamburgerMenu() {
 
   const workSection = document.getElementById('work');
   const workLink = document.querySelector('#mobile-work-link');
+  const pillWorkLink = document.querySelector('.header-content-pill a[href*="index.html#work"]');
+  const pillHomeLink = document.querySelector('.header-content-pill .portfolio-icon-link');
   let scrollThrottle = false;
   window.isNavigating = false;
 
@@ -69,6 +71,9 @@ function initializeHamburgerMenu() {
 
     if (shouldBeWork) {
       workLink?.classList.add('active');
+      pillWorkLink?.classList.add('active');
+      pillHomeLink?.classList.remove('active');
+      if (typeof updateBubble === 'function' && pillWorkLink) updateBubble(pillWorkLink);
       if (!isCurrentlyWork && !scrollThrottle) {
         history.replaceState(null, '', '#work');
         scrollThrottle = true;
@@ -76,6 +81,9 @@ function initializeHamburgerMenu() {
       }
     } else {
       workLink?.classList.remove('active');
+      pillWorkLink?.classList.remove('active');
+      pillHomeLink?.classList.add('active');
+      if (typeof updateBubble === 'function' && pillHomeLink) updateBubble(pillHomeLink);
       if (isCurrentlyWork && !scrollThrottle) {
         history.replaceState(null, '', '#home');
         scrollThrottle = true;
@@ -173,6 +181,21 @@ function setupSPA() {
         setTimeout(() => window.isNavigating = false, 1000);
       }
     });
+  });
+
+  window.addEventListener('popstate', () => {
+    const hash = window.location.hash || '#home';
+    switchSection(hash);
+    if (hash === '#work') {
+      const el = document.querySelector('#work');
+      if (el) {
+        const offset = window.innerWidth <= 768 ? 90 : 142;
+        const top = el.getBoundingClientRect().top + window.pageYOffset - offset;
+        window.scrollTo({ top, behavior: 'auto' });
+      }
+    } else {
+      window.scrollTo({ top: 0, behavior: 'auto' });
+    }
   });
 }
 
