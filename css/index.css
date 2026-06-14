@@ -86,12 +86,13 @@ body {
   margin: 2rem auto;
   flex-shrink: 0;
   width: max-content;
+  min-height: 340px;
 }
 
 .profile-animation {
   display: block;
-  width: 340px;
-  height: 340px;
+  width: 225px;
+  height: 225px;
   border-radius: 50%;
   box-shadow: none;
   position: relative;
@@ -102,10 +103,10 @@ body {
 .profile-animation::before {
   content: '';
   position: absolute;
-  top: calc(50% - 125px);
-  left: calc(50% - 125px);
-  width: 250px;
-  height: 250px;
+  top: calc(50% - 83px);
+  left: calc(50% - 83px);
+  width: 165px;
+  height: 165px;
   border-radius: 50%;
   z-index: 3;
   cursor: pointer;
@@ -284,13 +285,14 @@ body {
   }
 
   .profile-container {
+    min-height: 415px;
     transform: translateY(-28px);
   }
 
   .profile-animation {
-    width: 415px !important;
-    height: 415px !important;
-    top: -108px !important;
+    width: 225px !important;
+    height: 225px !important;
+    top: -108.5px !important;
   }
 
   .spinning-ring {
@@ -299,10 +301,10 @@ body {
   }
 
   .profile-animation::before {
-    top: calc(50% - 200px) !important;
-    left: calc(50% - 200px) !important;
-    width: 415px !important;
-    height: 415px !important;
+    top: calc(50% - 113px) !important;
+    left: calc(50% - 113px) !important;
+    width: 225px !important;
+    height: 225px !important;
     border-radius: 50% !important;
     z-index: 3 !important;
     cursor: pointer !important;
@@ -345,20 +347,6 @@ body {
     margin-top: 3.55rem;
   }
 
-  .profile-container {
-    margin: 0 auto;
-    align-self: center;
-    display: block;
-    margin-left: 0;
-  }
-
-  .spinning-ring {
-    left: 0;
-    right: -120px;
-    margin: 0 auto;
-    top: 25px;
-  }
-
   .intro {
     justify-content: center;
     flex-direction: column;
@@ -381,17 +369,6 @@ body {
     min-height: 200px;
   }
 
-  .profile-animation {
-    width: 250px !important;
-    height: 250px !important;
-    z-index: 2 !important;
-    margin: 0 auto !important;
-    align-self: center !important;
-    position: relative !important;
-    cursor: pointer !important;
-    transition: opacity 0.4s ease !important;
-    top: -20px !important;
-  }
 }
 
 @media (max-width: 900px) and (orientation: portrait) {
@@ -440,24 +417,22 @@ body {
   }
 
   .spinning-ring {
-    left: -6px;
-    right: 0;
+    left: 83px;
     margin: 0 auto;
-    top: 11px;
+    top: -10px;
     width: 200px;
     height: 200px;
   }
 
   .profile-animation {
-    margin: 0 auto !important;
-    width: 375px !important;
-    height: 375px !important;
+    width: 205px !important;
+    height: 205px !important;
     z-index: 2 !important;
     position: relative !important;
-    cursor: pointer !important;
+    margin: 0 auto !important;
+    left: 80.5px !important;
     transition: opacity 0.4s ease !important;
-    left: -3px !important;
-    top: -77px !important;
+    top: -13px !important;
   }
 
   .profile-animation::before {
@@ -517,24 +492,21 @@ body {
   }
 
   .spinning-ring {
-    left: 0;
-    right: -250px;
-    margin: 0 auto;
-    top: 11px;
-    width: 240px;
-    height: 240px;
+    left: calc(50% + 31vw - 120px);
+    top: -40px;
+    width: 242px;
+    height: 242px;
   }
 
   .profile-animation {
-    margin: 0 auto !important;
-    width: 450px !important;
-    height: 450px !important;
+    width: 250px !important;
+    height: 250px !important;
     z-index: 2 !important;
     position: relative !important;
-    cursor: pointer !important;
+    left: calc(50% + 31.2vw) !important;
+    transform: translateX(-50%) !important;
     transition: opacity 0.4s ease !important;
-    left: 125px !important;
-    top: -95px !important;
+    top: -45px !important;
   }
 
   .profile-animation::before {
@@ -553,31 +525,5 @@ body {
 
   .main-content.work-section {
     padding-top: 0;
-  }
-}
-
-@media (max-width: 390px) and (orientation: portrait) {
-  .description-container {
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-    min-height: calc(100vh - 180px);
-  }
-
-  .intro {
-    padding: 0 0.5rem;
-    gap: 1.5rem;
-  }
-
-  .intro-text {
-    padding: 0 0.5rem;
-  }
-
-  .intro-text .intro-heading {
-    font-size: 1.75rem;
-  }
-
-  .intro-text .intro-paragraph {
-    font-size: 1.1rem;
-    line-height: 1.6;
   }
 }
