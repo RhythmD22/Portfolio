@@ -141,6 +141,8 @@ function setupAnimationEvents(profileAnimation) {
     profileAnimation._dotLottieInstance.setFrame(0);
     profileAnimation._dotLottieInstance.pause();
     setTimeout(handleResize, 100);
+    document.querySelector('.spinning-ring')?.style.setProperty('opacity', '1');
+    setTimeout(() => { profileAnimation._lottieReady = true; }, 300);
   }
 
   profileAnimation.addEventListener('ready', function () {
@@ -148,6 +150,9 @@ function setupAnimationEvents(profileAnimation) {
     this._dotLottieInstance?.setFrame(0);
     this._dotLottieInstance?.pause();
     setTimeout(handleResize, 100);
+    document.querySelector('.spinning-ring')?.style.setProperty('opacity', '1');
+    const el = this;
+    setTimeout(() => { el._lottieReady = true; }, 300);
   });
 
   window.addEventListener('resize', handleResize);
@@ -174,13 +179,16 @@ function setupAnimationEvents(profileAnimation) {
     observer.observe(homeSection, { attributes: true });
   }
 
-  profileAnimation.addEventListener('mouseenter', function () { playLottieAnimation(this); });
+  profileAnimation.addEventListener('mouseenter', function () {
+    if (!this._lottieReady) return;
+    playLottieAnimation(this);
+  });
 
   let touchStartTime = 0, longPressTimer = null;
 
   profileAnimation.addEventListener('touchstart', function (e) {
     e.preventDefault();
-    if (this._isPlayingOnMobile) return;
+    if (!this._lottieReady || this._isPlayingOnMobile) return;
     this._isPlayingOnMobile = true;
 
     playLottieAnimation(this);
