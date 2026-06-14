@@ -664,6 +664,7 @@ p {
 
 .scroll-top-btn,
 .scroll-btn {
+  display: none;
   position: fixed;
   bottom: 1.5rem;
   right: 1.5rem;
