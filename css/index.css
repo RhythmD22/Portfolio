@@ -140,6 +140,8 @@ body {
   z-index: 1;
   background: var(--background-color);
   overflow: hidden;
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
 
 .spinning-ring::before {
