@@ -190,12 +190,10 @@ function setupAnimationEvents(profileAnimation) {
     e.preventDefault();
     if (!this._lottieReady || this._isPlayingOnMobile) return;
     this._isPlayingOnMobile = true;
-
     playLottieAnimation(this);
     setTimeout(() => {
       this._isPlayingOnMobile = false;
     }, ANIMATION_DURATION);
-
     touchStartTime = Date.now();
     longPressTimer = setTimeout(() => this.classList.add('hide'), LONG_PRESS_DURATION);
   });
@@ -209,6 +207,8 @@ function setupAnimationEvents(profileAnimation) {
     clearTimeout(longPressTimer);
     profileAnimation.classList.remove('hide');
   });
+
+  profileAnimation.addEventListener('click', () => profileAnimation.classList.toggle('hide'));
 }
 
 function initVideoHoverControl() {
@@ -369,12 +369,9 @@ document.addEventListener('DOMContentLoaded', () => {
   initSectionTyping();
   initVideoHoverControl();
 
-  const profileImg = document.querySelector('.profile-image');
   const profileAnim = document.querySelector('.profile-animation');
 
-  profileImg?.addEventListener('click', () => profileImg.classList.toggle('hide'));
   if (profileAnim) {
-    profileAnim.addEventListener('click', () => profileAnim.classList.toggle('hide'));
     if (customElements.get('dotlottie-wc')) setupAnimationEvents(profileAnim);
     else customElements.whenDefined('dotlottie-wc').then(() => setTimeout(() => setupAnimationEvents(profileAnim), 100));
   }
