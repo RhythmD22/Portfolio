@@ -3,7 +3,6 @@
   padding-top: 2rem;
   padding-bottom: 2rem;
   color: var(--text-color);
-  display: none;
 }
 
 #about,
@@ -11,10 +10,6 @@
 #about .intro-paragraph {
   color: var(--text-color) !important;
   visibility: visible !important;
-}
-
-#about {
-  display: block;
 }
 
 #about .intro-content {
@@ -143,15 +138,24 @@ body {
   animation: spin 10s linear infinite, glow 2s ease-in-out infinite alternate;
   box-shadow: 0 0 15px #4a9fc8;
   z-index: 1;
-  background: conic-gradient(from 0deg,
-      #4a9fc8 0deg,
-      #4a9fc8 90deg,
-      var(--background-color) 90deg,
-      var(--background-color) 180deg,
-      #4a9fc8 180deg,
-      #4a9fc8 270deg,
-      var(--background-color) 270deg,
-      var(--background-color) 360deg);
+  background: var(--background-color);
+  overflow: hidden;
+}
+
+.spinning-ring::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: #4a9fc8;
+  clip-path: polygon(10% 0%, 90% 0%, 55% 55%, 45% 55%);
+}
+
+.spinning-ring::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: #4a9fc8;
+  clip-path: polygon(10% 100%, 90% 100%, 55% 45%, 45% 45%);
 }
 
 @keyframes spin {
@@ -272,8 +276,12 @@ body {
     padding-top: 0rem;
   }
 
+  .intro-text {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
   .profile-container {
-    margin-left: 41rem;
     transform: translateY(-28px);
   }
 
@@ -281,7 +289,11 @@ body {
     width: 415px !important;
     height: 415px !important;
     top: -108px !important;
-    left: -107px !important;
+  }
+
+  .spinning-ring {
+    left: calc(50% - 110px);
+    top: calc(50% - 218px);
   }
 
   .profile-animation::before {

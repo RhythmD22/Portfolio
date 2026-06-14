@@ -49,7 +49,7 @@ body {
 /* Site Header */
 .site-header {
   width: 100%;
-  padding: 1rem 3rem;
+  padding: 1rem 0;
   margin: 0;
   position: fixed;
   top: 0;
@@ -58,8 +58,8 @@ body {
   z-index: 1000;
   display: flex;
   justify-content: center;
-  /* Center pill */
   align-items: center;
+  box-sizing: border-box;
 }
 
 @media (min-width: 769px) {
@@ -85,6 +85,7 @@ body {
 /* Desktop Pill Header */
 .header-content-pill {
   position: relative;
+  left: 1rem;
   background-color: rgba(250, 239, 216, 0.8);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
@@ -687,11 +688,9 @@ p {
 @media (max-width: 600px) {
 
   .scroll-top-btn,
-  .scroll-btn,
-  button[onclick*="scrollTo"] {
+  .scroll-btn {
     right: 0rem;
     bottom: -1rem;
-    /* Positioned higher up on mobile */
   }
 }
 
@@ -1121,10 +1120,6 @@ p {
 @media (max-width: 768px) {
   .hamburger {
     display: flex;
-  }
-
-  .header-nav {
-    display: none;
   }
 
   .site-header {
