@@ -7,9 +7,11 @@
   --dp-tips-top-landscape: 165px;
 }
 
+html {
+  padding-top: 0;
+}
+
 body {
-  overflow-x: hidden;
-  box-sizing: border-box;
   padding-top: 60px;
 }
 
@@ -19,80 +21,8 @@ body {
   }
 }
 
-.container {
-  max-width: 100%;
-  overflow-x: hidden;
-}
-
-.banner-container {
-  position: relative;
-  width: 100%;
-  height: 570px;
-  margin: 0;
-  overflow: visible;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #000;
-}
-
-.banner-blur-container {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  overflow: hidden;
-  z-index: 1;
-  pointer-events: none;
-}
-
 .banner-blur-bg {
-  position: absolute;
-  top: -30px;
-  left: -30px;
-  right: -30px;
-  bottom: -30px;
-  background-size: cover;
-  background-position: center center;
-  filter: blur(30px) brightness(0.7);
   opacity: 0.85;
-  z-index: 1;
-  pointer-events: none;
-}
-
-.banner-image {
-  position: relative;
-  max-width: 100%;
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  object-position: center center;
-  display: block;
-  margin: 0 auto;
-  padding: 0;
-  z-index: 2;
-}
-
-.project-intro-section {
-  gap: 2rem;
-  padding: 2rem;
-  min-height: calc(100vh - 160px);
-  margin-top: 0rem;
-}
-
-.project-description {
-  max-width: 60%;
-}
-
-.project-overview {
-  font-size: 1.15rem;
-}
-
-.info-meta {
-  font-size: 0.95rem;
-  line-height: 1.6;
 }
 
 .problem-statement-section {
@@ -361,71 +291,7 @@ body {
   max-width: 1200px;
 }
 
-.research-plan-container {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  gap: 5rem;
-  padding: 2rem;
-  margin-top: 4rem;
-  position: relative;
-}
 
-.research-plan-column {
-  max-width: 60%;
-}
-
-.research-plan-section {
-  position: relative;
-  padding-bottom: 2rem;
-  margin-bottom: 2rem;
-}
-
-.research-plan-section ul,
-.research-plan-section ol {
-  font-size: 1.15rem;
-  line-height: 1.8;
-}
-
-.participant-focus {
-  font-size: 1.15rem;
-  margin-top: 1rem;
-}
-
-.interview-questions-section {
-  position: relative;
-  padding-left: 2rem;
-  font-size: 1.15rem;
-}
-
-.interview-questions-section::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  width: 1px;
-  background-color: #e0e0e0;
-}
-
-.interview-questions-section ol,
-.interview-questions-section ul {
-  line-height: 1.8;
-}
-
-.interview-questions-section p {
-  margin-top: 1rem;
-}
-
-.research-plan-container>div:first-child>.research-plan-section:first-child::after {
-  content: '';
-  position: absolute;
-  bottom: 0.5rem;
-  left: 0;
-  right: 1px;
-  height: 1px;
-  background-color: #e0e0e0;
-}
 
 .budgeting-analysis-section {
   padding: 2rem;
@@ -454,52 +320,8 @@ body {
   padding-right: 2rem;
 }
 
-.chart-grid-container {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
-  margin-top: 20px;
-}
-
-.chart-grid-item {
-  background-color: #f9f9f9;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  padding: 20px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  display: flex;
-  flex-direction: column;
-  height: 350px;
-}
-
 .chart-grid-item h3 {
-  color: #333;
-  margin-top: 0;
-  margin-bottom: 15px;
   border-bottom: 2px solid #3b86f7;
-  padding-bottom: 10px;
-  text-align: center;
-  flex-shrink: 0;
-}
-
-.chart-container {
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 100%;
-  min-height: 200px;
-}
-
-.chart-container canvas {
-  width: 100% !important;
-  max-width: 100%;
-  height: 100% !important;
-  max-height: 250px;
-  margin: 0 auto;
-  display: block;
-  box-sizing: border-box;
 }
 
 .key-findings-section {
@@ -735,80 +557,9 @@ body {
   margin: 0;
 }
 
-.live-website-section {
-  margin: 8rem auto 0;
-  width: 100%;
-  max-width: 1200px;
-}
-
-.live-website-section .section-title {
-  text-align: left;
-  margin-bottom: 1rem;
-}
-
-.screenshot-img {
-  width: 100%;
-  height: auto;
-}
-
-.outcomes-section {
-  margin-top: 0;
-}
-
-.outcomes-content {
-  background: #ffffff;
-  padding: 2rem;
-  margin: 0 auto 8rem;
-  width: 100%;
-  max-width: 1135px;
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
-  border-radius: 8px;
-}
-
-.outcomes-title {
-  font-size: 1.5rem;
-  font-weight: 700;
-  margin-top: 0;
-}
-
-.outcomes-content ul {
-  font-size: 1.15rem;
-  line-height: 1.8;
-}
-
 .reflection-card {
-  background: #ffffff;
-  padding: 2rem;
   margin: 4rem auto 0;
-  width: 100%;
-  max-width: 1135px;
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
-  border-radius: 8px;
-  box-sizing: border-box;
   border: 4px solid #4f84ef;
-}
-
-.reflection-content {
-  margin-top: 0;
-}
-
-.reflection-title {
-  font-size: 1.5rem;
-  font-weight: 700;
-  margin-top: 0;
-}
-
-.reflection-content p {
-  font-size: 1.15rem;
-  line-height: 1.8;
-}
-
-.reflection-content p:first-of-type {
-  margin-top: 0;
-}
-
-.reflection-content p+p {
-  margin-top: 1rem;
 }
 
 .lottie-animation-container {
@@ -932,13 +683,14 @@ body {
   margin-top: 0;
 }
 
+.outcomes-content {
+  margin: 0 auto 8rem;
+}
+
 main.main-content.project-intro-section {
   margin-bottom: 0 !important;
 }
 
-.site-footer p {
-  font-size: 0.875rem !important;
-}
 
 @keyframes rotate {
   0% {
@@ -948,16 +700,6 @@ main.main-content.project-intro-section {
   100% {
     transform: rotate(-360deg);
   }
-}
-
-[data-theme="dark"] .dp-landing>div[style*="background: #fff"],
-[data-theme="dark"] .dp-goals>div[style*="background: #fff"],
-[data-theme="dark"] .dp-transactions>div[style*="background: #fff"],
-[data-theme="dark"] .dp-analytics>div[style*="background: #fff"],
-[data-theme="dark"] .dp-calculator>div[style*="background: #fff"],
-[data-theme="dark"] .dp-tips>div[style*="background: #fff"] {
-  background-color: #1e1e1e !important;
-  color: #e0e0e0 !important;
 }
 
 [data-theme="dark"] .problem-statement-content,
@@ -1040,13 +782,6 @@ main.main-content.project-intro-section {
 
 [data-theme="dark"] .reflection-card p,
 [data-theme="dark"] .reflection-card h2 {
-  color: #e0e0e0 !important;
-}
-
-[data-theme="dark"] .main-content[style*="background: #eaeaea"] h2,
-[data-theme="dark"] .main-content[style*="background: #eaeaea"] .section-title,
-[data-theme="dark"] .main-content[style*="background: #eaeaea"] p {
-  background-color: #1e1e1e !important;
   color: #e0e0e0 !important;
 }
 
@@ -1790,10 +1525,6 @@ main.main-content.project-intro-section {
 
   .project-intro-section {
     margin-top: 0 !important;
-  }
-
-  .main-content.center-flex[style*="gap: 2rem;"] {
-    margin-top: 1rem !important;
   }
 
   .igrad-screenshot {
