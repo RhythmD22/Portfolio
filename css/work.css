@@ -33,11 +33,13 @@
   gap: 0.6rem;
   padding: 0.5rem 1.25rem;
   border-radius: 50px;
-  background-color: rgba(250, 239, 216, 0.8);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  background-color: rgba(250, 239, 216, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   border: 1px solid var(--border-color);
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow:
+    0 4px 16px rgba(0, 0, 0, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5);
   text-decoration: none;
   font-size: clamp(1rem, 3vw, 1.05rem);
   line-height: 1.5;
@@ -49,11 +51,48 @@
   transform: translateY(10px);
   pointer-events: none;
   visibility: hidden;
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-pill::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 12px;
+  right: 12px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.7), transparent);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.contact-pill::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 50%;
+  border-radius: 50px 50px 0 0;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.15) 0%, transparent 100%);
+  pointer-events: none;
 }
 
 [data-theme="dark"] .contact-pill {
-  background-color: rgba(13, 17, 23, 0.8);
+  background-color: rgba(22, 27, 34, 0.55);
   border-color: var(--border-color);
+  box-shadow:
+    0 4px 16px rgba(0, 0, 0, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="dark"] .contact-pill::before {
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.25), transparent);
+}
+
+[data-theme="dark"] .contact-pill::after {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.06) 0%, transparent 100%);
 }
 
 .contact-pill.reveal {
@@ -177,13 +216,33 @@
   position: absolute;
   inset: 0;
   border-radius: 12px;
-  padding: 1px;
-  background: linear-gradient(to bottom right, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.1));
+  padding: 1.5px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.2) 30%, rgba(255, 255, 255, 0.05) 60%, rgba(255, 255, 255, 0.35) 100%);
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
   pointer-events: none;
+  z-index: 2;
+  transition: opacity 0.3s ease;
+}
+
+.main-content .projects-section .project .project-thumbnail-wrapper::after {
+  content: '';
+  position: absolute;
+  inset: 1.5px;
+  border-radius: 11px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.08) 0%, transparent 40%, transparent 100%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+[data-theme="dark"] .main-content .projects-section .project .project-thumbnail-wrapper::before {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.1) 30%, rgba(255, 255, 255, 0.02) 60%, rgba(255, 255, 255, 0.15) 100%);
+}
+
+[data-theme="dark"] .main-content .projects-section .project .project-thumbnail-wrapper::after {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.04) 0%, transparent 40%, transparent 100%);
 }
 
 .main-content .projects-section .project:not(:nth-child(2)) .project-thumbnail-wrapper .project-thumbnail {
@@ -247,6 +306,9 @@ video.project-thumbnail::-webkit-media-controls-start-playback-button {
     -970px -774px;
   box-shadow: none !important;
   transition: opacity 0.5s ease;
+  will-change: background-position;
+  transform: translateZ(0);
+  contain: paint;
 
   /* Animation defined here, controlled via JS classes */
   animation: scrollBackgroundSmartShuttle 40s linear infinite;

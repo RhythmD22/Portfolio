@@ -218,9 +218,9 @@ body {
 }
 
 .dark-mode-toggle {
-  background-color: rgba(250, 239, 216, 0.8);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  background-color: rgba(250, 239, 216, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   border: 1px solid var(--border-color);
   border-radius: 50%;
   color: var(--text-color);
@@ -233,15 +233,38 @@ body {
   margin: 0;
   width: 2.6rem;
   height: 2.6rem;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow:
+    0 4px 16px rgba(0, 0, 0, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5);
   transition: all 0.3s ease;
   vertical-align: middle;
+  position: relative;
+  overflow: hidden;
+}
+
+.dark-mode-toggle::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 50%;
+  border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.12) 0%, transparent 100%);
+  pointer-events: none;
 }
 
 [data-theme="dark"] .dark-mode-toggle {
-  background-color: rgba(13, 17, 23, 0.8);
+  background-color: rgba(22, 27, 34, 0.55);
   color: var(--text-color);
   border-color: var(--border-color);
+  box-shadow:
+    0 4px 16px rgba(0, 0, 0, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="dark"] .dark-mode-toggle::after {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.05) 0%, transparent 100%);
 }
 
 /* Hover states for devices that support hover */
