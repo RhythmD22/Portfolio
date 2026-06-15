@@ -19,11 +19,11 @@ This repository contains Rhythm Desai's personal portfolio website. It showcases
   - **clashroyale.css** – Specific styling for the Clash Royale project page.
   - **financier.css** – Specific styling for the Financier project page.
   - **index.css** – Specific styling for the home page.
+  - **project.css** – Shared styling for project pages.
   - **resume.css** – Specific styling for the resume page.
   - **smartshuttle.css** – Specific styling for the SmartShuttle project page.
   - **styles.css** – Shared styling for all pages.
   - **work.css** – Specific styling for the work page.
-- **favicon_io/** – Icon assets.
 - **Financier.html** – Project page for a college budgeting web app.
 - **footer.html** – Shared footer snippet included on each page.
 - **header.html** – Shared header snippet included on each page.
@@ -36,6 +36,7 @@ This repository contains Rhythm Desai's personal portfolio website. It showcases
 - **index.html** – Home page with a short bio and site navigation.
 - **js/** – Directory containing all JavaScript files.
   - **apps.js** – Specific JavaScript for the Apps page.
+  - **chart-utils.js** – Shared Chart.js utilities for Financier and other pages.
   - **clashroyale.js** – Specific JavaScript for the Clash Royale project page.
   - **clock.js** – Displays a real-time clock in the footer.
   - **dark-mode.js** – Implements dark mode functionality across the site.
@@ -46,8 +47,10 @@ This repository contains Rhythm Desai's personal portfolio website. It showcases
   - **scroll.js** – Implements shared scroll functionality across project pages.
   - **smartshuttle.js** – Specific JavaScript for the SmartShuttle project page.
   - **templates.js** – Injects the shared header and footer into each page.
-  - **manifest.json** – Web app manifest file for PWA features.
+- **manifest.json** – Web app manifest (fallback with all icons).
+- **manifest-light.json** – Web app manifest with light-mode icons.
+- **manifest-dark.json** – Web app manifest with dark-mode icons.
 - **Pokemon GB.ttf** – Custom font file.
-- **service-worker.js** – Service worker for offline functionality.
+- **service-worker.js** – Service worker for offline caching and PWA support.
 - **SmartShuttle.html** – Project page for a campus shuttle tracking concept.
 - **Twine/** – Published Twine HTML stories.
