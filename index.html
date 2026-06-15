@@ -23,9 +23,13 @@
 
   <title>Portfolio - Rhythm Desai</title>
   <link rel="icon" href="images/favicon.ico" type="image/x-icon">
-  <link rel="manifest" href="manifest.json">
-  <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+  <link rel="manifest" href="manifest-light.json" media="(prefers-color-scheme: light)">
+  <link rel="manifest" href="manifest-dark.json" media="(prefers-color-scheme: dark)">
+  <script>
+    (function () { var d = window.matchMedia('(prefers-color-scheme:dark)').matches; var m = document.createElement('link'); m.rel = 'manifest'; m.href = d ? 'manifest-dark.json' : 'manifest-light.json'; document.head.appendChild(m); window.matchMedia('(prefers-color-scheme:dark)').addEventListener('change', function (e) { document.querySelectorAll('link[rel=manifest]:not([media])').forEach(function (l) { l.href = e.matches ? 'manifest-dark.json' : 'manifest-light.json' }) }) })();
+  </script>
   <link rel="apple-touch-icon" media="(prefers-color-scheme: dark)" href="images/dark-apple-touch-icon.png">
+  <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
 
   <!-- Preconnect for external resources -->
   <link rel="preconnect" href="https://fonts.googleapis.com">

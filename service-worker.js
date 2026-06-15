@@ -2,6 +2,8 @@ const CACHE_NAME = 'portfolio-v2.0';
 const urlsToCache = [
   '/Portfolio/',
   '/Portfolio/manifest.json',
+  '/Portfolio/manifest-light.json',
+  '/Portfolio/manifest-dark.json',
   '/Portfolio/index.html',
   '/Portfolio/Financier.html',
   '/Portfolio/SmartShuttle.html',
