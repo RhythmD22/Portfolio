@@ -34,13 +34,14 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100..900;1,100..900&family=VT323&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/project.css">
   <link rel="stylesheet" href="css/financier.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@6.1/dist/fancybox/fancybox.min.css">
   <script src="js/dark-mode.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@6.1/dist/fancybox/fancybox.umd.min.js" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
-  <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.8.11/dist/dotlottie-wc.js" type="module"></script>
+  <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.9.14/dist/dotlottie-wc.js" type="module"></script>
 </head>
 
 <body>
@@ -308,7 +309,7 @@
 
     <div class="features-container">
       <div class="video-container">
-        <video class="feature-video" preload="auto" muted playsinline loop autoplay>
+        <video class="feature-video" preload="none" muted playsinline loop autoplay>
           <source src="images/Financier/Goals.mov" type="video/quicktime">
           Your browser does not support the video tag.
         </video>
@@ -318,7 +319,7 @@
         unique financial goals they can track and complete on their own time.</p>
 
       <div class="video-container">
-        <video class="feature-video" preload="auto" muted playsinline loop autoplay>
+        <video class="feature-video" preload="none" muted playsinline loop autoplay>
           <source src="images/Financier/Transactions.mov" type="video/quicktime">
           Your browser does not support the video tag.
         </video>
@@ -328,7 +329,7 @@
         deductions.</p>
 
       <div class="video-container">
-        <video class="feature-video" preload="auto" muted playsinline loop autoplay>
+        <video class="feature-video" preload="none" muted playsinline loop autoplay>
           <source src="images/Financier/Analytics.mov" type="video/quicktime">
           Your browser does not support the video tag.
         </video>
@@ -477,7 +478,8 @@
   <script src="js/templates.js"></script>
   <script src="js/navigation.js"></script>
   <script src="js/scroll.js"></script>
-  <script src="js/financier.js"></script>
+  <script src="js/chart-utils.js" defer></script>
+  <script src="js/financier.js" defer></script>
   <script src="js/nav-bubble.js"></script>
   <script src="js/clock.js"></script>
 </body>

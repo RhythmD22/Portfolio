@@ -1,4 +1,3 @@
-// Service Worker for Rhythm Desai's Portfolio
 const CACHE_NAME = 'portfolio-v2.0';
 const urlsToCache = [
   '/Portfolio/',
@@ -10,6 +9,7 @@ const urlsToCache = [
   '/Portfolio/header.html',
   '/Portfolio/footer.html',
   '/Portfolio/css/styles.css',
+  '/Portfolio/css/project.css',
   '/Portfolio/css/index.css',
   '/Portfolio/css/work.css',
   '/Portfolio/css/about.css',
@@ -18,6 +18,7 @@ const urlsToCache = [
   '/Portfolio/css/clashroyale.css',
   '/Portfolio/css/resume.css',
   '/Portfolio/css/apps.css',
+  '/Portfolio/js/chart-utils.js',
   '/Portfolio/js/apps.js',
   '/Portfolio/js/index.js',
   '/Portfolio/js/financier.js',
@@ -56,58 +57,35 @@ const urlsToCache = [
 
 self.addEventListener('install', event => {
   event.waitUntil(
-    caches.open(CACHE_NAME)
-      .then(cache => {
-        console.log('Caches opened');
-        return cache.addAll(urlsToCache);
-      })
-      .catch(err => {
-        console.error('Failed to cache assets', err);
-      })
+    caches.open(CACHE_NAME).then(cache => {
+      return Promise.allSettled(
+        urlsToCache.map(url =>
+          fetch(url, { credentials: 'same-origin' }).then(response => {
+            if (response.ok) return cache.put(url, response);
+          })
+        )
+      );
+    })
   );
 });
 
 self.addEventListener('fetch', event => {
-  // Skip cross-origin requests
   if (!event.request.url.startsWith(self.location.origin)) return;
 
-  // Skip media files and range requests to prevent Safari "reloaded because a problem occurred" error
-  if (event.request.url.match(/\.(mp4|mov|webm|ogg|mp3|wav|flac|aac)$/i) || event.request.headers.get('range')) {
+  if (event.request.url.match(/\.(mp4|mov|webm|ogg|mp3|wav|flac|aac|gif)$/i) || event.request.headers.get('range')) {
     return;
   }
 
   event.respondWith(
-    caches.match(event.request)
-      .then(response => {
-        // Return cached version if available
-        if (response) {
-          return response;
+    caches.match(event.request).then(cached => {
+      if (cached) return cached;
+
+      return fetch(event.request).catch(() => {
+        if (event.request.mode === 'navigate') {
+          return caches.match('/Portfolio/index.html');
         }
-
-        // Otherwise, fetch from network
-        return fetch(event.request).then(
-          response => {
-            // Check if we received a valid response
-            if (!response || response.status !== 200 || response.type !== 'basic') {
-              return response;
-            }
-
-            // Clone the response to store in cache
-            const responseToCache = response.clone();
-
-            return caches.open(CACHE_NAME)
-              .then(cache => {
-                return cache.put(event.request, responseToCache);
-              })
-              .then(() => response);
-          }
-        ).catch(() => {
-          // Serve cached index.html for navigation requests when offline
-          if (event.request.mode === 'navigate') {
-            return caches.match('/Portfolio/index.html');
-          }
-        });
-      })
+      });
+    })
   );
 });
 
@@ -116,10 +94,7 @@ self.addEventListener('activate', event => {
     caches.keys().then(cacheNames => {
       return Promise.all(
         cacheNames.map(cacheName => {
-          if (cacheName !== CACHE_NAME) {
-            console.log('Deleting old cache:', cacheName);
-            return caches.delete(cacheName);
-          }
+          if (cacheName !== CACHE_NAME) return caches.delete(cacheName);
         })
       );
     })
