@@ -1,3 +1,5 @@
+window.isProjectPage = ['Financier', 'SmartShuttle', 'Clash'].some(p => window.location.pathname.includes(p));
+
 window.isIndexPage = ['index.html', '', '/', 'index'].some(path =>
   window.location.pathname.endsWith(path) || (path === '' && window.location.pathname === '/')
 );

@@ -11,8 +11,13 @@ function updateClock() {
   const parts = new Intl.DateTimeFormat('en-US', options).formatToParts(now);
   const find = type => parts.find(p => p.type === type).value;
 
-  el.innerHTML = `${isDay ? sun : moon} ${find('weekday')}, ${find('month')} ${find('day')} ${find('hour')}:${find('minute')}:${find('second')} EST`;
+  const html = `${isDay ? sun : moon} ${find('weekday')}, ${find('month')} ${find('day')} ${find('hour')}:${find('minute')}:${find('second')} EST`;
+  if (el.innerHTML !== html) el.innerHTML = html;
 }
 
-setInterval(updateClock, 1000);
+var clockInterval = setInterval(updateClock, 1000);
 updateClock();
+
+window.addEventListener('pagehide', () => {
+  clearInterval(clockInterval);
+});

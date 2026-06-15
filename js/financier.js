@@ -1,47 +1,3 @@
-const getChartOptions = (isDark) => {
-  const textColor = isDark ? '#f0f0f0' : '#333';
-  const gridColor = isDark ? 'rgba(255, 255, 255, 0.2)' : 'rgba(0, 0, 0, 0.1)';
-  const tickColor = isDark ? '#f0f0f0' : '#666';
-
-  const base = {
-    responsive: true,
-    maintainAspectRatio: true,
-    plugins: {
-      legend: { position: 'top', labels: { color: textColor, font: { size: 14 } } },
-      title: { display: false }
-    }
-  };
-
-  return {
-    bar: {
-      ...base,
-      scales: {
-        y: { beginAtZero: true, ticks: { stepSize: 1, color: tickColor, font: { size: 12 } }, grid: { color: gridColor } },
-        x: { ticks: { maxRotation: 45, minRotation: 0, color: tickColor, font: { size: 12 } }, grid: { color: gridColor } }
-      }
-    },
-    pie: base,
-    horizontal: {
-      ...base,
-      indexAxis: 'y',
-      scales: {
-        x: { beginAtZero: true, ticks: { stepSize: 1, color: tickColor, font: { size: 12 } }, grid: { color: gridColor } },
-        y: { ticks: { color: tickColor, font: { size: 12 } }, grid: { color: gridColor } }
-      }
-    },
-    stacked: {
-      ...base,
-      scales: {
-        x: { stacked: true, ticks: { color: tickColor, font: { size: 12 } }, grid: { color: gridColor } },
-        y: {
-          stacked: true, min: 0, max: 4, ticks: { color: tickColor, font: { size: 12 } }, grid: { color: gridColor },
-          title: { display: true, text: 'Relative Emphasis (1–3 scale)', color: textColor }
-        }
-      }
-    }
-  };
-};
-
 function updateCharts() {
   const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
   const opts = getChartOptions(isDark);
@@ -54,11 +10,6 @@ function updateCharts() {
 function initCharts() {
   const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
   const opts = getChartOptions(isDark);
-
-  const createChart = (id, type, data, options) => {
-    const el = document.getElementById(id);
-    if (el) return new Chart(el.getContext('2d'), { type, data, options });
-  };
 
   window.mealPlanChart = createChart('mealPlanChart', 'pie', {
     labels: ['Have Meal Plan', 'No Meal Plan'],
@@ -108,17 +59,21 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  const videoObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      const video = entry.target;
+      videoObserver.unobserve(video);
+      video.load();
+      video.play().catch(() => { });
+    });
+  }, { rootMargin: '200px' });
+
   document.querySelectorAll('.feature-video').forEach(video => {
     video.controls = false;
-    video.addEventListener('loadeddata', () => video.play().catch(() => {
-      video.muted = true;
-      video.play().catch(e => console.log('Autoplay failed:', e));
-    }));
+    videoObserver.observe(video);
   });
 
   initCharts();
-
-  new MutationObserver(mutations => {
-    if (mutations.some(m => m.attributeName === 'data-theme')) updateCharts();
-  }).observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+  observeThemeChanges(updateCharts);
 });
