@@ -4,13 +4,20 @@ const LONG_PRESS_DURATION = 1000;
 const OBSERVER_THRESHOLD = 0.3;
 
 function typeText(element, text, callback) {
+  if (element._typingTimer) {
+    clearTimeout(element._typingTimer);
+    element._typingTimer = null;
+  }
   let i = 0;
   element.textContent = '';
   const type = () => {
     if (i < text.length) {
       element.textContent += text.charAt(i++);
-      setTimeout(type, TYPING_SPEED);
-    } else callback?.();
+      element._typingTimer = setTimeout(type, TYPING_SPEED);
+    } else {
+      element._typingTimer = null;
+      callback?.();
+    }
   };
   type();
 }
@@ -214,17 +221,18 @@ function setupAnimationEvents(profileAnimation) {
 function initVideoHoverControl() {
   const projectsSection = document.querySelector('.projects-section');
   const thumbnails = document.querySelectorAll('.project-thumbnail');
+  const projectElements = document.querySelectorAll('.project');
 
   let activeMobileProject = null;
+  let hoveredProject = null;
+  let rAFId = null;
 
   const isProjectActive = (project) => {
     if (window.innerWidth <= 900) {
       return project === activeMobileProject;
     }
-    const isHovered = project.matches(':hover');
-    const isDefault = project.classList.contains('default-animation');
-    const anyHovered = Array.from(document.querySelectorAll('.project')).some(p => p.matches(':hover'));
-    return isHovered || (isDefault && !anyHovered);
+    return project === hoveredProject ||
+      (hoveredProject === null && project.classList.contains('default-animation'));
   };
 
   const updateMedia = () => {
@@ -252,7 +260,6 @@ function initVideoHoverControl() {
             el.pause();
           }
           el.classList.remove('is-playing');
-          // Delay resetting currentTime until the fade-out transition is complete
           setTimeout(() => {
             if (!isProjectActive(project)) {
               el.currentTime = 0;
@@ -260,7 +267,6 @@ function initVideoHoverControl() {
           }, 300);
         }
       } else {
-        // CSS Animation (SmartShuttle) - IMMEDIATE RESET
         if (active) {
           project.classList.add('is-animating');
           el.classList.remove('reset-animation');
@@ -272,23 +278,19 @@ function initVideoHoverControl() {
     });
   };
 
+  const scheduleUpdate = () => {
+    if (rAFId) return;
+    rAFId = requestAnimationFrame(() => {
+      rAFId = null;
+      updateMedia();
+    });
+  };
+
   thumbnails.forEach(el => {
     if (el.tagName === 'VIDEO') {
       el.addEventListener('ended', () => {
         const project = el.closest('.project');
-        if (isProjectActive(project)) {
-          if (el.src.includes('Financier')) {
-            if (el._playTimeout) clearTimeout(el._playTimeout);
-            el._playTimeout = setTimeout(() => {
-              el._playTimeout = null;
-              if (isProjectActive(project)) {
-                el.play().catch(() => { });
-              }
-            }, 2000); // 2 second delay to spread out loops for Financier only
-          } else {
-            el.play().catch(() => { });
-          }
-        } else {
+        if (!isProjectActive(project)) {
           el.pause();
           el.classList.remove('is-playing');
           setTimeout(() => {
@@ -296,14 +298,45 @@ function initVideoHoverControl() {
               el.currentTime = 0;
             }
           }, 300);
+          return;
+        }
+
+        if (el._replayGuard) return;
+        el._replayGuard = true;
+
+        if (el.src.includes('Financier')) {
+          if (el._playTimeout) clearTimeout(el._playTimeout);
+          el._playTimeout = setTimeout(() => {
+            el._playTimeout = null;
+            el._replayGuard = false;
+            if (isProjectActive(project)) {
+              el.play().catch(() => { });
+            }
+          }, 2000);
+        } else {
+          setTimeout(() => {
+            el._replayGuard = false;
+            if (isProjectActive(project)) {
+              el.play().catch(() => { });
+            }
+          }, 100);
         }
       });
     }
   });
 
   if (projectsSection) {
-    ['mouseenter', 'mouseleave', 'mouseover', 'mouseout'].forEach(evt => {
-      projectsSection.addEventListener(evt, updateMedia, evt.includes('leave') || evt.includes('enter'));
+    projectElements.forEach(project => {
+      project.addEventListener('mouseenter', () => {
+        hoveredProject = project;
+        scheduleUpdate();
+      });
+      project.addEventListener('mouseleave', () => {
+        if (hoveredProject === project) {
+          hoveredProject = null;
+          scheduleUpdate();
+        }
+      });
     });
 
     const observerOptions = {
@@ -332,11 +365,11 @@ function initVideoHoverControl() {
 
         if (activeMobileProject !== closestProject) {
           activeMobileProject = closestProject;
-          updateMedia();
+          scheduleUpdate();
         }
       } else if (activeMobileProject !== null) {
         activeMobileProject = null;
-        updateMedia();
+        scheduleUpdate();
       }
     };
 
@@ -352,15 +385,9 @@ function initVideoHoverControl() {
       updateActiveMobileProject();
     }, observerOptions);
 
-    document.querySelectorAll('.project').forEach(p => mobileObserver.observe(p));
+    projectElements.forEach(p => mobileObserver.observe(p));
 
-    window.addEventListener('scroll', () => {
-      if (window.innerWidth <= 900) {
-        updateActiveMobileProject();
-      }
-    }, { passive: true });
-
-    updateMedia();
+    scheduleUpdate();
   }
 }
 

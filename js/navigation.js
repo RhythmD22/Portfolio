@@ -60,6 +60,7 @@ function initializeHamburgerMenu() {
   const pillHomeLink = document.querySelector('.header-content-pill .portfolio-icon-link');
   let scrollThrottle = false;
   window.isNavigating = false;
+  let scrollRAF = null;
 
   function handleScroll() {
     if (!window.isIndexPage || !workSection || window.isNavigating) return;
@@ -67,31 +68,35 @@ function initializeHamburgerMenu() {
     const isSPAActive = ['#resume', '#about', '#apps'].includes(window.location.hash);
     if (isSPAActive) return;
 
-    const currentScroll = window.scrollY || window.pageYOffset;
-    const shouldBeWork = currentScroll >= workSection.offsetTop - 142;
-    const isCurrentlyWork = window.location.hash === '#work';
+    if (scrollRAF) return;
+    scrollRAF = requestAnimationFrame(() => {
+      scrollRAF = null;
+      const currentScroll = window.scrollY || window.pageYOffset;
+      const shouldBeWork = currentScroll >= workSection.offsetTop - 142;
+      const isCurrentlyWork = window.location.hash === '#work';
 
-    if (shouldBeWork) {
-      workLink?.classList.add('active');
-      pillWorkLink?.classList.add('active');
-      pillHomeLink?.classList.remove('active');
-      if (typeof updateBubble === 'function' && pillWorkLink) updateBubble(pillWorkLink);
-      if (!isCurrentlyWork && !scrollThrottle) {
-        history.replaceState(null, '', '#work');
-        scrollThrottle = true;
-        setTimeout(() => scrollThrottle = false, 500);
+      if (shouldBeWork) {
+        workLink?.classList.add('active');
+        pillWorkLink?.classList.add('active');
+        pillHomeLink?.classList.remove('active');
+        if (typeof updateBubble === 'function' && pillWorkLink) updateBubble(pillWorkLink);
+        if (!isCurrentlyWork && !scrollThrottle) {
+          history.replaceState(null, '', '#work');
+          scrollThrottle = true;
+          setTimeout(() => scrollThrottle = false, 500);
+        }
+      } else {
+        workLink?.classList.remove('active');
+        pillWorkLink?.classList.remove('active');
+        pillHomeLink?.classList.add('active');
+        if (typeof updateBubble === 'function' && pillHomeLink) updateBubble(pillHomeLink);
+        if (isCurrentlyWork && !scrollThrottle) {
+          history.replaceState(null, '', '#home');
+          scrollThrottle = true;
+          setTimeout(() => scrollThrottle = false, 500);
+        }
       }
-    } else {
-      workLink?.classList.remove('active');
-      pillWorkLink?.classList.remove('active');
-      pillHomeLink?.classList.add('active');
-      if (typeof updateBubble === 'function' && pillHomeLink) updateBubble(pillHomeLink);
-      if (isCurrentlyWork && !scrollThrottle) {
-        history.replaceState(null, '', '#home');
-        scrollThrottle = true;
-        setTimeout(() => scrollThrottle = false, 500);
-      }
-    }
+    });
   }
 
   if (window.isIndexPage) {
