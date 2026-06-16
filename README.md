@@ -1,56 +1,153 @@
 # Portfolio
 
-This repository contains Rhythm Desai's personal portfolio website. It showcases design and front-end projects.
+> Personal portfolio — design and front-end projects by Rhythm Desai.
+
+[![PWA Ready](https://img.shields.io/badge/PWA-ready-brightgreen)](#progressive-web-app-pwa-support)
+[![GitHub Pages](https://img.shields.io/badge/demo-GitHub%20Pages-blue)](https://rhythmd22.github.io/Portfolio/)
+
+---
+
+## Table of Contents
+
+- [Features](#features)
+- [Demo](#demo)
+- [Install](#install)
+- [Architecture](#architecture)
+- [Tech Stack](#tech-stack)
+- [Getting Started](#getting-started)
+- [PWA Support](#progressive-web-app-pwa-support)
+
+---
+
+## Features
+
+| Feature | Description |
+|---------|------------|
+| Project Showcase | Case-study pages for UI/UX and development projects with videos, images, and write-ups |
+| App Directory | Interactive card grid with live demos of web apps (Financier, Magnate, SmartShuttle, AI Debate Club) |
+| Twine Games | Two interactive fiction games built in Twine with custom-programmed minigames |
+| Dark Mode | Auto-detects system preference with persistent toggle across all pages |
+| Responsive Design | Mobile-optimized layout with swipe-friendly navigation and hamburger menu |
+| PWA Installable | Add to home screen for a native app experience with offline support |
+| Resume | Embedded Google Doc viewer with PDF download link |
+
+---
+
+## Demo
+
+Live GitHub Pages deployment:  
+[https://rhythmd22.github.io/Portfolio/](https://rhythmd22.github.io/Portfolio/)
+
+---
+
+## Install
+
+```bash
+git clone https://github.com/rhythmd22/Portfolio.git
+cd Portfolio
+```
+
+Then serve the directory with any static web server:
+
+```bash
+python3 -m http.server
+```
+
+Open `http://localhost:8000` in your browser. You can also open `index.html` directly.
+
+---
+
+## Architecture
+
+```
+Portfolio/
+├── index.html                     # Home page (bio, projects, apps, about, resume)
+├── Financier.html                 # Financier project case study
+├── SmartShuttle.html              # SmartShuttle project case study
+├── Clash Royale Redesign.html     # Clash Royale project case study
+├── header.html                    # Shared header snippet (injected via JS)
+├── footer.html                    # Shared footer snippet (injected via JS)
+├── css/
+│   ├── styles.css                 # Shared reset, variables, layout
+│   ├── index.css                  # Home page styles
+│   ├── work.css                   # Project cards and thumbnail styles
+│   ├── apps.css                   # App directory card styles
+│   ├── resume.css                 # Resume embed styles
+│   ├── about.css                  # About section styles
+│   ├── project.css                # Shared project page styles
+│   ├── financier.css              # Financier project styles
+│   ├── smartshuttle.css           # SmartShuttle project styles
+│   └── clashroyale.css            # Clash Royale project styles
+├── js/
+│   ├── templates.js               # Injects shared header/footer into pages
+│   ├── navigation.js              # SPA-style page navigation
+│   ├── nav-bubble.js              # Navigation pill hover effect
+│   ├── dark-mode.js               # System-aware dark mode with toggle
+│   ├── scroll.js                  # Scroll animations and effects
+│   ├── clock.js                   # Real-time footer clock
+│   ├── index.js                   # Home page interactivity
+│   ├── apps.js                    # App card expand/collapse logic
+│   ├── financier.js               # Financier page interactivity
+│   ├── smartshuttle.js            # SmartShuttle page interactivity
+│   └── clashroyale.js             # Clash Royale page interactivity
+├── images/                        # Global icons, profile images, and project assets
+├── Twine/                         # Published Twine HTML stories
+├── manifest.json                  # PWA manifest (fallback)
+├── manifest-light.json            # PWA manifest (light mode icons)
+├── manifest-dark.json             # PWA manifest (dark mode icons)
+└── service-worker.js              # Offline caching and PWA support
+```
+
+The site is a multi-page HTML application. The header and footer are injected via `templates.js` for consistency across pages. Navigation is handled client-side by `navigation.js`, which shows/hides page sections using `display` toggles. Dark mode is managed by `dark-mode.js` with `localStorage` persistence. Project pages load their own dedicated CSS and JS files.
+
+---
+
+## Tech Stack
+
+| Layer | Technology |
+|-------|-----------|
+| Core | HTML5, CSS3, JavaScript (ES6+) |
+| Fonts | [Inter](https://fonts.google.com/specimen/Inter), [VT323](https://fonts.google.com/specimen/VT323) |
+| Icons | [Font Awesome 7](https://fontawesome.com) (CDN) |
+| Animation | [dotLottie Web Component](https://github.com/dotlottie/dotlottie-web) |
+| Analytics | Google Analytics (gtag) |
+| Hosting | GitHub Pages |
+| PWA | Service Worker API, Web App Manifest |
+
+---
 
 ## Getting Started
 
-1. Clone this repository.
-2. Launch a local web server from the project directory:
-   `python3 -m http.server`
-   Then open <http://localhost:8000/index.html> in your browser. You can also open `index.html` directly without a server.
-3. You can also view the portfolio online at <https://rhythmd22.github.io/Portfolio/>.
+### Prerequisites
 
-## Directory Overview
+- A modern web browser (Chrome, Firefox, Safari, Edge)
+- Python 3 (optional, for running a local server)
 
-- **Clash Royale Redesign.html** – Project page for a UI/UX redesign of the Clash Royale app.
-- **css/** – Directory containing all CSS files.
-  - **about.css** – Specific styling for the About page.
-  - **apps.css** – Specific styling for the Apps page.
-  - **clashroyale.css** – Specific styling for the Clash Royale project page.
-  - **financier.css** – Specific styling for the Financier project page.
-  - **index.css** – Specific styling for the home page.
-  - **project.css** – Shared styling for project pages.
-  - **resume.css** – Specific styling for the resume page.
-  - **smartshuttle.css** – Specific styling for the SmartShuttle project page.
-  - **styles.css** – Shared styling for all pages.
-  - **work.css** – Specific styling for the work page.
-- **Financier.html** – Project page for a college budgeting web app.
-- **footer.html** – Shared footer snippet included on each page.
-- **header.html** – Shared header snippet included on each page.
-- **images/** – Directory containing all media assets.
-  - **Apps/** – Assets related to application projects.
-  - **Clash Royale/** – Project assets for Clash Royale Redesign.
-  - **Financier/** – Project assets for Financier.
-  - **SmartShuttle/** – Project assets for SmartShuttle.
-  - Global icons and branding images (favicon, touch icons, profile images).
-- **index.html** – Home page with a short bio and site navigation.
-- **js/** – Directory containing all JavaScript files.
-  - **apps.js** – Specific JavaScript for the Apps page.
-  - **chart-utils.js** – Shared Chart.js utilities for Financier and other pages.
-  - **clashroyale.js** – Specific JavaScript for the Clash Royale project page.
-  - **clock.js** – Displays a real-time clock in the footer.
-  - **dark-mode.js** – Implements dark mode functionality across the site.
-  - **financier.js** – Specific JavaScript for the Financier project page.
-  - **index.js** – Specific JavaScript for the home page.
-  - **nav-bubble.js** – Implements the navigation pill bubble effect.
-  - **navigation.js** – Implements shared navigation functionality.
-  - **scroll.js** – Implements shared scroll functionality across project pages.
-  - **smartshuttle.js** – Specific JavaScript for the SmartShuttle project page.
-  - **templates.js** – Injects the shared header and footer into each page.
-- **manifest.json** – Web app manifest (fallback with all icons).
-- **manifest-light.json** – Web app manifest with light-mode icons.
-- **manifest-dark.json** – Web app manifest with dark-mode icons.
-- **Pokemon GB.ttf** – Custom font file.
-- **service-worker.js** – Service worker for offline caching and PWA support.
-- **SmartShuttle.html** – Project page for a campus shuttle tracking concept.
-- **Twine/** – Published Twine HTML stories.
+### Local Setup
+
+1. Clone the repository
+2. Start a local server from the project directory:
+   ```bash
+   python3 -m http.server
+   ```
+3. Open `http://localhost:8000` in your browser
+
+No dependencies to install, no build steps required.
+
+---
+
+## Progressive Web App (PWA) Support
+
+The portfolio can be installed on mobile devices:
+
+1. On iOS, open [https://rhythmd22.github.io/Portfolio/](https://rhythmd22.github.io/Portfolio/) in Safari
+2. Tap **Share** → **Add to Home Screen**
+3. The app launches in standalone full-screen mode with offline support
+
+Manifests include both light and dark mode variants. The service worker caches static assets for offline access.
+
+---
+
+## License
+
+MIT © [Rhythm Desai](LICENSE)
