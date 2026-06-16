@@ -1,209 +1,209 @@
 @font-face {
-    font-family: 'Pokemon GB';
-    src: url('../Pokemon GB.ttf') format('truetype');
+  font-family: 'Pokemon GB';
+  src: url('../Pokemon GB.ttf') format('truetype');
 }
 
 :root {
-    --apps-footer-margin: 6.2vh;
+  --apps-footer-margin: 6.2vh;
 }
 
 @media (min-width: 769px) {
-    #apps {
-        padding-top: 0.35rem;
-    }
+  #apps {
+    padding-top: 0.35rem;
+  }
 }
 
 .card-container {
-    display: flex;
-    gap: 10px;
-    height: 500px;
-    padding: 20px 100px 80px 100px;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    font-family: 'Pokemon GB', sans-serif;
+  display: flex;
+  gap: 10px;
+  height: 500px;
+  padding: 20px 100px 80px 100px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  font-family: 'Pokemon GB', sans-serif;
 }
 
 body.apps-page .site-footer {
-    margin-top: var(--apps-footer-margin);
+  margin-top: var(--apps-footer-margin);
 }
 
 .card-container .app-card:first-child {
-    background-image: linear-gradient(to right, #1e40af, #3b82f6) !important;
-    background-color: #1e40af;
-    color: white;
+  background-image: linear-gradient(to right, #1e40af, #3b82f6) !important;
+  background-color: #1e40af;
+  color: white;
 }
 
 .card-container .app-card:nth-child(2) {
-    background-image: linear-gradient(to right, #172554, #2952c2) !important;
-    background-color: #172554;
-    color: white;
+  background-image: linear-gradient(to right, #172554, #2952c2) !important;
+  background-color: #172554;
+  color: white;
 }
 
 .card-container .app-card:nth-child(3) {
-    background-image: linear-gradient(to right, #4338ca, #6863e6) !important;
-    background-color: #4338ca;
-    color: white;
+  background-image: linear-gradient(to right, #4338ca, #6863e6) !important;
+  background-color: #4338ca;
+  color: white;
 }
 
 .card-container .app-card:nth-child(4) {
-    background-image: linear-gradient(to right, #475569, #064e3b) !important;
-    background-color: #475569;
-    color: white;
+  background-image: linear-gradient(to right, #475569, #064e3b) !important;
+  background-color: #475569;
+  color: white;
 }
 
 .card-container .app-card:nth-child(5) {
-    background-image: linear-gradient(to right, #475569, #38bdf8) !important;
-    background-color: #475569;
-    color: white;
+  background-image: linear-gradient(to right, #475569, #38bdf8) !important;
+  background-color: #475569;
+  color: white;
 }
 
 .card-container .app-card:nth-child(6) {
-    background-image: linear-gradient(to right, #881337, #f59e0b) !important;
-    background-color: #881337;
-    color: white;
+  background-image: linear-gradient(to right, #881337, #f59e0b) !important;
+  background-color: #881337;
+  color: white;
 }
 
 .app-card {
-    flex: 0 0 250px;
-    background: rgba(0, 0, 0, 0.05);
-    border: 1px solid var(--border-color);
-    border-radius: 20px;
-    transition: flex 0.5s ease, background 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-    cursor: pointer;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-    overflow: visible;
-    text-align: center;
-    font-family: 'Pokemon GB', sans-serif;
-    position: relative;
-    box-shadow:
-        0 4px 20px rgba(0, 0, 0, 0.08),
-        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  flex: 0 0 250px;
+  background: rgba(0, 0, 0, 0.05);
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  transition: flex 0.5s ease, background 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  overflow: visible;
+  text-align: center;
+  font-family: 'Pokemon GB', sans-serif;
+  position: relative;
+  box-shadow:
+    0 4px 20px rgba(0, 0, 0, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
 }
 
 .app-card::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    border-radius: 20px;
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.18) 0%, transparent 55%);
-    pointer-events: none;
-    z-index: 1;
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.18) 0%, transparent 55%);
+  pointer-events: none;
+  z-index: 1;
 }
 
 .app-link {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    color: white;
-    font-size: 1rem;
-    z-index: 20;
-    transition: transform 0.3s ease, color 0.3s ease;
-    text-decoration: none;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  color: white;
+  font-size: 1rem;
+  z-index: 20;
+  transition: transform 0.3s ease, color 0.3s ease;
+  text-decoration: none;
 }
 
 .app-link:hover {
-    transform: scale(1.2);
-    color: rgba(255, 255, 255, 0.8);
+  transform: scale(1.2);
+  color: rgba(255, 255, 255, 0.8);
 }
 
 .app-icon {
-    width: 200px;
-    height: 200px;
-    object-fit: contain;
-    transition: opacity 0.3s ease, transform 0.3s ease;
+  width: 200px;
+  height: 200px;
+  object-fit: contain;
+  transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
 .app-name-in-card {
-    display: none;
+  display: none;
 }
 
 .app-card.expanded .app-name-in-card {
-    display: block;
-    position: absolute;
-    top: 195px;
-    left: 45px;
-    width: 180px;
-    text-align: center;
-    font-size: 0.6rem;
-    color: white;
-    font-family: 'Pokemon GB', sans-serif;
-    pointer-events: none;
-    line-height: 1.4;
-    z-index: 5;
+  display: block;
+  position: absolute;
+  top: 195px;
+  left: 45px;
+  width: 180px;
+  text-align: center;
+  font-size: 0.6rem;
+  color: white;
+  font-family: 'Pokemon GB', sans-serif;
+  pointer-events: none;
+  line-height: 1.4;
+  z-index: 5;
 }
 
 .app-card.smartshuttle-card.expanded .app-name-in-card {
-    top: 210px;
+  top: 210px;
 }
 
 .app-card.smartshuttle-card .app-icon {
-    transform: scale(1.1);
+  transform: scale(1.1);
 }
 
 .pixel-arrow {
-    display: none;
-    position: absolute;
-    bottom: 25px;
-    right: 35px;
-    width: 24px;
-    height: 24px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    z-index: 30;
-    padding: 0;
-    transition: transform 0.2s ease;
+  display: none;
+  position: absolute;
+  bottom: 25px;
+  right: 35px;
+  width: 24px;
+  height: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 30;
+  padding: 0;
+  transition: transform 0.2s ease;
 }
 
 .pixel-arrow img {
-    width: 100%;
-    height: 100%;
-    image-rendering: pixelated;
+  width: 100%;
+  height: 100%;
+  image-rendering: pixelated;
 }
 
 .app-card.expanded .pixel-arrow {
-    display: block;
+  display: block;
 }
 
 .pixel-arrow:hover {
-    transform: scale(1.1);
+  transform: scale(1.1);
 }
 
 .page-2-content {
-    display: none;
-    width: 100%;
-    height: 100%;
-    background-color: #ffffff;
-    border-radius: 20px;
-    padding: 45px;
-    box-sizing: border-box;
-    overflow-y: auto;
+  display: none;
+  width: 100%;
+  height: 100%;
+  background-color: #ffffff;
+  border-radius: 20px;
+  padding: 45px;
+  box-sizing: border-box;
+  overflow-y: auto;
 }
 
 .insight-heading {
-    font-size: 0.8rem;
-    color: #1a1a1a;
-    margin-bottom: 20px;
-    text-transform: uppercase;
+  font-size: 0.8rem;
+  color: #1a1a1a;
+  margin-bottom: 20px;
+  text-transform: uppercase;
 }
 
 .insight-text {
-    font-style: italic;
-    font-size: 0.7rem;
-    line-height: 1.6;
-    color: #333;
-    margin-bottom: 20px;
-    text-align: left;
+  font-style: italic;
+  font-size: 0.7rem;
+  line-height: 1.6;
+  color: #333;
+  margin-bottom: 20px;
+  text-align: left;
 }
 
 .insight-attribution {
-    font-size: 0.7rem;
-    color: #1a1a1a;
-    text-align: left;
+  font-size: 0.7rem;
+  color: #1a1a1a;
+  text-align: left;
 }
 
 /* When showing page 2, hide all page 1 elements */
@@ -212,382 +212,382 @@ body.apps-page .site-footer {
 .app-card.show-page-2 .app-name-in-card,
 .app-card.show-page-2 .app-attributes,
 .app-card.show-page-2 .content {
-    display: none !important;
+  display: none !important;
 }
 
 .app-card.show-page-2 .page-2-content {
-    display: block;
+  display: block;
 }
 
 .app-card.twine-card.expanded .app-name-in-card {
-    top: 185px;
+  top: 185px;
 }
 
 .app-card.expanded .app-icon {
-    position: absolute;
-    top: 20px;
-    left: 45px;
-    width: 180px;
-    height: 180px;
-    display: block;
+  position: absolute;
+  top: 20px;
+  left: 45px;
+  width: 180px;
+  height: 180px;
+  display: block;
 }
 
 .app-attributes {
-    display: none;
+  display: none;
 }
 
 .app-card.expanded .app-attributes {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 350px;
-    height: 50%;
-    text-align: left;
-    gap: 15px;
-    padding-left: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 350px;
+  height: 50%;
+  text-align: left;
+  gap: 15px;
+  padding-left: 40px;
 }
 
 .attribute {
-    font-size: 0.6rem;
-    color: white;
-    line-height: 1.5;
-    text-transform: uppercase;
+  font-size: 0.6rem;
+  color: white;
+  line-height: 1.5;
+  text-transform: uppercase;
 }
 
 .attribute strong {
-    color: rgba(255, 255, 255, 0.7);
-    display: block;
-    margin-bottom: 2px;
+  color: rgba(255, 255, 255, 0.7);
+  display: block;
+  margin-bottom: 2px;
 }
 
 .app-card h3 {
-    margin: 0;
-    position: absolute;
-    top: calc(100% + 15px);
-    left: 50%;
-    transform: translateX(-50%);
-    width: 95%;
-    color: var(--text-color) !important;
-    font-size: 0.80rem;
-    transition: color 0.3s ease;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    white-space: nowrap;
-    pointer-events: none;
-    padding: 2px 0;
-    overflow: visible;
-    text-align: center;
-    line-height: 1.8;
+  margin: 0;
+  position: absolute;
+  top: calc(100% + 15px);
+  left: 50%;
+  transform: translateX(-50%);
+  width: 95%;
+  color: var(--text-color) !important;
+  font-size: 0.80rem;
+  transition: color 0.3s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  white-space: nowrap;
+  pointer-events: none;
+  padding: 2px 0;
+  overflow: visible;
+  text-align: center;
+  line-height: 1.8;
 }
 
 .app-card.expanded h3 {
-    width: 570px;
-    display: flex;
-    white-space: normal;
-    flex-wrap: wrap;
-    align-items: flex-start;
+  width: 570px;
+  display: flex;
+  white-space: normal;
+  flex-wrap: wrap;
+  align-items: flex-start;
 }
 
 
 .app-title {
-    display: inline-block;
-    max-width: 100%;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    line-height: 1.8;
+  display: inline-block;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  line-height: 1.8;
 }
 
 .app-card.expanded .app-title {
-    max-width: 100%;
-    text-overflow: clip;
-    white-space: normal;
+  max-width: 100%;
+  text-overflow: clip;
+  white-space: normal;
 }
 
 .app-desc {
-    max-width: 0;
-    opacity: 0;
-    visibility: hidden;
-    overflow: hidden;
-    white-space: nowrap;
-    font-weight: normal;
-    transition: max-width 0.5s ease, opacity 0.3s ease, visibility 0.3s;
-    line-height: 1.8;
+  max-width: 0;
+  opacity: 0;
+  visibility: hidden;
+  overflow: hidden;
+  white-space: nowrap;
+  font-weight: normal;
+  transition: max-width 0.5s ease, opacity 0.3s ease, visibility 0.3s;
+  line-height: 1.8;
 }
 
 .app-card.expanded .app-desc {
-    max-width: 600px;
-    opacity: 1;
-    visibility: visible;
-    transition: max-width 0.5s ease, opacity 0.4s ease 0.1s, visibility 0s;
-    margin-left: 5px;
-    white-space: normal;
+  max-width: 600px;
+  opacity: 1;
+  visibility: visible;
+  transition: max-width 0.5s ease, opacity 0.4s ease 0.1s, visibility 0s;
+  margin-left: 5px;
+  white-space: normal;
 }
 
 .app-card .content {
-    display: none;
+  display: none;
 }
 
 .app-card.expanded .content {
-    display: block;
-    position: absolute;
-    top: 55%;
-    left: 45px;
-    right: 45px;
-    bottom: 25px;
-    overflow-y: auto;
-    color: #1a1a1a;
-    font-size: 0.75rem;
-    line-height: 1.6;
-    text-align: left;
-    z-index: 10;
+  display: block;
+  position: absolute;
+  top: 55%;
+  left: 45px;
+  right: 45px;
+  bottom: 25px;
+  overflow-y: auto;
+  color: #1a1a1a;
+  font-size: 0.75rem;
+  line-height: 1.6;
+  text-align: left;
+  z-index: 10;
 }
 
 .app-card.expanded {
-    flex: 0 0 600px;
-    background-color: #ffffff !important;
-    background-size: 100% 50% !important;
-    background-position: top left !important;
-    background-origin: border-box !important;
-    background-repeat: no-repeat !important;
-    z-index: 5;
+  flex: 0 0 600px;
+  background-color: #ffffff !important;
+  background-size: 100% 50% !important;
+  background-position: top left !important;
+  background-origin: border-box !important;
+  background-repeat: no-repeat !important;
+  z-index: 5;
 }
 
 .card-container .app-card:first-child.expanded {
-    background-image: linear-gradient(to right, #1e40af, #3b82f6) !important;
+  background-image: linear-gradient(to right, #1e40af, #3b82f6) !important;
 }
 
 .card-container .app-card:nth-child(2).expanded {
-    background-image: linear-gradient(to right, #172554, #2952c2) !important;
+  background-image: linear-gradient(to right, #172554, #2952c2) !important;
 }
 
 .card-container .app-card:nth-child(3).expanded {
-    background-image: linear-gradient(to right, #4338ca, #6863e6) !important;
+  background-image: linear-gradient(to right, #4338ca, #6863e6) !important;
 }
 
 .card-container .app-card:nth-child(4).expanded {
-    background-image: linear-gradient(to right, #0f766e, #064e3b) !important;
+  background-image: linear-gradient(to right, #0f766e, #064e3b) !important;
 }
 
 .card-container .app-card:nth-child(5).expanded {
-    background-image: linear-gradient(to right, #475569, #38bdf8) !important;
+  background-image: linear-gradient(to right, #475569, #38bdf8) !important;
 }
 
 .card-container .app-card:nth-child(6).expanded {
-    background-image: linear-gradient(to right, #881337, #f59e0b) !important;
+  background-image: linear-gradient(to right, #881337, #f59e0b) !important;
 }
 
 [data-theme="dark"] .app-card {
-    background: rgba(255, 255, 255, 0.05);
-    box-shadow:
-        0 4px 20px rgba(0, 0, 0, 0.25),
-        inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow:
+    0 4px 20px rgba(0, 0, 0, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
 }
 
 [data-theme="dark"] .app-card::after {
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, transparent 55%);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, transparent 55%);
 }
 
 [data-theme="dark"] .app-card.expanded {
-    background-color: #ffffff !important;
+  background-color: #ffffff !important;
 }
 
 @media (min-width: 769px) {
 
-    .app-card.debate-card.expanded .app-title,
-    .app-card.debate-card.expanded .app-desc,
-    .app-card.archibald-card.expanded .app-title,
-    .app-card.archibald-card.expanded .app-desc {
-        white-space: nowrap;
-    }
+  .app-card.debate-card.expanded .app-title,
+  .app-card.debate-card.expanded .app-desc,
+  .app-card.archibald-card.expanded .app-title,
+  .app-card.archibald-card.expanded .app-desc {
+    white-space: nowrap;
+  }
 
-    .insight-text,
-    .insight-attribution {
-        font-size: 0.65rem;
-    }
+  .insight-text,
+  .insight-attribution {
+    font-size: 0.65rem;
+  }
 }
 
 /* Mobile Responsiveness for Apps Section */
 @media (max-width: 768px) {
-    #apps {
-        padding-top: 0.4rem;
-    }
+  #apps {
+    padding-top: 0.4rem;
+  }
 
-    body.apps-page .site-footer {
-        margin-top: -2.8vh;
-    }
+  body.apps-page .site-footer {
+    margin-top: -2.8vh;
+  }
 
-    .card-container {
-        padding: 20px 20px 80px 20px;
-        height: 540px;
-        overflow-y: hidden;
-    }
+  .card-container {
+    padding: 20px 20px 80px 20px;
+    height: 540px;
+    overflow-y: hidden;
+  }
 
-    .app-card {
-        flex: 0 0 200px;
-        border-radius: 15px;
-        padding: 15px;
-    }
+  .app-card {
+    flex: 0 0 200px;
+    border-radius: 15px;
+    padding: 15px;
+  }
 
-    .app-card.expanded {
-        flex: 0 0 calc(100vw - 40px);
-        background-size: 100% 45% !important;
-    }
+  .app-card.expanded {
+    flex: 0 0 calc(100vw - 40px);
+    background-size: 100% 45% !important;
+  }
 
-    .app-icon {
-        width: 180px;
-        height: 180px;
-    }
+  .app-icon {
+    width: 180px;
+    height: 180px;
+  }
 
-    .app-card.expanded .app-icon {
-        width: 125px;
-        height: 125px;
-        left: 20px;
-        top: 35px;
-    }
+  .app-card.expanded .app-icon {
+    width: 125px;
+    height: 125px;
+    left: 20px;
+    top: 35px;
+  }
 
-    .app-card.expanded .app-name-in-card {
-        top: 165px;
-        left: 20px;
-        width: 125px;
-        font-size: 0.55rem;
-    }
+  .app-card.expanded .app-name-in-card {
+    top: 165px;
+    left: 20px;
+    width: 125px;
+    font-size: 0.55rem;
+  }
 
-    .app-card.magnate-card.expanded .app-name-in-card {
-        white-space: nowrap;
-    }
+  .app-card.magnate-card.expanded .app-name-in-card {
+    white-space: nowrap;
+  }
 
-    .app-card.smartshuttle-card.expanded .app-name-in-card {
-        top: 175px;
-    }
+  .app-card.smartshuttle-card.expanded .app-name-in-card {
+    top: 175px;
+  }
 
-    .app-card.twine-card.expanded .app-name-in-card {
-        top: 160px;
-    }
+  .app-card.twine-card.expanded .app-name-in-card {
+    top: 160px;
+  }
 
-    .app-card.expanded .app-attributes {
-        width: calc(100% - 165px);
-        height: 45%;
-        padding-left: 40px;
-        gap: 12px;
-    }
+  .app-card.expanded .app-attributes {
+    width: calc(100% - 165px);
+    height: 45%;
+    padding-left: 40px;
+    gap: 12px;
+  }
 
-    .attribute {
-        font-size: 0.5rem;
-    }
+  .attribute {
+    font-size: 0.5rem;
+  }
 
-    .attribute strong {
-        margin-bottom: 0;
-    }
+  .attribute strong {
+    margin-bottom: 0;
+  }
 
-    .app-card h3 {
-        font-size: 0.7rem;
-        line-height: 1.4;
-    }
+  .app-card h3 {
+    font-size: 0.7rem;
+    line-height: 1.4;
+  }
 
-    .app-card.expanded h3 {
-        width: 90%;
-        top: calc(100% + 15px);
-        white-space: normal;
-        flex-wrap: wrap;
-    }
+  .app-card.expanded h3 {
+    width: 90%;
+    top: calc(100% + 15px);
+    white-space: normal;
+    flex-wrap: wrap;
+  }
 
-    .app-card.magnate-card.expanded h3 {
-        width: calc(90vw - 36px);
-        white-space: nowrap;
-        flex-wrap: nowrap;
-    }
+  .app-card.magnate-card.expanded h3 {
+    width: calc(90vw - 36px);
+    white-space: nowrap;
+    flex-wrap: nowrap;
+  }
 
-    .app-card.magnate-card.expanded .app-title,
-    .app-card.magnate-card.expanded .app-desc {
-        white-space: nowrap;
-    }
+  .app-card.magnate-card.expanded .app-title,
+  .app-card.magnate-card.expanded .app-desc {
+    white-space: nowrap;
+  }
 
-    .app-card.financier-card.expanded h3 {
-        width: calc(100vw - 40px);
-        white-space: normal;
-        flex-wrap: wrap;
-    }
+  .app-card.financier-card.expanded h3 {
+    width: calc(100vw - 40px);
+    white-space: normal;
+    flex-wrap: wrap;
+  }
 
-    .app-card.financier-card.expanded .app-title,
-    .app-card.financier-card.expanded .app-desc {
-        max-width: none;
-        flex-shrink: 0;
-    }
+  .app-card.financier-card.expanded .app-title,
+  .app-card.financier-card.expanded .app-desc {
+    max-width: none;
+    flex-shrink: 0;
+  }
 
-    .app-card.financier-card.expanded .app-desc {
-        transition: opacity 0.4s ease 0.1s, visibility 0s;
-    }
+  .app-card.financier-card.expanded .app-desc {
+    transition: opacity 0.4s ease 0.1s, visibility 0s;
+  }
 
-    .app-card.guardian-card.expanded h3 {
-        width: calc(100vw - 40px);
-        white-space: normal;
-        flex-wrap: wrap;
-    }
+  .app-card.guardian-card.expanded h3 {
+    width: calc(100vw - 40px);
+    white-space: normal;
+    flex-wrap: wrap;
+  }
 
-    .app-card.guardian-card.expanded .app-title,
-    .app-card.guardian-card.expanded .app-desc {
-        max-width: none;
-        flex-shrink: 0;
-    }
+  .app-card.guardian-card.expanded .app-title,
+  .app-card.guardian-card.expanded .app-desc {
+    max-width: none;
+    flex-shrink: 0;
+  }
 
-    .app-card.guardian-card.expanded .app-desc {
-        transition: opacity 0.4s ease 0.1s, visibility 0s;
-    }
+  .app-card.guardian-card.expanded .app-desc {
+    transition: opacity 0.4s ease 0.1s, visibility 0s;
+  }
 
-    .app-card.archibald-card.expanded h3 {
-        width: calc(100vw - 40px);
-        white-space: normal;
-        flex-wrap: wrap;
-    }
+  .app-card.archibald-card.expanded h3 {
+    width: calc(100vw - 40px);
+    white-space: normal;
+    flex-wrap: wrap;
+  }
 
-    .app-card.archibald-card.expanded .app-title,
-    .app-card.archibald-card.expanded .app-desc {
-        max-width: none;
-        flex-shrink: 0;
-    }
+  .app-card.archibald-card.expanded .app-title,
+  .app-card.archibald-card.expanded .app-desc {
+    max-width: none;
+    flex-shrink: 0;
+  }
 
-    .app-card.archibald-card.expanded .app-desc {
-        transition: opacity 0.4s ease 0.1s, visibility 0s;
-    }
+  .app-card.archibald-card.expanded .app-desc {
+    transition: opacity 0.4s ease 0.1s, visibility 0s;
+  }
 
-    .app-card.expanded .content {
-        top: 50%;
-        left: 20px;
-        right: 20px;
-        bottom: 20px;
-        font-size: 0.7rem;
-        line-height: 1.5;
-    }
+  .app-card.expanded .content {
+    top: 50%;
+    left: 20px;
+    right: 20px;
+    bottom: 20px;
+    font-size: 0.7rem;
+    line-height: 1.5;
+  }
 
-    .page-2-content {
-        padding: 30px 20px;
-    }
+  .page-2-content {
+    padding: 30px 20px;
+  }
 
-    .insight-heading {
-        font-size: 0.7rem;
-        margin-bottom: 15px;
-    }
+  .insight-heading {
+    font-size: 0.7rem;
+    margin-bottom: 15px;
+  }
 
-    .insight-text,
-    .insight-attribution {
-        font-size: 0.65rem;
-    }
+  .insight-text,
+  .insight-attribution {
+    font-size: 0.65rem;
+  }
 
-    .app-link {
-        top: 12px;
-        right: 12px;
-        font-size: 1.1rem;
-    }
+  .app-link {
+    top: 12px;
+    right: 12px;
+    font-size: 1.1rem;
+  }
 
-    .pixel-arrow {
-        width: 26px;
-        height: 26px;
-        bottom: 20px;
-        right: 20px;
-    }
+  .pixel-arrow {
+    width: 26px;
+    height: 26px;
+    bottom: 20px;
+    right: 20px;
+  }
 }
