@@ -36,6 +36,5 @@ function toggleArchibaldPage(event, btn) {
 
   card.classList.toggle('show-page-2', !isPage2Active);
 
-  // Rotate arrow when on page 2
   btn.style.transform = isPage2Active ? 'rotate(0deg)' : 'rotate(180deg)';
 }

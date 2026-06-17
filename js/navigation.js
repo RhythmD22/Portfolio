@@ -32,6 +32,8 @@ function initializeHamburgerMenu() {
 
   const backdrop = document.createElement('div');
   backdrop.className = 'sidebar-backdrop';
+  backdrop.setAttribute('role', 'presentation');
+  backdrop.setAttribute('aria-hidden', 'true');
   document.body.appendChild(backdrop);
 
   const toggleSidebar = (forceClose = false) => {
@@ -191,6 +193,7 @@ function setupSPA() {
   });
 
   window.addEventListener('popstate', () => {
+    if (window.isNavigating) return;
     const hash = window.location.hash || '#home';
     switchSection(hash);
     if (hash === '#work') {
@@ -198,10 +201,14 @@ function setupSPA() {
       if (el) {
         const offset = window.innerWidth <= 768 ? 90 : 142;
         const top = el.getBoundingClientRect().top + window.pageYOffset - offset;
+        window.isNavigating = true;
         window.scrollTo({ top, behavior: 'auto' });
+        setTimeout(() => window.isNavigating = false, 200);
       }
     } else {
+      window.isNavigating = true;
       window.scrollTo({ top: 0, behavior: 'auto' });
+      setTimeout(() => window.isNavigating = false, 200);
     }
   });
 }
@@ -213,8 +220,6 @@ document.addEventListener('headerLoaded', () => {
 
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
-    navigator.serviceWorker.register('service-worker.js')
-      .then(reg => console.log('ServiceWorker registration successful with scope: ', reg.scope))
-      .catch(err => console.log('ServiceWorker registration failed: ', err));
+    navigator.serviceWorker.register('service-worker.js');
   });
 }

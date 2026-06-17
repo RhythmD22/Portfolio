@@ -48,7 +48,9 @@ function createChart(id, type, data, options) {
 }
 
 function observeThemeChanges(updateFn) {
-  new MutationObserver(mutations => {
+  const observer = new MutationObserver(mutations => {
     if (mutations.some(m => m.attributeName === 'data-theme')) updateFn();
-  }).observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+  });
+  observer.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+  window.addEventListener('beforeunload', () => observer.disconnect());
 }

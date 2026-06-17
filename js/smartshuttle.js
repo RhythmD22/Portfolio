@@ -1,5 +1,5 @@
 function updateCharts() {
-  const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+  const isDark = isDarkMode();
   const opts = getChartOptions(isDark);
   if (window.problemsChart) { window.problemsChart.options = opts.bar; window.problemsChart.update(); }
   if (window.commuteChart) { window.commuteChart.options = opts.pie; window.commuteChart.update(); }
@@ -7,7 +7,7 @@ function updateCharts() {
 }
 
 function initCharts() {
-  const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+  const isDark = isDarkMode();
   const opts = getChartOptions(isDark);
 
   window.problemsChart = createChart('problemsChart', 'bar', {
@@ -53,7 +53,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const video = document.getElementById('smartshuttle-video');
   if (video) {
-    video.muted = true;
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (!entry.isIntersecting) return;

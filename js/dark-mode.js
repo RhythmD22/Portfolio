@@ -1,10 +1,25 @@
 (function initializeDarkMode() {
   const theme = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
   document.documentElement.setAttribute('data-theme', theme);
+
+  var d = window.matchMedia('(prefers-color-scheme:dark)').matches;
+  var m = document.createElement('link');
+  m.rel = 'manifest';
+  m.href = d ? 'manifest-dark.json' : 'manifest-light.json';
+  document.head.appendChild(m);
+  window.matchMedia('(prefers-color-scheme:dark)').addEventListener('change', function (e) {
+    document.querySelectorAll('link[rel=manifest]:not([media])').forEach(function (l) {
+      l.href = e.matches ? 'manifest-dark.json' : 'manifest-light.json';
+    });
+  });
 })();
 
+function isDarkMode() {
+  return document.documentElement.getAttribute('data-theme') === 'dark';
+}
+
 function toggleDarkMode(icon) {
-  const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+  const isDark = isDarkMode();
   const newTheme = isDark ? 'light' : 'dark';
 
   document.documentElement.setAttribute('data-theme', newTheme);
@@ -18,7 +33,7 @@ function toggleDarkMode(icon) {
 
 function initDarkModeToggle() {
   const toggles = [document.getElementById('dark-mode-toggle'), document.getElementById('mobile-dark-mode-toggle')].filter(Boolean);
-  const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
+  const currentTheme = isDarkMode() ? 'dark' : 'light';
 
   toggles.forEach(toggle => {
     const icon = toggle.querySelector('i');
@@ -31,6 +46,5 @@ function initDarkModeToggle() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  initDarkModeToggle();
   document.addEventListener('headerLoaded', initDarkModeToggle);
 });

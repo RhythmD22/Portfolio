@@ -1,5 +1,5 @@
 function updateCharts() {
-  const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+  const isDark = isDarkMode();
   const opts = getChartOptions(isDark);
   if (window.mealPlanChart) { window.mealPlanChart.options = opts.pie; window.mealPlanChart.update(); }
   if (window.employmentChart) { window.employmentChart.options = opts.bar; window.employmentChart.update(); }
@@ -8,7 +8,7 @@ function updateCharts() {
 }
 
 function initCharts() {
-  const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+  const isDark = isDarkMode();
   const opts = getChartOptions(isDark);
 
   window.mealPlanChart = createChart('mealPlanChart', 'pie', {
@@ -70,7 +70,6 @@ document.addEventListener('DOMContentLoaded', () => {
   }, { rootMargin: '200px' });
 
   document.querySelectorAll('.feature-video').forEach(video => {
-    video.controls = false;
     videoObserver.observe(video);
   });
 

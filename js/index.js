@@ -28,30 +28,20 @@ function playLottieAnimation(element) {
   const instance = getLottieInstance(element);
   if (!instance) return;
 
-  instance.pause();
-  instance.setFrame(0);
-  instance.setSpeed(1);
-  instance.play();
+  try { instance.pause(); } catch (e) { /* WebGL context may be lost */ }
+  try { instance.setFrame(0); } catch (e) { /* WebGL context may be lost */ }
+  try { instance.setSpeed(1); } catch (e) { /* WebGL context may be lost */ }
+  try { instance.play(); } catch (e) { /* WebGL context may be lost */ }
   element.classList.remove('animation-completed');
 
   setTimeout(() => {
     const inst = getLottieInstance(element);
     if (inst) {
-      inst.pause();
+      try { inst.pause(); } catch (e) { /* WebGL context may be lost */ }
       element.classList.add('animation-completed');
     }
   }, ANIMATION_DURATION);
 }
-
-// Mobile viewport and scroll fix
-(function () {
-  if (window.innerWidth > 900) return;
-
-  const setVH = () => document.documentElement.style.setProperty('--vh', `${window.innerHeight * 0.01}px`);
-  setVH();
-  window.addEventListener('resize', setVH);
-  window.addEventListener('orientationchange', setVH);
-})();
 
 function initIntroTyping() {
   const heading = document.querySelector('.intro-heading');
@@ -136,17 +126,27 @@ function initSectionTyping() {
 function setupAnimationEvents(profileAnimation) {
   if (!profileAnimation) return;
 
+  let resizeRAF = null;
+
   const handleResize = () => {
-    const instance = getLottieInstance(profileAnimation);
-    if (instance && typeof instance.resize === 'function') {
-      instance.resize();
-    }
+    if (resizeRAF) return;
+    resizeRAF = requestAnimationFrame(() => {
+      resizeRAF = null;
+      const instance = getLottieInstance(profileAnimation);
+      if (instance && typeof instance.resize === 'function') {
+        try { instance.resize(); } catch (e) { /* WebGL context may be lost */ }
+      }
+    });
+  };
+
+  const safelyInit = (instance) => {
+    try { instance.setFrame(0); } catch (e) { /* WebGL context may be lost */ }
+    try { instance.pause(); } catch (e) { /* WebGL context may be lost */ }
   };
 
   if (profileAnimation.dotLottie) {
     profileAnimation._dotLottieInstance = profileAnimation.dotLottie;
-    profileAnimation._dotLottieInstance.setFrame(0);
-    profileAnimation._dotLottieInstance.pause();
+    safelyInit(profileAnimation._dotLottieInstance);
     setTimeout(handleResize, 100);
     document.querySelector('.spinning-ring')?.style.setProperty('opacity', '1');
     setTimeout(() => { profileAnimation._lottieReady = true; }, 300);
@@ -154,8 +154,7 @@ function setupAnimationEvents(profileAnimation) {
 
   profileAnimation.addEventListener('ready', function () {
     this._dotLottieInstance = this.dotLottie;
-    this._dotLottieInstance?.setFrame(0);
-    this._dotLottieInstance?.pause();
+    if (this._dotLottieInstance) safelyInit(this._dotLottieInstance);
     setTimeout(handleResize, 100);
     document.querySelector('.spinning-ring')?.style.setProperty('opacity', '1');
     const el = this;
@@ -169,21 +168,23 @@ function setupAnimationEvents(profileAnimation) {
     }
   });
 
-  // Handle SPA navigation visibility
-  const observer = new MutationObserver((mutations) => {
-    mutations.forEach((mutation) => {
-      if (mutation.attributeName === 'style' || mutation.attributeName === 'class') {
-        const homeSection = document.getElementById('home');
-        if (homeSection && homeSection.style.display !== 'none') {
-          setTimeout(handleResize, 50);
+  const homeSection = document.getElementById('home');
+  if (homeSection) {
+    const observer = new MutationObserver((mutations) => {
+      for (const mutation of mutations) {
+        if (mutation.attributeName === 'style' || mutation.attributeName === 'class') {
+          if (homeSection.style.display !== 'none') {
+            setTimeout(handleResize, 50);
+          } else {
+            observer.disconnect();
+          }
+          break;
         }
       }
     });
-  });
-
-  const homeSection = document.getElementById('home');
-  if (homeSection) {
     observer.observe(homeSection, { attributes: true });
+
+    window.addEventListener('beforeunload', () => observer.disconnect());
   }
 
   profileAnimation.addEventListener('mouseenter', function () {
@@ -342,10 +343,11 @@ function initVideoHoverControl() {
     const observerOptions = {
       root: null,
       rootMargin: '-25% 0px -25% 0px',
-      threshold: 0.2
+      threshold: 0.4
     };
 
     const intersectingProjects = new Set();
+    let mobileUpdateTimer = null;
 
     const updateActiveMobileProject = () => {
       if (intersectingProjects.size > 0) {
@@ -382,7 +384,8 @@ function initVideoHoverControl() {
           intersectingProjects.delete(entry.target);
         }
       });
-      updateActiveMobileProject();
+      clearTimeout(mobileUpdateTimer);
+      mobileUpdateTimer = setTimeout(updateActiveMobileProject, 150);
     }, observerOptions);
 
     projectElements.forEach(p => mobileObserver.observe(p));

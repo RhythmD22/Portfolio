@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  const btn = document.querySelector('button[onclick*="scrollTo"], .scroll-btn, .scroll-top-btn');
+  const btn = document.querySelector('.scroll-btn');
   if (!btn) return;
 
   const isProjectPage = window.isProjectPage;
@@ -25,14 +25,29 @@ document.addEventListener('DOMContentLoaded', () => {
     if (poly) poly.setAttribute('points', dir === 'up' ? '18 15 12 9 6 15' : '6 9 12 15 18 9');
   };
 
+  let lastState = null;
+  let scrollRAF = null;
+
   function updateBtn() {
     const scrolled = window.scrollY > 100;
+    let state;
     if (scrolled) {
+      state = 'up';
+    } else if (isProjectPage) {
+      state = 'down';
+    } else {
+      state = 'hidden';
+    }
+
+    if (state === lastState) return;
+    lastState = state;
+
+    if (state === 'up') {
       btn.style.display = 'block';
       btn.onclick = () => window.scrollTo({ top: 0, behavior: 'smooth' });
       btn.setAttribute('aria-label', 'Scroll to top');
       setDirection('up');
-    } else if (isProjectPage) {
+    } else if (state === 'down') {
       btn.style.display = 'block';
       btn.onclick = () => window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
       btn.setAttribute('aria-label', 'Scroll to bottom');
@@ -42,7 +57,15 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
+  const onScrollOrResize = () => {
+    if (scrollRAF) return;
+    scrollRAF = requestAnimationFrame(() => {
+      scrollRAF = null;
+      updateBtn();
+    });
+  };
+
   updateBtn();
-  window.addEventListener('scroll', updateBtn);
-  window.addEventListener('resize', updateBtn);
+  window.addEventListener('scroll', onScrollOrResize, { passive: true });
+  window.addEventListener('resize', onScrollOrResize);
 });
