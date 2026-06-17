@@ -1,7 +1,6 @@
 const CACHE_NAME = 'portfolio-v2.0';
 const urlsToCache = [
   '/Portfolio/',
-  '/Portfolio/manifest.json',
   '/Portfolio/manifest-light.json',
   '/Portfolio/manifest-dark.json',
   '/Portfolio/index.html',
@@ -47,13 +46,13 @@ const urlsToCache = [
   '/Portfolio/images/Apps/Financier%20App.png',
   '/Portfolio/images/Apps/Magnate%20App.png',
   '/Portfolio/images/Apps/SmartShuttle%20App.png',
-  '/Portfolio/images/Apps/The%20Guardian\'s%20Legacy%20App.png',
+  "/Portfolio/images/Apps/The%20Guardian's%20Legacy%20App.png",
   '/Portfolio/images/Apps/right_arrow.svg',
   '/Portfolio/images/Clash%20Royale/Clash%20Royale.png',
   '/Portfolio/images/Financier/Financier.png',
   '/Portfolio/images/SmartShuttle/SmartShuttle.png',
   '/Portfolio/Twine/Archibald%20and%20the%20Steel%20Monolith.html',
-  '/Portfolio/Twine/The%20Guardian\'s%20Legacy.html',
+  "/Portfolio/Twine/The%20Guardian's%20Legacy.html",
   '/Portfolio/Pokemon%20GB.ttf',
 ];
 
@@ -84,9 +83,19 @@ self.addEventListener('fetch', event => {
 
       return fetch(event.request).catch(() => {
         if (event.request.mode === 'navigate') {
-          return caches.match('/Portfolio/index.html');
+          return caches.match('/Portfolio/index.html').then(fallback => {
+            return fallback || new Response('Offline', { status: 503, statusText: 'Service Unavailable' });
+          });
         }
+        return new Response('Offline', { status: 503, statusText: 'Service Unavailable' });
       });
+    }).catch(() => {
+      if (event.request.mode === 'navigate') {
+        return caches.match('/Portfolio/index.html').then(fallback => {
+          return fallback || new Response('Offline', { status: 503, statusText: 'Service Unavailable' });
+        });
+      }
+      return new Response('Offline', { status: 503, statusText: 'Service Unavailable' });
     })
   );
 });

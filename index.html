@@ -25,9 +25,6 @@
   <link rel="icon" href="images/favicon.ico" type="image/x-icon">
   <link rel="manifest" href="manifest-light.json" media="(prefers-color-scheme: light)">
   <link rel="manifest" href="manifest-dark.json" media="(prefers-color-scheme: dark)">
-  <script>
-    (function () { var d = window.matchMedia('(prefers-color-scheme:dark)').matches; var m = document.createElement('link'); m.rel = 'manifest'; m.href = d ? 'manifest-dark.json' : 'manifest-light.json'; document.head.appendChild(m); window.matchMedia('(prefers-color-scheme:dark)').addEventListener('change', function (e) { document.querySelectorAll('link[rel=manifest]:not([media])').forEach(function (l) { l.href = e.matches ? 'manifest-dark.json' : 'manifest-light.json' }) }) })();
-  </script>
   <link rel="apple-touch-icon" media="(prefers-color-scheme: dark)" href="images/dark-apple-touch-icon.png">
   <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
 
@@ -70,7 +67,7 @@
         </div>
         <div class="profile-container">
           <dotlottie-wc src="https://lottie.host/20772707-2223-43f2-b5e8-7662e9c222bb/WB4hXZ0mMH.lottie" mode="normal"
-            class="profile-animation" style="width: 400px; height: 400px;"></dotlottie-wc>
+            class="profile-animation" style="width: 400px; height: 400px;" aria-hidden="true"></dotlottie-wc>
           <div class="spinning-ring"></div>
         </div>
       </section>
@@ -87,7 +84,7 @@
           <a href="Financier.html">
             <div class="project-thumbnail-wrapper">
               <video src="images/Financier/Financier.mp4" class="project-thumbnail" muted playsinline
-                poster="images/Financier/Financier.png" preload="metadata"></video>
+                poster="images/Financier/Financier.png" preload="none"></video>
             </div>
           </a>
           <div class="project-title">Financier - College Budgeting Web App</div>

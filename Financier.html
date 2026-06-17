@@ -24,9 +24,6 @@
   <link rel="icon" href="images/favicon.ico" type="image/x-icon">
   <link rel="manifest" href="manifest-light.json" media="(prefers-color-scheme: light)">
   <link rel="manifest" href="manifest-dark.json" media="(prefers-color-scheme: dark)">
-  <script>
-    (function () { var d = window.matchMedia('(prefers-color-scheme:dark)').matches; var m = document.createElement('link'); m.rel = 'manifest'; m.href = d ? 'manifest-dark.json' : 'manifest-light.json'; document.head.appendChild(m); window.matchMedia('(prefers-color-scheme:dark)').addEventListener('change', function (e) { document.querySelectorAll('link[rel=manifest]:not([media])').forEach(function (l) { l.href = e.matches ? 'manifest-dark.json' : 'manifest-light.json' }) }) })();
-  </script>
   <link rel="apple-touch-icon" media="(prefers-color-scheme: dark)" href="images/dark-apple-touch-icon.png">
   <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
 
@@ -41,9 +38,9 @@
   <link rel="stylesheet" href="css/project.css">
   <link rel="stylesheet" href="css/financier.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@6.1/dist/fancybox/fancybox.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@6.1.14/dist/fancybox/fancybox.min.css">
   <script src="js/dark-mode.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@6.1/dist/fancybox/fancybox.umd.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@6.1.14/dist/fancybox/fancybox.umd.min.js" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.5.1/dist/chart.umd.min.js" defer></script>
   <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.9.14/dist/dotlottie-wc.js" type="module"></script>
 </head>
@@ -451,8 +448,8 @@
   </div>
 
   <div class="lottie-animation-container">
-    <dotlottie-wc src="https://lottie.host/e4d8ecbd-2996-4822-beb6-50d03939999f/pYzWSq2lZr.lottie" autoplay
-      loop></dotlottie-wc>
+    <dotlottie-wc src="https://lottie.host/e4d8ecbd-2996-4822-beb6-50d03939999f/pYzWSq2lZr.lottie" autoplay loop
+      aria-hidden="true"></dotlottie-wc>
   </div>
 
   <div class="magnate-section">

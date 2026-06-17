@@ -24,7 +24,7 @@
 | Feature | Description |
 |---------|------------|
 | Project Showcase | Case-study pages for UI/UX and development projects with videos, images, and write-ups |
-| App Directory | Interactive card grid with live demos of web apps (Financier, Magnate, SmartShuttle, AI Debate Club) |
+| App Directory | Interactive Pokemon-style card grid with live demos of 6 web apps and Twine games |
 | Twine Games | Two interactive fiction games built in Twine with custom-programmed minigames |
 | Dark Mode | Auto-detects system preference with persistent toggle across all pages |
 | Responsive Design | Mobile-optimized layout with swipe-friendly navigation and hamburger menu |
@@ -89,7 +89,8 @@ Portfolio/
 │   ├── apps.js                    # App card expand/collapse logic
 │   ├── financier.js               # Financier page interactivity
 │   ├── smartshuttle.js            # SmartShuttle page interactivity
-│   └── clashroyale.js             # Clash Royale page interactivity
+│   ├── clashroyale.js             # Clash Royale page interactivity
+│   └── chart-utils.js             # Chart.js helpers — options, create, theme observer
 ├── images/                        # Global icons, profile images, and project assets
 ├── Twine/                         # Published Twine HTML stories
 ├── manifest.json                  # PWA manifest (fallback)
@@ -109,6 +110,8 @@ The site is a multi-page HTML application. The header and footer are injected vi
 | Core | HTML5, CSS3, JavaScript (ES6+) |
 | Fonts | [Inter](https://fonts.google.com/specimen/Inter), [VT323](https://fonts.google.com/specimen/VT323) |
 | Icons | [Font Awesome 7](https://fontawesome.com) (CDN) |
+| Charts | [Chart.js 4](https://www.chartjs.org) (CDN) |
+| Lightbox | [Fancybox UI 6](https://fancyapps.com) (CDN) |
 | Animation | [dotLottie Web Component](https://github.com/dotlottie/dotlottie-web) |
 | Analytics | Google Analytics (gtag) |
 | Hosting | GitHub Pages |
