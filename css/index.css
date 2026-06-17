@@ -41,7 +41,6 @@
 html,
 body {
   max-width: 100%;
-  overflow-x: hidden;
   margin: 0;
   padding: 0;
 }
@@ -118,14 +117,6 @@ body {
 
 [data-theme="dark"] .profile-animation {
   box-shadow: none;
-}
-
-.profile-image,
-.profile-image.hide,
-.profile-image::after,
-[data-theme="dark"] .profile-image,
-[data-theme="dark"] .profile-image::after {
-  display: none;
 }
 
 .spinning-ring {

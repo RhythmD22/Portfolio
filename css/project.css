@@ -2,7 +2,6 @@
 
 html,
 body {
-  overflow-x: hidden;
   padding-top: 34px;
 }
 
@@ -139,7 +138,7 @@ body {
   top: 0;
   bottom: 0;
   width: 1px;
-  background-color: #e0e0e0;
+  background-color: var(--divider-color);
 }
 
 .interview-questions-section ol,
@@ -158,7 +157,7 @@ body {
   left: 0;
   right: 1px;
   height: 1px;
-  background-color: #e0e0e0;
+  background-color: var(--divider-color);
 }
 
 .chart-grid-container {
@@ -169,18 +168,18 @@ body {
 }
 
 .chart-grid-item {
-  background-color: #f9f9f9;
-  border: 1px solid #ddd;
+  background-color: var(--chart-grid-bg);
+  border: 1px solid var(--chart-grid-border);
   border-radius: 8px;
   padding: 20px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--chart-grid-shadow);
   display: flex;
   flex-direction: column;
   height: 350px;
 }
 
 .chart-grid-item h3 {
-  color: #333;
+  color: var(--chart-grid-heading);
   margin-top: 0;
   margin-bottom: 15px;
   border-bottom: 2px solid #6a63f6;
@@ -221,11 +220,11 @@ body {
 }
 
 .outcomes-content {
-  background: #ffffff;
+  background: var(--card-bg);
   padding: 2rem;
   width: 100%;
   max-width: 1135px;
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
+  box-shadow: var(--card-shadow);
   border-radius: 8px;
 }
 
@@ -241,11 +240,11 @@ body {
 }
 
 .reflection-card {
-  background: #ffffff;
+  background: var(--card-bg);
   padding: 2rem;
   width: 100%;
   max-width: 1135px;
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
+  box-shadow: var(--card-shadow);
   border-radius: 8px;
   box-sizing: border-box;
 }
@@ -411,7 +410,7 @@ body {
     right: 0 !important;
     top: -2rem !important;
     height: 1px !important;
-    background-color: #e0e0e0 !important;
+    background-color: var(--divider-color) !important;
     display: block !important;
   }
 

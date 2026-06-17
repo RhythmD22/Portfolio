@@ -9,6 +9,18 @@
   --border-color: rgba(0, 0, 0, 0.1);
   --cta-border-color: rgba(0, 0, 0, 0.4);
   --dark-mode-toggle-hover: #726dfc;
+  --card-bg: #ffffff;
+  --card-text: inherit;
+  --card-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
+  --card-shadow-heavy: 0 0 8px rgba(0, 0, 0, 0.1);
+  --chart-grid-bg: #f9f9f9;
+  --chart-grid-border: #ddd;
+  --chart-grid-heading: #333;
+  --chart-grid-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  --divider-color: #e0e0e0;
+  --table-border: #ccc;
+  --table-header-bg: #f2f2f2;
+  --table-stripe: #f9f9f9;
 }
 
 [data-theme="dark"] {
@@ -19,6 +31,18 @@
   --footer-link-color: #9e9e9e;
   --border-color: rgba(255, 255, 255, 0.1);
   --cta-border-color: rgba(255, 255, 255, 0.4);
+  --card-bg: #1e1e1e;
+  --card-text: #e0e0e0;
+  --card-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+  --card-shadow-heavy: 0 0 8px rgba(0, 0, 0, 0.5);
+  --chart-grid-bg: #2d2d2d;
+  --chart-grid-border: #555;
+  --chart-grid-heading: #f0f0f0;
+  --chart-grid-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  --divider-color: #555;
+  --table-border: #555;
+  --table-header-bg: #444;
+  --table-stripe: #3a3a3a;
 }
 
 html {
@@ -29,12 +53,13 @@ html {
 body {
   margin: 0;
   padding: 90px 0 0;
-  /* Space for fixed header */
   box-sizing: border-box;
   font-weight: 300;
   background: var(--background-color);
   color: var(--text-color);
   transition: background-color 0.3s, color 0.3s;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 .container {
@@ -74,10 +99,6 @@ body {
   .header-right {
     display: none !important;
   }
-}
-
-.header-mobile-content {
-  display: none;
 }
 
 /* Desktop Pill Header */
@@ -616,25 +637,8 @@ p {
   }
 }
 
-/* Font-weight utility classes */
-.fw-light {
-  font-weight: 300;
-}
-
-.fw-regular {
-  font-weight: 400;
-}
-
 .fw-medium {
   font-weight: 500;
-}
-
-.fw-semibold {
-  font-weight: 600;
-}
-
-.fw-bold {
-  font-weight: 700;
 }
 
 /* Utility classes */
@@ -644,7 +648,6 @@ p {
   align-items: center;
 }
 
-.scroll-top-btn,
 .scroll-btn {
   display: none;
   position: fixed;
@@ -657,12 +660,10 @@ p {
 }
 
 /* Scroll arrow colors - orange in light mode, purple in dark mode */
-.scroll-top-btn svg,
 .scroll-btn svg {
   stroke: var(--hover-color);
 }
 
-[data-theme="dark"] .scroll-top-btn svg,
 [data-theme="dark"] .scroll-btn svg {
   stroke: var(--dark-mode-toggle-hover);
 }
@@ -670,7 +671,6 @@ p {
 /* Mobile scroll up arrow positioning */
 @media (max-width: 600px) {
 
-  .scroll-top-btn,
   .scroll-btn {
     right: 0rem;
     bottom: -1rem;
@@ -788,12 +788,6 @@ p {
     height: 2rem;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
-  }
-
-  /* Mobile toggle: purple in light mode, orange in dark mode */
-  .mobile-dark-mode-toggle {
-    border: 1px solid var(--dark-mode-toggle-hover) !important;
-    color: var(--dark-mode-toggle-hover) !important;
   }
 
   [data-theme="dark"] .mobile-dark-mode-toggle {
@@ -927,23 +921,8 @@ p {
   }
 }
 
-.sidebar-title {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  font-size: 1.5rem;
-  margin-bottom: 2.5rem;
-  color: var(--text-color);
-  gap: 0.5rem;
-  text-align: center;
-}
-
-.sidebar-title .portfolio-icon {
-  width: 24px;
-  height: 24px;
-}
-
 .nav-item {
+  position: relative;
   padding: 0;
   margin-bottom: 2.5rem;
   width: 100%;
@@ -999,12 +978,7 @@ p {
   text-align: center;
 }
 
-/* Download link styling for mobile menu - specifically for the resume section */
-.nav-item {
-  position: relative;
-  width: 100%;
-}
-
+/* Download link styling for mobile menu */
 .nav-item .download-link {
   position: absolute;
   top: 50%;
