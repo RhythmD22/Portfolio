@@ -112,7 +112,7 @@ The site is a multi-page HTML application. The header and footer are injected vi
 | Icons | [Font Awesome 7](https://fontawesome.com) (CDN) |
 | Charts | [Chart.js 4](https://www.chartjs.org) (CDN) |
 | Lightbox | [Fancybox UI 6](https://fancyapps.com) (CDN) |
-| Animation | [dotLottie Web Component](https://github.com/dotlottie/dotlottie-web) |
+| Animation | [dotLottie Web Component](https://github.com/LottieFiles/dotlottie-web) |
 | Analytics | Google Analytics (gtag) |
 | Hosting | GitHub Pages |
 | PWA | Service Worker API, Web App Manifest |
