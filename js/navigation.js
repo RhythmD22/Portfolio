@@ -6,19 +6,12 @@ window.isIndexPage = ['index.html', '', '/', 'index'].some(path =>
 
 (function () {
   if (window.isIndexPage) {
-    if (window.location.hash === '#work') {
-      document.documentElement.style.scrollBehavior = 'auto';
-      window.addEventListener('load', () => {
-        setTimeout(() => {
-          document.documentElement.style.scrollBehavior = '';
-        }, 100);
-      });
-    } else if (!window.location.hash || window.location.hash === '#home' || window.location.hash === '#') {
-      // Force scroll to top on fresh load/refresh to prevent browser scroll restoration bugs during typing animation
-      if ('scrollRestoration' in window.history) {
-        window.history.scrollRestoration = 'manual';
-      }
-      window.addEventListener('load', () => {
+    if ('scrollRestoration' in window.history) {
+      window.history.scrollRestoration = 'manual';
+    }
+    window._pageLoadTime = Date.now();
+    if (!window.location.hash || window.location.hash === '#home' || window.location.hash === '#') {
+      window.addEventListener('load', function () {
         window.scrollTo(0, 0);
       });
     }
@@ -62,48 +55,42 @@ function initializeHamburgerMenu() {
   const pillHomeLink = document.querySelector('.header-content-pill .portfolio-icon-link');
   let scrollThrottle = false;
   window.isNavigating = false;
-  let scrollRAF = null;
 
   function handleScroll() {
-    if (!window.isIndexPage || !workSection || window.isNavigating) return;
+    if (!window.isIndexPage || !workSection || window.isNavigating || !window._scrollHandlerReady) return;
 
-    const isSPAActive = ['#resume', '#about', '#apps'].includes(window.location.hash);
+    var isSPAActive = ['#resume', '#about', '#apps'].includes(window.location.hash);
     if (isSPAActive) return;
 
-    if (scrollRAF) return;
-    scrollRAF = requestAnimationFrame(() => {
-      scrollRAF = null;
-      const currentScroll = window.scrollY || window.pageYOffset;
-      const shouldBeWork = currentScroll >= workSection.offsetTop - 142;
-      const isCurrentlyWork = window.location.hash === '#work';
+    var currentScroll = window.scrollY || window.pageYOffset;
+    var shouldBeWork = currentScroll >= workSection.offsetTop - 142;
+    var isCurrentlyWork = window.location.hash === '#work';
 
-      if (shouldBeWork) {
-        workLink?.classList.add('active');
-        pillWorkLink?.classList.add('active');
-        pillHomeLink?.classList.remove('active');
-        if (typeof updateBubble === 'function' && pillWorkLink) updateBubble(pillWorkLink);
-        if (!isCurrentlyWork && !scrollThrottle) {
-          history.replaceState(null, '', '#work');
-          scrollThrottle = true;
-          setTimeout(() => scrollThrottle = false, 500);
-        }
-      } else {
-        workLink?.classList.remove('active');
-        pillWorkLink?.classList.remove('active');
-        pillHomeLink?.classList.add('active');
-        if (typeof updateBubble === 'function' && pillHomeLink) updateBubble(pillHomeLink);
-        if (isCurrentlyWork && !scrollThrottle) {
-          history.replaceState(null, '', '#home');
-          scrollThrottle = true;
-          setTimeout(() => scrollThrottle = false, 500);
-        }
+    if (shouldBeWork) {
+      workLink?.classList.add('active');
+      pillWorkLink?.classList.add('active');
+      pillHomeLink?.classList.remove('active');
+      if (typeof updateBubble === 'function' && pillWorkLink) updateBubble(pillWorkLink);
+      if (!isCurrentlyWork && !scrollThrottle) {
+        history.replaceState(null, '', '#work');
+        scrollThrottle = true;
+        setTimeout(function () { scrollThrottle = false; }, 500);
       }
-    });
+    } else {
+      workLink?.classList.remove('active');
+      pillWorkLink?.classList.remove('active');
+      pillHomeLink?.classList.add('active');
+      if (typeof updateBubble === 'function' && pillHomeLink) updateBubble(pillHomeLink);
+      if (isCurrentlyWork && !scrollThrottle && Date.now() - window._pageLoadTime > 2000) {
+        history.replaceState(null, '', '#home');
+        scrollThrottle = true;
+        setTimeout(function () { scrollThrottle = false; }, 500);
+      }
+    }
   }
 
   if (window.isIndexPage) {
     window.addEventListener('scroll', handleScroll);
-    handleScroll();
     hamburger.addEventListener('click', () => setTimeout(handleScroll, 50));
   }
 
@@ -157,6 +144,23 @@ function setupSPA() {
 
   switchSection(window.location.hash || '#home');
 
+  var initHash = window.location.hash;
+  if (initHash === '#work') {
+    requestAnimationFrame(function () {
+      requestAnimationFrame(function () {
+        var el = document.getElementById('work');
+        if (el) {
+          var offset = window.innerWidth <= 768 ? 90 : 142;
+          window.scrollTo(0, el.getBoundingClientRect().top + window.pageYOffset - offset);
+        }
+        history.replaceState(null, '', '#work');
+        window._scrollHandlerReady = true;
+      });
+    });
+  } else {
+    window._scrollHandlerReady = true;
+  }
+
   navLinks.forEach(link => {
     link.addEventListener('click', (e) => {
       const href = link.getAttribute('href');
@@ -172,7 +176,16 @@ function setupSPA() {
         window.isNavigating = true;
         const targetHash = (hash === '#' || hash === '') ? '#home' : hash;
 
-        history.pushState(null, '', targetHash);
+        var currentHash = window.location.hash;
+        var workEl = document.getElementById('work');
+        var spaHashes = ['#apps', '#about', '#resume'];
+        var atWork = workEl && window.scrollY >= workEl.offsetTop - 142 &&
+          currentHash !== '#work' && !spaHashes.includes(currentHash);
+        if (atWork) {
+          history.replaceState(null, '', '#work');
+        }
+
+        history.pushState({ atWork: (atWork || currentHash === '#work') && targetHash !== '#home' }, '', targetHash);
         switchSection(targetHash);
         setTimeout(() => window.closeSidebar?.(), 150);
 
@@ -192,24 +205,35 @@ function setupSPA() {
     });
   });
 
-  window.addEventListener('popstate', () => {
+  window.addEventListener('popstate', (event) => {
     if (window.isNavigating) return;
-    const hash = window.location.hash || '#home';
+    if (!window._scrollHandlerReady) return;
+    window.isNavigating = true;
+    var hash = window.location.hash || '#home';
+    var wasAtWork = event.state && event.state.atWork;
+    if (wasAtWork && hash === '#home') {
+      history.replaceState(null, '', '#work');
+      hash = '#work';
+    }
     switchSection(hash);
     if (hash === '#work') {
-      const el = document.querySelector('#work');
+      var el = document.querySelector('#work');
       if (el) {
-        const offset = window.innerWidth <= 768 ? 90 : 142;
-        const top = el.getBoundingClientRect().top + window.pageYOffset - offset;
-        window.isNavigating = true;
-        window.scrollTo({ top, behavior: 'auto' });
-        setTimeout(() => window.isNavigating = false, 200);
+        var offset = window.innerWidth <= 768 ? 90 : 142;
+        requestAnimationFrame(function () {
+          requestAnimationFrame(function () {
+            var top = el.getBoundingClientRect().top + window.pageYOffset - offset;
+            window.scrollTo({ top: top, behavior: 'auto' });
+            history.replaceState(null, '', '#work');
+          });
+        });
       }
     } else {
-      window.isNavigating = true;
       window.scrollTo({ top: 0, behavior: 'auto' });
-      setTimeout(() => window.isNavigating = false, 200);
     }
+    setTimeout(function () {
+      window.isNavigating = false;
+    }, 500);
   });
 }
 
