@@ -423,17 +423,12 @@ video.project-thumbnail::-webkit-media-controls-start-playback-button {
   }
 
   .main-content.work-section .work-summary h2 {
-    margin-bottom: 0;
+    margin-bottom: var(--space-2);
+    min-height: 1.5em;
   }
 
-  .work-summary .contact-pill:not(.reveal):not(.static-pill) {
-    position: absolute;
-    margin-top: 0;
-  }
-
-  .work-summary .contact-pill.reveal,
-  .work-summary .contact-pill.static-pill {
-    margin-top: var(--space-4);
+  .work-summary .contact-pill {
+    margin-bottom: var(--space-4);
   }
 
   .main-content .projects-section .project {
@@ -463,21 +458,16 @@ video.project-thumbnail::-webkit-media-controls-start-playback-button {
   }
 
   .main-content.work-section .work-summary h2 {
-    margin-bottom: 0;
+    margin-bottom: var(--space-2);
+    min-height: 1.5em;
+  }
+
+  .work-summary .contact-pill {
+    margin-bottom: var(--space-4);
   }
 
   .projects-section .project:nth-child(4) {
     margin-bottom: 2.5rem;
-  }
-
-  .work-summary .contact-pill:not(.reveal):not(.static-pill) {
-    position: absolute;
-    margin-top: 0;
-  }
-
-  .work-summary .contact-pill.reveal,
-  .work-summary .contact-pill.static-pill {
-    margin-top: var(--space-4);
   }
 
   .main-content .projects-section .project:nth-child(2) .smartshuttle-thumbnail {

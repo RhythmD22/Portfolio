@@ -492,7 +492,7 @@
   .chart-section {
     padding: var(--space-4) !important;
     margin-top: var(--space-8) !important;
-    margin-bottom: var(--space-8) !important;
+    margin-bottom: var(--space-16) !important;
   }
 
   .chart-section h2 {
@@ -502,7 +502,7 @@
   .phase2-solutions-section {
     padding: var(--space-4) !important;
     margin-top: var(--space-4) !important;
-    margin-bottom: var(--space-8) !important;
+    margin-bottom: var(--space-16) !important;
   }
 
   .full-width-image-section {

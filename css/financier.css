@@ -861,6 +861,10 @@ main.main-content.project-intro-section {
     margin-bottom: 2rem !important;
   }
 
+  .key-findings-section .findings-content {
+    margin-bottom: var(--space-2) !important;
+  }
+
   .final-design-container,
   .features-container,
   .outline-images-container,
@@ -981,7 +985,7 @@ main.main-content.project-intro-section {
   }
 
   .research-caption {
-    margin-top: 0.5rem !important;
+    margin-top: 0 !important;
   }
 
   .mockup-caption {
