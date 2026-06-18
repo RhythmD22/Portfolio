@@ -103,6 +103,91 @@ The site is a multi-page HTML application. The header and footer are injected vi
 
 ---
 
+## Design System
+
+The CSS is built on a token-based design system defined in `css/styles.css`. All spacing, typography, border-radius, and shadow values reference these tokens rather than raw values.
+
+### Type Scale
+
+| Token | Value | Usage |
+|-------|-------|-------|
+| `--text-xs` | `0.75rem` | Captions, meta labels |
+| `--text-sm` | `0.875rem` | Navigation, secondary text, meta |
+| `--text-base` | `1rem` | Body text, footer links |
+| `--text-lg` | `1.15rem` | Large body, project overviews |
+| `--text-xl` | `1.5rem` | Section titles, card headings |
+| `--text-2xl` | `2rem` | Page titles, hero headings |
+
+### Spacing Scale
+
+| Token | Value | Usage |
+|-------|-------|-------|
+| `--space-1` | `0.25rem` | Micro gaps (heading-to-description) |
+| `--space-2` | `0.5rem` | Tight gaps, icon spacing |
+| `--space-3` | `0.75rem` | Footer nav gaps |
+| `--space-4` | `1rem` | Standard element spacing |
+| `--space-6` | `1.5rem` | Medium section gaps |
+| `--space-8` | `2rem` | Card padding, standard section spacing |
+| `--space-12` | `3rem` | Large section margins |
+| `--space-16` | `4rem` | Major section separation |
+
+### Border Radius
+
+| Token | Value | Usage |
+|-------|-------|-------|
+| `--radius-sm` | `4px` | Subtle corners (info-meta, icons) |
+| `--radius-md` | `8px` | Standard cards |
+| `--radius-lg` | `12px` | Project thumbnails |
+| `--card-radius` | `var(--radius-md)` | All content cards (outcomes, reflection, problem statements) |
+
+### Shadows
+
+| Token | Value | Usage |
+|-------|-------|-------|
+| `--shadow-sm` | `0 2px 8px rgba(0,0,0,0.06)` | Subtle card elevation |
+| `--shadow-md` | `0 4px 16px rgba(0,0,0,0.08)` | Elevated cards (content, problem statements) |
+| `--shadow-lg` | `0 8px 30px rgba(0,0,0,0.12)` | Heavy elevation |
+| `--card-shadow` | `var(--shadow-sm)` | Default card shadow |
+| `--card-shadow-heavy` | `var(--shadow-md)` | Prominent card shadow |
+
+### Card Pattern
+
+All content cards share a consistent recipe:
+
+```css
+.card {
+  background: var(--card-bg);
+  color: var(--card-text);
+  padding: var(--space-8);
+  box-shadow: var(--card-shadow);
+  border-radius: var(--card-radius);
+}
+```
+
+Project accent cards add `border: 4px solid <project-color>` for visual identity:
+- Financier: `#4f84ef` (blue)
+- SmartShuttle: `#6a63f6` (purple)
+- Clash Royale: `#dc3e3d` (red)
+
+### Theme Variables
+
+Dark mode is controlled via `[data-theme="dark"]` on `<html>`, swapping CSS custom properties. Tokens like `--text-*`, `--space-*`, `--radius-*`, and `--shadow-*` are theme-agnostic. Theme-sensitive values (`--background-color`, `--text-color`, `--card-bg`, `--card-shadow`, etc.) have light and dark variants.
+
+### Glassmorphism
+
+Pill buttons (navigation, dark mode toggle, contact, download) use a shared glass effect kept separate from the shadow tokens:
+
+```css
+background: rgba(250, 239, 216, 0.7);
+backdrop-filter: blur(12px);
+border: 1px solid var(--border-color);
+box-shadow:
+  0 4px 16px rgba(0, 0, 0, 0.08),
+  inset 0 1px 0 rgba(255, 255, 255, 0.5);
+```
+
+---
+
 ## Tech Stack
 
 | Layer | Technology |
