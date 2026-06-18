@@ -1,4 +1,41 @@
-/* Base styles for all pages */
+/* ===== Design Tokens ===== */
+/* Type Scale */
+:root {
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.15rem;
+  --text-xl: 1.5rem;
+  --text-2xl: 2rem;
+}
+
+/* Spacing Scale (base 0.25rem = 4px) */
+:root {
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+}
+
+/* Border Radius */
+:root {
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+}
+
+/* Shadows */
+:root {
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 8px 30px rgba(0, 0, 0, 0.12);
+}
+
+/* ===== Theme Variables ===== */
 :root {
   --background-color: #faefd8;
   --text-color: black;
@@ -11,8 +48,9 @@
   --dark-mode-toggle-hover: #726dfc;
   --card-bg: #ffffff;
   --card-text: inherit;
-  --card-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
-  --card-shadow-heavy: 0 0 8px rgba(0, 0, 0, 0.1);
+  --card-shadow: var(--shadow-sm);
+  --card-shadow-heavy: var(--shadow-md);
+  --card-radius: var(--radius-md);
   --chart-grid-bg: #f9f9f9;
   --chart-grid-border: #ddd;
   --chart-grid-heading: #333;
@@ -33,8 +71,8 @@
   --cta-border-color: rgba(255, 255, 255, 0.4);
   --card-bg: #1e1e1e;
   --card-text: #e0e0e0;
-  --card-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
-  --card-shadow-heavy: 0 0 8px rgba(0, 0, 0, 0.5);
+  --card-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+  --card-shadow-heavy: 0 4px 16px rgba(0, 0, 0, 0.5);
   --chart-grid-bg: #2d2d2d;
   --chart-grid-border: #555;
   --chart-grid-heading: #f0f0f0;
@@ -72,7 +110,7 @@ body {
 /* Site Header */
 .site-header {
   width: 100%;
-  padding: 1rem 0;
+  padding: var(--space-4) 0;
   margin: 0;
   position: fixed;
   top: 0;
@@ -89,8 +127,8 @@ body {
   .header-right {
     display: flex !important;
     position: fixed;
-    top: 2rem;
-    right: 2rem;
+    top: var(--space-8);
+    right: var(--space-8);
     z-index: 1001;
   }
 }
@@ -104,11 +142,11 @@ body {
 /* Desktop Pill Header */
 .header-content-pill {
   position: relative;
-  left: 1rem;
+  left: var(--space-4);
   background-color: rgba(250, 239, 216, 0.8);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  padding: 0.5rem 0;
+  padding: var(--space-2) 0;
   border-radius: 50px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   display: flex;
@@ -157,7 +195,7 @@ body {
   text-transform: uppercase;
   text-decoration: none;
   letter-spacing: 0.1em;
-  font-size: 0.875rem;
+  font-size: var(--text-sm);
   display: inline-flex;
   align-items: center;
   text-indent: 0.1em;
@@ -194,7 +232,7 @@ body {
   width: 32px;
   height: auto;
   vertical-align: middle;
-  border-radius: 4px;
+  border-radius: var(--radius-sm);
   display: none;
 }
 
@@ -324,7 +362,7 @@ body {
   padding: 2rem;
   margin: 4rem 2rem 0 6rem;
   max-width: 480px;
-  border-radius: 4px;
+  border-radius: var(--radius-sm);
   font-weight: 300;
   color: var(--text-color);
 }
@@ -354,8 +392,8 @@ body {
 
 /* Project info meta sections */
 .info-meta {
-  padding: 1rem;
-  border-radius: 4px;
+  padding: var(--space-4);
+  border-radius: var(--radius-sm);
   box-sizing: border-box;
   font-size: 0.9rem;
   text-align: left;
@@ -364,7 +402,7 @@ body {
 
 p {
   line-height: 1.5;
-  margin: 0 0 1rem 0;
+  margin: 0 0 var(--space-4) 0;
 }
 
 /* Work page main content layout */
@@ -399,13 +437,13 @@ p {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 0.5rem;
+  gap: var(--space-2);
 }
 
 .footer-left-top {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: var(--space-4);
 }
 
 .footer-name {
@@ -462,25 +500,25 @@ p {
 
 .footer-links-container {
   display: flex;
-  gap: 2rem;
+  gap: var(--space-8);
 }
 
 .footer-work {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
-  margin-right: 3rem;
+  gap: var(--space-4);
+  margin-right: var(--space-12);
 }
 
 .footer-right {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: var(--space-4);
 }
 
 .footer-heading {
   margin: 0;
-  font-size: 1rem;
+  font-size: var(--text-base);
   letter-spacing: 0.1em;
   color: var(--footer-text-color);
   font-family: inherit;
@@ -490,7 +528,7 @@ p {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 0.75rem;
+  gap: var(--space-3);
 }
 
 .site-footer nav span.link-text {
@@ -506,9 +544,9 @@ p {
 @media (max-width: 600px) {
   .site-footer {
     flex-direction: column;
-    gap: 2rem;
+    gap: var(--space-8);
     text-align: left;
-    padding: 2rem;
+    padding: var(--space-8);
     align-items: flex-start;
   }
 
@@ -520,17 +558,17 @@ p {
     flex-direction: row;
     align-items: center;
     justify-content: flex-start;
-    gap: 1rem;
+    gap: var(--space-4);
   }
 
   .footer-links-container {
     flex-direction: row;
-    gap: 2rem;
+    gap: var(--space-8);
     justify-content: flex-start;
   }
 
   .footer-work {
-    margin-right: 1rem;
+    margin-right: var(--space-4);
   }
 
   .footer-name {
@@ -543,17 +581,17 @@ p {
   }
 
   .footer-heading {
-    font-size: 1rem !important;
+    font-size: var(--text-base) !important;
   }
 
   .site-footer nav a {
-    font-size: 1rem !important;
+    font-size: var(--text-base) !important;
   }
 }
 
 .site-footer nav i,
 .site-footer nav .link-text {
-  font-size: 1rem;
+  font-size: var(--text-base);
 }
 
 .site-footer nav a i {
@@ -678,21 +716,21 @@ p {
 }
 
 .section-title {
-  font-size: 1.8rem;
+  font-size: var(--text-2xl);
   font-weight: 700;
   margin: 0;
 }
 
 .page-title {
-  font-size: 2rem;
+  font-size: var(--text-2xl);
   font-weight: 700;
 }
 
 .caption {
-  font-size: 0.85rem;
+  font-size: var(--text-sm);
   color: #555;
   text-align: center;
-  margin: 0.5rem 0 1rem;
+  margin: var(--space-2) 0 var(--space-4);
 }
 
 [data-theme="dark"] .caption {
@@ -707,7 +745,7 @@ p {
 .screenshot-img {
   width: 100%;
   height: auto;
-  border-radius: 8px;
+  border-radius: var(--card-radius);
   border: 1px solid var(--border-color);
 }
 
@@ -932,7 +970,7 @@ p {
 .nav-link {
   display: block;
   text-align: center;
-  padding: 1.5rem 0;
+  padding: var(--space-6) 0;
   text-decoration: none;
   color: inherit;
   transition: background 0.2s ease;
@@ -941,7 +979,7 @@ p {
   border: none;
   background: transparent;
   cursor: pointer;
-  font-size: 1.3rem;
+  font-size: var(--text-xl);
   position: relative;
   box-sizing: border-box;
   margin: 0;
@@ -971,7 +1009,7 @@ p {
 }
 
 .nav-text {
-  font-size: 1.3rem;
+  font-size: var(--text-xl);
   font-weight: 500;
   display: block;
   width: 100%;
@@ -1013,7 +1051,7 @@ p {
 }
 
 .nav-icon {
-  font-size: 1rem;
+  font-size: var(--text-base);
   width: 1.2rem;
   height: 1.2rem;
   display: flex;
@@ -1039,11 +1077,11 @@ p {
 
 .sidebar-footer {
   color: #A6A6A6;
-  font-size: 0.8rem;
+  font-size: var(--text-xs);
   text-align: center;
   margin-top: auto;
-  margin-bottom: 2rem;
-  padding-top: 1rem;
+  margin-bottom: var(--space-8);
+  padding-top: var(--space-4);
   border-top: 1px solid #e5e7eb;
 }
 

@@ -1,5 +1,5 @@
 :root {
-  --about-footer-margin: -3.5rem;
+  --about-footer-margin: 2rem;
 }
 
 .nowrap {
@@ -19,17 +19,17 @@
 #about .intro-text {
   max-width: 1100px;
   margin: 0 auto;
-  padding: 0.25rem 2rem 2rem;
+  padding: var(--space-1) var(--space-8) var(--space-8);
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 2rem;
+  gap: var(--space-8);
 }
 
 #about .intro-content {
   display: flex;
   align-items: flex-start;
-  gap: 8rem;
+  gap: var(--space-16);
   width: 100%;
 }
 
@@ -54,7 +54,7 @@
 }
 
 #about .about-heading {
-  font-size: 2rem;
+  font-size: var(--text-2xl);
   font-weight: 600;
   margin: 0;
   color: var(--text-color);
@@ -63,7 +63,7 @@
 }
 
 #about .intro-paragraph {
-  font-size: 1.1rem;
+  font-size: var(--text-lg);
   line-height: 1.5;
   margin-bottom: 0;
   text-align: left;
@@ -82,11 +82,11 @@
 }
 
 #about .image-caption {
-  font-size: 0.9rem;
+  font-size: var(--text-sm);
   color: var(--text-color);
   opacity: 0.7;
   text-align: center;
-  margin-top: 0.75rem;
+  margin-top: var(--space-3);
   line-height: 1.4;
   max-width: 280px;
 }
@@ -95,7 +95,7 @@
 @media (max-width: 900px) {
   #about {
     padding-bottom: 0;
-    margin-bottom: -3.3rem !important;
+    margin-bottom: 2rem !important;
   }
 
 
@@ -105,7 +105,7 @@
 
   #about .about-heading {
     white-space: normal;
-    font-size: 1.5rem;
+    font-size: var(--text-xl);
   }
 
   #about .about-heading .mobile-break {
@@ -113,13 +113,13 @@
   }
 
   #about .intro-text {
-    padding: 0.25rem 1rem 2rem;
+    padding: var(--space-1) var(--space-4) var(--space-8);
   }
 
   #about .intro-content {
     flex-direction: column;
     align-items: center;
-    gap: 1.5rem;
+    gap: var(--space-6);
   }
 
   #about .intro-content .img-container {

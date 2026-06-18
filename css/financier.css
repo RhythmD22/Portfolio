@@ -27,30 +27,30 @@ body {
 
 .problem-statement-section {
   max-width: 1150px;
-  margin: -14rem auto 12rem;
-  padding: 0 2rem;
+  margin: -8rem auto 12rem;
+  padding: 0 var(--space-8);
   position: relative;
 }
 
 .problem-statement-content {
   background: var(--card-bg);
   color: var(--card-text);
-  padding: 2rem;
+  padding: var(--space-8);
   box-shadow: var(--card-shadow-heavy);
-  border-radius: 8px;
-  margin-top: 1rem;
+  border-radius: var(--card-radius);
+  margin-top: var(--space-4);
   border: 4px solid #4f84ef;
 }
 
 .problem-statement-text {
-  font-size: 1.15rem;
+  font-size: var(--text-lg);
   text-align: center;
 }
 
 .role-responsibilities-section {
   gap: 6rem;
-  padding: 2rem;
-  margin-top: 4rem;
+  padding: var(--space-8);
+  margin-top: var(--space-16);
   margin-bottom: 0;
 }
 
@@ -59,16 +59,16 @@ body {
 }
 
 .responsibilities-content {
-  font-size: 1.15rem;
-  margin-top: -2rem;
+  font-size: var(--text-lg);
+  margin-top: 0;
 }
 
 .outline-images-container {
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  gap: 2rem;
-  margin: 3rem auto;
+  gap: var(--space-8);
+  margin: var(--space-12) auto;
   max-width: 1200px;
 }
 
@@ -90,7 +90,7 @@ body {
 }
 
 .research-header {
-  margin-bottom: -14rem;
+  margin-bottom: 0;
   position: relative;
   z-index: 2;
 }
@@ -100,20 +100,20 @@ body {
 }
 
 .research-intro {
-  font-size: 1.15rem;
-  margin: 1rem 0 6rem;
+  font-size: var(--text-lg);
+  margin: var(--space-4) 0 var(--space-4);
   max-width: 100%;
 }
 
 .competitor-analysis-container {
   background: #eaeaea;
-  padding: 2rem;
-  padding-bottom: 4rem;
-  margin-top: 15rem;
+  padding: var(--space-8);
+  padding-bottom: var(--space-8);
+  margin-top: var(--space-4);
   display: flex;
   justify-content: flex-end;
-  gap: 2rem;
-  border-radius: 8px;
+  gap: var(--space-8);
+  border-radius: var(--card-radius);
   position: relative;
   z-index: 1;
 }
@@ -138,7 +138,7 @@ body {
 }
 
 .competitor-label {
-  font-size: 1rem;
+  font-size: var(--text-base);
   font-weight: 600;
   margin: 0;
   color: black !important;
@@ -166,14 +166,11 @@ body {
 }
 
 .competitor-screenshots {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
   width: 35%;
-  margin-right: auto;
-  margin-left: 50%;
-  margin-top: 1rem;
-  position: relative;
+  transform: translateY(-50%);
   z-index: 2;
 }
 
@@ -203,11 +200,13 @@ body {
 }
 
 .igrad-screenshot {
-  position: absolute;
-  top: 50%;
-  right: -7rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   width: 24%;
-  transform: translateY(-50%);
+  margin-left: auto;
+  margin-right: -5%;
+  margin-top: 1rem;
 }
 
 .igrad-screenshot .image-link {
@@ -225,7 +224,7 @@ body {
   font-size: 0.9rem;
   text-align: center;
   padding: 0 0.5rem;
-  margin-left: -10rem;
+  margin-left: 0;
 }
 
 .strengths-section,
@@ -247,7 +246,7 @@ body {
 
 .strengths-section .section-title,
 .weaknesses-section .section-title {
-  font-size: 1.2rem;
+  font-size: var(--text-lg);
 }
 
 .strengths-list,
@@ -255,7 +254,7 @@ body {
   position: absolute;
   left: 160px;
   width: 400px;
-  font-size: 1rem;
+  font-size: var(--text-base);
 }
 
 .horizontal-line-bottom {
@@ -264,7 +263,7 @@ body {
   left: 0;
   width: 50%;
   height: 2px;
-  background-color: #ccc;
+  background-color: var(--divider-color);
   z-index: 2;
 }
 
@@ -286,10 +285,10 @@ body {
 .interviews-content {
   background: var(--card-bg);
   color: var(--card-text);
-  padding: 2rem;
+  padding: var(--space-8);
   box-shadow: var(--card-shadow-heavy);
-  border-radius: 8px;
-  margin: 1rem auto 2rem;
+  border-radius: var(--card-radius);
+  margin: var(--space-4) auto var(--space-8);
   max-width: 1200px;
 }
 
@@ -316,10 +315,10 @@ body {
 
 .analysis-subtitle {
   text-align: center;
-  margin: 1rem 0 2rem;
-  font-size: 1.15rem;
-  padding-left: 2rem;
-  padding-right: 2rem;
+  margin: var(--space-4) 0 var(--space-8);
+  font-size: var(--text-lg);
+  padding-left: var(--space-8);
+  padding-right: var(--space-8);
 }
 
 .chart-grid-item h3 {
@@ -335,16 +334,16 @@ body {
 .findings-content {
   background: var(--card-bg);
   color: var(--card-text);
-  padding: 2rem;
+  padding: var(--space-8);
   box-shadow: var(--card-shadow-heavy);
-  border-radius: 8px;
+  border-radius: var(--card-radius);
   border: 4px solid #4f84ef;
 }
 
 .findings-content ul {
-  font-size: 1.15rem;
+  font-size: var(--text-lg);
   line-height: 1.8;
-  padding-left: 1.2rem;
+  padding-left: var(--space-4);
   max-width: 100%;
 }
 
@@ -370,54 +369,54 @@ body {
 
 .features-subtitle {
   text-align: left;
-  margin: 1rem 0 1rem;
-  font-size: 1.15rem;
+  margin: var(--space-4) 0 var(--space-6);
+  font-size: var(--text-lg);
   margin-left: 0;
 }
 
 .features-container {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  gap: 2rem;
-  padding: 0 2rem;
+  align-items: center;
+  gap: var(--space-4);
+  padding: 0 var(--space-8);
 }
 
 .video-container {
-  background: #eaeaea;
-  padding: 2rem;
-  border-radius: 8px;
-  width: calc(1200px - 4rem);
-  max-width: calc(1200px - 4rem);
+  background: var(--card-bg);
+  padding: var(--space-8);
+  border-radius: var(--card-radius);
+  width: 100%;
+  max-width: 800px;
   min-height: 400px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   overflow: visible;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--shadow-md);
 }
 
 .feature-video {
-  width: 800px;
+  width: 100%;
+  max-width: 700px;
   height: auto;
-  max-width: 100%;
   display: block;
 }
 
 .section-subtitle {
-  text-align: left;
-  margin: -1rem 0 0 0;
-  font-size: 1.2rem;
+  text-align: center;
+  margin: var(--space-2) 0 0 0;
+  font-size: var(--text-xl);
   font-weight: 600;
 }
 
 .subtitle-description {
-  text-align: left;
-  margin: -2rem 0 2rem 0;
-  font-size: 1rem;
+  text-align: center;
+  margin: var(--space-1) 0 var(--space-12) 0;
+  font-size: var(--text-base);
   font-weight: 400;
-  max-width: calc(1200px - 4rem);
+  max-width: 800px;
 }
 
 .final-design-title {
@@ -483,8 +482,8 @@ body {
 .panel-label {
   background: var(--card-bg);
   color: var(--card-text);
-  border-radius: 8px;
-  padding: 1rem 1.5rem;
+  border-radius: var(--card-radius);
+  padding: var(--space-4) var(--space-6);
   margin-bottom: 0;
   box-shadow: var(--card-shadow-heavy);
   width: 100%;
@@ -492,9 +491,9 @@ body {
 }
 
 .panel-description {
-  font-size: 1rem;
+  font-size: var(--text-base);
   text-align: center;
-  margin: 1rem 0;
+  margin: var(--space-4) 0;
 }
 
 .mockup-column {
@@ -540,7 +539,7 @@ body {
 
 .figma-embed-container iframe {
   border: 1px solid rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
+  border-radius: var(--card-radius);
   width: 100%;
   height: 600px;
 }
@@ -548,22 +547,22 @@ body {
 .prototype-description {
   background: var(--card-bg);
   color: var(--card-text);
-  padding: 2rem;
+  padding: var(--space-8);
   margin: 0 auto;
   width: 100%;
   max-width: 1135px;
   box-shadow: var(--card-shadow);
-  border-radius: 8px;
+  border-radius: var(--card-radius);
 }
 
 .prototype-description p {
-  font-size: 1.15rem;
+  font-size: var(--text-lg);
   line-height: 1.8;
   margin: 0;
 }
 
 .reflection-card {
-  margin: 4rem auto 0;
+  margin: var(--space-16) auto 0;
   border: 4px solid #4f84ef;
 }
 
@@ -582,12 +581,12 @@ body {
 
 .neon-border-card {
   position: relative;
-  border-radius: 8px;
+  border-radius: var(--card-radius);
   overflow: hidden;
   background-color: var(--card-bg);
   color: var(--card-text);
   box-shadow: var(--card-shadow);
-  padding: 2rem;
+  padding: var(--space-8);
   max-width: 800px;
   margin: 0 auto 6rem;
   display: inline-block;
@@ -636,21 +635,21 @@ body {
 
 .magnate-title {
   text-align: center;
-  font-size: 1.5rem;
+  font-size: var(--text-xl);
   font-weight: 700;
 }
 
 .magnate-description {
-  font-size: 1.15rem;
+  font-size: var(--text-lg);
   line-height: 1.8;
   text-align: left;
 }
 
 .magnate-link-container {
-  font-size: 1.15rem;
+  font-size: var(--text-lg);
   line-height: 1.8;
   text-align: center;
-  margin-top: 1rem;
+  margin-top: var(--space-4);
 }
 
 #magnate-link {
@@ -745,11 +744,11 @@ main.main-content.project-intro-section {
   }
 
   .page-title {
-    font-size: 1.5rem;
+    font-size: var(--text-xl);
   }
 
   .section-title {
-    font-size: 1.4rem;
+    font-size: var(--text-xl);
   }
 
   .main-content {
@@ -764,7 +763,7 @@ main.main-content.project-intro-section {
 
   .role-responsibilities-section .section-title {
     margin-top: 0 !important;
-    font-size: 1.4rem !important;
+    font-size: var(--text-xl) !important;
     text-align: center !important;
   }
 
@@ -779,32 +778,32 @@ main.main-content.project-intro-section {
 
   .user-interviews-section .section-title {
     margin-top: 0 !important;
-    font-size: 1.4rem !important;
+    font-size: var(--text-xl) !important;
   }
 
   .market-research-section .section-title {
-    font-size: 1.4rem !important;
+    font-size: var(--text-xl) !important;
   }
 
   .budgeting-analysis-section .section-title {
-    font-size: 1.4rem !important;
+    font-size: var(--text-xl) !important;
   }
 
   .core-features-section .section-title {
-    font-size: 1.4rem !important;
+    font-size: var(--text-xl) !important;
   }
 
   .final-design-title {
-    font-size: 1.4rem !important;
+    font-size: var(--text-xl) !important;
   }
 
   .figma-prototype-section .section-title {
-    font-size: 1.4rem !important;
+    font-size: var(--text-xl) !important;
     margin-bottom: 1rem !important;
   }
 
   .live-website-section .section-title {
-    font-size: 1.4rem !important;
+    font-size: var(--text-xl) !important;
     margin-bottom: 1rem !important;
   }
 
@@ -829,7 +828,7 @@ main.main-content.project-intro-section {
   .research-plan-container {
     flex-direction: column !important;
     align-items: stretch !important;
-    gap: 1rem !important;
+    gap: var(--space-4) !important;
     padding: 0 !important;
   }
 
@@ -869,7 +868,7 @@ main.main-content.project-intro-section {
   @media screen and (max-width: 768px) {
     .banner-container {
       height: 300px !important;
-      margin-bottom: -0.01rem !important;
+      margin-bottom: 0 !important;
     }
 
     .banner-image {
@@ -917,7 +916,7 @@ main.main-content.project-intro-section {
     right: 0;
     top: -2rem;
     height: 1px;
-    background-color: #e0e0e0;
+    background-color: var(--divider-color);
     display: block !important;
   }
 
@@ -928,7 +927,7 @@ main.main-content.project-intro-section {
   }
 
   .problem-statement-section .section-title {
-    font-size: 1.4rem !important;
+    font-size: var(--text-xl) !important;
   }
 
   .project-intro-section {
@@ -938,7 +937,7 @@ main.main-content.project-intro-section {
   .caption {
     margin-top: 0 !important;
     text-align: center !important;
-    font-size: 1rem !important;
+    font-size: var(--text-base) !important;
     line-height: 1.4 !important;
   }
 
@@ -1014,17 +1013,17 @@ main.main-content.project-intro-section {
   }
 
   .page-title {
-    font-size: 1.3rem;
+    font-size: var(--text-xl);
   }
 
   .section-title {
-    font-size: 1.2rem;
+    font-size: var(--text-xl);
   }
 
   ul,
   ol,
   p {
-    font-size: 1rem !important;
+    font-size: var(--text-base) !important;
   }
 
   .banner-container {
@@ -1125,8 +1124,8 @@ main.main-content.project-intro-section {
     height: 120px !important;
     background-color: transparent !important;
     opacity: 0.5 !important;
-    border-right: 2px solid #cccccc !important;
-    border-bottom: 2px solid #cccccc !important;
+    border-right: 2px solid var(--divider-color) !important;
+    border-bottom: 2px solid var(--divider-color) !important;
     z-index: 3 !important;
   }
 
@@ -1145,8 +1144,8 @@ main.main-content.project-intro-section {
     content: '';
     position: absolute !important;
     left: 0 !important;
-    top: -3rem !important;
-    bottom: -4rem !important;
+    top: -4.2rem !important;
+    bottom: -4.2rem !important;
     width: 2px !important;
     background-color: #ccc !important;
     z-index: 1 !important;
@@ -1171,7 +1170,7 @@ main.main-content.project-intro-section {
   .strengths-list,
   .weaknesses-list {
     width: calc(50% - 250px) !important;
-    font-size: 0.9rem !important;
+    font-size: var(--text-sm) !important;
     word-wrap: break-word;
     overflow-wrap: break-word;
     hyphens: auto;
@@ -1237,9 +1236,9 @@ main.main-content.project-intro-section {
   }
 
   .competitor-count-box {
-    border-right: 2px solid #cccccc !important;
-    border-bottom: 2px solid #cccccc !important;
-    border-radius: 8px !important;
+    border-right: 2px solid var(--divider-color) !important;
+    border-bottom: 2px solid var(--divider-color) !important;
+    border-radius: var(--card-radius) !important;
   }
 
   .strengths-section,
@@ -1359,7 +1358,7 @@ main.main-content.project-intro-section {
 
   .section-subtitle,
   .subtitle-description {
-    text-align: left !important;
+    text-align: center !important;
     margin-left: 0 !important;
     max-width: 100% !important;
   }
@@ -1369,11 +1368,11 @@ main.main-content.project-intro-section {
   }
 
   .features-header {
-    padding: 0 1rem !important;
+    padding: 0 var(--space-4) !important;
   }
 
   .features-header .section-title {
-    margin-bottom: 1rem !important;
+    margin-bottom: var(--space-4) !important;
   }
 
   .features-subtitle {
@@ -1384,30 +1383,28 @@ main.main-content.project-intro-section {
   .video-container {
     width: 100% !important;
     max-width: 100% !important;
-    padding: 1.5rem !important;
+    padding: var(--space-6) !important;
   }
 
   .section-subtitle {
-    margin: 0.5rem 0 -1rem 0 !important;
-    text-align: left !important;
+    margin: var(--space-2) 0 0 0 !important;
+    text-align: center !important;
     padding-left: 0 !important;
     margin-left: 0 !important;
-    align-self: flex-start !important;
+    align-self: center !important;
   }
 
   .subtitle-description {
-    margin: 0.5rem 0 2rem 0 !important;
-    text-align: left !important;
+    margin: var(--space-1) 0 var(--space-12) 0 !important;
+    text-align: center !important;
     padding-left: 0 !important;
     margin-left: 0 !important;
-    align-self: flex-start !important;
+    align-self: center !important;
   }
 
   #header-placeholder {
     margin-bottom: 1rem !important;
   }
-
-
 
   .banner-container {
     height: 300px !important;
@@ -1421,7 +1418,7 @@ main.main-content.project-intro-section {
   }
 
   .main-content {
-    margin-bottom: -1rem !important;
+    margin-bottom: 0 !important;
   }
 
   .moneyhelper-screenshot .caption,

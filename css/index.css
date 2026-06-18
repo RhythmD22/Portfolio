@@ -25,7 +25,7 @@
   max-width: 300px;
   width: 100%;
   height: auto;
-  border-radius: 8px;
+  border-radius: var(--radius-lg);
 }
 
 #about .intro-content {
@@ -70,7 +70,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 2rem;
+  gap: var(--space-8);
   width: 100%;
   position: relative;
   text-align: center;
@@ -82,7 +82,7 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin: 2rem auto;
+  margin: var(--space-8) auto;
   flex-shrink: 0;
   width: max-content;
   min-height: 340px;
@@ -184,17 +184,17 @@ body {
 }
 
 .intro-heading {
-  font-size: 2.2rem;
-  margin: 0 0 1rem;
+  font-size: var(--text-2xl);
+  margin: 0 0 var(--space-4);
   font-weight: 600;
   color: var(--text-color);
 }
 
 .intro-paragraph {
-  font-size: 1.1rem;
+  font-size: var(--text-lg);
   line-height: 1.5;
   color: var(--text-color);
-  margin: 0 0 1rem;
+  margin: 0 0 var(--space-4);
 }
 
 .intro-heading,
@@ -343,7 +343,7 @@ body {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    gap: 1.5rem;
+    gap: var(--space-6);
     width: 100%;
   }
 
@@ -381,7 +381,7 @@ body {
     box-sizing: border-box;
     justify-content: center;
     min-height: auto;
-    gap: 1.5rem;
+    gap: var(--space-6);
   }
 
   .intro-text {
@@ -389,7 +389,7 @@ body {
     margin: 0;
     width: 100%;
     max-width: 100%;
-    padding: 0 1rem;
+    padding: 0 var(--space-4);
     box-sizing: border-box;
     overflow-wrap: break-word;
     word-break: normal;
@@ -456,7 +456,7 @@ body {
     box-sizing: border-box;
     justify-content: center;
     min-height: auto;
-    gap: 1.5rem;
+    gap: var(--space-6);
   }
 
   .intro-text {
@@ -464,7 +464,7 @@ body {
     margin: 0;
     width: 100%;
     max-width: 100%;
-    padding: 0 1rem;
+    padding: 0 var(--space-4);
     box-sizing: border-box;
     overflow-wrap: break-word;
     word-break: normal;

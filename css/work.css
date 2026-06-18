@@ -16,9 +16,9 @@
 }
 
 .work-summary p {
-  font-size: clamp(1rem, 3vw, 1.05rem);
+  font-size: clamp(var(--text-base), 3vw, 1.05rem);
   line-height: 1.5;
-  margin-bottom: 0.5rem;
+  margin-bottom: var(--space-2);
   color: var(--text-color);
 }
 
@@ -138,7 +138,7 @@
   flex: 2 1 640px;
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: var(--space-8);
 }
 
 .project {
@@ -147,10 +147,10 @@
 
 .project-thumbnail {
   background: transparent;
-  border-radius: 12px;
+  border-radius: var(--radius-lg);
   object-fit: cover;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-  margin-bottom: 1.2rem;
+  margin-bottom: var(--space-4);
   display: block;
   transition: box-shadow 0.3s ease;
   cursor: pointer;
@@ -183,7 +183,7 @@
 
 .project-description {
   font-size: clamp(0.9rem, 2.5vw, 1rem);
-  color: #2d2d2d;
+  color: var(--text-color);
   margin: 0 0 0.3rem 0;
 }
 
@@ -192,7 +192,7 @@
 }
 
 .main-content {
-  margin-top: 2rem;
+  margin-top: var(--space-8);
 }
 
 .main-content .projects-section .project {
@@ -204,9 +204,9 @@
   max-width: 670px;
   min-width: 0;
   aspect-ratio: 670 / 377;
-  border-radius: 12px;
+  border-radius: var(--radius-lg);
   overflow: hidden;
-  margin-bottom: 1rem;
+  margin-bottom: var(--space-4);
   position: relative;
   border: none;
 }
@@ -215,7 +215,7 @@
   content: '';
   position: absolute;
   inset: 0;
-  border-radius: 12px;
+  border-radius: var(--radius-lg);
   padding: 1.5px;
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.2) 30%, rgba(255, 255, 255, 0.05) 60%, rgba(255, 255, 255, 0.35) 100%);
   -webkit-mask-image: linear-gradient(#fff, #fff), linear-gradient(#fff, #fff);
@@ -406,13 +406,13 @@ video.project-thumbnail::-webkit-media-controls-start-playback-button {
 @media (max-width: 1200px) {
   .main-content {
     flex-direction: column;
-    gap: 2rem;
+    gap: var(--space-8);
   }
 
   .work-summary {
     max-width: 100%;
     margin-top: 0;
-    margin-bottom: 2rem;
+    margin-bottom: var(--space-8);
     margin-left: 0;
   }
 
@@ -427,13 +427,13 @@ video.project-thumbnail::-webkit-media-controls-start-playback-button {
 
 @media (max-width: 900px) {
   .projects-section {
-    margin-top: -11rem;
+    margin-top: 0;
   }
 
   .main-content {
     flex-direction: column;
-    gap: 0;
-    padding: 0 1rem;
+    gap: var(--space-8);
+    padding: var(--space-8) var(--space-4);
   }
 
   .work-summary {
@@ -451,7 +451,7 @@ video.project-thumbnail::-webkit-media-controls-start-playback-button {
   }
 
   .work-summary .contact-pill {
-    margin-top: 1.5rem;
+    margin-top: var(--space-6);
   }
 
   .main-content .projects-section .project:nth-child(2) .smartshuttle-thumbnail {
@@ -494,7 +494,7 @@ video.project-thumbnail::-webkit-media-controls-start-playback-button {
   }
 
   .work-summary p {
-    font-size: 1rem;
+    font-size: var(--text-base);
   }
 
   .project-title {
