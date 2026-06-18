@@ -486,7 +486,7 @@
   }
 
   .phase-2-description {
-    margin-bottom: 8rem !important;
+    margin-bottom: 4rem !important;
   }
 
   .chart-section {
@@ -512,7 +512,7 @@
 
   .figma-prototype-section .section-title {
     margin-top: var(--space-16) !important;
-    margin-bottom: var(--space-4) !important;
+    margin-bottom: var(--space-1) !important;
   }
 
   .figma-prototype-iframe-container {
@@ -525,8 +525,7 @@
   .figma-prototype-iframe-container iframe {
     width: 99% !important;
     max-width: 99% !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
+    margin: 0 auto !important;
     display: block !important;
   }
 
@@ -536,7 +535,7 @@
     padding: var(--space-8) !important;
     margin-left: 0 !important;
     margin-right: 0 !important;
-    margin-top: var(--space-4) !important;
+    margin-top: var(--space-1) !important;
     margin-bottom: 0 !important;
     box-sizing: border-box !important;
   }
@@ -568,6 +567,10 @@
     margin-bottom: var(--space-16) !important;
     padding: var(--space-8) !important;
     box-sizing: border-box !important;
+  }
+
+  .final-design-section {
+    margin-top: var(--space-16) !important;
   }
 }
 

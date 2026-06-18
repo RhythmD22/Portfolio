@@ -427,11 +427,12 @@
     flex-direction: column !important;
     align-items: center !important;
     text-align: center !important;
+    gap: var(--space-2);
   }
 
   .design-process-content>div:first-child {
     width: 100%;
-    margin-bottom: var(--space-8);
+    margin-bottom: 0;
   }
 
   .problem-discovery-section {
@@ -453,11 +454,15 @@
 
   #iframe-container .section-title {
     position: relative;
-    top: 2rem;
+    top: 0.25rem;
   }
 
   #iframe-container .section-title .wireframe-break {
     display: block;
+  }
+
+  .comparisons-description {
+    margin-bottom: var(--space-32) !important;
   }
 
   .comparisons-content {
@@ -523,11 +528,16 @@
   }
 
   .reflection-card {
-    margin-bottom: 4rem !important;
+    margin-top: var(--space-32) !important;
+    margin-bottom: var(--space-16) !important;
   }
 
   #iframe-container .figma-description {
-    margin-top: var(--space-4) !important;
+    margin-top: var(--space-1) !important;
+  }
+
+  #iframe-container iframe {
+    margin: 0 !important;
   }
 }
 

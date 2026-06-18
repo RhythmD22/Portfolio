@@ -263,7 +263,7 @@ body {
   left: 0;
   width: 50%;
   height: 2px;
-  background-color: var(--divider-color);
+  background-color: #ccc;
   z-index: 2;
 }
 
@@ -743,6 +743,40 @@ main.main-content.project-intro-section {
     max-width: 100%;
   }
 
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .outline-images-container,
+  .competitor-screenshots,
+  .igrad-screenshot,
+  .mockup-column,
+  .mockup-container,
+  .live-website-section,
+  .final-design-container,
+  .problem-statement-section,
+  .user-interviews-section,
+  .core-features-section,
+  .key-findings-section,
+  .outcomes-section,
+  .reflection-card,
+  .prototype-description,
+  .figma-prototype-section,
+  .features-container,
+  .budgeting-analysis-section,
+  .market-research-section {
+    max-width: 100% !important;
+    overflow-x: hidden;
+  }
+
+  .caption {
+    max-width: 100%;
+    overflow-wrap: break-word;
+    word-break: break-word;
+    box-sizing: border-box;
+  }
+
   .page-title {
     font-size: var(--text-xl);
   }
@@ -799,7 +833,11 @@ main.main-content.project-intro-section {
 
   .figma-prototype-section .section-title {
     font-size: var(--text-xl) !important;
-    margin-bottom: 1rem !important;
+    margin-bottom: var(--space-1) !important;
+  }
+
+  .figma-embed-container iframe {
+    margin: 0 !important;
   }
 
   .live-website-section .section-title {
@@ -820,6 +858,7 @@ main.main-content.project-intro-section {
   .prototype-description {
     max-width: 100% !important;
     width: 100% !important;
+    margin-bottom: 2rem !important;
   }
 
   .final-design-container,
@@ -935,7 +974,7 @@ main.main-content.project-intro-section {
   }
 
   .caption {
-    margin-top: 0 !important;
+    margin-top: 0.5rem !important;
     text-align: center !important;
     font-size: var(--text-base) !important;
     line-height: 1.4 !important;
@@ -946,7 +985,7 @@ main.main-content.project-intro-section {
   }
 
   .mockup-caption {
-    margin-top: 0 !important;
+    margin-top: 0.5rem !important;
   }
 }
 
@@ -1123,9 +1162,8 @@ main.main-content.project-intro-section {
     width: 120px !important;
     height: 120px !important;
     background-color: transparent !important;
-    opacity: 0.5 !important;
-    border-right: 2px solid var(--divider-color) !important;
-    border-bottom: 2px solid var(--divider-color) !important;
+    border-right: 2px solid #ccc !important;
+    border-bottom: 2px solid #ccc !important;
     z-index: 3 !important;
   }
 
@@ -1236,8 +1274,8 @@ main.main-content.project-intro-section {
   }
 
   .competitor-count-box {
-    border-right: 2px solid var(--divider-color) !important;
-    border-bottom: 2px solid var(--divider-color) !important;
+    border-right: 2px solid #ccc !important;
+    border-bottom: 2px solid #ccc !important;
     border-radius: var(--card-radius) !important;
   }
 
@@ -1307,6 +1345,13 @@ main.main-content.project-intro-section {
   .competitor-screenshots {
     order: 7;
     margin-top: 1rem;
+    position: static !important;
+    top: auto !important;
+    left: auto !important;
+    transform: none !important;
+    width: 100% !important;
+    padding: 0 1rem;
+    box-sizing: border-box;
   }
 
   .igrad-screenshot {
@@ -1350,6 +1395,10 @@ main.main-content.project-intro-section {
 }
 
 @media screen and (max-width: 768px) {
+  .outcomes-content {
+    margin-bottom: var(--space-16) !important;
+  }
+
   .video-container {
     width: calc(100% - 4rem) !important;
     max-width: calc(100% - 4rem) !important;
@@ -1419,6 +1468,10 @@ main.main-content.project-intro-section {
 
   .main-content {
     margin-bottom: 0 !important;
+  }
+
+  .caption {
+    margin-top: 0.5rem !important;
   }
 
   .moneyhelper-screenshot .caption,

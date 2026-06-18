@@ -19,6 +19,7 @@
   --space-8: 2rem;
   --space-12: 3rem;
   --space-16: 4rem;
+  --space-32: 8rem;
 }
 
 /* Border Radius */
@@ -979,7 +980,7 @@ p {
   border: none;
   background: transparent;
   cursor: pointer;
-  font-size: var(--text-xl);
+  font-size: 1.25rem;
   position: relative;
   box-sizing: border-box;
   margin: 0;
@@ -1009,7 +1010,7 @@ p {
 }
 
 .nav-text {
-  font-size: var(--text-xl);
+  font-size: 1.25rem;
   font-weight: 500;
   display: block;
   width: 100%;

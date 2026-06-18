@@ -410,10 +410,30 @@ video.project-thumbnail::-webkit-media-controls-start-playback-button {
   }
 
   .work-summary {
+    flex: none;
     max-width: 100%;
+    width: 100%;
     margin-top: 0;
-    margin-bottom: var(--space-8);
+    margin-bottom: 0;
     margin-left: 0;
+  }
+
+  .projects-section {
+    flex: none;
+  }
+
+  .main-content.work-section .work-summary h2 {
+    margin-bottom: 0;
+  }
+
+  .work-summary .contact-pill:not(.reveal):not(.static-pill) {
+    position: absolute;
+    margin-top: 0;
+  }
+
+  .work-summary .contact-pill.reveal,
+  .work-summary .contact-pill.static-pill {
+    margin-top: var(--space-4);
   }
 
   .main-content .projects-section .project {
@@ -439,7 +459,7 @@ video.project-thumbnail::-webkit-media-controls-start-playback-button {
   .work-summary {
     max-width: 100%;
     margin-top: 0;
-    margin-bottom: 0;
+    margin-bottom: var(--space-6);
   }
 
   .main-content.work-section .work-summary h2 {
@@ -450,8 +470,14 @@ video.project-thumbnail::-webkit-media-controls-start-playback-button {
     margin-bottom: 2.5rem;
   }
 
-  .work-summary .contact-pill {
-    margin-top: var(--space-6);
+  .work-summary .contact-pill:not(.reveal):not(.static-pill) {
+    position: absolute;
+    margin-top: 0;
+  }
+
+  .work-summary .contact-pill.reveal,
+  .work-summary .contact-pill.static-pill {
+    margin-top: var(--space-4);
   }
 
   .main-content .projects-section .project:nth-child(2) .smartshuttle-thumbnail {
@@ -479,16 +505,12 @@ video.project-thumbnail::-webkit-media-controls-start-playback-button {
 
 @media (max-width: 600px) {
   .main-content {
-    padding: 1rem 0.5rem;
+    padding: 0.5rem 0.5rem;
+    gap: var(--space-8);
   }
 }
 
 @media (max-width: 480px) {
-  .main-content {
-    padding: 1rem 0.5rem;
-    overflow-x: hidden;
-  }
-
   .work-summary h2 {
     font-size: 1.5rem;
   }
@@ -513,7 +535,7 @@ video.project-thumbnail::-webkit-media-controls-start-playback-button {
   }
 
   .main-content {
-    padding: 1rem 0.75rem;
+    padding: 0.5rem 0.75rem;
     margin-bottom: 0;
   }
 }
