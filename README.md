@@ -13,6 +13,7 @@
 - [Demo](#demo)
 - [Install](#install)
 - [Architecture](#architecture)
+- [Design System](#design-system)
 - [Tech Stack](#tech-stack)
 - [Getting Started](#getting-started)
 - [PWA Support](#progressive-web-app-pwa-support)
