@@ -131,6 +131,7 @@ The CSS is built on a token-based design system defined in `css/styles.css`. All
 | `--space-8` | `2rem` | Card padding, standard section spacing |
 | `--space-12` | `3rem` | Large section margins |
 | `--space-16` | `4rem` | Major section separation |
+| `--space-32` | `8rem` | Extra-large separation |
 
 ### Border Radius
 
