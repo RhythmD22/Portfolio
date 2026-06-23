@@ -1,3 +1,7 @@
+:root {
+  --clash-accent: #dc3e3d;
+}
+
 .problem-discovery-section {
   max-width: 1200px;
   margin: -8rem auto 12rem;
@@ -436,7 +440,7 @@
   }
 
   :root {
-    --clash-accent: var(--clash-accent);
+    --clash-accent: #f4a261;
   }
 
   .problem-discovery-section {

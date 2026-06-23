@@ -1,5 +1,5 @@
 :root {
-  --financier-accent: var(--financier-accent);
+  --financier-accent: #4f84ef;
   --chart-accent: var(--financier-accent);
   --dp-landing-top-landscape: 0;
   --dp-goals-top-landscape: 33px;
