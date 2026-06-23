@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (target && !isSPA) {
       e.preventDefault();
-      const offset = window.innerWidth <= 768 ? 106 : 150;
+      const offset = window.innerWidth <= 768 ? 90 : 142;
       const top = target.getBoundingClientRect().top + window.pageYOffset - offset;
       window.scrollTo({ top, behavior: "smooth" });
     }
