@@ -206,9 +206,13 @@
   aspect-ratio: 670 / 377;
   border-radius: var(--radius-lg);
   overflow: hidden;
-  margin-bottom: var(--space-4);
+  margin-bottom: calc(var(--space-4) - 6px);
   position: relative;
   border: none;
+}
+
+.main-content .projects-section .project:nth-child(3) {
+  margin-bottom: calc(1.5rem + 24px);
 }
 
 .main-content .projects-section .project .project-thumbnail-wrapper::before {
@@ -515,6 +519,10 @@ video.project-thumbnail::-webkit-media-controls-start-playback-button {
 
   .project-meta {
     font-size: 0.75rem;
+  }
+
+  .main-content .projects-section .project .project-thumbnail-wrapper {
+    margin-bottom: calc(var(--space-4) + 2px);
   }
 }
 

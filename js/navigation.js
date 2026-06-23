@@ -63,7 +63,7 @@ function initializeHamburgerMenu() {
     if (isSPAActive) return;
 
     var currentScroll = window.scrollY || window.pageYOffset;
-    var shouldBeWork = currentScroll >= workSection.offsetTop - 142;
+    var shouldBeWork = currentScroll >= workSection.offsetTop - 143;
     var isCurrentlyWork = window.location.hash === '#work';
 
     if (shouldBeWork) {
@@ -150,7 +150,7 @@ function setupSPA() {
       requestAnimationFrame(function () {
         var el = document.getElementById('work');
         if (el) {
-          var offset = window.innerWidth <= 768 ? 90 : 142;
+          var offset = window.innerWidth <= 768 ? 104 : 143;
           window.scrollTo(0, el.getBoundingClientRect().top + window.pageYOffset - offset);
         }
         history.replaceState(null, '', '#work');
@@ -179,7 +179,7 @@ function setupSPA() {
         var currentHash = window.location.hash;
         var workEl = document.getElementById('work');
         var spaHashes = ['#apps', '#about', '#resume'];
-        var atWork = workEl && window.scrollY >= workEl.offsetTop - 142 &&
+        var atWork = workEl && window.scrollY >= workEl.offsetTop - 143 &&
           currentHash !== '#work' && !spaHashes.includes(currentHash);
         if (atWork) {
           history.replaceState(null, '', '#work');
@@ -187,12 +187,12 @@ function setupSPA() {
 
         history.pushState({ atWork: (atWork || currentHash === '#work') && targetHash !== '#home' }, '', targetHash);
         switchSection(targetHash);
-        setTimeout(() => window.closeSidebar?.(), 142);
+        setTimeout(() => window.closeSidebar?.(), 143);
 
         if (targetHash === '#work') {
           const targetElement = document.querySelector(targetHash);
           if (targetElement) {
-            const headerOffset = window.innerWidth <= 768 ? 90 : 142;
+            const headerOffset = window.innerWidth <= 768 ? 104 : 143;
             const offsetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerOffset;
             window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
           }
@@ -219,7 +219,7 @@ function setupSPA() {
     if (hash === '#work') {
       var el = document.querySelector('#work');
       if (el) {
-        var offset = window.innerWidth <= 768 ? 90 : 142;
+        var offset = window.innerWidth <= 768 ? 104 : 143;
         requestAnimationFrame(function () {
           requestAnimationFrame(function () {
             var top = el.getBoundingClientRect().top + window.pageYOffset - offset;
