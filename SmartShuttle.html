@@ -23,8 +23,7 @@
 
   <title>SmartShuttle</title>
   <link rel="icon" href="images/favicon.ico" type="image/x-icon">
-  <link rel="manifest" href="manifest-light.json" media="(prefers-color-scheme: light)">
-  <link rel="manifest" href="manifest-dark.json" media="(prefers-color-scheme: dark)">
+
   <link rel="apple-touch-icon" media="(prefers-color-scheme: dark)" href="images/dark-apple-touch-icon.png">
   <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
 
@@ -54,7 +53,7 @@
         <div class="banner-blur-bg" style="background-image: url('images/SmartShuttle/Banner 2.png');"></div>
       </div>
       <img src="images/SmartShuttle/Banner%202.png" alt="SmartShuttle Banner" class="banner-image" loading="eager"
-        decoding="async">
+        decoding="async" fetchpriority="high">
     </div>
 
     <main class="main-content project-intro-section">
@@ -409,13 +408,13 @@
     </svg>
   </button>
 
-  <script src="js/templates.js"></script>
-  <script src="js/navigation.js"></script>
-  <script src="js/scroll.js"></script>
+  <script src="js/templates.js" defer></script>
+  <script src="js/navigation.js" defer></script>
+  <script src="js/scroll.js" defer></script>
   <script src="js/chart-utils.js" defer></script>
   <script src="js/smartshuttle.js" defer></script>
-  <script src="js/nav-bubble.js"></script>
-  <script src="js/clock.js"></script>
+  <script src="js/nav-bubble.js" defer></script>
+  <script src="js/clock.js" defer></script>
 </body>
 
 </html>

@@ -1,6 +1,11 @@
+:root {
+  --smartshuttle-accent: #6a63f6;
+  --chart-accent: #6a63f6;
+}
+
 .inspiration-section,
 .final-design-section {
-  max-width: 1150px;
+  max-width: 1200px;
   margin: 0 auto var(--space-16);
   padding: 0 var(--space-8);
   position: relative;
@@ -27,7 +32,7 @@
   padding: var(--space-8);
   box-shadow: var(--card-shadow-heavy);
   border-radius: var(--card-radius);
-  border: 4px solid #6a63f6;
+  border: 4px solid var(--smartshuttle-accent);
 }
 
 .inspiration-content p,
@@ -60,7 +65,7 @@
 
 .reflection-card {
   margin: var(--space-16) auto 6.3rem;
-  border: 4px solid #6a63f6;
+  border: 4px solid var(--smartshuttle-accent);
 }
 
 .outcomes-content {
@@ -209,14 +214,8 @@
 }
 
 .full-width-image-section {
-  width: 100vw;
-  position: relative;
-  left: 50%;
-  right: 50%;
-  margin-left: -50.5vw;
-  margin-right: -50vw;
-  margin-top: var(--space-16);
-  margin-bottom: var(--space-16);
+  max-width: 1400px;
+  margin: var(--space-16) auto;
 }
 
 .full-width-image-section img {

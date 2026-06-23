@@ -64,6 +64,7 @@ Open `http://localhost:8000` in your browser. You can also open `index.html` dir
 Portfolio/
 ├── .gitignore                     # Git ignore rules
 ├── index.html                     # Home page (bio, projects, apps, about, resume)
+├── About.html                     # Standalone About page
 ├── Financier.html                 # Financier project case study
 ├── SmartShuttle.html              # SmartShuttle project case study
 ├── Clash Royale Redesign.html     # Clash Royale project case study
@@ -95,7 +96,6 @@ Portfolio/
 │   └── chart-utils.js             # Chart.js helpers — options, create, theme observer
 ├── images/                        # Global icons, profile images, and project assets
 ├── Twine/                         # Published Twine HTML stories
-├── manifest.json                  # PWA manifest (fallback)
 ├── manifest-light.json            # PWA manifest (light mode icons)
 ├── manifest-dark.json             # PWA manifest (dark mode icons)
 └── service-worker.js              # Offline caching and PWA support

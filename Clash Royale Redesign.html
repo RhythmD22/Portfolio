@@ -23,8 +23,7 @@
 
   <title>Clash Royale UI/UX Redesign</title>
   <link rel="icon" href="images/favicon.ico" type="image/x-icon">
-  <link rel="manifest" href="manifest-light.json" media="(prefers-color-scheme: light)">
-  <link rel="manifest" href="manifest-dark.json" media="(prefers-color-scheme: dark)">
+
   <link rel="apple-touch-icon" media="(prefers-color-scheme: dark)" href="images/dark-apple-touch-icon.png">
   <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
 
@@ -37,6 +36,7 @@
     rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
   <link rel="stylesheet" href="css/project.css">
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
   <link rel="stylesheet" href="css/clashroyale.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@6.1.14/dist/fancybox/fancybox.min.css">
@@ -54,7 +54,7 @@
         <div class="banner-blur-bg" style="background-image: url('images/Clash Royale/Banner 3.png');"></div>
       </div>
       <img src="images/Clash%20Royale/Banner%203.png" alt="Clash Royale Redesign Banner" class="banner-image"
-        loading="eager" decoding="async">
+        loading="eager" decoding="async" fetchpriority="high">
     </div>
 
     <main class="main-content project-intro-section">
@@ -115,7 +115,7 @@
     <div class="reviews-content">
       <a href="images/Clash%20Royale/Criticisms.png" class="image-link" data-fancybox="Criticisms"
         data-caption="Criticisms from Reddit users">
-        <img src="images/Clash%20Royale/Criticisms.png" alt="Criticisms" decoding="async">
+        <img src="images/Clash%20Royale/Criticisms.png" alt="Criticisms" loading="lazy" decoding="async">
       </a>
       <p class="caption"><span class="caption-title">Reddit User Feedback:</span> UI/UX Criticisms of Game Update
         <span class="caption-date">- Spring 2025</span>
@@ -144,7 +144,8 @@
     <div>
       <a href="images/Clash%20Royale/Clash%20Royale%20Screens%20Diagram.png" class="image-link"
         data-fancybox="Screens Diagram" data-caption="Clash Royale Screens Diagram">
-        <img src="images/Clash%20Royale/Clash%20Royale%20Screens%20Diagram.png" alt="Screens Diagram" decoding="async">
+        <img src="images/Clash%20Royale/Clash%20Royale%20Screens%20Diagram.png" alt="Screens Diagram" loading="lazy"
+          decoding="async">
       </a>
     </div>
   </section>
@@ -153,7 +154,8 @@
     <div>
       <a href="images/Clash%20Royale/Clash%20Royale%20User%20Flows.png" class="image-link" data-fancybox="User Flow"
         data-caption="Clash Royale User Flows">
-        <img src="images/Clash%20Royale/Clash%20Royale%20User%20Flows.png" alt="User Flow" decoding="async">
+        <img src="images/Clash%20Royale/Clash%20Royale%20User%20Flows.png" alt="User Flow" loading="lazy"
+          decoding="async">
       </a>
     </div>
     <div>
@@ -306,12 +308,12 @@
     </svg>
   </button>
 
-  <script src="js/templates.js"></script>
-  <script src="js/navigation.js"></script>
-  <script src="js/scroll.js"></script>
-  <script src="js/clashroyale.js"></script>
-  <script src="js/nav-bubble.js"></script>
-  <script src="js/clock.js"></script>
+  <script src="js/templates.js" defer></script>
+  <script src="js/navigation.js" defer></script>
+  <script src="js/scroll.js" defer></script>
+  <script src="js/clashroyale.js" defer></script>
+  <script src="js/nav-bubble.js" defer></script>
+  <script src="js/clock.js" defer></script>
 </body>
 
 </html>

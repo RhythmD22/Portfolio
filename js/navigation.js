@@ -63,7 +63,7 @@ function initializeHamburgerMenu() {
     if (isSPAActive) return;
 
     var currentScroll = window.scrollY || window.pageYOffset;
-    var shouldBeWork = currentScroll >= workSection.offsetTop - 142;
+    var shouldBeWork = currentScroll >= workSection.offsetTop - 150;
     var isCurrentlyWork = window.location.hash === '#work';
 
     if (shouldBeWork) {
@@ -150,7 +150,7 @@ function setupSPA() {
       requestAnimationFrame(function () {
         var el = document.getElementById('work');
         if (el) {
-          var offset = window.innerWidth <= 768 ? 90 : 142;
+          var offset = window.innerWidth <= 768 ? 106 : 150;
           window.scrollTo(0, el.getBoundingClientRect().top + window.pageYOffset - offset);
         }
         history.replaceState(null, '', '#work');
@@ -192,7 +192,7 @@ function setupSPA() {
         if (targetHash === '#work') {
           const targetElement = document.querySelector(targetHash);
           if (targetElement) {
-            const headerOffset = window.innerWidth <= 768 ? 90 : 142;
+            const headerOffset = window.innerWidth <= 768 ? 106 : 150;
             const offsetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerOffset;
             window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
           }
@@ -219,7 +219,7 @@ function setupSPA() {
     if (hash === '#work') {
       var el = document.querySelector('#work');
       if (el) {
-        var offset = window.innerWidth <= 768 ? 90 : 142;
+        var offset = window.innerWidth <= 768 ? 106 : 150;
         requestAnimationFrame(function () {
           requestAnimationFrame(function () {
             var top = el.getBoundingClientRect().top + window.pageYOffset - offset;

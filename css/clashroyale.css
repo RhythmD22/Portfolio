@@ -1,5 +1,5 @@
 .problem-discovery-section {
-  max-width: 1150px;
+  max-width: 1200px;
   margin: -8rem auto 12rem;
   padding: 0 var(--space-8);
   position: relative;
@@ -11,7 +11,7 @@
   padding: var(--space-8);
   box-shadow: var(--card-shadow-heavy);
   border-radius: var(--card-radius);
-  border: 4px solid #dc3e3d;
+  border: 4px solid var(--clash-accent);
   max-width: 100%;
   margin-top: var(--space-4);
 }
@@ -71,7 +71,7 @@
   padding: var(--space-8);
   box-shadow: var(--card-shadow-heavy);
   border-radius: var(--card-radius);
-  border: 4px solid #dc3e3d;
+  border: 4px solid var(--clash-accent);
   width: 100%;
   display: flex;
   gap: var(--space-12);
@@ -302,7 +302,7 @@
   border-radius: var(--card-radius);
   margin: var(--space-16) auto 6.3rem;
   text-align: left;
-  border: 4px solid #dc3e3d;
+  border: 4px solid var(--clash-accent);
 }
 
 .reflection-card h2 {
@@ -341,7 +341,7 @@
   padding: var(--space-8);
   box-shadow: var(--card-shadow-heavy);
   border-radius: var(--card-radius);
-  border: 4px solid #dc3e3d;
+  border: 4px solid var(--clash-accent);
   box-sizing: border-box;
 }
 
@@ -433,6 +433,10 @@
   .design-process-content>div:first-child {
     width: 100%;
     margin-bottom: 0;
+  }
+
+  :root {
+    --clash-accent: var(--clash-accent);
   }
 
   .problem-discovery-section {

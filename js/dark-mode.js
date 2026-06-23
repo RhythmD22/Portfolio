@@ -1,16 +1,25 @@
-(function initializeDarkMode() {
-  const theme = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+(function init() {
+  const stored = localStorage.getItem('theme');
+  const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  const theme = stored || (systemDark ? 'dark' : 'light');
   document.documentElement.setAttribute('data-theme', theme);
 
-  var d = window.matchMedia('(prefers-color-scheme:dark)').matches;
-  var m = document.createElement('link');
-  m.rel = 'manifest';
-  m.href = d ? 'manifest-dark.json' : 'manifest-light.json';
-  document.head.appendChild(m);
-  window.matchMedia('(prefers-color-scheme:dark)').addEventListener('change', function (e) {
-    document.querySelectorAll('link[rel=manifest]:not([media])').forEach(function (l) {
-      l.href = e.matches ? 'manifest-dark.json' : 'manifest-light.json';
-    });
+  function setManifest(dark) {
+    document.querySelectorAll('link[rel=manifest][data-dynamic]').forEach(l => l.remove());
+    const link = document.createElement('link');
+    link.rel = 'manifest';
+    link.setAttribute('data-dynamic', '');
+    link.href = dark ? 'manifest-dark.json' : 'manifest-light.json';
+    document.head.appendChild(link);
+  }
+
+  setManifest(theme === 'dark');
+
+  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+    if (!localStorage.getItem('theme')) {
+      document.documentElement.setAttribute('data-theme', e.matches ? 'dark' : 'light');
+      setManifest(e.matches);
+    }
   });
 })();
 
@@ -25,6 +34,10 @@ function toggleDarkMode(icon) {
   document.documentElement.setAttribute('data-theme', newTheme);
   localStorage.setItem('theme', newTheme);
 
+  document.querySelectorAll('link[rel=manifest][data-dynamic]').forEach(l => {
+    l.href = newTheme === 'dark' ? 'manifest-dark.json' : 'manifest-light.json';
+  });
+
   if (icon) {
     icon.classList.toggle('fa-sun', newTheme === 'dark');
     icon.classList.toggle('fa-moon', newTheme === 'light');
@@ -32,7 +45,11 @@ function toggleDarkMode(icon) {
 }
 
 function initDarkModeToggle() {
-  const toggles = [document.getElementById('dark-mode-toggle'), document.getElementById('mobile-dark-mode-toggle')].filter(Boolean);
+  const toggles = [
+    document.getElementById('dark-mode-toggle'),
+    document.getElementById('mobile-dark-mode-toggle')
+  ].filter(Boolean);
+
   const currentTheme = isDarkMode() ? 'dark' : 'light';
 
   toggles.forEach(toggle => {
@@ -41,7 +58,7 @@ function initDarkModeToggle() {
       icon.classList.toggle('fa-sun', currentTheme === 'dark');
       icon.classList.toggle('fa-moon', currentTheme === 'light');
     }
-    toggle.onclick = () => toggleDarkMode(toggle.querySelector('i'));
+    toggle.onclick = () => toggleDarkMode(icon);
   });
 }
 
