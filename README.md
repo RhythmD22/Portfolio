@@ -29,6 +29,7 @@
 | Twine Games | Two interactive fiction games built in Twine with custom-programmed minigames |
 | Dark Mode | Auto-detects system preference with persistent toggle across all pages |
 | Responsive Design | Mobile-optimized layout with swipe-friendly navigation and hamburger menu |
+| Pull-to-Refresh | Native-feel pull-down gesture on mobile to reload the page at the top |
 | PWA Installable | Add to home screen for a native app experience with offline support |
 | Resume | Embedded Google Doc viewer with PDF download link |
 
@@ -86,6 +87,7 @@ Portfolio/
 │   ├── nav-bubble.js              # Navigation pill hover effect
 │   ├── dark-mode.js               # System-aware dark mode with toggle
 │   ├── scroll.js                  # Scroll animations and effects
+│   ├── pull-to-refresh.js         # Mobile pull-down reload gesture
 │   ├── clock.js                   # Real-time footer clock
 │   ├── index.js                   # Home page interactivity
 │   ├── apps.js                    # App card expand/collapse logic
@@ -234,7 +236,7 @@ The portfolio can be installed on mobile devices:
 2. Tap **Share** → **Add to Home Screen**
 3. The app launches in standalone full-screen mode with offline support
 
-Manifests include both light and dark mode variants. The service worker caches static assets for offline access.
+The PWA includes a custom pull-to-refresh gesture — pull down from the top on mobile to reload the page. Manifests include both light and dark mode variants. The service worker caches static assets for offline access.
 
 ---
 
