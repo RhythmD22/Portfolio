@@ -4,6 +4,13 @@
   const theme = stored || (systemDark ? 'dark' : 'light');
   document.documentElement.setAttribute('data-theme', theme);
 
+  function setThemeColor(dark) {
+    const themeMeta = document.getElementById('theme-color-meta');
+    if (themeMeta) {
+      themeMeta.content = dark ? '#0d1117' : '#faefd8';
+    }
+  }
+
   function setManifest(dark) {
     document.querySelectorAll('link[rel=manifest][data-dynamic]').forEach(l => l.remove());
     const link = document.createElement('link');
@@ -14,11 +21,14 @@
   }
 
   setManifest(theme === 'dark');
+  setThemeColor(theme === 'dark');
 
   window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
     if (!localStorage.getItem('theme')) {
-      document.documentElement.setAttribute('data-theme', e.matches ? 'dark' : 'light');
-      setManifest(e.matches);
+      const dark = e.matches;
+      document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
+      setManifest(dark);
+      setThemeColor(dark);
     }
   });
 })();
@@ -37,6 +47,11 @@ function toggleDarkMode(icon) {
   document.querySelectorAll('link[rel=manifest][data-dynamic]').forEach(l => {
     l.href = newTheme === 'dark' ? 'manifest-dark.json' : 'manifest-light.json';
   });
+
+  const themeMeta = document.getElementById('theme-color-meta');
+  if (themeMeta) {
+    themeMeta.content = newTheme === 'dark' ? '#0d1117' : '#faefd8';
+  }
 
   if (icon) {
     icon.classList.toggle('fa-sun', newTheme === 'dark');

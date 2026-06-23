@@ -3,8 +3,8 @@
   "short_name": "Portfolio",
   "start_url": "/Portfolio/",
   "display": "standalone",
-  "background_color": "#0d1117",
-  "theme_color": "#0d1117",
+  "background_color": "#faefd8",
+  "theme_color": "#faefd8",
   "description": "A portfolio showcasing design projects by Rhythm Desai",
   "icons": [
     {
