@@ -332,12 +332,14 @@
     <h2 class="section-title">Final Design</h2>
     <div class="final-design-content">
       <p>The final SmartShuttle interface emphasizes clarity and ease of use. A real-time map displays shuttle locations
-        and occupancy levels, while a clean, icon-based navigation enables users to quickly switch between live
-        shuttles, route tracking, notifications, and feedback.</p>
-      <p>Each screen balances functionality with minimal visual clutter, allowing riders to easily find shuttle times,
-        view capacity and service alerts, and submit feedback without distraction.</p>
-      <p>Recent enhancements include notification filters and improved accessibility features with better WCAG
-        compliance, ensuring the app serves users with diverse abilities and needs.</p>
+        and occupancy levels, while swipe navigation and icon-based controls let users seamlessly move between live
+        stops, route tracking, notifications, and feedback.</p>
+      <p>Key features include live GPS tracking with compass heading, estimated occupancy per route (Likely Full /
+        Moderate / Seats Available), search-to-filter by location or route name, and pull-to-refresh for instant alert
+        updates. Transit data is cached via IndexedDB for offline access, and the app is installable as a Progressive
+        Web App for a native mobile experience.</p>
+      <p>Riders can find shuttle times, view capacity and service alerts, and submit feedback with file attachments
+        in a clean, distraction-free interface.</p>
     </div>
   </div>
   <div class="full-width-image-section">
@@ -374,13 +376,16 @@
       <div class="outcomes-content">
         <h2 class="outcomes-title">Overall Outcomes</h2>
         <ul>
-          <li>Successfully implemented core functionality including geolocation to access the user's location for
-            finding nearby shuttles.</li>
-          <li>Created interactive map with Leaflet.js and Transit API integration for live transit stop locations.</li>
+          <li>Implemented geolocation with live GPS tracking and compass heading for real-time user positioning.</li>
+          <li>Created interactive map with Leaflet.js and Transit API integration for live stop locations, route
+            polylines, and departure countdowns.</li>
+          <li>Built estimated occupancy system that evaluates crowding per route using vehicle type, time of day,
+            and day of week.</li>
           <li>Integrated Lottie animations for engaging UI elements and improved user experience.</li>
-          <li>Implemented real-time shuttle status and departure information display.</li>
-          <li>Added live updates about shuttle status and service details.</li>
-          <li>Established feedback collection system with GitHub Issues integration.</li>
+          <li>Added live service alerts with notification filters, search, and pull-to-refresh.</li>
+          <li>Established feedback collection with GitHub Issues integration and image file attachment support.</li>
+          <li>Implemented IndexedDB caching for offline transit data and instant display on return visits.</li>
+          <li>Built full PWA support with a service worker and install prompt for a native app experience.</li>
         </ul>
       </div>
     </div>
@@ -388,17 +393,18 @@
     <div class="reflection-card">
       <div class="reflection-content">
         <h2 class="reflection-title">Reflection</h2>
-        <p>Initially, I hadn't planned to implement my Figma prototype, but viewed it as an appropriate challenge after
-          developing Financier and Magnate. I successfully built the core functionality and gained valuable experience
-          integrating the Transit API and a GitHub Issues-based feedback system, while managing environment variables
-          securely.</p>
-        <p>While the application functions well, several areas remain for enhancement: the feedback system doesn't
-          support file attachments, the Live Stops page can't display real-time vehicle movement due to API limitations,
-          and route tracking could benefit from polylines. These limitations provide clear directions for future
-          development.</p>
-        <p>This project strengthened both my design and development skills, resulting in a functional application that
-          provides transit information to students, staff, and commuters—demonstrating the full cycle from design
-          concept to implementation.</p>
+        <p>Initially, I hadn't planned to implement my Figma prototype, but after developing Financier and Magnate it
+          became a fitting challenge. I built the core functionality and gained experience integrating the Transit API
+          and a GitHub Issues-based feedback system, managing environment variables securely along the way.</p>
+        <p>Since the initial build, I've added IndexedDB caching for offline data, live GPS tracking with compass
+          heading, estimated occupancy predictions, and full PWA support. The feedback system now supports image
+          attachments, and route tracking includes tap-to-stop polyline support.</p>
+        <p>While the app functions well, real-time vehicle movement on the map remains unavailable due to Transit API
+          limitations, and occupancy estimates are heuristic rather than based on live sensor data. These constraints
+          provide clear direction for future iterations.</p>
+        <p>This project strengthened both my design and development skills, resulting in a functional, installable
+          application that provides transit information to students, staff, and commuters, demonstrating the full
+          cycle from design concept to production deployment.</p>
       </div>
     </div>
   </div>

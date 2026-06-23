@@ -240,6 +240,44 @@ function setupSPA() {
 document.addEventListener('headerLoaded', () => {
   initializeHamburgerMenu();
   setupSPA();
+
+  if (window.isProjectPage) {
+    const pill = document.querySelector('.header-content-pill');
+    if (!pill) return;
+
+    pill.style.transition = 'opacity 0.2s ease, backdrop-filter 0.2s ease';
+
+    const MAX_FADE = 300;
+    let scrollRAF = null;
+
+    function updatePill() {
+      const s = window.scrollY;
+      let opacity;
+
+      if (window._pillForceUntil && Date.now() < window._pillForceUntil) {
+        opacity = 1;
+        if (s < 10) window._pillForceUntil = null;
+      } else {
+        opacity = s <= 0 ? 1 : s >= MAX_FADE ? 0 : 1 - s / MAX_FADE;
+      }
+
+      pill.style.opacity = opacity;
+      pill.style.pointerEvents = opacity > 0.1 ? 'auto' : 'none';
+      scrollRAF = null;
+    }
+
+    window.addEventListener('scroll', () => {
+      if (!scrollRAF) scrollRAF = requestAnimationFrame(updatePill);
+    }, { passive: true });
+
+    window.showPill = () => {
+      pill.style.opacity = '1';
+      pill.style.pointerEvents = 'auto';
+      window._pillForceUntil = Date.now() + 1000;
+    };
+
+    updatePill();
+  }
 });
 
 if ('serviceWorker' in navigator) {

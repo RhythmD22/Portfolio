@@ -44,7 +44,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (state === 'up') {
       btn.style.display = 'block';
-      btn.onclick = () => window.scrollTo({ top: 0, behavior: 'smooth' });
+      btn.onclick = () => {
+        if (isProjectPage) window.showPill?.();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      };
       btn.setAttribute('aria-label', 'Scroll to top');
       setDirection('up');
     } else if (state === 'down') {
