@@ -1,4 +1,4 @@
-const CACHE_VERSION = 'v2.1';
+const CACHE_VERSION = 'v2.0';
 const STATIC_CACHE = `portfolio-static-${CACHE_VERSION}`;
 const IMAGE_CACHE = `portfolio-images-${CACHE_VERSION}`;
 const RUNTIME_CACHE = `portfolio-runtime-${CACHE_VERSION}`;
