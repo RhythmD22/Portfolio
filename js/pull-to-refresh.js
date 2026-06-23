@@ -1,6 +1,11 @@
 (function () {
   if (!('ontouchstart' in window)) return;
 
+  if (sessionStorage.getItem('ptr-refresh')) {
+    sessionStorage.removeItem('ptr-refresh');
+    window.scrollTo(0, 0);
+  }
+
   var PULL_THRESHOLD = 80;
   var MAX_PULL = 150;
 
@@ -68,6 +73,13 @@
   function startRefresh() {
     if (refreshing) return;
     refreshing = true;
+
+    window.scrollTo(0, 0);
+    if (window.location.hash) {
+      history.replaceState(null, '', window.location.pathname);
+    }
+    sessionStorage.setItem('ptr-refresh', '1');
+
     indicator.classList.add('refreshing');
     textEl.textContent = 'Refreshing...';
     spinnerEl.classList.add('spinning');
