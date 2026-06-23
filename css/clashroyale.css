@@ -439,10 +439,6 @@
     margin-bottom: 0;
   }
 
-  :root {
-    --clash-accent: #f4a261;
-  }
-
   .problem-discovery-section {
     margin-top: 8rem !important;
   }
