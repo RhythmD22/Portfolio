@@ -95,8 +95,8 @@ Portfolio/
 │   └── chart-utils.js             # Chart.js helpers — options, create, theme observer
 ├── images/                        # Global icons, profile images, and project assets
 ├── Twine/                         # Published Twine HTML stories
-├── manifest-light.json            # PWA manifest (light mode icons)
 ├── manifest-dark.json             # PWA manifest (dark mode icons)
+├── manifest-light.json            # PWA manifest (light mode icons)
 └── service-worker.js              # Offline caching and PWA support
 ```
 

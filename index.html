@@ -20,6 +20,8 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="apple-mobile-web-app-title" content="Portfolio">
+  <link rel="manifest" href="manifest-dark.json" media="(prefers-color-scheme: dark)">
+  <link rel="manifest" href="manifest-light.json" media="(prefers-color-scheme: light)">
 
   <title>Portfolio - Rhythm Desai</title>
   <link rel="icon" href="images/favicon.ico" type="image/x-icon">
@@ -299,8 +301,8 @@
   </div>
 
   <button onclick="window.scrollTo({top: 0, behavior: 'smooth'});" class="scroll-btn" aria-label="Scroll to top">
-    <svg width="96" height="72" viewBox="0 0 24 24" fill="none" stroke-width="0.6" stroke-linecap="round"
-      stroke-linejoin="round">
+    <svg width="96" height="72" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.6"
+      stroke-linecap="round" stroke-linejoin="round">
       <polyline points="18 15 12 9 6 15"></polyline>
     </svg>
   </button>
@@ -311,7 +313,7 @@
   <script src="js/index.js" defer></script>
   <script src="js/apps.js" defer></script>
   <script src="js/nav-bubble.js" defer></script>
-  <script src="js/clock.js"></script>
+  <script src="js/clock.js" defer></script>
 </body>
 
 </html>

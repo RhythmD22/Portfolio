@@ -11,23 +11,12 @@
     }
   }
 
-  function setManifest(dark) {
-    document.querySelectorAll('link[rel=manifest][data-dynamic]').forEach(l => l.remove());
-    const link = document.createElement('link');
-    link.rel = 'manifest';
-    link.setAttribute('data-dynamic', '');
-    link.href = dark ? 'manifest-dark.json' : 'manifest-light.json';
-    document.head.appendChild(link);
-  }
-
-  setManifest(theme === 'dark');
   setThemeColor(theme === 'dark');
 
   window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
     if (!localStorage.getItem('theme')) {
       const dark = e.matches;
       document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
-      setManifest(dark);
       setThemeColor(dark);
     }
   });
@@ -43,10 +32,6 @@ function toggleDarkMode(icon) {
 
   document.documentElement.setAttribute('data-theme', newTheme);
   localStorage.setItem('theme', newTheme);
-
-  document.querySelectorAll('link[rel=manifest][data-dynamic]').forEach(l => {
-    l.href = newTheme === 'dark' ? 'manifest-dark.json' : 'manifest-light.json';
-  });
 
   const themeMeta = document.getElementById('theme-color-meta');
   if (themeMeta) {
