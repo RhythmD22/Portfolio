@@ -1140,3 +1140,58 @@ p {
   align-items: center;
   justify-content: center;
 }
+
+/* ===== Pull-to-Refresh ===== */
+.ptr-indicator {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1002;
+  height: 0;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: var(--background-color);
+  transition: background-color 0.3s;
+  opacity: 0;
+  color: var(--text-color);
+  font-size: 0.8rem;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  pointer-events: none;
+}
+
+.ptr-spinner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease;
+  flex-shrink: 0;
+}
+
+.ptr-spinner.spinning {
+  animation: ptr-spin 0.8s linear infinite;
+}
+
+@keyframes ptr-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.ptr-over-threshold .ptr-spinner svg,
+.ptr-indicator.refreshing .ptr-spinner svg {
+  color: var(--hover-color);
+}
+
+[data-theme="dark"] .ptr-over-threshold .ptr-spinner svg,
+[data-theme="dark"] .ptr-indicator.refreshing .ptr-spinner svg {
+  color: var(--dark-mode-toggle-hover);
+}
