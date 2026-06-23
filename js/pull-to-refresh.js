@@ -16,7 +16,6 @@
   var indicator = null;
   var spinnerEl = null;
   var textEl = null;
-  var resetTimer = null;
 
   function createIndicator() {
     indicator = document.createElement('div');
@@ -95,7 +94,6 @@
     lastY = e.touches[0].clientY;
     pullDistance = 0;
     pulling = false;
-    if (resetTimer) { clearTimeout(resetTimer); resetTimer = null; }
   }, { passive: true });
 
   document.addEventListener('touchmove', function (e) {

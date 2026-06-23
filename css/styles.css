@@ -452,7 +452,6 @@ p {
   font-weight: 500;
   color: var(--text-color);
   line-height: 1;
-  margin-top: 12px;
 }
 
 .footer-clock {
