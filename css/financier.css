@@ -629,7 +629,7 @@ body {
   top: 4px;
   left: 4px;
   background-color: var(--card-bg);
-  border-radius: calc(8px - 2px);
+  border-radius: calc(var(--card-radius) - 4px);
   z-index: 2;
 }
 
@@ -642,6 +642,10 @@ body {
   text-align: center;
   font-size: var(--text-xl);
   font-weight: 700;
+}
+
+.magnate-title .mobile-break {
+  display: block;
 }
 
 .magnate-description {
@@ -1204,6 +1208,11 @@ main.main-content.project-intro-section {
 }
 
 @media (min-width: 769px) {
+
+  .magnate-title .mobile-break {
+    display: inline;
+    white-space: nowrap;
+  }
 
   .strengths-list,
   .weaknesses-list {
