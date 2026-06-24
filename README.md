@@ -26,7 +26,6 @@
 |---------|------------|
 | Project Showcase | Case-study pages for UI/UX and development projects with videos, images, and write-ups |
 | App Directory | Interactive Pokemon-style card grid with live demos of 6 web apps and Twine games |
-| Twine Games | Two interactive fiction games built in Twine with custom-programmed minigames |
 | Dark Mode | Auto-detects system preference with persistent toggle across all pages |
 | Responsive Design | Mobile-optimized layout with swipe-friendly navigation and hamburger menu |
 | Pull-to-Refresh | Native-feel pull-down gesture on mobile to reload the page at the top |
