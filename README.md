@@ -197,7 +197,7 @@ box-shadow:
 |-------|-----------|
 | Core | HTML5, CSS3, JavaScript (ES6+) |
 | Fonts | [Inter](https://fonts.google.com/specimen/Inter), [VT323](https://fonts.google.com/specimen/VT323) |
-| Icons | [Font Awesome 7](https://fontawesome.com) (CDN) |
+| Icons | [Font Awesome 7](https://fontawesome.com) (CDN), [Lucide](https://lucide.dev) (footer sun/moon)
 | Charts | [Chart.js 4](https://www.chartjs.org) (CDN) |
 | Lightbox | [Fancybox UI 6](https://fancyapps.com) (CDN) |
 | Animation | [dotLottie Web Component](https://github.com/LottieFiles/dotlottie-web) |
