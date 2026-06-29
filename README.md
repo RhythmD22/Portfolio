@@ -62,7 +62,6 @@ Open `http://localhost:8000` in your browser. You can also open `index.html` dir
 
 ```
 Portfolio/
-├── .gitignore                     # Git ignore rules
 ├── index.html                     # Home page (bio, projects, apps, about, resume)
 ├── Financier.html                 # Financier project case study
 ├── SmartShuttle.html              # SmartShuttle project case study
@@ -98,7 +97,10 @@ Portfolio/
 ├── Twine/                         # Published Twine HTML stories
 ├── manifest-dark.json             # PWA manifest (dark mode icons)
 ├── manifest-light.json            # PWA manifest (light mode icons)
-└── service-worker.js              # Offline caching and PWA support
+├── service-worker.js              # Offline caching and PWA support
+├── Pokemon GB.ttf                 # Retro game font
+├── .gitignore
+└── LICENSE
 ```
 
 The site is a multi-page HTML application. The header and footer are injected via `templates.js` for consistency across pages. Navigation is handled client-side by `navigation.js`, which shows/hides page sections using `display` toggles. Dark mode is managed by `dark-mode.js` with `localStorage` persistence. Project pages load their own dedicated CSS and JS files.
