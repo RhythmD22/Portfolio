@@ -16,6 +16,7 @@
 - [Design System](#design-system)
 - [Tech Stack](#tech-stack)
 - [Getting Started](#getting-started)
+- [Scripts](#scripts)
 - [PWA Support](#progressive-web-app-pwa-support)
 
 ---
@@ -235,10 +236,13 @@ box-shadow:
 
 No build steps required — the site is static HTML/CSS/JS.
 
-### Scripts
+---
+
+## Scripts
 
 | Command | Description |
 |---------|------------|
+| `npm install` | Install dev dependencies (ESLint for linting) |
 | `npm run lint` | Run ESLint on JavaScript files |
 
 ---
@@ -252,9 +256,3 @@ The portfolio can be installed on mobile devices:
 3. The app launches in standalone full-screen mode with offline support
 
 The PWA includes a custom pull-to-refresh gesture — pull down from the top on mobile to reload the page. Manifests include both light and dark mode variants. The service worker caches static assets for offline access.
-
----
-
-## License
-
-MIT © [Rhythm Desai](LICENSE)
