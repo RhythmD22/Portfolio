@@ -100,7 +100,9 @@ Portfolio/
 ├── service-worker.js              # Offline caching and PWA support
 ├── Pokemon GB.ttf                 # Retro game font
 ├── .gitignore
-├── .eslintrc.json                 # ESLint config
+├── package.json                   # npm scripts (lint) and devDependencies
+├── package-lock.json
+├── eslint.config.js               # ESLint flat config
 └── LICENSE
 ```
 
@@ -207,7 +209,7 @@ box-shadow:
 | Analytics | Google Analytics (gtag) |
 | Hosting | GitHub Pages |
 | PWA | Service Worker API, Web App Manifest |
-| Linting | ESLint (`.eslintrc.json`) |
+| Linting | ESLint (`eslint.config.js` flat config) |
 
 ---
 
@@ -221,13 +223,23 @@ box-shadow:
 ### Local Setup
 
 1. Clone the repository
-2. Start a local server from the project directory:
+2. Install dev dependencies:
+   ```bash
+   npm install
+   ```
+3. Start a local server from the project directory:
    ```bash
    python3 -m http.server
    ```
-3. Open `http://localhost:8000` in your browser
+4. Open `http://localhost:8000` in your browser
 
-No dependencies to install, no build steps required.
+No build steps required — the site is static HTML/CSS/JS.
+
+### Scripts
+
+| Command | Description |
+|---------|------------|
+| `npm run lint` | Run ESLint on JavaScript files |
 
 ---
 
