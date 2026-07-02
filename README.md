@@ -100,6 +100,7 @@ Portfolio/
 ├── service-worker.js              # Offline caching and PWA support
 ├── Pokemon GB.ttf                 # Retro game font
 ├── .gitignore
+├── .eslintrc.json                 # ESLint config
 └── LICENSE
 ```
 
@@ -206,6 +207,7 @@ box-shadow:
 | Analytics | Google Analytics (gtag) |
 | Hosting | GitHub Pages |
 | PWA | Service Worker API, Web App Manifest |
+| Linting | ESLint (`.eslintrc.json`) |
 
 ---
 
