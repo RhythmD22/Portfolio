@@ -307,9 +307,9 @@ video.project-thumbnail::-webkit-media-controls-start-playback-button {
   background-size: 850px auto;
   background-repeat: no-repeat;
   background-position:
-    -90px -110px,
-    760px 554px,
-    -970px -774px;
+    -20px -20px,
+    830px 644px,
+    -900px -684px;
   box-shadow: none !important;
   transition: opacity 0.5s ease;
   will-change: background-position;
@@ -336,32 +336,32 @@ video.project-thumbnail::-webkit-media-controls-start-playback-button {
 @keyframes scrollBackgroundSmartShuttle {
   0% {
     background-position:
-      -90px -110px,
-      760px 554px,
-      -970px -774px;
+      -20px -20px,
+      830px 644px,
+      -900px -684px;
   }
 
   100% {
     background-position:
-      -940px -774px,
-      -90px -110px,
-      -1790px -1438px;
+      -870px -684px,
+      -20px -20px,
+      -1720px -1348px;
   }
 }
 
 @keyframes scrollBackgroundSmartShuttleMobile {
   0% {
     background-position:
-      -53px -65px,
-      447px 326px,
-      -553px -456px;
+      -12px -12px,
+      488px 379px,
+      -512px -403px;
   }
 
   100% {
     background-position:
-      -553px -456px,
-      -53px -65px,
-      -1053px -847px;
+      -512px -403px,
+      -12px -12px,
+      -1012px -794px;
   }
 }
 
@@ -477,9 +477,9 @@ video.project-thumbnail::-webkit-media-controls-start-playback-button {
   .main-content .projects-section .project:nth-child(2) .smartshuttle-thumbnail {
     background-size: 500px auto;
     background-position:
-      -53px -65px,
-      447px 326px,
-      -553px -456px;
+      -12px -12px,
+      488px 379px,
+      -512px -403px;
     animation-name: scrollBackgroundSmartShuttleMobile;
     animation-duration: 25s;
   }
