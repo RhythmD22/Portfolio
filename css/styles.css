@@ -232,20 +232,7 @@ body {
 .portfolio-icon {
   width: 32px;
   height: auto;
-  vertical-align: middle;
   border-radius: var(--radius-sm);
-  display: none;
-}
-
-.portfolio-icon-light {
-  display: block;
-}
-
-[data-theme="dark"] .portfolio-icon-light {
-  display: none;
-}
-
-[data-theme="dark"] .portfolio-icon-dark {
   display: block;
 }
 
@@ -463,20 +450,7 @@ p {
 .site-footer .portfolio-icon {
   width: 40px;
   height: auto;
-  vertical-align: middle;
   border-radius: 6px;
-  display: none;
-}
-
-.site-footer .portfolio-icon-light {
-  display: block;
-}
-
-[data-theme="dark"] .site-footer .portfolio-icon-light {
-  display: none;
-}
-
-[data-theme="dark"] .site-footer .portfolio-icon-dark {
   display: block;
 }
 

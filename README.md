@@ -96,8 +96,7 @@ Portfolio/
 │   └── chart-utils.js             # Chart.js helpers — options, create, theme observer
 ├── images/                        # Global icons, profile images, and project assets
 ├── Twine/                         # Published Twine HTML stories
-├── manifest-dark.json             # PWA manifest (dark mode icons)
-├── manifest-light.json            # PWA manifest (light mode icons)
+├── manifest.json                  # PWA manifest
 ├── service-worker.js              # Offline caching and PWA support
 ├── Pokemon GB.ttf                 # Retro game font
 ├── .gitignore
@@ -255,4 +254,4 @@ The portfolio can be installed on mobile devices:
 2. Tap **Share** → **Add to Home Screen**
 3. The app launches in standalone full-screen mode with offline support
 
-The PWA includes a custom pull-to-refresh gesture — pull down from the top on mobile to reload the page. Manifests include both light and dark mode variants. The service worker caches static assets for offline access.
+The PWA includes a custom pull-to-refresh gesture — pull down from the top on mobile to reload the page. A single manifest supplies the app icon across all color schemes. The service worker caches static assets for offline access.

@@ -1,4 +1,4 @@
-const CACHE_VERSION = 'v2.0';
+const CACHE_VERSION = 'v3.0';
 const STATIC_CACHE = `portfolio-static-${CACHE_VERSION}`;
 const IMAGE_CACHE = `portfolio-images-${CACHE_VERSION}`;
 const RUNTIME_CACHE = `portfolio-runtime-${CACHE_VERSION}`;
@@ -13,8 +13,7 @@ const PRECACHE_URLS = [
   '/Portfolio/Twine/Archibald%20and%20the%20Steel%20Monolith.html',
   '/Portfolio/header.html',
   '/Portfolio/footer.html',
-  '/Portfolio/manifest-dark.json',
-  '/Portfolio/manifest-light.json',
+  '/Portfolio/manifest.json',
   '/Portfolio/css/styles.css',
   '/Portfolio/css/project.css',
   '/Portfolio/css/index.css',
@@ -39,24 +38,15 @@ const PRECACHE_URLS = [
   '/Portfolio/js/scroll.js',
   '/Portfolio/js/clock.js',
   '/Portfolio/images/favicon.ico',
-  '/Portfolio/images/portfolio-light.png',
-  '/Portfolio/images/portfolio-dark.png',
+  '/Portfolio/images/portfolio-icon.png',
   '/Portfolio/images/apple-touch-icon.png',
   '/Portfolio/images/apple-touch-icon-120x120.png',
   '/Portfolio/images/apple-touch-icon-152x152.png',
   '/Portfolio/images/apple-touch-icon-167x167.png',
-  '/Portfolio/images/dark-apple-touch-icon.png',
-  '/Portfolio/images/dark-apple-touch-icon-120x120.png',
-  '/Portfolio/images/dark-apple-touch-icon-152x152.png',
-  '/Portfolio/images/dark-apple-touch-icon-167x167.png',
   '/Portfolio/images/android-chrome-192x192.png',
-  '/Portfolio/images/dark-android-chrome-192x192.png',
   '/Portfolio/images/android-chrome-512x512.png',
-  '/Portfolio/images/dark-android-chrome-512x512.png',
   '/Portfolio/images/android-chrome-maskable-192x192.png',
-  '/Portfolio/images/dark-android-chrome-maskable-192x192.png',
   '/Portfolio/images/android-chrome-maskable-512x512.png',
-  '/Portfolio/images/dark-android-chrome-maskable-512x512.png',
   '/Portfolio/images/About.png',
   '/Portfolio/images/Apps/AI%20Debate%20Club%20App.png',
   '/Portfolio/images/Apps/Archibald%20and%20the%20Steel%20Monolith%20App.png',
