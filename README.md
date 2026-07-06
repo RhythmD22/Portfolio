@@ -175,7 +175,7 @@ All content cards share a consistent recipe:
 Project accent cards add `border: 4px solid <project-color>` for visual identity:
 - Financier: `#4f84ef` (blue)
 - SmartShuttle: `#6a63f6` (purple)
-- Clash Royale: `#dc3e3d` (red)
+- Clash Royale: `#b91c1c` (red)
 
 ### Theme Variables
 

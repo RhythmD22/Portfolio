@@ -675,12 +675,12 @@ body {
 
 #magnate-link:hover,
 #magnate-link:focus {
-  color: #518be5;
+  color: #2563eb;
   text-decoration: underline;
 }
 
 #magnate-link:active {
-  color: #518be5;
+  color: #2563eb;
   transition: color 0.1s ease;
 }
 

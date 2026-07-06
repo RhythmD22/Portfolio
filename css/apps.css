@@ -52,13 +52,13 @@ body.apps-page .site-footer {
 }
 
 .card-container .app-card:nth-child(5) {
-  background-image: linear-gradient(to right, #475569, #38bdf8) !important;
+  background-image: linear-gradient(to right, #475569, #0369a1) !important;
   background-color: #475569;
   color: white;
 }
 
 .card-container .app-card:nth-child(6) {
-  background-image: linear-gradient(to right, #881337, #f59e0b) !important;
+  background-image: linear-gradient(to right, #881337, #b45309) !important;
   background-color: #881337;
   color: white;
 }
@@ -372,11 +372,11 @@ body.apps-page .site-footer {
 }
 
 .card-container .app-card:nth-child(5).expanded {
-  background-image: linear-gradient(to right, #475569, #38bdf8) !important;
+  background-image: linear-gradient(to right, #475569, #0369a1) !important;
 }
 
 .card-container .app-card:nth-child(6).expanded {
-  background-image: linear-gradient(to right, #881337, #f59e0b) !important;
+  background-image: linear-gradient(to right, #881337, #b45309) !important;
 }
 
 [data-theme="dark"] .app-card {
