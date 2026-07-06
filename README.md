@@ -242,7 +242,7 @@ No build steps required — the site is static HTML/CSS/JS.
 | Command | Description |
 |---------|------------|
 | `npm install` | Install dev dependencies (ESLint for linting) |
-| `npm run lint` | Run ESLint on JavaScript files |
+| `npm run lint` | Run ESLint on all JS source files |
 
 ---
 
