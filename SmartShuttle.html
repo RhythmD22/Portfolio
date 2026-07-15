@@ -336,11 +336,12 @@
         and occupancy levels, while swipe navigation and icon-based controls let users seamlessly move between live
         stops, route tracking, notifications, and feedback.</p>
       <p>Key features include live GPS tracking with compass heading, estimated occupancy per route (Likely Full /
-        Moderate / Seats Available), search-to-filter by location or route name, and pull-to-refresh for instant alert
-        updates. Transit data is cached via IndexedDB for offline access, and the app is installable as a Progressive
-        Web App for a native mobile experience.</p>
-      <p>Riders can find shuttle times, view capacity and service alerts, and submit feedback with file attachments
-        in a clean, distraction-free interface.</p>
+        Moderate / Seats Available), and search-to-filter by location or route name. Tapping any departure opens a
+        stop-by-stop trip timeline, and route polylines are drawn on the map. Cancelled trips are flagged, the last
+        bus of the night is marked, and duplicate itinerary variants are filtered automatically. Service alerts are
+        color-coded by severity, and routes display their transit agency name for immediate context.</p>
+      <p>Transit data is cached via IndexedDB for offline access, and the app is installable as a Progressive Web
+        App for a native mobile experience with WCAG 2.1 AA accessibility.</p>
     </div>
   </div>
   <div class="full-width-image-section">
@@ -378,15 +379,18 @@
         <h2 class="outcomes-title">Overall Outcomes</h2>
         <ul>
           <li>Implemented geolocation with live GPS tracking and compass heading for real-time user positioning.</li>
-          <li>Created interactive map with Leaflet.js and Transit API integration for live stop locations, route
+          <li>Created interactive map with Leaflet.js and Transit API v4 integration for live stops, route
             polylines, and departure countdowns.</li>
-          <li>Built estimated occupancy system that evaluates crowding per route using vehicle type, time of day,
-            and day of week.</li>
+          <li>Built trip timeline modal with stop-by-stop schedules, cancelled-trip detection, and last-bus warnings.
+          </li>
+          <li>Developed estimated occupancy system and duplicate itinerary filtering for a clean, scannable UI.</li>
           <li>Integrated Lottie animations for engaging UI elements and improved user experience.</li>
-          <li>Added live service alerts with notification filters, search, and pull-to-refresh.</li>
+          <li>Added live service alerts with severity-based color coding, filters, search, and pull-to-refresh.</li>
           <li>Established feedback collection with GitHub Issues integration and image file attachment support.</li>
           <li>Implemented IndexedDB caching for offline transit data and instant display on return visits.</li>
           <li>Built full PWA support with a service worker and install prompt for a native app experience.</li>
+          <li>Migrated from Transit API v3 to v4, resolved a Vercel routing bug, and ensured WCAG 2.1 AA compliance.
+          </li>
         </ul>
       </div>
     </div>
