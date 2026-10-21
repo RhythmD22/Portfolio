@@ -94,7 +94,7 @@ Portfolio/
 │   ├── smartshuttle.js            # SmartShuttle page interactivity
 │   ├── clashroyale.js             # Clash Royale page interactivity
 │   └── chart-utils.js             # Chart.js helpers — options, create, theme observer
-├── images/                        # Global icons, profile images, and project assets
+├── images/                        # Global icons, favicons, profile images, and project assets
 ├── Twine/                         # Published Twine HTML stories
 ├── manifest.json                  # PWA manifest
 ├── service-worker.js              # Offline caching and PWA support

@@ -38,6 +38,8 @@ const PRECACHE_URLS = [
   '/Portfolio/js/scroll.js',
   '/Portfolio/js/clock.js',
   '/Portfolio/images/favicon.ico',
+  '/Portfolio/images/favicon-32x32.png',
+  '/Portfolio/images/favicon-16x16.png',
   '/Portfolio/images/portfolio-icon.png',
   '/Portfolio/images/apple-touch-icon.png',
   '/Portfolio/images/apple-touch-icon-120x120.png',
