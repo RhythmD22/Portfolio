@@ -70,6 +70,37 @@ function initIntroTyping() {
   }
 }
 
+function initShootingStars() {
+  const container = document.querySelector('.hero-shooting-stars');
+  if (!container) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  const stars = [...container.querySelectorAll('span')];
+  const isMobile = window.innerWidth <= 768;
+  const randomBetween = (min, max) => min + Math.random() * (max - min);
+
+  const randomizeStar = (star) => {
+    const travelsLeft = Math.random() < 0.5;
+    const x = travelsLeft ? randomBetween(40, 95) : randomBetween(5, 60);
+    const y = randomBetween(8, 75);
+    const angle = travelsLeft ? randomBetween(140, 172) : randomBetween(8, 40);
+    const distance = randomBetween(isMobile ? 80 : 140, isMobile ? 160 : 280);
+
+    star.style.setProperty('--shoot-x', `${x}%`);
+    star.style.setProperty('--shoot-y', `${y}%`);
+    star.style.setProperty('--shoot-angle', `${angle}deg`);
+    star.style.setProperty('--shoot-distance', `${distance}px`);
+    star.style.setProperty('--shoot-tail', `${distance * randomBetween(0.35, 0.55)}px`);
+  };
+
+  stars.forEach((star, index) => {
+    randomizeStar(star);
+    star.style.setProperty('--shoot-duration', `${randomBetween(12, 24)}s`);
+    star.style.setProperty('--shoot-delay', `${index === 0 ? randomBetween(1, 5) : randomBetween(4, 14)}s`);
+    star.addEventListener('animationiteration', () => randomizeStar(star));
+  });
+}
+
 function initSectionTyping() {
   const revealed = sessionStorage.getItem('contactPillRevealed') === 'true';
   if (revealed || !window.isIndexPage) {
@@ -396,6 +427,7 @@ function initVideoHoverControl() {
 
 document.addEventListener('DOMContentLoaded', () => {
   initIntroTyping();
+  initShootingStars();
   initSectionTyping();
   initVideoHoverControl();
 

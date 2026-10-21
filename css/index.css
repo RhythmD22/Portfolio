@@ -525,6 +525,31 @@ body {
   }
 }
 
+@media (max-width: 768px) {
+  .hero-nebula {
+    filter: none;
+    opacity: calc(var(--nebula-opacity) * 0.85);
+  }
+
+  .hero-stars {
+    inset: -10%;
+    will-change: auto;
+  }
+
+  .hero-stars--dust {
+    display: none;
+  }
+
+  .hero-stars--near::after {
+    display: none;
+  }
+
+  .hero-shooting-stars span:nth-child(2),
+  .hero-shooting-stars span:nth-child(3) {
+    display: none;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
 
   .hero-stars--dust,
