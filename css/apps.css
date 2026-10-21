@@ -52,14 +52,26 @@ body.apps-page .site-footer {
 }
 
 .card-container .app-card:nth-child(5) {
-  background-image: linear-gradient(to right, #475569, #0369a1) !important;
-  background-color: #475569;
+  background-image: linear-gradient(to right, #064e3b, #15803d) !important;
+  background-color: #064e3b;
   color: white;
 }
 
 .card-container .app-card:nth-child(6) {
+  background-image: linear-gradient(to right, #7c2d12, #e0611e) !important;
+  background-color: #7c2d12;
+  color: white;
+}
+
+.card-container .app-card:nth-child(7) {
   background-image: linear-gradient(to right, #881337, #b45309) !important;
   background-color: #881337;
+  color: white;
+}
+
+.card-container .app-card:nth-child(8) {
+  background-image: linear-gradient(to right, #475569, #0369a1) !important;
+  background-color: #475569;
   color: white;
 }
 
@@ -136,7 +148,9 @@ body.apps-page .site-footer {
   z-index: 5;
 }
 
-.app-card.smartshuttle-card.expanded .app-name-in-card {
+.app-card.smartshuttle-card.expanded .app-name-in-card,
+.app-card.ecoflow-card.expanded .app-name-in-card,
+.app-card.savor-card.expanded .app-name-in-card {
   top: 210px;
 }
 
@@ -372,11 +386,19 @@ body.apps-page .site-footer {
 }
 
 .card-container .app-card:nth-child(5).expanded {
-  background-image: linear-gradient(to right, #475569, #0369a1) !important;
+  background-image: linear-gradient(to right, #064e3b, #15803d) !important;
 }
 
 .card-container .app-card:nth-child(6).expanded {
+  background-image: linear-gradient(to right, #7c2d12, #e0611e) !important;
+}
+
+.card-container .app-card:nth-child(7).expanded {
   background-image: linear-gradient(to right, #881337, #b45309) !important;
+}
+
+.card-container .app-card:nth-child(8).expanded {
+  background-image: linear-gradient(to right, #475569, #0369a1) !important;
 }
 
 [data-theme="dark"] .app-card {
@@ -459,7 +481,9 @@ body.apps-page .site-footer {
     white-space: nowrap;
   }
 
-  .app-card.smartshuttle-card.expanded .app-name-in-card {
+  .app-card.smartshuttle-card.expanded .app-name-in-card,
+  .app-card.ecoflow-card.expanded .app-name-in-card,
+  .app-card.savor-card.expanded .app-name-in-card {
     top: 175px;
   }
 
