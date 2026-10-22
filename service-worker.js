@@ -37,18 +37,18 @@ const PRECACHE_URLS = [
   '/Portfolio/js/nav-bubble.js',
   '/Portfolio/js/scroll.js',
   '/Portfolio/js/clock.js',
-  '/Portfolio/images/favicon.ico',
-  '/Portfolio/images/favicon-32x32.png',
-  '/Portfolio/images/favicon-16x16.png',
+  '/Portfolio/favicon.ico',
+  '/Portfolio/favicon-32x32.png',
+  '/Portfolio/favicon-16x16.png',
   '/Portfolio/images/portfolio-icon.png',
-  '/Portfolio/images/apple-touch-icon.png',
-  '/Portfolio/images/apple-touch-icon-120x120.png',
-  '/Portfolio/images/apple-touch-icon-152x152.png',
-  '/Portfolio/images/apple-touch-icon-167x167.png',
-  '/Portfolio/images/android-chrome-192x192.png',
-  '/Portfolio/images/android-chrome-512x512.png',
-  '/Portfolio/images/android-chrome-maskable-192x192.png',
-  '/Portfolio/images/android-chrome-maskable-512x512.png',
+  '/Portfolio/apple-touch-icon.png',
+  '/Portfolio/apple-touch-icon-120x120.png',
+  '/Portfolio/apple-touch-icon-152x152.png',
+  '/Portfolio/apple-touch-icon-167x167.png',
+  '/Portfolio/android-chrome-192x192.png',
+  '/Portfolio/android-chrome-512x512.png',
+  '/Portfolio/android-chrome-maskable-192x192.png',
+  '/Portfolio/android-chrome-maskable-512x512.png',
   '/Portfolio/images/About.png',
   '/Portfolio/images/Apps/AI%20Debate%20Club%20App.png',
   '/Portfolio/images/Apps/Archibald%20and%20the%20Steel%20Monolith%20App.png',
@@ -104,7 +104,7 @@ self.addEventListener('fetch', event => {
   const { request } = event;
   const url = new URL(request.url);
 
-  if (!url.origin.startsWith(self.location.origin)) return;
+  if (url.origin !== self.location.origin) return;
   if (request.method !== 'GET') return;
   if (request.headers.get('range')) return;
 
